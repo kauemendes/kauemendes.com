@@ -31,7 +31,7 @@ body {
     position: relative;
     padding-bottom: 100px; /* height of your footer */
 }
-
+p { word-break: break-all }
 .container-fluid{
     overflow: hidden;
 }
@@ -71,4 +71,18 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+textarea {
+    width: 500px;
+    height: 180px;
+}
+
+.tool {
+    margin: 10px auto;
+}
+
+.box {
+    border: 1px solid;
+    border-radius: 2px;
 }

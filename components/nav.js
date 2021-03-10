@@ -19,6 +19,11 @@ function NavSite() {
                                 <a className="nav-link">Resume</a>
                             </Link>
                         </Col>
+                        <Col>
+                            <Link href="/convertToBase64">
+                                <a className="nav-link">Convert Base64</a>
+                            </Link>
+                        </Col>
                     </Row>
                 </Nav>
             </Navbar.Collapse>
