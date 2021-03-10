@@ -1,0 +1,27 @@
+body {
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+.container-fluid{
+    overflow: hidden;
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.section2 {
+    background-color: darkslategrey;
+}
