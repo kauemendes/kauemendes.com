@@ -1,18 +1,5 @@
 import {Container, Jumbotron, Button} from 'react-bootstrap'
-import styled from 'styled-components';
-
-const Title = styled.h1`
-  color: rgb(31, 44, 87);
-  font-size: 2.5rem;
-  font-face: 'Open Sans';
-  font-weight: 'bold';
-`;
-
-const SubTitle = styled.h1`
-  color: #20394e;
-  font-size: 2rem;
-  font-face: 'Open Sans';
-`;
+import {SubTitle, Title} from '../components'
 
 function Home() {
     const GoToResume = () => {
