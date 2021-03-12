@@ -1,10 +1,14 @@
-import {Navbar, Nav, Row, Col} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Row, Col} from 'react-bootstrap'
 import Link from 'next/link';
 
 function NavSite() {
     return (
         <Navbar expand="lg" variant="dark" bg="dark">
-            <Navbar.Brand href="#home">kauemendes.com</Navbar.Brand>
+            <Navbar.Brand>
+                <Link href="/">
+                    <a className="navbar-brand">kauemendes.com</a>
+                </Link>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -20,9 +24,17 @@ function NavSite() {
                             </Link>
                         </Col>
                         <Col>
-                            <Link href="/convertToBase64">
-                                <a className="nav-link">Convert Base64</a>
-                            </Link>
+                            <NavDropdown title="Tools" id="basic-nav-dropdown">
+                                <NavDropdown.Item>
+                                    <Link href="/convertToBase64">
+                                        <a className="dropdown-item">Convert Base64</a>
+                                    </Link>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>Another Tool</NavDropdown.Item>
+                                <NavDropdown.Item>Nice Tool</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item>Find Me</NavDropdown.Item>
+                            </NavDropdown>
                         </Col>
                     </Row>
                 </Nav>
