@@ -30,7 +30,12 @@ function NavSite() {
                                         <a className="dropdown-item">Convert Base64</a>
                                     </Link>
                                 </NavDropdown.Item>
-                                <NavDropdown.Item>Another Tool</NavDropdown.Item>
+                                <NavDropdown.Item>
+                                     <Link href="/rendertest">
+                                        <a className="dropdown-item">Test Render</a>
+                                    </Link>
+                                </NavDropdown.Item>
+
                                 <NavDropdown.Item>Nice Tool</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item>Find Me</NavDropdown.Item>
