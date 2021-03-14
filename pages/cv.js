@@ -10,7 +10,7 @@ function Cv() {
                     <p>Developer, Enthusiast DevOps Culture and Agile Developer Evangelist</p>
                     <hr />
                     <RoleTitle>Current Working <a href="https://www.aubay.com/index.php/language/en/home/">@Aubay</a></RoleTitle>
-                    <p><img src="https://www.aubay.com/wp-content/uploads/2015/10/cropped-logo_aubay_RGB_with-halo.png" width="90px" height="90px" /></p>
+                    <p><img src="/img/aubaylogo.png" width="90px" height="90px" /></p>
                     <p>
                         <span> - DevOps Engineer</span>
                         <span> - Since October/2019</span>
