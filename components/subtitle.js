@@ -25,9 +25,17 @@ const Title = styled.h1`
   font-weight: 'bold';
 `;
 
+const TitleSocial = styled.h1`
+  color: rgb(255 255 255);
+  font-size: 2.5rem;
+  font-face: 'Open Sans';
+  font-weight: 'bold';
+`;
+
 export {
     SubTitle,
     SmallTitle,
     RoleTitle,
-    Title
+    Title,
+    TitleSocial
 }

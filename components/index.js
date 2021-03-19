@@ -2,5 +2,6 @@ export {
     SubTitle,
     SmallTitle,
     RoleTitle,
-    Title
+    Title,
+    TitleSocial
 } from './subtitle'

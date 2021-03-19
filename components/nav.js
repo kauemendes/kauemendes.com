@@ -24,6 +24,11 @@ function NavSite() {
                             </Link>
                         </Col>
                         <Col>
+                            <Link href="/socials">
+                                <a className="nav-link">Socials</a>
+                            </Link>
+                        </Col>
+                        <Col>
                             <NavDropdown title="Tools" id="basic-nav-dropdown">
                                 <NavDropdown.Item>
                                     <Link href="/convertToBase64">
@@ -31,7 +36,7 @@ function NavSite() {
                                     </Link>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item>
-                                     <Link href="/rendertest">
+                                     <Link href="/tempo">
                                         <a className="dropdown-item">Test Render</a>
                                     </Link>
                                 </NavDropdown.Item>
