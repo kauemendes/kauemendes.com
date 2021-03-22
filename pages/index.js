@@ -1,6 +1,6 @@
 import {Container, Jumbotron, Button} from 'react-bootstrap'
 import {SubTitle, Title} from '../components'
-
+import Link from 'next/link';
 function Home() {
     const GoToResume = () => {
 
@@ -17,7 +17,9 @@ function Home() {
                             technology. Please feel free to see how fast this is.
                         </p>
                         <p>
-                            <Button variant="primary" onClick={GoToResume}>Checkout Resume</Button>
+                            <Link href="/cv">
+                                <a className="btn btn-primary ">Checkout Resume</a>
+                            </Link>
                         </p>
                     </Container>
                 </Jumbotron>
