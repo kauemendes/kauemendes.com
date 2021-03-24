@@ -1,4 +1,5 @@
 import btoa from 'btoa'
+import atob from 'atob'
 
 import {Container, Row, Col, Button} from 'react-bootstrap'
 import React from 'react'
@@ -13,17 +14,30 @@ class ToolConvert extends React.Component {
         super(props);
         // create a ref to store the textInput DOM element
         this.textArea = React.createRef();
-        this.handleConvert = this.handleConvert.bind(this);
+        this.handleEncode = this.handleEncode.bind(this);
+        this.handleDecode = this.handleDecode.bind(this);
         this.handleChange  = this.handleChange.bind(this);
     }
 
-    handleConvert = (event) => {
+    handleEncode = (event) => {
         if (this.state.textvalue === undefined) return
 
         this.setState(state => {
             return {
                 state,
                 textConverted: btoa(this.state.textvalue)
+            }
+        });
+        event.preventDefault();
+    }
+
+    handleDecode = (event) => {
+        if (this.state.textvalue === undefined) return
+
+        this.setState(state => {
+            return {
+                state,
+                textConverted: atob(this.state.textvalue)
             }
         });
         event.preventDefault();
@@ -48,7 +62,10 @@ class ToolConvert extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Button onClick={this.handleConvert}>Convert</Button>
+                        <Button onClick={this.handleEncode}>Encode</Button>
+                    </Col>
+                    <Col>
+                        <Button onClick={this.handleDecode}>Decode</Button>
                     </Col>
                 </Row>
                 <Row>
