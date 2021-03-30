@@ -3,6 +3,15 @@ import {SubTitle, SmallTitle, RoleTitle} from '../components'
 import moment  from 'moment';
 
 function Cv({cvData}) {
+    if (!cvData) {
+        return (
+            <>
+                <Container>
+                    <SubTitle>Sorry, API not Loading...</SubTitle>
+                </Container>
+            </>
+        )
+    }
     const aubayInitialDate = moment(cvData?.jobs[0]?.initialDate, 'YYYY-MM-DD')
     const yaraInitialDate  = moment(cvData?.jobs[1]?.initialDate, 'YYYY-MM-DD')
     const yaraEndDate      = moment(cvData?.jobs[1]?.endDate,     'YYYY-MM-DD')
@@ -117,21 +126,13 @@ function Cv({cvData}) {
 }
 
 export async function getStaticProps(context) {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/cv`)
-    const cvData = await res.json()
-  
-    if (!cvData) {
-      return {
-        redirect: {
-          destination: '/',
-          permanent: false,
-        },
-      }
-    }
+    // console.log(`${process.env.VERCEL_URL}/api/cv`);
+    // const res = await fetch(`${process.env.VERCEL_URL}/api/cv`)
+    // const cvData = await res.json()
   
     return {
         props: {
-            cvData
+            
         },
         revalidate: 1
     }
