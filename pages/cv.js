@@ -126,13 +126,13 @@ function Cv({cvData}) {
 }
 
 export async function getStaticProps(context) {
-    // console.log(`${process.env.VERCEL_URL}/api/cv`);
-    // const res = await fetch(`${process.env.VERCEL_URL}/api/cv`)
-    // const cvData = await res.json()
+    console.log(`${process.env.VERCEL_URL}/api/cv`);
+    const res = await fetch(`${process.env.VERCEL_URL}/api/cv`)
+    const cvData = await res.json()
   
     return {
         props: {
-            
+            cvData
         },
         revalidate: 1
     }
