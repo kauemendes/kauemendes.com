@@ -126,7 +126,6 @@ function Cv({cvData}) {
 }
 
 export async function getStaticProps(context) {
-    console.log(`${process.env.VERCEL_URL}/api/cv`);
     const res = await fetch(`${process.env.REACT_APP_API_URI}/api/cv`)
     const cvData = await res.json()
   
