@@ -133,9 +133,9 @@ const cvObj = {
             ]
         }
     ]
-
 }
 
 export default function handler(req, res) {
-    res.status(200).json(cvObj)
+    res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
+    res.status(200).json(cvObj);
   }

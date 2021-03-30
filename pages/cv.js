@@ -1,11 +1,11 @@
-import {Container, Jumbotron, Row, Col} from 'react-bootstrap'
+import {Container, Jumbotron } from 'react-bootstrap'
 import {SubTitle, SmallTitle, RoleTitle} from '../components'
 import moment  from 'moment';
 
 function Cv({cvData}) {
-    const aubayInitialDate = moment(cvData.jobs[0].initialDate, 'YYYY-MM-DD')
-    const yaraInitialDate  = moment(cvData.jobs[1].initialDate, 'YYYY-MM-DD')
-    const yaraEndDate      = moment(cvData.jobs[1].endDate,     'YYYY-MM-DD')
+    const aubayInitialDate = moment(cvData?.jobs[0]?.initialDate, 'YYYY-MM-DD')
+    const yaraInitialDate  = moment(cvData?.jobs[1]?.initialDate, 'YYYY-MM-DD')
+    const yaraEndDate      = moment(cvData?.jobs[1]?.endDate,     'YYYY-MM-DD')
     return (
         <Container fluid>
             <Jumbotron fluid className="section1">
@@ -117,7 +117,7 @@ function Cv({cvData}) {
 }
 
 export async function getStaticProps(context) {
-    const res = await fetch(`${process.env.REACT_APP_API_URI}/api/cv`)
+    const res = await fetch(`${process.env.VERCEL_URL}/api/cv`)
     const cvData = await res.json()
   
     if (!cvData) {
