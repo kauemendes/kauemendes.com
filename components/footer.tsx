@@ -1,6 +1,6 @@
 import {Container} from 'react-bootstrap'
 
-function FooterSite() {
+const FooterSite = () => {
     return (
         <>
             <Container fluid className="footer bg-dark text-center text-white">
@@ -16,4 +16,4 @@ function FooterSite() {
     )
 }
 
-export default FooterSite;
+export default FooterSite

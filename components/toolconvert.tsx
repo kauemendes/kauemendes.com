@@ -11,9 +11,9 @@ class ToolConvert extends React.Component {
     }
 
     constructor(props) {
+
         super(props);
         // create a ref to store the textInput DOM element
-        this.textArea = React.createRef();
         this.handleEncode = this.handleEncode.bind(this);
         this.handleDecode = this.handleDecode.bind(this);
         this.handleChange  = this.handleChange.bind(this);
@@ -56,7 +56,7 @@ class ToolConvert extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                        <textarea col={10} row={10} value={this.state.textvalue} ref={this.textArea} onChange={this.handleChange}>
+                        <textarea cols={10} rows={10} value={this.state.textvalue} onChange={this.handleChange}>
                         </textarea>
                     </Col>
                 </Row>
