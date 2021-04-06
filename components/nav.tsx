@@ -6,7 +6,9 @@ function NavSite() {
         <Navbar expand="lg" variant="dark" bg="dark">
             <Navbar.Brand>
                 <Link href="/">
-                    <a className="navbar-brand">kauemendes.com</a>
+                    <a className="navbar-brand">
+                        <img src="/img/logokm.png" alt="kauemendes.com" width={120} />
+                    </a>
                 </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
