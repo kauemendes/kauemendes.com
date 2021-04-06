@@ -9,6 +9,7 @@ import {
 import FooterSite from './footer'
 import NavSite from './nav'
 import ToolConvert from './toolconvert'
+import SimpleMap from './maps'
 
 export {
     SubTitle,
@@ -18,5 +19,6 @@ export {
     TitleSocial,
     FooterSite,
     NavSite,
-    ToolConvert
+    ToolConvert,
+    SimpleMap
 }
