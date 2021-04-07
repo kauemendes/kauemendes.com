@@ -26,7 +26,6 @@
     "bootstrap": "^4.6.0",
     "btoa": "^1.2.1",
     "google-map-react": "^2.1.9",
-    "google-maps-react": "^2.0.6",
     "moment": "^2.29.1",
     "next": "^10.0.5",
     "react": "^17.0.1",
