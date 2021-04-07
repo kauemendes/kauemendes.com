@@ -45,6 +45,11 @@ function Home() {
                         </p>
                     </Container>
                 </Jumbotron>
+                <Jumbotron fluid className="section1">
+                    <Container>
+                        <SubTitle>Find Me in Lisbon</SubTitle>
+                    </Container>
+                </Jumbotron>
                 <SimpleMap/>
             </Container>
        
