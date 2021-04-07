@@ -11,7 +11,6 @@ const Wrapper = styled.main`
 
 const SimpleMap = () => {
   return (
-    // Important! Always set the container height explicitly
     <Wrapper>
       <GoogleMapReact
         defaultZoom={11}

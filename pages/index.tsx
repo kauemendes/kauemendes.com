@@ -1,5 +1,5 @@
 import {Container, Jumbotron, Button} from 'react-bootstrap'
-import {SubTitle, Title, SimpleMap} from '../components'
+import {SubTitle, Title} from '../components'
 import Link from 'next/link';
 function Home() {
     return (
@@ -50,7 +50,6 @@ function Home() {
                         <SubTitle>Find Me in Lisbon</SubTitle>
                     </Container>
                 </Jumbotron>
-                <SimpleMap/>
             </Container>
        
         </>
