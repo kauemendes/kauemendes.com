@@ -15,6 +15,9 @@ const JobSection = (props) => {
                 {
                     firstElem && (<div><SubTitle> {props.name} </SubTitle> <p>{props.description}</p> <hr /></div>)
                 }
+                {
+                    ! firstElem && (<div><SubTitle> Past Activity </SubTitle> </div>)
+                }
                 <RoleTitle>{job.current ? ('Current Working ') : ('')}<a href={job.companyLink}>@{job.companyName}</a></RoleTitle>
                 <p><img src={job.logoUrl} width="90px" /></p>
                 <p>
