@@ -51,7 +51,7 @@ function Home() {
                     </Container>
                 </Jumbotron>
             </Container>
-       
+        
         </>
     )
 }

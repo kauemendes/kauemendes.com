@@ -2,7 +2,6 @@ import {Carousel} from 'react-bootstrap'
 import Image from 'next/image'
 
 function ControlledCarousel() {
-
     return (
       <Carousel>
         <Carousel.Item>
