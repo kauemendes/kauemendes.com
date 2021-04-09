@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Jumbotron } from 'react-bootstrap'
-import {SubTitle, SmallTitle, RoleTitle} from '../components'
+import {SubTitle, SmallTitle, RoleTitle} from '../../components'
 
 const ActivityList = (props) => (<p><span>{props.children}</span></p>)
 const FooterList = (props) => (<RoleTitle><span>{props.children}</span></RoleTitle>)
@@ -26,8 +26,8 @@ const JobSection: React.FC = (props) => {
         </p>
         <hr />
         <SmallTitle>Main activities</SmallTitle>
-          { job.activities.map(e => {
-            return (<ActivityList>- {e}</ActivityList>)
+          { job.activities.map((act, index) => {
+            return (<ActivityList key={`act-${index}`}>- {act}</ActivityList>)
           })}
         <FooterList>
           { job.tagsTechCloud.map(e => {
@@ -35,11 +35,11 @@ const JobSection: React.FC = (props) => {
           })}
         </FooterList>
       </Container>
-    </Jumbotron>        
+    </Jumbotron>
   )
 }
-  
-  
+
+
 const Cv: React.FC = ({cvData}) => {
   if (!cvData) {
     return (
@@ -54,18 +54,18 @@ const Cv: React.FC = ({cvData}) => {
     <Container fluid>
       { cvData.jobs.map((jobVal, index) => {
         if (index % 2 == 0) {
-          return (<JobSection job={jobVal} name={cvData.name} desc={cvData.description} index={index}></JobSection>)
+          return (<JobSection job={jobVal} name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
         }
-        return (<JobSection job={jobVal} className="section1" name={cvData.name} desc={cvData.description} index={index}></JobSection>)
+        return (<JobSection job={jobVal} className="section1" name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
       })}
     </Container>
   )
 }
-      
+
 export async function getStaticProps(context) {
   const res = await fetch(`${process.env.REACT_APP_API_URI}/api/cv`)
   const cvData = await res.json()
-  
+
   return {
     props: {
       cvData

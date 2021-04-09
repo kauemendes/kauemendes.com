@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import { Container, Jumbotron } from 'react-bootstrap'
-import { SubTitle, Title } from '../components'
+import { SubTitle, Title } from '../../components'
 
 const Home: React.FC = () => {
   return (
