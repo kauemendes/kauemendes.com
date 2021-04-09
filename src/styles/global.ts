@@ -1,18 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  @font-face {
-    font-family: 'Open Sans';
-    src: url('/fonts/OpenSans-Regular.woff2');
-    src: url('/fonts/OpenSans-Regular.woff2?#iefix') format('embedded-opentype'),
-    url('/fonts/OpenSans-Regular.woff2') format('woff2'),
-    url('/fonts/OpenSans-Regular.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
   body {
-    font-family: 'Open Sans';
+    font: 300 16px 'Open Sans', sans-serif;
     background-color: ${({theme}) => theme.colors.background} !important
   }
 

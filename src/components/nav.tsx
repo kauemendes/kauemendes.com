@@ -1,13 +1,15 @@
 import {Navbar, Nav, NavDropdown, Row, Col} from 'react-bootstrap'
 import Link from 'next/link';
 
+import kauemendeslogo from '../assets/logokm.png'
+
 function NavSite() {
     return (
         <Navbar expand="lg" variant="dark" bg="dark">
             <Navbar.Brand>
                 <Link href="/">
                     <a className="navbar-brand">
-                        <img src="/img/logokm.png" alt="kauemendes.com" width={120} />
+                        <img src={kauemendeslogo} alt="kauemendes.com" width={120} />
                     </a>
                 </Link>
             </Navbar.Brand>

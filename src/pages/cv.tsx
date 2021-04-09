@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container, Jumbotron } from 'react-bootstrap'
-import {SubTitle, SmallTitle, RoleTitle} from '../../components'
+import {SubTitle, SmallTitle, RoleTitle} from '../components'
 
 const ActivityList = (props) => (<p><span>{props.children}</span></p>)
 const FooterList = (props) => (<RoleTitle><span>{props.children}</span></RoleTitle>)

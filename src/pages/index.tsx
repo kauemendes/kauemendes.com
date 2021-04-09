@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import { Container, Jumbotron } from 'react-bootstrap'
-import { SubTitle, Title } from '../../components'
+import { Button, SubTitle, Title } from '../components'
 
 const Home: React.FC = () => {
   return (
@@ -16,8 +16,9 @@ const Home: React.FC = () => {
                 technology. Please feel free to see how fast this is. Now in TypeScript!
               </p>
               <p>
+                <Button>This is Button</Button>
                 <Link href="/cv">
-                  <a className="btn btn-primary ">Checkout Resume</a>
+                  <a className="btn btn-primary">Checkout Resume</a>
                 </Link>
               </p>
             </Container>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row, Col, Container} from 'react-bootstrap'
-import { TitleSocial } from '../../components'
+import { TitleSocial } from '../components'
 import Link from 'next/link'
 
 interface News {

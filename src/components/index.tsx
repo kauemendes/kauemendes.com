@@ -10,6 +10,7 @@ import FooterSite from './footer'
 import NavSite from './nav'
 import ToolConvert from './toolconvert'
 import SimpleMap from './maps'
+import Button from './button'
 
 export {
     SubTitle,
@@ -17,6 +18,7 @@ export {
     RoleTitle,
     Title,
     TitleSocial,
+    Button,
     FooterSite,
     NavSite,
     ToolConvert,
