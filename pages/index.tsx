@@ -2,10 +2,6 @@ import {Container, Jumbotron, Button} from 'react-bootstrap'
 import {SubTitle, Title} from '../components'
 import Link from 'next/link';
 function Home() {
-    const GoToResume = () => {
-
-    }
-
     return (
         <>
             <Container fluid>
@@ -14,7 +10,7 @@ function Home() {
                         <Title>Welcome to Kauê Mendes Helm's</Title>
                         <p>
                             This website was entired build on Next.js and React
-                            technology. Please feel free to see how fast this is.
+                            technology. Please feel free to see how fast this is. Now in TypeScript!
                         </p>
                         <p>
                             <Link href="/cv">
@@ -49,8 +45,13 @@ function Home() {
                         </p>
                     </Container>
                 </Jumbotron>
+                <Jumbotron fluid className="section1">
+                    <Container>
+                        <SubTitle>Find Me in Lisbon</SubTitle>
+                    </Container>
+                </Jumbotron>
             </Container>
-       
+        
         </>
     )
 }
