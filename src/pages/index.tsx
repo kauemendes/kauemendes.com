@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { Button, SubTitle, Title, Container, Row, Col, Main } from '../components'
+import { SubTitle, Title, Container, Row, Col, Main } from '../components'
 
 const Home: React.FC = () => {
   return (

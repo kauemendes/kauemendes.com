@@ -1,19 +1,39 @@
+import { AppProps } from 'next/app'
 import React from 'react'
-import {Container, Jumbotron } from 'react-bootstrap'
-import {SubTitle, SmallTitle, RoleTitle} from '../components'
+import {SubTitle, SmallTitle, RoleTitle, Container, Row, Col, Main} from '../components'
 
 const ActivityList = (props) => (<p><span>{props.children}</span></p>)
 const FooterList = (props) => (<RoleTitle><span>{props.children}</span></RoleTitle>)
 
-const JobSection: React.FC = (props) => {
+interface IJobActivityProps {
+  current: boolean;
+  companyLink: string;
+  companyName: string;
+  logoUrl: string;
+  initialDate: string;
+  endDate: string;
+  activities: string[];
+  tagsTechCloud: string[];
+}
+interface IJobsProps {
+  job?: IJobActivityProps
+  name: string;
+  desc: string;
+  className?: string;
+  index?: number;
+}
+
+
+
+const JobSection: React.FC<IJobsProps> = (props) => {
   const job = props.job;
   const className = props.className;
   const firstElem = props.index === 0 ? true : false ;
   return (
-    <Jumbotron fluid className={className}>
-      <Container>
+    <Row className={className}>
+      <Main>
         {
-          firstElem && (<div><SubTitle> {props.name} </SubTitle> <p>{props.description}</p> <hr /></div>)
+          firstElem && (<div><SubTitle> {props.name} </SubTitle> <p>{props.desc}</p> <hr /></div>)
         }
         {
           ! firstElem && (<div><SubTitle> Past Activity </SubTitle> </div>)
@@ -34,13 +54,13 @@ const JobSection: React.FC = (props) => {
             return (` | ${e}`)
           })}
         </FooterList>
-      </Container>
-    </Jumbotron>
+      </Main>
+    </Row>
   )
 }
 
 
-const Cv: React.FC = ({cvData}) => {
+const Cv: React.FC<AppProps> = ({cvData}) => {
   if (!cvData) {
     return (
       <>
@@ -51,13 +71,15 @@ const Cv: React.FC = ({cvData}) => {
     )
   }
   return (
-    <Container fluid>
-      { cvData.jobs.map((jobVal, index) => {
-        if (index % 2 == 0) {
-          return (<JobSection job={jobVal} name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
-        }
-        return (<JobSection job={jobVal} className="section1" name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
-      })}
+    <Container>
+      <Col>
+        { cvData.jobs.map((jobVal, index) => {
+          if (index % 2 == 0) {
+            return (<JobSection job={jobVal} name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
+          }
+          return (<JobSection job={jobVal} className="section1" name={cvData.name} desc={cvData.description} index={index} key={`job-${index}`}></JobSection>)
+        })}
+      </Col>
     </Container>
   )
 }
