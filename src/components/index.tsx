@@ -12,6 +12,13 @@ import ToolConvert from './toolconvert'
 import SimpleMap from './maps'
 import Button from './button'
 
+import {
+  Container,
+  Row,
+  Col,
+  Main
+} from './styleguid'
+
 export {
     SubTitle,
     SmallTitle,
@@ -19,6 +26,10 @@ export {
     Title,
     TitleSocial,
     Button,
+    Container,
+    Row,
+    Col,
+    Main,
     FooterSite,
     NavSite,
     ToolConvert,
