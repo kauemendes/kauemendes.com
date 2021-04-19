@@ -35,6 +35,7 @@ export default createGlobalStyle`
         max-width: 720px;
     }
   }
+
   .main-container {
     flex: 1;
     min-height: 100vh;
@@ -42,21 +43,26 @@ export default createGlobalStyle`
     position: relative;
     padding-bottom: 100px;
   }
+
   .main-container > * {
     flex: 1;
   }
+
   .container {
     display: flex;
     flex-direction: column;
   }
+
   .container-fluid{
     overflow: hidden;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
   .row+.row {
     margin-top: 1rem;
   }
+
   p {
     display: block;
     margin-block-start: 1em;
@@ -65,6 +71,7 @@ export default createGlobalStyle`
     margin-inline-end: 0px;
 
   }
+
   .section1 {
     background-color: ${({theme}) => theme.colors.background};
     background-image: url('/img/bgpattern.png');
@@ -72,12 +79,14 @@ export default createGlobalStyle`
     background-position: 100%;
     padding: 1em 0em 1em 0em;
   }
+
   .section2 {
     height: 30vh;
     background-color: rgb(0, 0, 0);
     opacity: 1;
     position: relative;
   }
+
   .section2:after {
     content: ' ';
     display: block;
@@ -92,39 +101,16 @@ export default createGlobalStyle`
     background-position: 50% 0;
     background-size: cover;
   }
+
   .chessLink {
     color: ${({theme}) => theme.colors.primary} !important;
     font-weight: 600;
   }
+
   .text-center {
     text-align: center;
   }
-  .socials {
-    background-color: ${({theme}) => theme.colors.background};
-  }
-  .socials:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /* opacity: 0.45; */
-    background-image: url('/img/1.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
-  .navbar-logo {
-    flex: 10%
-  }
-  .navbar-logo {
-    flex: 10%
-  }
-  .navbar-menuitens {
-    flex: 90%
-  }
+
   .footer {
     position: absolute;
     bottom: 0;
@@ -133,13 +119,16 @@ export default createGlobalStyle`
     background-color: #0b0b0b;
     height: 80px;
   }
+
   textarea {
     width: 500px;
     height: 180px;
   }
+
   .tool {
     margin: 10px auto;
   }
+
   .box {
     border: 1px solid rgb(225 225 225);
     border-radius: 5px;
@@ -150,10 +139,12 @@ export default createGlobalStyle`
     font-weight: 500;
     color: deeppink;
   }
+
   .logo {
     width: 80px;
     height: 80px;
   }
+
   .btn {
     display: inline-block;
     font-weight: 400;
@@ -174,6 +165,7 @@ export default createGlobalStyle`
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
   }
+
   .btn-primary {
     color: #fff;
     background-color: ${({theme}) => theme.colors.primary};

@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import React from 'react'
 import {SubTitle, SmallTitle, RoleTitle, Container, Row, Col, Main} from '../components'
 
@@ -22,8 +22,6 @@ interface IJobsProps {
   className?: string;
   index?: number;
 }
-
-
 
 const JobSection: React.FC<IJobsProps> = (props) => {
   const job = props.job;
@@ -59,8 +57,7 @@ const JobSection: React.FC<IJobsProps> = (props) => {
   )
 }
 
-
-const Cv: React.FC<AppProps> = ({cvData}) => {
+const Cv: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({cvData}) => {
   if (!cvData) {
     return (
       <>
@@ -84,7 +81,7 @@ const Cv: React.FC<AppProps> = ({cvData}) => {
   )
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${process.env.REACT_APP_API_URI}/api/cv`)
   const cvData = await res.json()
 

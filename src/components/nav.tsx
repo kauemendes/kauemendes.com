@@ -1,47 +1,45 @@
 import Link from 'next/link';
 
 import kauemendeslogo from '../assets/logokm.png'
-import { Container, Row, Col } from './styleguid';
+import Container from '../styles/components/nav'
 
 const NavSite = () => {
     return (
         <Container>
-            <Col className="navbar-logo">
+            <h1 className="navbar-logo">
               <Link href="/">
                 <a className="navbar-brand">
-                  <img src={kauemendeslogo} alt="kauemendes.com" width={120} />
+                  <img src={kauemendeslogo} alt="kauemendes.com" width={220} />
                 </a>
               </Link>
-            </Col>
-            <Col className="navbar-menuitens">
-                <Row>
-                  <Col>
-                    <Link href="/">
-                      <a className="nav-link">Home</a>
-                    </Link>
-                  </Col>
-                  <Col>
-                    <Link href="/cv">
-                      <a className="nav-link">Resume</a>
-                    </Link>
-                  </Col>
-                  <Col>
-                    <Link href="/socials">
-                      <a className="nav-link">Socials</a>
-                    </Link>
-                  </Col>
-                  <Col>
-                    <Link href="/convertToBase64">
-                      <a className="dropdown-item">Convert Base64</a>
-                    </Link>
-                  </Col>
-                  <Col>
-                    <Link href="/tempo">
-                      <a className="dropdown-item">Test Render</a>
-                    </Link>
-                  </Col>
-                </Row>
-            </Col>
+            </h1>
+            <ul className="navbar-navigation">
+              <li>
+               <Link href="/">
+                  <a className="nav-link">Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/cv">
+                  <a className="nav-link">Resume</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/socials">
+                  <a className="nav-link">Socials</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/convertToBase64">
+                  <a className="nav-link">BASE64</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tempo">
+                  <a className="nav-link">RENDER</a>
+                </Link>
+              </li>
+            </ul>
         </Container>
     )
 }
