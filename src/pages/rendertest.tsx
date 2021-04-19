@@ -1,3 +1,4 @@
+import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 
 var startTime, endTime;
@@ -16,7 +17,7 @@ function end() {
     return timeDiff
 }
 
-function renderTest() {
+const renderTest: React.FC = () => {
     start()
     return (
         <Container>
