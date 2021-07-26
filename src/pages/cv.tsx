@@ -1,6 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import React from 'react'
 import {SubTitle, SmallTitle, RoleTitle, Container, Row, Col, Main} from '../components'
+import { cvJson } from './api/cv'
 
 const ActivityList = (props) => (<p><span>{props.children}</span></p>)
 const FooterList = (props) => (<RoleTitle><span>{props.children}</span></RoleTitle>)
@@ -40,7 +41,7 @@ const JobSection: React.FC<IJobsProps> = (props) => {
         <p><img src={job.logoUrl} width="90px" /></p>
         <p>
           <span> - From {job.initialDate}</span>
-          <span> - To {job.endDate}</span>
+          { job.endDate && (<span> - To {job.endDate}</span>)}
         </p>
         <hr />
         <SmallTitle>Main activities</SmallTitle>
@@ -62,7 +63,7 @@ const Cv: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({cvData}) 
     return (
       <>
         <Container>
-          <SubTitle>Sorry, API not Loading...</SubTitle>
+          <SubTitle>Sorry, API not Loading... Please contact me</SubTitle>
         </Container>
       </>
     )
@@ -82,14 +83,10 @@ const Cv: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({cvData}) 
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.REACT_APP_API_URI}/api/cv`)
-  const cvData = await res.json()
-
   return {
     props: {
-      cvData
-    },
-    revalidate: 900
+      cvData: cvJson
+    }
   }
 }
 

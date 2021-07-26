@@ -9,7 +9,8 @@ const NavSite = () => {
             <h1 className="navbar-logo">
               <Link href="/">
                 <a className="navbar-brand">
-                  <img src={kauemendeslogo} alt="kauemendes.com" width={220} />
+                  {/* <img src={kauemendeslogo} alt="kauemendes.com" width={220} /> */}
+                  Kaue Mendes
                 </a>
               </Link>
             </h1>

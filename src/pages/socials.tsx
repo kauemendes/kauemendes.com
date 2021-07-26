@@ -3,6 +3,13 @@ import Link from 'next/link'
 import Container from '../styles/components/socials'
 import { TitleSocial } from '../components/index'
 import { InferGetStaticPropsType } from 'next'
+import { randomLastNews } from './api/news'
+
+const between = (min, max) => {
+  return Math.floor(
+    Math.random() * (max - min) + min
+  )
+}
 
 const Socials: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({news}) => {
   return (
@@ -22,7 +29,7 @@ const Socials: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({news
           <a className="btn btn-outline instagram btn-block btn-lg" href="https://instagram.com/kauemendes" >Instagram</a>
         </li>
         <li>
-          <a className="btn btn-outline news btn-block btn-lg" href={news.news} >Last News</a>
+          <a className="btn btn-outline news btn-block btn-lg" href={news[between(0, 4)]} >Last News</a>
         </li>
         <li>
           <Link href="/">
@@ -36,11 +43,9 @@ const Socials: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({news
 
 
 export const getStaticProps = async (ctx) => {
-  const res = await fetch(`${process.env.REACT_APP_API_URI}/api/news`)
-  const news = await res.json()
   return {
     props: {
-      news
+      news: randomLastNews
     },
     revalidate: 10
   }

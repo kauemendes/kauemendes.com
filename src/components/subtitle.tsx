@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const SubTitle = styled.h2`
-  color: #42BD4C;
+  color: #d4d4d4;
   font-size: 2rem;
   font-face: 'Open Sans';
   margin: 0 auto;
 `;
 
 const SmallTitle = styled.h3`
-  color: #42BD4C;
+  color: #d4d4d4;
   font-size: 1.3rem;
   font-weight: bold;
   font-face: 'Open Sans';
@@ -21,7 +21,7 @@ const RoleTitle = styled.p`
 `;
 
 const Title = styled.h1`
-  color: #ca53bb;
+  color: #5145ff;
   font-size: 2.5rem;
   font-face: 'Open Sans';
   font-weight: 'bold';

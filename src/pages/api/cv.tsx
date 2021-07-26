@@ -1,15 +1,48 @@
-const cvObj = {
+export const cvJson = {
     name: "Kauê Mendes de Freitas",
     description: "Developer, Enthusiast DevOps Culture and Agile Developer Evangelist",
     jobs: [
         {
             current: true,
             position: "DevOps Engineer - Since",
+            companyName: "Millennium BCP",
+            companyLink: "https://ind.millenniumbcp.pt/pt/particulares/Pages/Welcome.aspx",
+            logoUrl: "/img/logo_mbcp.png",
+            initialDate: "2021-07-01",
+            endDate: "",
+            activities: [
+                "Responsible for creating CI/CD standards for projects in .NETCore, React Frontend, Android and iOS Native and React Native Building App using Azure DevOps and AppCenter",
+                "Azure DevOps YAML Pipelines for Build and Deploy",
+                "Kubernetes/AKS Support and Maintence",
+                "Standards for GIT SCM patterns",
+                "Creation of architecture and documentation standards for developers",
+                "Improvements into Ops and Developers communication",
+                "Monorepo standards patterns",
+                "Using TypeScript/JavaScripts into projects for technological solutions creating Command Line Interface for DevOps Team and addons for Azure Devops Services",
+                "Created Command Line Interface for interacting with Azure DevOps API",
+                "Support multiple development teams in how to delivery their code with agile methodologies",
+            ],
+            tagsTechCloud: [
+                "Azure DevOps",
+                "GIT SCM",
+                "Kubernetes",
+                "React",
+                "React Native",
+                "JS",
+                "NodeJS",
+                "DotNetCore",
+                "Docker",
+                "YAML"
+            ]
+        },
+        {
+            current: false,
+            position: "DevOps Engineer - Since",
             companyName: "Aubay",
             companyLink: "https://www.aubay.com/index.php/language/en/home/",
             logoUrl: "/img/aubaylogo.png",
             initialDate: "2019-10-04",
-            endDate: "",
+            endDate: "2021-06-30",
             activities: [
                 "Support multiple development teams in how to delivery their code with agile methodologies",
                 "Creation of architecture and documentation standards for developers",
@@ -137,5 +170,5 @@ const cvObj = {
 
 export default function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
-    res.status(200).json(cvObj);
+    res.status(200).json(cvJson);
   }

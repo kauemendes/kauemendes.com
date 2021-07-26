@@ -168,7 +168,7 @@ export default createGlobalStyle`
 
   .btn-primary {
     color: #fff;
-    background-color: ${({theme}) => theme.colors.primary};
-    border-color: ${({theme}) => theme.colors.primary};
+    background-color: #353535;
+    border-color: #353535;
   }
 `;
