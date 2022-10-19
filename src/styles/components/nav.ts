@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
@@ -6,24 +6,26 @@ const Container = styled.div`
   align-items: center;
 
   .navbar-logo {
-    margin: 0 0 0 .45em;
+    margin: 0 0 0 0.45em;
   }
 
   .navbar-logo .navbar-brand a {
     color: rgb(28, 24, 22);
   }
 
-  .navbar-logo, .navbar-navigation {
-      list-style: none;
-      text-transform: uppercase;
+  .navbar-logo,
+  .navbar-navigation {
+    list-style: none;
+    text-transform: uppercase;
   }
 
-  .navbar-brand a, .navbar-navigation a {
-      text-decoration: none;
-      letter-spacing: .35rem;
+  .navbar-brand a,
+  .navbar-navigation a {
+    text-decoration: none;
+    letter-spacing: 0.35rem;
   }
 
-  .navbar-navigation  {
+  .navbar-navigation {
     display: flex;
   }
 
@@ -34,7 +36,7 @@ const Container = styled.div`
   }
 
   .navbar-navigation a:hover {
-      background: ${({theme}) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.primary};
   }
 
   /* *********** media queries *********** */
@@ -47,20 +49,18 @@ const Container = styled.div`
       margin: 0;
     }
 
-    .navbar-navigation  {
+    .navbar-navigation {
       width: 100%;
       justify-content: space-around;
     }
   }
 
-
   /* ****** ****** */
   @media all and (max-width: 600px) {
-
     .navbar-brand {
-      margin: .25em 0;
+      margin: 0.25em 0;
       align-self: left; /* align the logo to the left side of 'navbar-container' */
-  }
+    }
 
     .navbar-navigation {
       flex-direction: column;
@@ -69,14 +69,14 @@ const Container = styled.div`
     .navbar-navigation a {
       text-align: center;
       padding: 10px;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .navbar-navigation li:last-of-type a {
       border-bottom: none;
     }
   }
-`
+`;
 
-export default Container
+export default Container;

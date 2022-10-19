@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Tempo(props) {
   const dynamicDate = new Date();
@@ -9,7 +9,7 @@ function Tempo(props) {
       <div>{dynamicDateString} (dinamico)</div>
       <div>{props.staticDateString} (estatico)</div>
     </div>
-  )
+  );
 }
 
 export function getStaticProps() {
@@ -17,10 +17,10 @@ export function getStaticProps() {
   const staticDateString = staticDate.toUTCString();
   return {
     props: {
-      staticDateString
+      staticDateString,
     },
-    revalidate: 20
-  }
+    revalidate: 20,
+  };
 }
 
 export default Tempo;

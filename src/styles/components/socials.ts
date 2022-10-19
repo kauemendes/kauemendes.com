@@ -7,16 +7,16 @@ const Container = styled.div`
   margin: 0 auto;
 
   list-style: none;
-  background-color: ${({theme}) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
   left: 0;
   height: 100%;
-  background-image: url('/img/1.jpg');
+  background-image: url("/img/1.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
 
   :before {
-    content: ' ';
+    content: " ";
   }
 
   .social-links {
@@ -26,7 +26,7 @@ const Container = styled.div`
     list-style: none;
   }
 
-  .social-links li{
+  .social-links li {
     margin-bottom: 1%;
   }
 
@@ -38,17 +38,17 @@ const Container = styled.div`
     user-select: none;
     background-color: inherit;
     border: 1px solid inherit;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 
   .btn-lg {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
   }
 
   .btn-outline {
@@ -65,12 +65,12 @@ const Container = styled.div`
   }
 
   .facebook {
-    border-color: #4267B2;
-    color: #4267B2;
+    border-color: #4267b2;
+    color: #4267b2;
   }
   .facebook:hover {
-    background-color: #4267B2;
-    color: #FFF;
+    background-color: #4267b2;
+    color: #fff;
   }
   .linkedin {
     border-color: #0e76a8;
@@ -78,40 +78,40 @@ const Container = styled.div`
   }
   .linkedin:hover {
     background-color: #0e76a8;
-    color: #FFF;
+    color: #fff;
   }
   .github {
-    border-color: #FFF;
-    color: #FFF;
+    border-color: #fff;
+    color: #fff;
   }
   .github:hover {
-    background-color: #FFF;
+    background-color: #fff;
     color: #000;
   }
   .instagram {
-    border-color: ${({theme}) => theme.colors.primary};
-    color: ${({theme}) => theme.colors.primary};
+    border-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
   .instagram:hover {
-    background-color: ${({theme}) => theme.colors.primary};
-    color: #FFF;
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: #fff;
   }
   .news {
-    border-color: #EED202;
-    color: #EED202;
+    border-color: #eed202;
+    color: #eed202;
   }
   .news:hover {
-    background-color: #EED202;
+    background-color: #eed202;
     color: #000;
   }
   .site {
-    border-color: #FFF;
-    color: #FFF;
+    border-color: #fff;
+    color: #fff;
   }
   .site:hover {
-    background-color: #FFF;
+    background-color: #fff;
     color: #000;
   }
-`
+`;
 
-export default Container
+export default Container;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
@@ -25,11 +25,6 @@ const Main = styled.div`
   @media (min-width: 768px) {
     max-width: 720px;
   }
-`
+`;
 
-export {
-  Container,
-  Row,
-  Col,
-  Main
-}
+export { Container, Row, Col, Main };
