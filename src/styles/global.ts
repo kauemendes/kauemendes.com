@@ -3,31 +3,31 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
   body {
     font: 300 16px 'Open Sans', sans-serif;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${(props) => props.theme.palette.primary.main};
     line-height: 1.5;
-    color:  ${({ theme }) => theme.colors.text};
+    color:  ${(props) => props.theme.palette.primary.contrastText};
     text-align: left;
     margin: 0 auto;
   }
 
   a:link {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${(props) => props.theme.palette.primary.contrastText};
   }
 
   a:visited {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${(props) => props.theme.palette.primary.contrastText};
   }
 
   a:hover {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${(props) => props.theme.palette.primary.contrastText};
   }
 
   a:active {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${(props) => props.theme.palette.primary.contrastText};
   }
 
   @media (min-width: 768px) {
@@ -73,7 +73,7 @@ export default createGlobalStyle`
   }
 
   .section1 {
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${(props) => props.theme.palette.primary.main};
     background-image: url('/img/bgpattern.png');
     background-repeat: repeat;
     background-position: 100%;
@@ -103,7 +103,7 @@ export default createGlobalStyle`
   }
 
   .chessLink {
-    color: ${({ theme }) => theme.colors.primary} !important;
+    color: ${(props) => props.theme.palette.primary.main} !important;
     font-weight: 600;
   }
 

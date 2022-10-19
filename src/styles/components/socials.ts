@@ -7,7 +7,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   list-style: none;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${(props) => props.theme.palette.primary.main};
   left: 0;
   height: 100%;
   background-image: url("/img/1.jpg");
@@ -89,11 +89,11 @@ const Container = styled.div`
     color: #000;
   }
   .instagram {
-    border-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.primary};
+    border-color: ${(props) => props.theme.palette.primary.main};
+    color: ${(props) => props.theme.palette.primary.contrastText};
   }
   .instagram:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${(props) => props.theme.palette.primary.main};
     color: #fff;
   }
   .news {

@@ -1,6 +1,7 @@
-import { Container, Col, Row } from "./index";
+import Image from "next/image";
 
-import kauemendeslogo from "../assets/logokm.png";
+import { Container, Col, Row } from "./index";
+import logokm from "../../public/img/logokm.png";
 
 const FooterSite = () => {
   return (
@@ -10,16 +11,20 @@ const FooterSite = () => {
           <Row className="text-center">
             <p>
               <a className="navbar-brand">
-                <img
-                  src={kauemendeslogo.src}
+                <Image
+                  src={logokm}
                   alt="kauemendes.com"
+                  layout="fixed"
                   width={120}
+                  height={20}
+                  placeholder="blur"
+                  blurDataURL={logokm}
                 />
               </a>
             </p>
             <p></p>
             <p>
-              © 2021 Copyright -{" "}
+              © 2022 Copyright -{" "}
               <a className="text-white" href="https://kauemendes.com/">
                 kauemendes.com
               </a>

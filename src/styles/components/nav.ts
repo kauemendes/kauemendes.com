@@ -36,7 +36,7 @@ const Container = styled.div`
   }
 
   .navbar-navigation a:hover {
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${(props) => props.theme.palette.primary.main};
   }
 
   /* *********** media queries *********** */
