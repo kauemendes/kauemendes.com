@@ -1,66 +1,33 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"
+import { Container } from "../styles/Home"
 
-import { SubTitle, Title, Container, Row, Col, Main } from "../components";
+import avatarVermelho from "../assets/avatar_vermelho.png"
+import pinImg from "../assets/pin2.png"
+import Head from "next/head"
 
 const Home: React.FC = () => {
   return (
-    <>
-      <Container>
-        <Col>
-          <Row className="section1">
-            <Main>
-              <Title>Welcome to Kauê Mendes Helm&apos;s</Title>
-              <p>
-                This website was entired build on Next.js and React technology.
-                Please feel free to see how fast this is. Now in TypeScript!
-              </p>
-              <p>
-                <Link href="/cv">
-                  <a className="btn btn-primary">Checkout Resume</a>
-                </Link>
-              </p>
-            </Main>
-          </Row>
-          <Row className="section2">
-            <Main>
-              <SubTitle>Working as Developer</SubTitle>
-              <p>
-                Today applications are born more complex, faster and secure.
-              </p>
-              <p>
-                Using Agile Methods you can make that processes cheaper and
-                reliable. If you want advisory for this please, contact me at{" "}
-                <a href="mailto:sitecontact@kauemendes.com">mail.</a>
-              </p>
-            </Main>
-          </Row>
-          <Row className="section1">
-            <Main>
-              <SubTitle>Misc. and Hobbys</SubTitle>
-              <p>
-                Not from code a developer survive and it´s really important to
-                have an outsite activities. So, I am playing Chess in one of my
-                most recent hobbies. Reach{" "}
-                <a
-                  href="https://www.chess.com/member/kaka8907"
-                  className="chessLink"
-                >
-                  me out here
-                </a>
-                .
-              </p>
-            </Main>
-          </Row>
-          <Row className="section1">
-            <Main>
-              <SubTitle>Find Me in Lisbon</SubTitle>
-            </Main>
-          </Row>
-        </Col>
-      </Container>
-    </>
-  );
-};
+    <Container>
+      <Head>
+        <title>Welcome ~ KaueMende.com</title>
+      </Head>
+      <img src={avatarVermelho} width={"120px"} height={"120px"} />
+      <h1>
+        <a
+          href="https://github.com/kauemendes"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Kauê Mendes
+        </a>
+      </h1>
+      <p>Site pessoal de Kauê Mendes de Freitas</p>
+      <p className="location">
+        <img src={pinImg} width={"15px"} height={"15px"} />
+        <span>Lisbon Great Area</span>
+      </p>
+    </Container>
+  )
+}
 
-export default Home;
+export default Home

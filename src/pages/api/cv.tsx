@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/explicit-function-return-type: "off" */
 export const cvJson = {
   name: "Kauê Mendes de Freitas",
   description:
@@ -22,7 +23,7 @@ export const cvJson = {
         "Monorepo standards patterns",
         "Using TypeScript/JavaScripts into projects for technological solutions creating Command Line Interface for DevOps Team and addons for Azure Devops Services",
         "Created Command Line Interface for interacting with Azure DevOps API",
-        "Support multiple development teams in how to delivery their code with agile methodologies",
+        "Support multiple development teams in how to delivery their code with agile methodologies"
       ],
       tagsTechCloud: [
         "Azure DevOps",
@@ -34,8 +35,8 @@ export const cvJson = {
         "NodeJS",
         "DotNetCore",
         "Docker",
-        "YAML",
-      ],
+        "YAML"
+      ]
     },
     {
       current: false,
@@ -55,7 +56,7 @@ export const cvJson = {
         "Kubernetes/AKS Support and Maintence",
         "Azure DevOps YAML Pipelines for Build and Deploy",
         "Using TypeScript/JavaScripts into projects for technological solutions creating Command Line Interface for DevOps Team and addons for Azure Devops Services",
-        "Created Command Line Interface for interacting with Azure DevOps API",
+        "Created Command Line Interface for interacting with Azure DevOps API"
       ],
       tagsTechCloud: [
         "Azure DevOps",
@@ -67,8 +68,8 @@ export const cvJson = {
         "NodeJS",
         "DotNetCore",
         "Docker",
-        "YAML",
-      ],
+        "YAML"
+      ]
     },
     {
       current: false,
@@ -90,7 +91,7 @@ export const cvJson = {
         "IRA and Trello for organizing tasks",
         "Confluence (documentation)",
         "Developer Community Manager",
-        "CSD (Certified Scrum Developer) training",
+        "CSD (Certified Scrum Developer) training"
       ],
       tagsTechCloud: [
         "GitHub",
@@ -104,8 +105,8 @@ export const cvJson = {
         "YAML",
         "Confluence",
         "GitOPS",
-        "JIRA ",
-      ],
+        "JIRA "
+      ]
     },
     {
       current: false,
@@ -123,7 +124,7 @@ export const cvJson = {
         "DevOps made easy using Docker and Docker Compose on all projects",
         "Deploy using Jenkins",
         "JIRA for the organization of tasks using agile methodologies",
-        "AWS Provider management",
+        "AWS Provider management"
       ],
       tagsTechCloud: [
         "BitBucket",
@@ -134,8 +135,8 @@ export const cvJson = {
         "Docker",
         "Docker Compose",
         "JIRA",
-        "Confluence",
-      ],
+        "Confluence"
+      ]
     },
     {
       current: false,
@@ -153,7 +154,7 @@ export const cvJson = {
         "Development of an API for integration.",
         "Assist in the front-end development using Haxe Language and Priori framework",
         "Using Docker and ElasticBean Stalk for deployment",
-        "AWS Cloud Provider management",
+        "AWS Cloud Provider management"
       ],
       tagsTechCloud: [
         "MEDT",
@@ -164,13 +165,14 @@ export const cvJson = {
         "CMS",
         "Docker",
         "Docker Compose",
-        "Confluence",
-      ],
-    },
-  ],
-};
+        "Confluence"
+      ]
+    }
+  ]
+}
 
 export default function handler(req, res) {
-  res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate");
-  res.status(200).json(cvJson);
+  res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate")
+  res.status(200).json(cvJson)
+  return null
 }
