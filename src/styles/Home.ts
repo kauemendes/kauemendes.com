@@ -9,12 +9,11 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
 
-
-  .grow img{
+  .grow img {
     transition: 1s ease;
   }
 
-  .grow img:hover{
+  .grow img:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
@@ -32,17 +31,32 @@ export const Container = styled.div`
     overflow: hidden;
   }
 
-  @keyframes cursor{
-    0%, 100%{border-color: transparent;}
-    50%{border-color: #000;}
+  @keyframes cursor {
+    0%,
+    100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #000;
+    }
   }
 
-  @keyframes typing{
-    0%{ width: 0ch} /*Text is hidden*/
-    30%{ width: 14ch;} /*The enitre header will be typed out 1 character at a time*/
-    80%{ width: 14ch;} /*Text stays visible*/
-    90%{ width: 0ch;} /*Text is deleted*/
-    100%{ width: 0ch;} /*Text stays hidden*/
+  @keyframes typing {
+    0% {
+      width: 0ch;
+    } /*Text is hidden*/
+    30% {
+      width: 14ch;
+    } /*The enitre header will be typed out 1 character at a time*/
+    80% {
+      width: 14ch;
+    } /*Text stays visible*/
+    90% {
+      width: 0ch;
+    } /*Text is deleted*/
+    100% {
+      width: 0ch;
+    } /*Text stays hidden*/
   }
 
   h1 > a {
@@ -68,5 +82,4 @@ export const Container = styled.div`
   p > span {
     margin-left: 3px;
   }
-
 `
