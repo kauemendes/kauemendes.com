@@ -3,17 +3,18 @@ import { createGlobalStyle } from "styled-components"
 export default createGlobalStyle`
   body {
     font: 300 16px 'Open Sans', sans-serif;
+    background: linear-gradient(-45deg, ${props =>
+      props.theme.palette.third.main}, ${props =>
+  props.theme.palette.primary.main}, ${props =>
+  props.theme.palette.secondary.main}, ${props =>
+  props.theme.palette.third.contrastText});
     background-color: ${props => props.theme.palette.primary.main};
+    background-size: 400% 400%;
     line-height: 1.5;
     color:  ${props => props.theme.palette.primary.contrastText};
     text-align: left;
     margin: 0 auto;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
+    animation: gradient 25s ease infinite;
   }
 
   p {
@@ -25,7 +26,15 @@ export default createGlobalStyle`
 
   }
 
-  * {
-    border: 1px yellow;
-  }
+  @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 `

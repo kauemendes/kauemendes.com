@@ -15,7 +15,7 @@ export const light = {
     },
     third: {
       main: "#6F1AB6",
-      contrastText: "#200629"
+      contrastText: "#fb3182"
     }
   }
 }

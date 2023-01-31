@@ -81,5 +81,6 @@ export const Container = styled.div`
 
   p > span {
     margin-left: 3px;
+    color: ${props => props.theme.palette.secondary.main};
   }
 `
