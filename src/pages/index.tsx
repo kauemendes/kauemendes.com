@@ -11,20 +11,23 @@ const Home: React.FC = () => {
       <Head>
         <title>Welcome ~ KaueMende.com</title>
       </Head>
-      <img src={avatarVermelho} width={"120px"} height={"120px"} />
+      <div className="grow">
+        <img src={avatarVermelho} width={"120px"} height={"120px"} />
+      </div>
       <h1>
         <a
           href="https://github.com/kauemendes"
           target="_blank"
           rel="noreferrer"
         >
-          Kauê Mendes
+          {"<"}Kauê Mendes{"/>"}
         </a>
       </h1>
-      <p>Site pessoal de Kauê Mendes de Freitas</p>
+      <p>Dev for passion, DevOps for obligation 💾</p>
       <p className="location">
-        <img src={pinImg} width={"15px"} height={"15px"} />
+        🌏
         <span>Lisbon Great Area</span>
+        <div className="pulse"></div>
       </p>
     </Container>
   )
