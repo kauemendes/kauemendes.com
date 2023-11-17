@@ -76,11 +76,11 @@ export const Container = styled.div`
   }
 
   p.location {
-    color: ${props => props.theme.palette.common.white};
+    color: ${props => props.theme.palette.secondary.contrastText};
   }
 
   p > span {
     margin-left: 3px;
-    color: ${props => props.theme.palette.secondary.main};
+    color: ${props => props.theme.palette.secondary.contrastText};
   }
 `
