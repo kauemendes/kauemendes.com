@@ -1,9 +1,11 @@
+import Heading from "@/components/Heading";
+
 export default function PersonalPage() {
   return (
     <>
-      <h1>Personal Page</h1>
+      <Heading>Personal Page</Heading>
       <p>
-        This is the Personal Page Information Page
+        Developer, Enthusiast DevOps Culture and Agile Developer Evangelist
       </p>
     </>
   );

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
-import { Inter } from 'next/font/google'
-// import './globals.css'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+import NavBar from '@/components/NavBar'
+import { roboto, sourceCodePro, ebgaramond } from '@/app/font'
+
+import './globals.css'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -13,16 +14,16 @@ export default function RootLayout({
   children,
 }: LayoutProps) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header style={{ border: 'solid blue 1px'}}>
-          [header]
+    <html lang="en" className={`${roboto.variable} ${sourceCodePro.variable} ${ebgaramond.variable}`}>
+      <body className='bg-rose-50 flex flex-col min-h-screen px-4 py-2 font-roboto'>
+        <header>
+          <NavBar />
         </header>
-        <main>
+        <main className="grow py-3 text-center">
           {children}
         </main>
-        <footer style={{ border: 'solid blue 1px'}}>
-          [footer]
+        <footer className="border-t py-3 text-center text-xs">
+          Made with ❤ and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-rose-400 hover:underline">Next.JS</a> by Vercel
         </footer>
         </body>
     </html>

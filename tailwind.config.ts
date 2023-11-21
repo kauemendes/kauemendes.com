@@ -1,13 +1,18 @@
+import { sourceCodePro } from '@/app/font'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{jsx,tsx}',
+    './src/app/**/*.{jsx,tsx}',
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+        sourceCodePro: ['var(--font-source-code-pro)', 'monospace'],
+        ebGaramond: ['var(--font-ebgaramond)', 'sans']
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
