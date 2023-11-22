@@ -9,7 +9,7 @@ export default function AboutPage() {
       <div className="flex mb-4 pt-4">
         <div className="w-1/4 h-12"></div>
         <div className="w-1/4 h-12 text-right pr-4">
-          <p className="text-rose-500 font-bold">
+          <p className="text-stone-500 font-bold">
             Kauê Mendes de Freitas
           </p>
           <p className='font-semibold'>
@@ -25,7 +25,7 @@ export default function AboutPage() {
             Stationary orbit @ Lisbon
           </p>
         </div>
-        <div className="w-1/4 h-12"><img src="/images/hero_1.png" width={300} height={300} className='mb-4 rounded shadow-md' alt='Kaue faces posing with black shirt and blueish background'/></div>
+        <div className="w-1/4 h-12"><img src="/images/hero_1.png" width={300} height={300} className='mb-4 rounded shadow-md hover:shadow-lg' alt='Kaue faces posing with black shirt and blueish background'/></div>
         <div className="w-1/4 h-12"></div>
       </div>
     </>

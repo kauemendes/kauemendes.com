@@ -15,15 +15,15 @@ export default function RootLayout({
 }: LayoutProps) {
   return (
     <html lang="en" className={`${roboto.variable} ${sourceCodePro.variable} ${ebgaramond.variable}`}>
-      <body className='bg-rose-50 flex flex-col min-h-screen px-4 py-2 font-roboto'>
-        <header>
+      <body className='bg-stone-50 flex flex-col min-h-screen  font-roboto'>
+        <header className='bg-stone-100 border-b-2 border-stone-200 px-4 py-2'>
           <NavBar />
         </header>
         <main className="grow py-3 text-center">
           {children}
         </main>
-        <footer className="border-t py-3 text-center text-xs">
-          Made with ❤ and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-rose-400 hover:underline">Next.JS</a> by Vercel
+        <footer className="w-full bg-stone-900 border-t py-3 text-center text-xs text-white">
+          Made with <span className='text-red-600'>❤</span> and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-gray-400 hover:underline">Next.JS</a> by Vercel
         </footer>
         </body>
     </html>

@@ -5,20 +5,26 @@ export default function NavBar() {
       <ul className="flex flex-row-reverse gap-2 font-sourceCodePro">
         <li>
           <Link href="/"
-          className="text-rose-400 hover:hue-rotate-180">
+          className="text-stone-400 hover:text-sky-500 hover:underline">
             Home
           </Link>
         </li>
         <li>
           <Link href="/about" prefetch={false}
-          className="text-rose-400 hover:hue-rotate-180">
+          className="text-stone-400 hover:text-sky-500 hover:underline">
             About
           </Link>
         </li>
         <li>
           <Link href="/info"
-          className="text-rose-400 hover:hue-rotate-180">
+          className="text-stone-400 hover:text-sky-500 hover:underline">
             Curriculum
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog"
+          className="text-stone-400 hover:text-sky-500 hover:underline">
+            Blog
           </Link>
         </li>
       </ul>
