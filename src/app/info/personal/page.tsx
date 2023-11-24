@@ -37,7 +37,34 @@ export default function PersonalPage() {
         <p>
           I delved deeper into understanding how protocols and the then-nascent, scarcely explored realm of high-speed internet were shaping up in the early 2000s.
         </p>
-        
+        <br />
+        <p className="text-center"> ~~~ </p>
+        <br />
+        <p>
+          After much exploration, I encountered my first small projects around the years 2003/2004, precisely when personal blogs began to boom. People sought customized templates, and many individuals were selling them online. I decided to dive into this trend and ended up creating templates that I could take pride in. I demystified blog engines, understanding how they functioned, often keeping me awake into the early hours of the morning.
+        </p>
+        <br />
+        <p>
+          I learned, I created, time passed, and then I realized it was crucial to truly learn to program, to write code—templates were no longer sufficient. That's when I had my first encounter with ASP.NET, creating dynamic pages with styling and incorporating some JavaScript.
+        </p>
+        <p>
+          The rest is history; I never stopped from there. I took a course on network security and hacking in corporate systems. Soon after, I enrolled in university, where I had the opportunity to absorb the best practices and academic insights.
+        </p>
+        <p>
+          I was already working from my first year in college, and the momentum never slowed. I began at the bottom—phone support, remote assistance, RedHat server installation and configuration. When I asked for a chance to start coding in the same company, there was no turning back.
+        </p>
+        <br />
+        <p className="text-center"> ~~~ </p>
+        <br />
+        <p>
+          I learned how real-life operates, how a team can be truly collaborative, and how the development world is a prime example of how collaboration among peers can genuinely elevate you. My learning style was hands-on, experimenting, and constantly creating my own labs. Always fueled by the curiosity of the beginning and an insatiable desire to learn more and more.
+        </p>
+        <p>
+          Now, living and working in a different country from where I grew up and learned, I've been gathering experience and insights across various realms of the tech world. My passion today is all about automating and letting code come to life, helping us tackle daily tasks and reach our goals.
+        <br></br>
+        <br></br>
+          What drives me now is creating a collaborative, agile, and diverse environment. Moving forward, my daily joy comes from assisting people with tasks, whether they're basic or exceptional. And I hope it stays this way—keeping things vibrant and exciting!
+        </p>
       </div>
     </>
   );
