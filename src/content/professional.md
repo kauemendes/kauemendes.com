@@ -6,19 +6,22 @@ image: "/images/banner1.jpg"
 ## Millennium BCP
 ### Since Jul-2021 - Now
 
-_Work summary:_
+_Work summary:_ Working as a member of an ALM Team, focus on delivering the best solutions within connection infrastructure cloud and on-premises into development of internal and external products for Millennium BCP
 
 __Tasks:__
-  * Responsible for creating CI/CD standards for projects in .NETCore, React Frontend, Android and iOS Native and React Native Building App using Azure DevOps and AppCenter
+  * Responsible for creating CI/CD standards for projects in .NET, React Frontend, Android and iOS Native and React Native Building App using Azure DevOps
   * Azure DevOps YAML Pipelines for Build and Deploy
   * Kubernetes/AKS Support and Maintence
   * Standards for GIT SCM patterns
   * Creation of architecture and documentation standards for developers
   * Improvements into Ops and Developers communication
   * Monorepo standards patterns
-  * Using TypeScript/JavaScripts into projects for technological solutions creating Command Line Interface for DevOps Team and addons for Azure Devops Services
+  * Python developing for Command Line Tool
+  * Using TypeScript/JavaScripts into projects for technological solutions and challenges
   * Created Command Line Interface for interacting with Azure DevOps API
-  * Support multiple development teams in how to delivery their code with agile methodologies*
+  * Support multiple development teams in how to delivery their code with agile methodologies
+  * Creating GitOps Patterns for handling multiple solutions
+  * Terraform/Terragrunt solution using env0 for automation pipeline provisioning infrastructure
 
 ## Aubay
 ### Since Oct-2019 to Jun-2021
