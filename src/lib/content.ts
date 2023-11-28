@@ -18,23 +18,22 @@ export interface Post {
 }
 
 export async function getContent(slug: string): Promise<Review> {
-  const text = await readFile(`./src/content/${slug}.md`, 'utf8');
+  const text = await readFile(`src/content/${slug}.md`, 'utf8');
   const { content, data: { title, date, image } } = matter(text);
   const body = marked(content);
   return { title, date, image, body };
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  const text = await readFile(`./src/content/blog/post/${slug}.md`, 'utf8');
+  const text = await readFile(`src/content/blog/post/${slug}.md`, 'utf8');
   const { content, data: { title, date, image_banner, image_post } } = matter(text);
   const body = marked(content);
   return { slug, title, date, image_banner, image_post, body };
 }
 
 export async function getPosts() {
-  const files = await readdir('./src/content/blog/post')
+  const files = await readdir('src/content/blog/post')
   const slugs = files.filter((file) => file.endsWith('.md')).map((slug) => slug.slice(0, -'.md'.length));
-  console.log('files: ', slugs)
   const posts = []
   for (const slug of slugs) {
     const post = await getPost(slug)
