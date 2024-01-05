@@ -2,6 +2,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Heading from '@/components/Heading';
 
+export const metadata = {
+  title: 'Info',
+  description: 'Info for Kaue Mendes de Freitas.',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Blog', 'Kaue Mendes Personal Blog', 'Kaue Mendes Blog'],
+  publisher: 'Kaue Mendes',
+  creator: 'Kaue Mendes',
+}
+
 export default function InfoPage() {
   return (
     <>

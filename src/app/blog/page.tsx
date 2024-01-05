@@ -2,6 +2,14 @@ import Heading from "@/components/Heading";
 import { getPosts } from "@/lib/content";
 import Link from "next/link";
 
+export const metadata = {
+  title: 'Blog',
+  description: 'Personal Blog Kaue Mendes de Freitas.',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Blog', 'Kaue Mendes Personal Blog', 'Kaue Mendes Blog'],
+  publisher: 'Kaue Mendes',
+  creator: 'Kaue Mendes',
+}
+
 export default async function BlogPage() {
   const posts = await getPosts();
   return (

@@ -10,6 +10,18 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
+export const metadata = {
+  title: {
+    default: 'kauemendes.com',
+    template: '%s | kauemendes.com'
+  },
+  description: 'Personal Kaue Mendes de Freitas website, personal blog and portfolio.',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Portfolio', 'Kaue Mendes Blog', 'Kaue Mendes Personal Portfolio', 'Kaue Mendes Blog'],
+  publisher: 'Kaue Mendes',
+  creator: 'Kaue Mendes',
+}
+
+
 export default function RootLayout({
   children,
 }: LayoutProps) {

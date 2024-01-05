@@ -1,5 +1,13 @@
 import Heading from "@/components/Heading";
 
+export const metadata = {
+  title: 'About',
+  description: 'About for Kaue Mendes de Freitas.',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes About', 'Kaue Mendes Personal About', 'Kaue Mendes About'],
+  publisher: 'Kaue Mendes',
+  creator: 'Kaue Mendes',
+}
+
 export default function AboutPage() {
   return (
     <>

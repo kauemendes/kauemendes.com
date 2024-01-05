@@ -17,6 +17,10 @@ export interface Post {
   body: string;
 }
 
+export async function getFeaturedPost(): Promise<Post> {
+  return getPosts().then((posts) => posts[0]);
+}
+
 export async function getContent(slug: string): Promise<Review> {
   console.log(__dirname)
   const text = await readFile(__dirname + `/../../../../../src/content/${slug}.md`, 'utf8');
@@ -40,5 +44,6 @@ export async function getPosts() {
     const post = await getPost(slug)
     posts.push(post)
   }
+  posts.sort((a, b) => b.date.localeCompare(a.date))
   return posts
 }
