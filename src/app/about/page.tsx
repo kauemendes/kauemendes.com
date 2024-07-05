@@ -21,7 +21,7 @@ export default function AboutPage() {
             Kauê Mendes de Freitas
           </p>
           <p className='font-semibold'>
-            34y
+            35y
           </p>
           <p className='font-semibold'>
             Developer
