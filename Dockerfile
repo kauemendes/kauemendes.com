@@ -4,7 +4,7 @@ FROM node:alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install 
+RUN npm install
 
 # Rebuild the source code only when needed
 FROM node:alpine AS builder
@@ -18,7 +18,7 @@ FROM node:alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV REACT_APP_API_URI https://kauemendes.com
+ENV REACT_APP_API_URI https://kauecode.com
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./

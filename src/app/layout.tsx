@@ -12,8 +12,8 @@ interface LayoutProps {
 
 export const metadata = {
   title: {
-    default: 'kauemendes.com',
-    template: '%s | kauemendes.com'
+    default: 'kauecode.com',
+    template: '%s | kauecode.com'
   },
   description: 'Personal Kaue Mendes de Freitas website, personal blog and portfolio.',
   keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Portfolio', 'Kaue Mendes Blog', 'Kaue Mendes Personal Portfolio', 'Kaue Mendes Blog'],
