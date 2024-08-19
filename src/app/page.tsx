@@ -8,7 +8,7 @@ export default async function Home() {
   const post = await getFeaturedPost();
   return (
     <>
-      <Heading>kauemendes.com</Heading>
+      <Heading>kauecode.com</Heading>
       <div className="flex mb-4 flex">
         <div className="w-auto m-auto h-12 font-bold flex-col">
           <div className="w-full py-4 px-3 mt-1 rounded">
