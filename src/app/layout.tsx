@@ -35,7 +35,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="w-full bg-stone-900 border-t py-3 text-center text-xs text-white">
-          Made with <span className='text-red-600'>❤</span> and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-gray-400 hover:underline">Next.JS</a> by Vercel
+          Made with <span className='text-red-600'>❤</span> and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-gray-400 hover:underline">Next.JS</a> by Kaue Mendes de Freitas
         </footer>
         </body>
     </html>
