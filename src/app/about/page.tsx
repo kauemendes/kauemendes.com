@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="border-b">
-        <Heading children={undefined}>About Page</Heading>
+        <Heading>About Page</Heading>
       </div>
       <div className="flex mb-4 pt-4">
         <div className="w-1/4 h-12"></div>
