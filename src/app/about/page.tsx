@@ -1,4 +1,5 @@
 import Heading from "@/components/Heading";
+import Image from 'next/image';
 
 export const metadata = {
   title: 'About',
@@ -33,7 +34,15 @@ export default function AboutPage() {
             Stationary orbit @ Lisbon
           </p>
         </div>
-        <div className="w-1/4 h-12"><img src="/images/hero_1.png" width={300} height={300} className='mb-4 rounded shadow-md hover:shadow-lg' alt='Kaue faces posing with black shirt and blueish background'/></div>
+        <div className="w-1/4 h-12">
+          <Image
+            src="/images/hero_1.png"
+            width={300}
+            height={300}
+            className='mb-4 rounded shadow-md hover:shadow-lg'
+            alt='Kaue faces posing with black shirt and blueish background'
+          />
+        </div>
         <div className="w-1/4 h-12"></div>
       </div>
     </>
