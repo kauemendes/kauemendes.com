@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import qs from 'qs';
 
-const CMS_URL = 'http://localhost:1337';
+const CMS_URL = process.env.CMS_IMAGE_PATTERN;
 
 export interface Review {
   title: string;
