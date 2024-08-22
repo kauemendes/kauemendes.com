@@ -1,4 +1,5 @@
-/* eslint-disable  */
+
+import Image from 'next/image';
 import Heading from "@/components/Heading";
 import ShareLinkButton from "@/components/ShareLinkButton";
 import { getSlugs, getPost } from "@/lib/content";
@@ -22,7 +23,7 @@ export default async function PostsPage({ params: { post }}) {
     <>
       <Heading>{content.title}</Heading>
       <div className='flex'>
-        <img src={content.image_banner} alt={content.title}  width="640" height="360" className="mb-2 object-cover w-full" />
+        <Image src={content.image_banner} alt={content.title}  width={640} height={360} className="mb-2 object-cover w-full" />
       </div>
       <div className="flex flex-row-reverse max-w-md mx-auto items-right gap-4 items-baseline mb-4 pt-4 md:max-w-3xl">
         <ShareLinkButton />

@@ -1,8 +1,10 @@
+import 'server-only';
 import { readFile, readdir } from 'node:fs/promises';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import qs from 'qs';
 
+export const CACHE_TAG_REVIEWS = 'posts';
 const CMS_URL = process.env.CMS_URL;
 
 export interface Review {
@@ -52,8 +54,9 @@ export async function getPost(slug: string): Promise<Post> {
     pagination: { pageSize: 1, withCount: false },
   });
   const item = data[0];
+  console.log('[getPost]:', item);
   return {
-    ...toReview(item),
+    ...toPost(item),
     body: marked(item.attributes.body),
   };
 }
@@ -67,26 +70,33 @@ export async function getPosts() {
     sort: 'publishedAt:desc',
   });
   const { data } = body;
-  return data.map(toReview);
+  return data.map(toPost);
 }
 
 async function fetchPosts(parameters: any) {
   const url = `${CMS_URL}/api/posts?` + qs.stringify(parameters, { encodeValuesOnly: true });
-  // console.log('[fetchPosts]:', url);
-  const response = await fetch(url);
+  console.log('[fetchPosts]:', url);
+  const response = await fetch(url, {
+    next: {
+      tags: [CACHE_TAG_REVIEWS],
+    },
+  });
   if (!response.ok) {
     throw new Error(`CMS returned ${response.status} for ${url}`);
   }
   return await response.json();
 }
 
-function toReview(item: any) {
+function toPost(item: any) {
   const { attributes } = item;
+
+  const image_banner = (attributes.banner.data?.attributes?.url.includes(CMS_URL) ? attributes.banner.data?.attributes?.url :  new URL(attributes.banner.data?.attributes?.url, CMS_URL).href)
+
   return {
     slug: attributes.post,
     title: attributes.title,
     date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
-    image_banner: CMS_URL + attributes.banner.data?.attributes?.url,
+    image_banner: image_banner,
     image_post: null,
     body: null,
   }

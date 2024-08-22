@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const images = {
   images: {
     remotePatterns: [
       {
@@ -8,10 +8,12 @@ module.exports = {
         port: '1337',
         pathname: '/uploads/**',
       },
-      toRemotePattern(process.env.CMS_IMAGE_PATTERN),
+      toRemotePattern(process.env.CMS_IMAGE_PATTERN)
     ],
   },
 };
+
+module.exports = images;
 
 function toRemotePattern(urlString) {
   const url = new URL(urlString);
