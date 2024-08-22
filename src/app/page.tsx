@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Heading from "@/components/Heading"
 import DoubleQuotes from "@/components/DoubleQuotes"
-import { getFeaturedPost } from "@/lib/content";
+import { getPosts } from "@/lib/content";
 
 
 
@@ -20,12 +21,11 @@ export default async function Home() {
     "Real programmers count from 0.",
   ];
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-  const post = await getFeaturedPost();
+  const posts = await getPosts(3);
   return (
     <>
       <Heading>KAUECODE.COM</Heading>
-      <div className="flex mb-4 flex">
-        <div className="w-auto m-auto h-12 font-bold flex-col">
+      <div className="flex w-3/4 m-auto flex-wrap text-left sm:w-1/2">
           <div className="w-full py-4 px-3 mt-1 rounded">
             <DoubleQuotes />
             <p className="text-center m-4">
@@ -36,13 +36,16 @@ export default async function Home() {
             <p>
               Featured blog post:
             </p>
-            <div className="bg-stone-100 border w-full shadow hover:shadow-xl py-4 px-3 mt-1 rounded"  key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>
-                <h2 className="text-stone-600 font-bold">{post.title}</h2>
-              </Link>
-            </div>
-          </div>
-
+          <ul className="flex flex-col gap-3">
+            { posts.map((post, index) => (
+              <li key={post.post} className="border rounded shadow w-80 hover:shadow-xl sm:w-full bg-gradient-to-r from-cyan-400 to-blue-500">
+                <Link href={`/blog/${post.post}`}>
+                  <Image src={post.image_banner} alt={post.title} width={640} height={360} priority={index === 0} className="mb-2 rounded" />
+                  <h1 className="text-stone-900 font-bold py-1 text-center mb-2">{post.title}</h1>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

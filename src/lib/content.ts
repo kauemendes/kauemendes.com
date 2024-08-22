@@ -14,7 +14,7 @@ export interface Review {
   body: string;
 }
 export interface Post {
-  slug: string;
+  post: string;
   title: string;
   date: string;
   image_banner: string;
@@ -22,9 +22,6 @@ export interface Post {
   body: string;
 }
 
-export async function getFeaturedPost(): Promise<Post> {
-  return getPosts().then((posts) => posts[0]);
-}
 
 // legacy for info content
 export async function getContent(slug: string): Promise<Review> {
@@ -54,7 +51,7 @@ export async function getPost(slug: string): Promise<Post> {
     pagination: { pageSize: 1, withCount: false },
   });
   const item = data[0];
-  console.log('[getPost]:', item);
+  // console.log('[getPost]:', item);
   return {
     ...toPost(item),
     body: marked(item.attributes.body),
@@ -62,11 +59,11 @@ export async function getPost(slug: string): Promise<Post> {
 }
 
 // getReviews
-export async function getPosts() {
+export async function getPosts(pageSize: number, page?: number): Promise<Post[]> {
   const body = await fetchPosts({
     fields: ['id', 'title', 'post', 'publishedAt'],
     populate: { banner: { fields: ['url'] } },
-    pagination: { pageSize: 6 },
+    pagination: { pageSize, page },
     sort: 'publishedAt:desc',
   });
   const { data } = body;
@@ -75,7 +72,7 @@ export async function getPosts() {
 
 async function fetchPosts(parameters: any) {
   const url = `${CMS_URL}/api/posts?` + qs.stringify(parameters, { encodeValuesOnly: true });
-  console.log('[fetchPosts]:', url);
+  // console.log('[fetchPosts]:', url);
   const response = await fetch(url, {
     next: {
       tags: [CACHE_TAG_REVIEWS],
@@ -93,7 +90,7 @@ function toPost(item: any) {
   const image_banner = (attributes.banner.data?.attributes?.url.includes(CMS_URL) ? attributes.banner.data?.attributes?.url :  new URL(attributes.banner.data?.attributes?.url, CMS_URL).href)
 
   return {
-    slug: attributes.post,
+    post: attributes.post,
     title: attributes.title,
     date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
     image_banner: image_banner,
