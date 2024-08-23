@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import qs from 'qs';
 
-export const CACHE_TAG_REVIEWS = 'posts';
+export const CACHE_TAG_POSTS = 'posts';
 const CMS_URL = process.env.CMS_URL;
 
 export interface Review {
@@ -78,7 +78,7 @@ async function fetchPosts(parameters: any) {
   // console.log('[fetchPosts]:', url);
   const response = await fetch(url, {
     next: {
-      tags: [CACHE_TAG_REVIEWS],
+      tags: [CACHE_TAG_POSTS],
     },
   });
   if (!response.ok) {
