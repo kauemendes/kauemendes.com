@@ -5,8 +5,6 @@ import Heading from "@/components/Heading"
 import DoubleQuotes from "@/components/DoubleQuotes"
 import { getPosts } from "@/lib/content";
 
-
-
 export default async function Home() {
   const messages = [
     "I don't always test my code, but when I do, I do it in production.",

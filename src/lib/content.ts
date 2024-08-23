@@ -50,6 +50,9 @@ export async function getPost(slug: string): Promise<Post> {
     populate: { banner: { fields: ['url'] } },
     pagination: { pageSize: 1, withCount: false },
   });
+  if (data.length === 0) {
+    return null;
+  }
   const item = data[0];
   // console.log('[getPost]:', item);
   return {

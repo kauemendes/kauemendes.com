@@ -18,7 +18,13 @@ export default function NavBar() {
         <li>
           <Link href="/info"
           className="text-stone-400 hover:text-sky-500 hover:underline">
-            Curriculum
+            Profile
+          </Link>
+        </li>
+        <li>
+          <Link href="/projects"
+          className="text-stone-400 hover:text-sky-500 hover:underline">
+            Projects
           </Link>
         </li>
         <li>

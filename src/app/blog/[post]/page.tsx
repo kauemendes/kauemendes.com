@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Heading from "@/components/Heading";
 import ShareLinkButton from "@/components/ShareLinkButton";
 import { getSlugs, getPost } from "@/lib/content";
+import { notFound } from 'next/navigation';
+
+export const revalidate = 300;
 
 export async function generateStaticParams() {
   const posts = await getSlugs();
@@ -12,6 +15,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params: { post }}) {
   const content = await getPost(post);
+  if (!content) {
+    return notFound();
+  }
   return {
     title: content.title,
   }
@@ -19,6 +25,9 @@ export async function generateMetadata({ params: { post }}) {
 
 export default async function PostsPage({ params: { post }}) {
   const content = await getPost(post);
+  if (!content) {
+    return notFound();
+  }
   return (
     <>
       <Heading>{content.title}</Heading>

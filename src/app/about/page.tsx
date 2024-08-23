@@ -31,7 +31,7 @@ export default function AboutPage() {
             Passion for the future
           </p>
           <p className='font-semibold'>
-            Stationary orbit @ Lisbon
+            Geostationary orbit @ Lisbon
           </p>
         </div>
         <div className="w-1/4 h-12">
