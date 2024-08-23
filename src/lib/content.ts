@@ -22,6 +22,11 @@ export interface Post {
   body: string;
 }
 
+export interface PaginatedPosts {
+  pageCount: number;
+  posts: Post[];
+}
+
 
 // legacy for info content
 export async function getContent(slug: string): Promise<Review> {
@@ -62,15 +67,18 @@ export async function getPost(slug: string): Promise<Post> {
 }
 
 // getReviews
-export async function getPosts(pageSize: number, page?: number): Promise<Post[]> {
+export async function getPosts(pageSize: number, page?: number): Promise<PaginatedPosts> {
   const body = await fetchPosts({
     fields: ['id', 'title', 'post', 'publishedAt'],
     populate: { banner: { fields: ['url'] } },
-    pagination: { pageSize, page },
+    pagination: { pageSize, page: page || 1 },
     sort: 'publishedAt:desc',
   });
-  const { data } = body;
-  return data.map(toPost);
+  const { data, meta } = body;
+  return {
+    pageCount: meta.pagination.pageCount,
+    posts: data.map(toPost)
+  }
 }
 
 async function fetchPosts(parameters: any) {

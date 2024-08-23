@@ -19,7 +19,7 @@ export default async function Home() {
     "Real programmers count from 0.",
   ];
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-  const posts = await getPosts(3);
+  const { posts } = await getPosts(3);
   return (
     <>
       <Heading>KAUECODE.COM</Heading>
