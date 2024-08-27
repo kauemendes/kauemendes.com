@@ -1,37 +1,33 @@
-import Link from 'next/link'
+import NavLink from './NavLink'
+
 export default function NavBar() {
   return (
     <nav>
-      <ul className="flex flex-row-reverse gap-2 font-sourceCodePro">
-        <li>
-          <Link href="/"
-          className="text-stone-400 hover:text-sky-500 hover:underline">
-            Home
-          </Link>
+      <ul className="flex flex-row-reverse gap-2 font-mono">
+        <li className='font-bold font-sourceCodePro'>
+          <NavLink href="/">
+            kauecode.com
+          </NavLink>
         </li>
         <li>
-          <Link href="/about" prefetch={false}
-          className="text-stone-400 hover:text-sky-500 hover:underline">
+          <NavLink href="/about" prefetch={false}>
             About
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="/info"
-          className="text-stone-400 hover:text-sky-500 hover:underline">
+          <NavLink href="/info">
             Profile
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="/projects"
-          className="text-stone-400 hover:text-sky-500 hover:underline">
+          <NavLink href="/projects">
             Projects
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="/blog"
-          className="text-stone-400 hover:text-sky-500 hover:underline">
+          <NavLink href="/blog">
             Blog
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

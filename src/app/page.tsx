@@ -24,25 +24,25 @@ export default async function Home() {
     <>
       <Heading>KAUECODE.COM</Heading>
       <div className="flex w-3/4 m-auto flex-wrap text-left sm:w-1/2">
-          <div className="w-full py-4 px-3 mt-1 rounded">
-            <DoubleQuotes />
-            <p className="text-center m-4">
-              {randomMessage}
-            </p>
-          </div>
-          <div className="w-full py-4 px-3 mt-1 rounded">
-            <p>
-              Featured blog post:
-            </p>
-          <ul className="flex flex-col gap-3">
+        <div className="w-full py-4 px-3 mt-1 rounded">
+          <DoubleQuotes />
+          <p className="text-center m-4">
+            {randomMessage}
+          </p>
+        </div>
+        <div className="w-full py-4 px-3 mt-1 rounded">
+          <p className="m-auto font-semibold">
+            Featured blog post:
+          </p>
+          <ul className="flex w-3/4 m-auto w-full flex-wrap text-left sm:w-1/2 gap-5">
             { posts.map((post, index) => (
-              <li key={post.post} className="border rounded shadow w-80 hover:shadow-xl sm:w-full bg-gradient-to-r from-cyan-400 to-blue-500">
+              <li className="border rounded shadow w-auto hover:shadow-xl sm:w-auto bg-gradient-to-r from-pink-300 to-blue-500"  key={post.post}>
                 <Link href={`/blog/${post.post}`}>
-                  <Image src={post.image_banner} alt={post.title} width={640} height={360} priority={index === 0} className="mb-2 rounded" />
+                  <Image src={post.image_banner} alt={post.title} width={640} height={360} priority={index === 0} className="mb-2 rounded-t" />
                   <h1 className="text-stone-900 font-bold py-1 text-center mb-2">{post.title}</h1>
                 </Link>
               </li>
-            ))}
+            )) }
           </ul>
         </div>
       </div>
