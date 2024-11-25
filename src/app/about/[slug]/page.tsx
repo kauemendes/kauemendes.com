@@ -2,7 +2,13 @@
 import Heading from "@/components/Heading";
 import { getContent } from "@/lib/content";
 
-export default async function InfoPage({ params: { slug }}) {
+export default async function InfoPage(props) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const content = await getContent(slug);
   return (
     <>

@@ -6,7 +6,8 @@ import PaginationBar from "@/components/PaginationBar";
 
 const PAGE_SIZE = 3;
 
-export default async function BlogPage({ searchParams }) {
+export default async function BlogPage(props) {
+  const searchParams = await props.searchParams;
   const page = parsePageParam(searchParams.page);
   const { pageCount, posts } = await getPosts(PAGE_SIZE, page);
   return (

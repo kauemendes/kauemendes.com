@@ -13,7 +13,13 @@ export async function generateStaticParams() {
   return posts.map((post) => post);
 }
 
-export async function generateMetadata({ params: { post }}) {
+export async function generateMetadata(props) {
+  const params = await props.params;
+
+  const {
+    post
+  } = params;
+
   const content = await getPost(post);
   if (!content) {
     return notFound();
@@ -23,7 +29,13 @@ export async function generateMetadata({ params: { post }}) {
   }
 }
 
-export default async function PostsPage({ params: { post }}) {
+export default async function PostsPage(props) {
+  const params = await props.params;
+
+  const {
+    post
+  } = params;
+
   const content = await getPost(post);
   if (!content) {
     return notFound();
