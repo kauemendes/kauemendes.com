@@ -27,7 +27,6 @@ export interface PaginatedPosts {
   posts: Post[];
 }
 
-
 // legacy for info content
 export async function getContent(slug: string): Promise<Review> {
   console.log(__dirname)
@@ -84,11 +83,13 @@ export async function getPosts(pageSize: number, page?: number): Promise<Paginat
 async function fetchPosts(parameters: any) {
   const url = `${CMS_URL}/api/posts?` + qs.stringify(parameters, { encodeValuesOnly: true });
   // console.log('[fetchPosts]:', url);
+  // console.log('[CACHE_TAG_POSTS]:', CACHE_TAG_POSTS);
   const response = await fetch(url, {
     next: {
       tags: [CACHE_TAG_POSTS],
     },
   });
+  // console.log('CMS repsonse status:', response.status);
   if (!response.ok) {
     throw new Error(`CMS returned ${response.status} for ${url}`);
   }

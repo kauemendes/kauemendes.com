@@ -15,11 +15,6 @@ export default function NavBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink href="/info">
-            Profile
-          </NavLink>
-        </li>
-        <li>
           <NavLink href="/projects">
             Projects
           </NavLink>

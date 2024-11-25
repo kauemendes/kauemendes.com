@@ -32,9 +32,9 @@ export default async function Home() {
         </div>
         <div className="w-full py-4 px-3 mt-1 rounded">
           <p className="m-auto font-semibold">
-            Featured blog post:
+           root with kauemendes in kauecode.com ¤ main ➜ _
           </p>
-          <ul className="flex w-3/4 m-auto w-full flex-wrap text-left sm:w-1/2 gap-5">
+          {/* <ul className="flex w-3/4 m-auto w-full flex-wrap text-left sm:w-1/2 gap-5">
             { posts.map((post, index) => (
               <li className="border rounded shadow w-auto hover:shadow-xl sm:w-auto bg-gradient-to-r from-pink-300 to-blue-500"  key={post.post}>
                 <Link href={`/blog/${post.post}`}>
@@ -43,7 +43,7 @@ export default async function Home() {
                 </Link>
               </li>
             )) }
-          </ul>
+          </ul> */}
         </div>
       </div>
     </>

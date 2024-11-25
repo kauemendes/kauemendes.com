@@ -7,6 +7,7 @@ export default async function InfoPage({ params: { slug }}) {
   return (
     <>
       <Heading>{content.title}</Heading>
+      <tr></tr>
       <div className={`bg-no-repeat bg-center bg-[url('/images/banner2.jpg')] w-full h-[100px]`} ></div>
       <div className='max-w-md mx-auto overflow-hidden p-4 m-auto text-left md:max-w-3xl'>
         <article dangerouslySetInnerHTML={{ __html: content.body }}
