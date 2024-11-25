@@ -12,7 +12,7 @@ What drives me is creating a collaborative and diverse work environment. My joy 
 
 I hope we can work together to build a better world!
 
-[LinkedIn](https://www.linkedin.com/in/kauemendes)
+[Acessar LinkedIn](https://www.linkedin.com/in/kauemendes)
 
 ------
 
