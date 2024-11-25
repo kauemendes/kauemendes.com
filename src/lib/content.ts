@@ -1,5 +1,5 @@
 import 'server-only';
-import { dirname } from 'node:path';
+import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFile, readdir } from 'node:fs/promises';
 import matter from 'gray-matter';
@@ -35,7 +35,8 @@ export async function getContent(slug: string): Promise<Review> {
   console.log("process.cwd()", process.cwd())
   console.log("__dirname", __dirname)
   console.log(__dirname + `/src/content/${slug}.md`)
-  const text = await readFile(process.cwd() + `/src/content/${slug}.md`, 'utf8');
+  console.log('pathjoin', path.join(process.cwd(), `/src/content/${slug}.md`))
+  const text = await readFile(path.join(process.cwd(), `/src/content/${slug}.md`), 'utf8');
   const { content, data: { title, date, image } } = matter(text);
   const body = marked(content);
   return { title, date, image, body };
