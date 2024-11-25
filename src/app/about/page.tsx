@@ -14,7 +14,7 @@ export default function InfoPage() {
   return (
     <>
       <Heading>About me</Heading>
-      <div className="flex flex-col ">
+      <div className="flex w-3/4 m-auto flex-col flex-wrap">
         <div className="flex flex-row w-auto m-auto">
           <div className="text-right pr-4">
             <p className="text-stone-500 font-bold">
@@ -43,10 +43,10 @@ export default function InfoPage() {
             />
           </div>
         </div>
-        <div className='w-auto m-auto h-12 border-t-4 border-red-100'>
+        <div className='flex flex-row w-auto m-auto border-t-2 border-red-900'>
           <h2>Little more</h2>
         </div>
-        <div className="w-auto m-auto h-12">
+        <div className="flex flex-row w-auto m-auto">
           <ul className="flex flex-wrap w-fit m-auto flex-grow gap-3">
             <li className="bg-white border w-32 shadow hover:shadow-xl">
               <Link href="/about/personal">
