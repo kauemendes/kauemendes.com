@@ -1,4 +1,6 @@
 import 'server-only';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readFile, readdir } from 'node:fs/promises';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -6,6 +8,7 @@ import qs from 'qs';
 
 export const CACHE_TAG_POSTS = 'posts';
 const CMS_URL = process.env.CMS_URL;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export interface Review {
   title: string;
@@ -29,10 +32,8 @@ export interface PaginatedPosts {
 
 // legacy for info content
 export async function getContent(slug: string): Promise<Review> {
-  console.log(__dirname)
-  console.log(process.cwd())
-  console.log(process.cwd() + `/src/content/${slug}.md`)
-  const text = await readFile(process.cwd() + `/src/content/${slug}.md`, 'utf8');
+  console.log(__dirname + `/../../src/content/${slug}.md`)
+  const text = await readFile(__dirname + `/../../src/content/${slug}.md`, 'utf8');
   const { content, data: { title, date, image } } = matter(text);
   const body = marked(content);
   return { title, date, image, body };
