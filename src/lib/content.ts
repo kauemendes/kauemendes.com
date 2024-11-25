@@ -32,8 +32,10 @@ export interface PaginatedPosts {
 
 // legacy for info content
 export async function getContent(slug: string): Promise<Review> {
-  console.log(__dirname + `/../../src/content/${slug}.md`)
-  const text = await readFile(__dirname + `/../../src/content/${slug}.md`, 'utf8');
+  console.log("process.cwd()", process.cwd())
+  console.log("__dirname", __dirname)
+  console.log(__dirname + `/src/content/${slug}.md`)
+  const text = await readFile(process.cwd() + `/src/content/${slug}.md`, 'utf8');
   const { content, data: { title, date, image } } = matter(text);
   const body = marked(content);
   return { title, date, image, body };
