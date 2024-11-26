@@ -14,37 +14,37 @@ export default function InfoPage() {
   return (
     <>
       <Heading>About me</Heading>
-      <div className="flex w-3/4 m-auto flex-col flex-wrap">
+      <div className="flex w-1/2 m-auto flex-col flex-wrap space-y-10 sm:w-1/2">
         <div className="flex flex-row w-auto m-auto">
-          <div className="text-right pr-4">
-            <p className="text-stone-500 font-bold">
-              Kauê Mendes de Freitas
+          <div className="text-left pr-4 w-3/4 space-y-2">
+            <p className="text-stone-900 font-bold text-6xl">
+              <span className="text-red-600 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 duration-300">Hi,</span> I'm Kauê
             </p>
-            <p className='font-semibold'>
-              35y
+            <p className='text-justify font-semi text-lg tracking-tight'>
+              I am a software developer with a passion for making developers lives easier. I've been in the software development game for over 15 years, and let me tell you, I've seen more code than a coffee machine sees coffee beans!
             </p>
-            <p className='font-semibold'>
-              Developer
+            <p className='text-justify font-semi text-lg tracking-tight'>
+              Currently, I'm working as a DevOps Engineer, and I'm thrilled by the magic of automation and the endless possibilities it brings. From frontend to backend, I've had my hands on a plethora of technologies, always eager to learn and innovate.
             </p>
-            <p className='font-semibold'>
+            <p className='text-right font-semibold tracking-wide hover:scale-150 hover:text-amber-600 duration-300'>
               Passion for the future
             </p>
-            <p className='font-semibold'>
+            <p className='text-right font-semibold tracking-wide hover:scale-150 hover:text-lime-500 duration-300'>
               Geostationary orbit @ Lisbon
             </p>
           </div>
-          <div className="">
+          <div className="text-left pr-4 w-3/4 space-y-2">
             <Image
               src="/images/hero_1.png"
               width={300}
               height={300}
-              className='mb-4 rounded shadow-md hover:shadow-lg'
+              className='mb-4 rounded-full shadow-md hover:shadow-lg'
               alt='Kaue faces posing with black shirt and blueish background'
             />
           </div>
         </div>
-        <div className='flex flex-row w-auto m-auto border-t-2 border-red-900'>
-          <h2>Little more</h2>
+        <div className='flex flex-row w-auto m-auto border-t-2 border-gray-100 text-center'>
+          <span className='text-4xl text-center'>Profiles</span>
         </div>
         <div className="flex flex-row w-auto m-auto">
           <ul className="flex flex-wrap w-fit m-auto flex-grow gap-3">
