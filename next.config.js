@@ -11,6 +11,7 @@ const images = {
       toRemotePattern(process.env.CMS_IMAGE_PATTERN)
     ],
   },
+  output: 'standalone'
 };
 
 module.exports = images;

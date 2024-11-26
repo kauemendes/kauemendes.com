@@ -1,0 +1,8 @@
+services:
+  kauecode-com-development:
+    build:
+      context: ../../
+      dockerfile: docker/dv/Dockerfile
+    image: kauecode-com-development
+    ports:
+      - "3001:3000"

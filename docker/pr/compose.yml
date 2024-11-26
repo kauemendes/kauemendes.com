@@ -1,0 +1,8 @@
+services:
+  kauecode-com-production:
+    build:
+      context: ../../
+      dockerfile: docker/pr/Dockerfile
+    image: kauecode-com-production
+    ports:
+      - "3003:3000"
