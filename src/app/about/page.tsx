@@ -14,9 +14,9 @@ export default function InfoPage() {
   return (
     <>
       <Heading>About me</Heading>
-      <div className="flex w-1/2 m-auto flex-col flex-wrap space-y-10 sm:w-1/2">
-        <div className="flex flex-row w-auto m-auto">
-          <div className="text-left pr-4 w-3/4 space-y-2">
+      <div className="flex flex-col m-auto space-y-10 md:max-w-6xl sm:max-w-lg ">
+        <div className="flex flex-wrap p-10 w-full space-y-4 md:flex-nowrap md:space-x-8">
+          <div className="text-left">
             <p className="text-stone-900 font-bold text-6xl">
               <span className="text-red-600 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 duration-300">Hi,</span> I'm Kauê
             </p>
@@ -33,17 +33,17 @@ export default function InfoPage() {
               Geostationary orbit @ Lisbon
             </p>
           </div>
-          <div className="text-left pr-4 w-3/4 space-y-2">
+          <div className="text-left">
             <Image
-              src="/images/hero_1.png"
-              width={300}
-              height={300}
-              className='mb-4 rounded-full shadow-md hover:shadow-lg'
+              src="/images/hero_3.jpg"
+              width={640}
+              height={640}
+              className='align-middle m-auto rounded-full shadow-md hover:shadow-lg'
               alt='Kaue faces posing with black shirt and blueish background'
             />
           </div>
         </div>
-        <div className='flex flex-row w-auto m-auto border-t-2 border-gray-100 text-center'>
+        <div className='flex flex-row m-auto border-t-2 border-gray-100 text-center'>
           <span className='text-4xl text-center'>Profiles</span>
         </div>
         <div className="flex flex-row w-auto m-auto">
