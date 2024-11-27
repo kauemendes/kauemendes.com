@@ -7,3 +7,21 @@
     border: 1px solid red;
   }
 */
+
+@layer base {
+  body {
+    @apply dark:bg-gray-800 bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  p,
+  strong,
+  span {
+    @apply dark:text-white text-gray-800;
+  }
+}

@@ -5,6 +5,7 @@ const config: Config = {
     './src/components/**/*.{jsx,tsx}',
     './src/app/**/*.{jsx,tsx}',
   ],
+  darkMode: 'class',
   theme: {
     screens: {
       'sm': '640px',

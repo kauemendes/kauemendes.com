@@ -1,3 +1,4 @@
+import DarkModeButton from './DarkModeButton'
 import NavLink from './NavLink'
 
 export default function NavBar() {
@@ -23,6 +24,9 @@ export default function NavBar() {
           <NavLink href="/blog">
             Blog
           </NavLink>
+        </li>
+        <li>
+          <DarkModeButton />
         </li>
       </ul>
     </nav>

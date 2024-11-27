@@ -17,7 +17,7 @@ export default function InfoPage() {
       <div className="flex flex-col m-auto space-y-10 md:max-w-6xl sm:max-w-lg ">
         <div className="flex flex-wrap p-10 w-full space-y-4 md:flex-nowrap md:space-x-8">
           <div className="text-left">
-            <p className="text-stone-900 font-bold text-6xl">
+            <p className="text-stone-900 dark:text-red-600 font-bold text-6xl">
               <span className="text-red-600 hover:-translate-y-1 hover:scale-110 hover:text-indigo-500 duration-300">Hi,</span> I'm Kauê
             </p>
             <p className='text-justify font-semi text-lg tracking-tight'>
@@ -44,17 +44,17 @@ export default function InfoPage() {
           </div>
         </div>
         <div className='flex flex-row m-auto border-t-2 border-gray-100 text-center'>
-          <span className='text-4xl text-center'>Profiles</span>
+          <span className='text-4xl text-center pt-4 pb-4'>Profiles</span>
         </div>
         <div className="flex flex-row w-auto m-auto">
           <ul className="flex flex-wrap w-fit m-auto flex-grow gap-3">
-            <li className="bg-white border w-32 shadow hover:shadow-xl">
+            <li className="bg-white dark:bg-gray-800 border rounded dark:border-gray-950 w-32 shadow hover:shadow-xl hover:shadow-sm">
               <Link href="/about/personal">
                 <Image src="/images/avatar_vermelho.png" width={140} height={140} className='bg-red-600 rounded' alt='Kaue with a smile in gray scale in a red background'/>
                 <h2 className='py-1 text-center'>Personal</h2>
               </Link>
             </li>
-            <li className="bg-white border w-32 shadow hover:shadow-xl">
+            <li className="bg-white dark:bg-gray-800 border rounded dark:border-gray-950 w-32 shadow hover:shadow-xl hover:shadow-sm">
               <Link href="/about/professional">
                 <Image src="/images/avatar.png" width={140} height={140} className='bg-yellow-500 rounded' alt='Kaue in gray scale in a yellow background' />
                 <h2 className='py-1 text-center'>Professional</h2>
