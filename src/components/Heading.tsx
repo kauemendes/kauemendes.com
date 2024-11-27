@@ -13,7 +13,7 @@ export default function Heading({
   children
 }: HeadingProps) {
   return (
-    <h1 className={`font-bold pb-3 text-4xl font-roboto hover:text-gray-900 hover:cursor-none`}>
+    <h1 className={`font-bold pb-3 text-4xl font-roboto hover:text-gray-900 dark:hover:text-indigo-400 hover:cursor-none`}>
       {children}
     </h1>
   )
