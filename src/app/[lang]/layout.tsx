@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { ThemeProvider } from "next-themes"
 
 import NavBar from '@/components/NavBar'
-import { roboto, sourceCodePro, ebgaramond } from '@/app/font'
+import { roboto, sourceCodePro, ebgaramond } from '@/app/[lang]/font'
+import { i18n, type Locale } from "../../../i18n-config";
 
-import './globals.css'
+import '@/app/[lang]/globals.css'
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: Promise<{ lang: Locale }>
 }
 
 export const metadata = {
@@ -22,12 +24,18 @@ export const metadata = {
   creator: 'Kaue Mendes',
 }
 
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
-export default function RootLayout({
-  children,
-}: LayoutProps) {
+export default async function RootLayout(props: {
+  children: React.ReactNode;
+  params: Promise<{ lang: Locale }>;
+}) {
+  const params = await props.params;
+  const { children } = props;
   return (
-    <html lang="en" className={`${roboto.variable} ${sourceCodePro.variable} ${ebgaramond.variable}`}>
+    <html lang={params.lang} className={`${roboto.variable} ${sourceCodePro.variable} ${ebgaramond.variable}`}>
       <body className='bg-stone-50 flex flex-col min-h-screen font-roboto'>
         <ThemeProvider attribute="class">
           <NavBar />

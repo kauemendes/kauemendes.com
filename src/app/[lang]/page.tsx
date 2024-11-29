@@ -4,8 +4,12 @@ import Image from "next/image";
 import Heading from "@/components/Heading"
 import DoubleQuotes from "@/components/DoubleQuotes"
 import { getPosts } from "@/lib/content";
+import { getDictionary } from "../../../get-dictionary";
+import { Locale } from "../../../i18n-config";
 
-export default async function Home() {
+export default async function Home(props: {
+  params: Promise<{ lang: Locale }>;
+}) {
   const messages = [
     "It works on my machine! – The battle cry of developers everywhere.",
     "99 little bugs in the code, take one down, patch it around, 127 bugs in the code…",
@@ -25,18 +29,24 @@ export default async function Home() {
   ];
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
   const { posts } = await getPosts(3);
+
+  const { lang } = await props.params;
+  const dictionary = await getDictionary(lang);
+
   return (
     <>
       <div className="flex m-auto flex-wrap text-left">
-        <Heading>KAUECODE<span className="font-bold text-amber-300 animate-pulse">.</span>COM</Heading>
+        <p>Current locale: {lang}</p>
+        <Heading>KAUECODE<span className="font-bold text-amber-300 dark:text-amber-300 animate-pulse">.</span>COM</Heading>
         <div className="w-full py-4 px-3 mt-1 rounded">
+          {dictionary.products.cart}
           <DoubleQuotes />
           <p className="font-sans font-bold text-2xl text-left m-4 md:text-6xl lg:text-8xl">
             {randomMessage}
           </p>
         </div>
-        <div className="flex m-auto flex-wrap text-left font-sans tracking-tight font-semiBold">
-          <div className="flex flex-col space-y-4 p-4 md:w-1/2">
+        <div className="flex m-auto flex-col text-left font-sans tracking-tight font-semiBold">
+          <div className="flex flex-col space-y-4 p-4">
             <h1 className="text-lg text-center items-align font-extrabold">
               Wanna get in touch?
             </h1>
