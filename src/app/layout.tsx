@@ -28,12 +28,10 @@ export default function RootLayout({
 }: LayoutProps) {
   return (
     <html lang="en" className={`${roboto.variable} ${sourceCodePro.variable} ${ebgaramond.variable}`}>
-      <body className='bg-stone-50 flex flex-col min-h-screen  font-roboto'>
+      <body className='bg-stone-50 flex flex-col min-h-screen font-roboto'>
         <ThemeProvider attribute="class">
-          <header className='dark:bg-gray-950 bg-stone-100 border-b-2 border-stone-200 dark:border-gray-900 px-4 py-2'>
-            <NavBar />
-          </header>
-          <main className="grow py-3 text-center">
+          <NavBar />
+          <main className="m-auto mt-16 p-10 grow py-3">
             {children}
           </main>
           <footer className="w-full h-10 bg-stone-900 dark:bg-slate-100 border-t dark:border-gray-800 py-3 text-center text-xs text-white dark:text-gray-900">

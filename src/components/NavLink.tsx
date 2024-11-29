@@ -16,14 +16,14 @@ export default function NavLink({ href, children, prefetch }: NavLinkProps) {
   if (isNotActive) {
     return (
       <span
-        className="text-rose-700 hover:text-stone-200 cursor-not-allowed">
+        className="text-rose-700 hover:text-stone-200 cursor-not-allowed dark:text-rose-400">
         {children}
       </span>
     );
   }
   return (
     <Link href={href} prefetch={prefetch}
-      className="text-stone-400 hover:text-sky-500 hover:underline">
+      className="text-gray-900 dark:text-white hover:text-sky-500 hover:underline">
       {children}
     </Link>
   );
