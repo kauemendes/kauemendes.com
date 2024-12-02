@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ThemeProvider } from "next-themes"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import NavBar from '@/components/NavBar'
 import { roboto, sourceCodePro, ebgaramond } from '@/app/font'
@@ -40,6 +41,7 @@ export default function RootLayout({
             Made with <span className='text-red-600 dark:text-red-400'>❤</span> and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-gray-400 hover:underline dark:text-gray-900">Next.JS</a> by KaueCode.Com - <a href="https://github.com/kauemendes/kauemendes.com" target='_blank'>OpenSource Code</a> - 2024
           </footer>
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-5D50WB6BVV" />
       </body>
     </html>
   )
