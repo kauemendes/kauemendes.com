@@ -23,14 +23,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-    <url>
+  <url>
     <loc>https://www.kauecode.com/about/personal</loc>
     <lastmod>2024-12-01T16:30:24.021Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-  </url>
-    <url>
+  <url>
     <loc>https://www.kauecode.com/about/professional</loc>
     <lastmod>2024-12-01T16:30:24.021Z</lastmod>
     <changefreq>weekly</changefreq>
