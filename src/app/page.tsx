@@ -27,16 +27,16 @@ export default async function Home() {
   const { posts } = await getPosts(3);
   return (
     <>
-      <Heading>KAUECODE<span className="font-bold font-mono animate-pulse">.</span>COM</Heading>
-      <div className="flex w-3/4 m-auto flex-wrap text-left sm:w-1/2">
+      <div className="flex m-auto flex-wrap text-left">
+        <Heading>KAUECODE<span className="font-bold text-amber-300 animate-pulse">.</span>COM</Heading>
         <div className="w-full py-4 px-3 mt-1 rounded">
           <DoubleQuotes />
-          <p className="font-sans font-bold text-6xl text-left m-4">
+          <p className="font-sans font-bold text-2xl text-left m-4 md:text-6xl lg:text-8xl">
             {randomMessage}
           </p>
         </div>
-        <div className="flex w-1/2 m-auto flex-wrap text-left sm:w-1/2 font-sans tracking-tight font-semiBold">
-          <div className="flex flex-col space-y-4 w-full p-4">
+        <div className="flex m-auto flex-wrap text-left font-sans tracking-tight font-semiBold">
+          <div className="flex flex-col space-y-4 p-4 md:w-1/2">
             <h1 className="text-lg text-center items-align font-extrabold">
               Wanna get in touch?
             </h1>
@@ -46,25 +46,25 @@ export default async function Home() {
           </div>
           <ul className="flex flex-col space-y-4 w-full">
             <li className="">
-              <Link href="https://www.linkedin.com/in/kauemendes/" target="_blank" className="flex text-left items-center hover:text-red-600">
+              <Link href="https://www.linkedin.com/in/kauemendes/" target="_blank" className="flex text-left items-center hover:text-red-600 dark:hover:text-red-400">
                 <Image src="/icons/icon-linkedin.svg" className="" height={30} width={30} alt={"LinkedIn page for Kaue Freitas"} />
                 <span className="pl-2">Kaue Freitas</span>
               </Link>
             </li>
             <li>
-              <Link href="https://github.com/kauemendes/" target="_blank" className="flex text-center items-center hover:text-red-600">
+              <Link href="https://github.com/kauemendes/" target="_blank" className="flex text-center items-center hover:text-red-600 dark:hover:text-red-400">
                 <Image src="/icons/icon-github.svg" height={30} width={30} alt={""} />
                 <span className="pl-2">@kauemendes</span>
               </Link>
             </li>
             <li>
-              <Link href="https://telegram.me/kauemendes" target="_blank" className="flex text-center items-center hover:text-red-600">
+              <Link href="https://telegram.me/kauemendes" target="_blank" className="flex text-center items-center hover:text-red-600 dark:hover:text-red-400">
                 <Image src="/icons/icon-telegram.svg" height={30} width={30} alt={""} />
                 <span className="pl-2">@kauemendes</span>
               </Link>
             </li>
             <li>
-              <Link href="https://wa.me/351965613249" target="_blank" className="flex text-center items-center hover:text-red-600">
+              <Link href="https://wa.me/351965613249" target="_blank" className="flex text-center items-center hover:text-red-600 dark:hover:text-red-400">
                 <Image src="/icons/icon-whatsapp.svg" height={30} width={30} alt={""} />
                 <span className="pl-2">+351 965 613 249</span>
               </Link>
