@@ -1,10 +1,11 @@
 ---
-title: "2. Navigating the Strain: Technology Labor's Tug-of-War with Outdated Corporate Visions on Creative Control"
-image_banner: ""
-image_post: ""
+post: "tech-workers-vs-outdated-corporate-visions"
+title: "2. Tech Workers vs. Outdated Corporate Visions"
+image_banner: "/images/blog/tug-of-war.png"
+image_post: "/images/blog/tug-of-war@2x.png"
 date: "2023-11-26"
 ---
-# Navigating the Strain: Technology Labor's Tug-of-War with Outdated Corporate Visions on Creative Control
+# Tech Workers vs. Outdated Corporate Visions
 
 ## Introduction
 

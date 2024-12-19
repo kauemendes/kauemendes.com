@@ -1,7 +1,8 @@
 ---
+post: "why-i-started-using-powershell-instead-of-bash"
 title: "5. Why I started using Powershell instead of Bash?"
-image_banner: ""
-image_post: ""
+image_banner: "/images/blog/powershell-vs-bash.png"
+image_post: "/images/blog/powershell-vs-bash@2x.png"
 date: "2024-08-20"
 ---
 # Why I started using Powershell instead of Bash?

@@ -1,7 +1,8 @@
 ---
+post: "embracing-the-future-the-platform-ops-pattern-revolutionizing-companies"
 title: "3. Embracing the Future: The PlatformOps Pattern Revolutionizing Companies"
-image_banner: ""
-image_post: ""
+image_banner: "/images/blog/platformops.png"
+image_post: "/images/blog/platformops@2x.png"
 date: "2023-11-29"
 ---
 # Embracing the Future: The PlatformOps Pattern Revolutionizing Companies

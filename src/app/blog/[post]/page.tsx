@@ -2,15 +2,12 @@
 import Image from 'next/image';
 import Heading from "@/components/Heading";
 import ShareLinkButton from "@/components/ShareLinkButton";
-import { getSlugs, getPost } from "@/lib/content";
+import { getPostContent, getPostsList } from "@/lib/content";
 import { notFound } from 'next/navigation';
 
-export const revalidate = 300;
-
 export async function generateStaticParams() {
-  const posts = await getSlugs();
-  console.log('[generateStaticParams] posts', posts);
-  return posts.map((post) => post);
+  const posts = await getPostsList();
+  return posts.map((post) => ({ post: post.post }));
 }
 
 export async function generateMetadata(props) {
@@ -20,7 +17,7 @@ export async function generateMetadata(props) {
     post
   } = params;
 
-  const content = await getPost(post);
+  const content = await getPostContent(post);
   if (!content) {
     return notFound();
   }
@@ -29,14 +26,9 @@ export async function generateMetadata(props) {
   }
 }
 
-export default async function PostsPage(props) {
+export default async function PostPage(props) {
   const params = await props.params;
-
-  const {
-    post
-  } = params;
-
-  const content = await getPost(post);
+  const content  = await getPostContent(params.post);
   if (!content) {
     return notFound();
   }
@@ -44,7 +36,7 @@ export default async function PostsPage(props) {
     <>
       <Heading>{content.title}</Heading>
       <div className='flex'>
-        <Image src={content.image_banner} alt={content.title}  width={640} height={360} className="mb-2 object-cover w-full" />
+        <Image src={content.image_post} alt={content.title}  width={640} height={360} className="mb-2 object-cover w-full" />
       </div>
       <div className="flex flex-row-reverse max-w-md mx-auto items-right gap-4 items-baseline mb-4 pt-4 md:max-w-3xl">
         <ShareLinkButton />

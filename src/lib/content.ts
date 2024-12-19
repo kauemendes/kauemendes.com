@@ -24,6 +24,14 @@ export interface Post {
   image_post: string;
   body: string;
 }
+export interface PostMarkdown {
+  post: string;
+  title: string;
+  date: string;
+  image_banner: string;
+  image_post: string;
+  body: string;
+}
 
 export interface PaginatedPosts {
   pageCount: number;
@@ -39,6 +47,28 @@ export async function getContent(slug: string): Promise<Review> {
   return { title, date, image, body };
 }
 
+// get All posts
+export async function getPostsList(): Promise<Post[]> {
+  const files = await readdir(path.join(process.cwd(), '/src/content/blog/post'), 'utf8');
+  const slugs = files.filter((file) => file.endsWith('.md')).map((slug) => slug.slice(0, -'.md'.length));
+  const posts = []
+  for (const slug of slugs) {
+    const post = await getPostContent(slug)
+    posts.push(post)
+  }
+  posts.sort((a, b) => b.date.localeCompare(a.date))
+  return posts
+}
+
+// getBlogPost
+export async function getPostContent(slug: string): Promise<PostMarkdown> {
+  // https://vercel.com/guides/loading-static-file-nextjs-api-route
+  const text = await readFile(path.join(process.cwd(), `/src/content/blog/post/${slug}.md`), 'utf8');
+  const { content, data: { post, title, date, image_banner, image_post } } = matter(text);
+  const body = marked(content);
+  return { post, title, date, image_banner, image_post, body };
+}
+
 // getSlugs
 export async function getSlugs(): Promise<string[]> {
   const { data } = await fetchPosts({
@@ -46,22 +76,23 @@ export async function getSlugs(): Promise<string[]> {
     sort: ['publishedAt:desc'],
     pagination: { pageSize: 100 },
   });
-  return data.map((item) => item.attributes.post);
+  const slugs = data.map((item) => item.post);
+  return slugs;
 }
 
 // getReview
 export async function getPost(slug: string): Promise<Post> {
   const { data } = await fetchPosts({
-    filters: { post: { $eq: slug}},
+    filters: { post: { $eq: slug }},
     fields: ['id', 'title', 'post', 'bodyOld', 'body', 'publishedAt'],
     populate: { banner: { fields: ['url'] } },
     pagination: { pageSize: 1, withCount: false },
   });
+  
   if (data.length === 0) {
     return null;
   }
   const item = data[0];
-  // console.log('[getPost]:', item);
   return {
     ...toPost(item),
     body: marked(item.attributes.body),
@@ -76,6 +107,7 @@ export async function getPosts(pageSize: number, page?: number): Promise<Paginat
     pagination: { pageSize, page: page || 1 },
     sort: 'publishedAt:desc',
   });
+  // console.log('[getPosts]:', data[0].banner.url);
   const { data, meta } = body;
   return {
     pageCount: meta.pagination.pageCount,
@@ -84,30 +116,32 @@ export async function getPosts(pageSize: number, page?: number): Promise<Paginat
 }
 
 async function fetchPosts(parameters: any) {
+  console.log('[fetchPosts] 1:', parameters);
+  console.log('[fetchPosts] 2:', qs.stringify(parameters, { encodeValuesOnly: true }));
   const url = `${CMS_URL}/api/posts?` + qs.stringify(parameters, { encodeValuesOnly: true });
-  // console.log('[fetchPosts]:', url);
+  console.log('[fetchPosts] 3:', url);
   // console.log('[CACHE_TAG_POSTS]:', CACHE_TAG_POSTS);
   const response = await fetch(url, {
     next: {
       tags: [CACHE_TAG_POSTS],
     },
   });
-  // console.log('CMS repsonse status:', response.status);
+  console.log('CMS repsonse status:', response.status);
   if (!response.ok) {
     throw new Error(`CMS returned ${response.status} for ${url}`);
   }
+  console.log('response - OK', response.ok);
+  // console.log('response - json', await response.json());
   return await response.json();
 }
 
 function toPost(item: any) {
-  const { attributes } = item;
-
-  const image_banner = (attributes.banner.data?.attributes?.url.includes(CMS_URL) ? attributes.banner.data?.attributes?.url :  new URL(attributes.banner.data?.attributes?.url, CMS_URL).href)
+  const image_banner = (item.banner.url.includes(CMS_URL) ? item.banner.url :  new URL(item.banner.url, CMS_URL).href)
 
   return {
-    post: attributes.post,
-    title: attributes.title,
-    date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
+    post: item.post,
+    title: item.title,
+    date: item.publishedAt.slice(0, 'yyyy-mm-dd'.length),
     image_banner: image_banner,
     image_post: null,
     body: null,

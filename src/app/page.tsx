@@ -24,7 +24,6 @@ export default async function Home() {
     "I have a degree in computer science, but Stack Overflow is my true alma mater."
   ];
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-  const { posts } = await getPosts(3);
   return (
     <>
       <div className="flex m-auto flex-wrap text-left">

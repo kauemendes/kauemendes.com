@@ -1,7 +1,8 @@
 ---
+post: "the-strategic-value-of-a-strong-leadership-in-talent-retention"
 title: "4. The Strategic Value of a Strong Leadership in Talent Retention"
-image_banner: ""
-image_post: ""
+image_banner: "/images/blog/strong-leader-talent-retention.png"
+image_post: "/images/blog/strong-leader-talent-retention@2x.png"
 date: "2024-08-19"
 ---
 # The Strategic Value of a Strong Leadership in Talent Retention

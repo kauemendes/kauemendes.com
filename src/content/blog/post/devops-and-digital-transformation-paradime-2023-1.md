@@ -1,7 +1,8 @@
 ---
+post: "devops-and-digital-transformation-paradime-2023-1"
 title: "1. Devops and Digital Transformation Paradime 2023"
-image_banner: ""
-image_post: ""
+image_banner: "/images/blog/banner_devops_transformation.png"
+image_post: "/images/blog/banner_devops_transformation@2x.png"
 date: "2023-11-24"
 ---
 
