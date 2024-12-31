@@ -40,7 +40,7 @@ export interface PaginatedPosts {
 }
 
 export async function getRandomMessage(): Promise<string> {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/getRandomMessage`);
+  const response = await fetch(`${process.env.REACT_APP_API_URI}/v1/getRandomMessage`);
   if (!response.ok) {
     throw new Error(`Failed to fetch random message: ${response.statusText}`);
   }
