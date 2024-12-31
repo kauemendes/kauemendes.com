@@ -63,9 +63,14 @@ export default async function Home() {
             </li>
           </ul>
         </div>
-        <div className="w-full py-4 px-3 mt-1 rounded text-center">
+        <div className="w-full py-4 px-3 mt-1 rounded text-center space-y-10">
           <p className="m-auto font-semibold font-mono">
            with root in kauecode.com ¤ main ➜ <span className="font-bold font-mono animate-blink">_</span>
+          </p>
+          <p className="m-auto font-semibold font-mono">
+           <Link href="/consult" className="bg-gradient-to-b bg-red-500 p-5 pl-14 pr-14 rounded">
+              Tech Consult
+           </Link>
           </p>
         </div>
       </div>
