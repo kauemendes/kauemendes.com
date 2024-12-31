@@ -7,7 +7,11 @@ const PAGE_SIZE = 3;
 
 export async function generateMetadata() {
   return {
-    title: 'Blog'
+    title: 'Kaue Code - Blogs',
+    description: 'Kaue Code - Blogs',
+    keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Developer', 'DevOps', 'Tech Enthusiast', 'Software Engineer', 'Cloud Engineer', 'Software Architect', 'Blog'],
+    publisher: 'Kaue Mendes',
+    creator: 'Kaue Mendes',
   }
 }
 

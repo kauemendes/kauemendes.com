@@ -3,9 +3,9 @@ import Image from 'next/image'
 import Heading from '@/components/Heading';
 
 export const metadata = {
-  title: 'Info',
-  description: 'Info for Kaue Mendes de Freitas.',
-  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Blog', 'Kaue Mendes Personal Blog', 'Kaue Mendes Blog'],
+  title: 'Kaue Code - Info',
+  description: 'Kaue Code - Personal and Professional Info',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Profile', 'Kaue Mendes Personal Website', 'Profile'],
   publisher: 'Kaue Mendes',
   creator: 'Kaue Mendes',
 }

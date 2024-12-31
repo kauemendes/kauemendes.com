@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from "next/link";
 
 export const metadata = {
-  title: 'Projects',
-  description: 'Kaue Projects.',
-  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Projects', 'Project', 'Author Kaue'],
+  title: 'Kaue Code - Projects',
+  description: 'Kaue Code - Portfolio of Projects',
+  keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Developer', 'DevOps', 'Tech Enthusiast', 'Software Engineer', 'Cloud Engineer', 'Software Architect'],
   publisher: 'Kaue Mendes',
   creator: 'Kaue Mendes',
 }

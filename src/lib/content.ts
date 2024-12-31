@@ -7,6 +7,7 @@ import { marked } from 'marked';
 import qs from 'qs';
 
 export const CACHE_TAG_POSTS = 'posts';
+export const RANDOM_HOME_MESSAGE = 'home-random-message';
 const CMS_URL = process.env.CMS_URL;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -36,6 +37,15 @@ export interface PostMarkdown {
 export interface PaginatedPosts {
   pageCount: number;
   posts: Post[];
+}
+
+export async function getRandomMessage(): Promise<string> {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/getRandomMessage`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch random message: ${response.statusText}`);
+  }
+  const data = await response.json();
+  return data.randomMessage;
 }
 
 // legacy for info content
@@ -88,7 +98,7 @@ export async function getPost(slug: string): Promise<Post> {
     populate: { banner: { fields: ['url'] } },
     pagination: { pageSize: 1, withCount: false },
   });
-  
+
   if (data.length === 0) {
     return null;
   }
