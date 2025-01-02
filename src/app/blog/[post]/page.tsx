@@ -33,7 +33,7 @@ export default async function PostPage(props) {
     return notFound();
   }
   return (
-    <>
+    <div className="m-auto mt-16 p-10 grow py-3">
       <Heading>{content.title}</Heading>
       <div className='flex'>
         <Image src={content.image_post} alt={content.title}  width={640} height={360} className="mb-2 object-cover w-full" />
@@ -47,6 +47,6 @@ export default async function PostPage(props) {
           className="max-w-screen-md prose prose-slate"
         />
       </div>
-    </>
+    </div>
   );
 }

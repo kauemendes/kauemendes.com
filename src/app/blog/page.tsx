@@ -17,7 +17,7 @@ export async function generateMetadata() {
 export default async function BlogPage(props) {
   const posts = await getPostsList();
   return (
-    <>
+    <div className="m-auto mt-16 p-10 grow py-3 ">
       <div className="pb-4">
         <Heading>Personal Blog</Heading>
       </div>
@@ -30,6 +30,6 @@ export default async function BlogPage(props) {
           )) }
         </ul>
       </div>
-    </>
+    </div>
   );
 }

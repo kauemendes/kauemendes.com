@@ -3,7 +3,7 @@ import React from 'react';
 
 const ConsultingPage = () => {
   return (
-    <div>
+    <div className="m-auto mt-16 p-10 grow py-3 ">
       <div className="pl-10 pb-4">
         <Heading>Tech Consulting Services</Heading>
         <p>Innovative solutions for your business needs</p>

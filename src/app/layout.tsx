@@ -33,11 +33,10 @@ export default function RootLayout({
       <body className='bg-stone-50 flex flex-col min-h-screen font-roboto'>
         <ThemeProvider attribute="class">
           <NavBar />
-          <main className="m-auto mt-16 p-10 grow py-3">
+          <main className="">
             {children}
           </main>
           <Footer />
-
         </ThemeProvider>
         <GoogleAnalytics gaId="G-5D50WB6BVV" />
       </body>
