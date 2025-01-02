@@ -67,11 +67,6 @@ export default async function Home() {
           <p className="m-auto font-semibold font-mono">
            with root in kauecode.com ¤ main ➜ <span className="font-bold font-mono animate-blink">_</span>
           </p>
-          <p className="m-auto font-semibold font-mono">
-           <Link href="/consult" className="bg-gradient-to-b bg-red-500 p-5 pl-14 pr-14 rounded">
-              Tech Consult
-           </Link>
-          </p>
         </div>
       </div>
     </>

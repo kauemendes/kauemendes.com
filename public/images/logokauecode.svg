@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="164" height="164" viewBox="0 0 164 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="49" height="51" viewBox="0 0 49 51" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <clipPath id="clip_path_1">
-      <rect width="164" height="164" />
+      <rect width="49" height="51" />
     </clipPath>
-    <path id="path_2" d="M67.3607 4.16922L34.1726 57.4664L70.1727 107.81L50.6259 107.81L17.1567 77.1693L17.1566 107.81L0.000108608 107.81C0.000108608 107.81 62.9225 120.912 62.9226 54.1693C62.9226 -12.5732 0 1.16921 0 1.16921L17.1566 1.16921L17.1566 6.93331L17.1567 28.7053L48.0947 4.16922L67.3607 4.16922Z" />
-    <filter color-interpolation-filters="sRGB" x="-68.173" y="-106.852" width="70.173" height="108.852" id="filter_3">
-      <feFlood flood-opacity="0" result="BackgroundImageFix_1" />
-      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" in="SourceAlpha" />
-      <feOffset dx="0" dy="0" />
-      <feGaussianBlur stdDeviation="1" />
-      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.251 0" />
-      <feBlend mode="normal" in2="BackgroundImageFix_1" result="Shadow_2" />
-      <feBlend mode="normal" in="SourceGraphic" in2="Shadow_2" result="Shape_3" />
-    </filter>
+    <radialGradient id="gradient_2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="matrix(0 4 -4 0 4 4)">
+      <stop offset="0" stop-color="#FF00AA" />
+      <stop offset="1" stop-color="#1A0350" />
+    </radialGradient>
+    <radialGradient id="gradient_3" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="matrix(0 4 -4 0 4 4)">
+      <stop offset="0" stop-color="#41FF15" />
+      <stop offset="1" stop-color="#C800FF" />
+    </radialGradient>
+    <linearGradient id="gradient_4" gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="8" y2="16">
+      <stop offset="0" stop-color="#FF3535" />
+      <stop offset="1" stop-color="#770098" />
+    </linearGradient>
   </defs>
   <g clip-path="url(#clip_path_1)">
-    <rect width="164" height="164" fill="#FFFFFF" fill-rule="evenodd" />
-    <g id="Group" transform="translate(31.078 -10)">
-      <g filter="url(#filter_3)" transform="translate(0 40.831)">
-        <use p5:href="#path_2" fill="#05009F" fill-rule="evenodd" xmlns:p5="http://www.w3.org/1999/xlink" />
-        <use p5:href="#path_2" fill="#4E26FF" fill-rule="evenodd" xmlns:p5="http://www.w3.org/1999/xlink" />
-      </g>
-      <path d="M83.1094 138.094Q77.3437 143.719 70.0313 146.531Q62.7187 149.344 54.2813 149.344Q45 149.344 37.1953 145.969Q29.3906 142.594 23.5547 135.984Q17.7187 129.375 14.4141 119.391Q11.1094 109.406 11.1094 96.3281Q11.1094 83.25 14.4141 73.3359Q17.7187 63.4219 23.5547 56.8125Q29.3906 50.2031 37.2656 46.7578Q45.1406 43.3125 54.2813 43.3125Q62.7188 43.3125 70.0313 46.125Q77.3437 48.9375 83.1094 54.5625L71.4375 64.9688Q67.9219 60.8906 63.6328 59.0625Q59.3438 57.2344 54.7031 57.2344Q49.5 57.2344 44.7891 59.2031Q40.0781 61.1719 36.3516 65.8828Q32.625 70.5938 30.5156 78.0469Q28.4063 85.5 28.2656 96.3281Q28.4062 106.875 30.4453 114.328Q32.4844 121.781 36.0703 126.492Q39.6563 131.203 44.2266 133.383Q48.7969 135.563 53.8594 135.563Q58.9219 135.563 63.3516 133.734Q67.7813 131.906 71.4375 127.828L83.1094 138.094Z" fill="#E20D0D" transform="translate(18.922 0)" />
+    <rect width="49" height="51" />
+    <g id="Group">
+      <path id="Rectangle" d="M0 0L42.5 1.25517e-05C42.5 1.25517e-05 45.125 8.12502 44 13C42.875 17.875 38 19.5 38 19.5C31.6932 22.4638 10 2.4051 10 25C10 47.5949 40.3334 21.9542 42.5 25C42.5 25 47.125 30 48 36.5C48.875 42.9999 46 51 46 51L0 51L0 0Z" fill="#1A0350" fill-rule="evenodd" />
+      <rect id="Rectangle" width="41" height="13" fill="#DC1027" fill-rule="evenodd" transform="translate(0 38)" />
     </g>
+    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_2)" fill-rule="evenodd" transform="translate(8 4)" />
+    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_3)" fill-rule="evenodd" transform="translate(0 8)" />
+    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_3)" fill-rule="evenodd" />
+    <path id="Oval" d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="url(#gradient_4)" fill-rule="evenodd" transform="translate(12 16)" />
+    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(2 40)" />
+    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(11 40)" />
+    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(20 40)" />
+    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(29 40)" />
   </g>
 </svg>
