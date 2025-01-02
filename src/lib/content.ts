@@ -166,6 +166,7 @@ function toPost(item: any) {
   return {
     post: item.post,
     title: item.title,
+    description: item.description,
     date: item.publishedAt.slice(0, 'yyyy-mm-dd'.length),
     image_banner: image_banner,
     image_post: null,
