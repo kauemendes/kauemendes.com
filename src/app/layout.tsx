@@ -7,6 +7,7 @@ import NavBar from '@/components/NavBar'
 import { roboto, sourceCodePro, ebgaramond } from '@/app/font'
 
 import './globals.css'
+import Footer from '@/components/Footer'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -35,9 +36,8 @@ export default function RootLayout({
           <main className="m-auto mt-16 p-10 grow py-3">
             {children}
           </main>
-          <footer className="w-full h-10 bg-stone-900 dark:bg-slate-100 border-t dark:border-gray-800 py-3 text-center text-xs text-white dark:text-gray-900">
-            Made with <span className='text-red-600 dark:text-red-400'>❤</span> and{' '}<a href="https://vercel.com/solutions/nextjs" className="text-gray-400 hover:underline dark:text-gray-900">Next.JS</a> by KaueCode.Com - <a href="https://github.com/kauemendes/kauemendes.com" target='_blank'>OpenSource Code</a> - 2024
-          </footer>
+          <Footer />
+
         </ThemeProvider>
         <GoogleAnalytics gaId="G-5D50WB6BVV" />
       </body>
