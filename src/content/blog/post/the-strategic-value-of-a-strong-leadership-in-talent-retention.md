@@ -1,6 +1,7 @@
 ---
 post: "the-strategic-value-of-a-strong-leadership-in-talent-retention"
 title: "4. The Strategic Value of a Strong Leadership in Talent Retention"
+description: In an increasingly competitive job market, companies are facing significant challenges in attracting and retaining talent
 image_banner: "/images/blog/strong-leader-talent-retention.png"
 image_post: "/images/blog/strong-leader-talent-retention@2x.png"
 date: "2024-08-19"

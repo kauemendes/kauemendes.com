@@ -1,6 +1,7 @@
 ---
 post: "why-i-started-using-powershell-instead-of-bash"
 title: "5. Why I started using Powershell instead of Bash?"
+description: Choosing between PowerShell Core and Bash for scripting depends on various factors, including the specific needs of your environment, the platforms you work on
 image_banner: "/images/blog/powershell-vs-bash.png"
 image_post: "/images/blog/powershell-vs-bash@2x.png"
 date: "2024-08-20"

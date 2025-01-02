@@ -1,6 +1,7 @@
 ---
 post: "devops-and-digital-transformation-paradime-2023-1"
 title: "1. Devops and Digital Transformation Paradime 2023"
+description: In an increasingly tech-driven world, digital transformation has become a must for companies looking to stay ahead
 image_banner: "/images/blog/banner_devops_transformation.png"
 image_post: "/images/blog/banner_devops_transformation@2x.png"
 date: "2023-11-24"

@@ -1,6 +1,7 @@
 ---
 post: "tech-workers-vs-outdated-corporate-visions"
 title: "2. Tech Workers vs. Outdated Corporate Visions"
+description: In the ever-evolving landscape of technology, the relationship between tech labor and companies is encountering a profound shift
 image_banner: "/images/blog/tug-of-war.png"
 image_post: "/images/blog/tug-of-war@2x.png"
 date: "2023-11-26"

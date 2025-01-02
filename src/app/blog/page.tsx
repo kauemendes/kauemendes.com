@@ -1,9 +1,8 @@
 import Heading from "@/components/Heading";
 import { getPostsList } from "@/lib/content";
 import Link from "next/link";
-import Image from "next/image"; // Import the Image component from the correct module
 
-const PAGE_SIZE = 3;
+import Card from "@/components/Card";
 
 export async function generateMetadata() {
   return {
@@ -22,15 +21,11 @@ export default async function BlogPage(props) {
       <div className="pb-4">
         <Heading>Personal Blog</Heading>
       </div>
-      <div className="flex w-3/4 m-auto flex-col flex-wrap">
-        <ul className="flex w-3/4 m-auto w-full flex-wrap text-left sm:w-1/2 gap-5">
-          <p>Found: #<span>{posts.length}</span></p>
+      <div className="flex align-middle m-auto flex-wrap">
+        <ul className="flex m-auto w-full flex-wrap align-middle text-left gap-5">
           { posts.map((post, index) => (
-            <li className="border rounded shadow w-auto hover:shadow-xl w-auto bg-gradient-to-r from-pink-300 to-blue-500"  key={post.post}>
-              <Link href={`/blog/${post.post}`}>
-                <Image src={post.image_banner} alt={post.title} width={640} height={360} priority={index === 0} className="mb-2 rounded-t" />
-                <h1 className="flex text-stone-900 font-bold py-1 text-center mb-2">{post.title}</h1>
-              </Link>
+            <li className=""  key={post.post}>
+              <Card title={post.title} body={post.description} image={post.image_banner} url={`/blog/${post.post}`}/>
             </li>
           )) }
         </ul>

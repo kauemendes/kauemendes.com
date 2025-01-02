@@ -21,6 +21,7 @@ export interface Post {
   post: string;
   title: string;
   date: string;
+  description: string;
   image_banner: string;
   image_post: string;
   body: string;
@@ -29,6 +30,7 @@ export interface PostMarkdown {
   post: string;
   title: string;
   date: string;
+  description: string;
   image_banner: string;
   image_post: string;
   body: string;
@@ -87,9 +89,9 @@ export async function getPostsList(): Promise<Post[]> {
 export async function getPostContent(slug: string): Promise<PostMarkdown> {
   // https://vercel.com/guides/loading-static-file-nextjs-api-route
   const text = await readFile(path.join(process.cwd(), `/src/content/blog/post/${slug}.md`), 'utf8');
-  const { content, data: { post, title, date, image_banner, image_post } } = matter(text);
+  const { content, data: { post, title, description, date, image_banner, image_post } } = matter(text);
   const body = marked(content);
-  return { post, title, date, image_banner, image_post, body };
+  return { post, title, description, date, image_banner, image_post, body };
 }
 
 // getSlugs
