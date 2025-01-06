@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="49" height="51" viewBox="0 0 49 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="46" height="42" viewBox="0 0 46 42" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <clipPath id="clip_path_1">
-      <rect width="49" height="51" />
+      <rect width="46" height="42" />
     </clipPath>
-    <radialGradient id="gradient_2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="matrix(0 4 -4 0 4 4)">
-      <stop offset="0" stop-color="#FF00AA" />
-      <stop offset="1" stop-color="#1A0350" />
-    </radialGradient>
-    <radialGradient id="gradient_3" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="matrix(0 4 -4 0 4 4)">
-      <stop offset="0" stop-color="#41FF15" />
-      <stop offset="1" stop-color="#C800FF" />
-    </radialGradient>
-    <linearGradient id="gradient_4" gradientUnits="userSpaceOnUse" x1="8" y1="8" x2="8" y2="16">
-      <stop offset="0" stop-color="#FF3535" />
-      <stop offset="1" stop-color="#770098" />
-    </linearGradient>
   </defs>
   <g clip-path="url(#clip_path_1)">
-    <rect width="49" height="51" />
-    <g id="Group">
-      <path id="Rectangle" d="M0 0L42.5 1.25517e-05C42.5 1.25517e-05 45.125 8.12502 44 13C42.875 17.875 38 19.5 38 19.5C31.6932 22.4638 10 2.4051 10 25C10 47.5949 40.3334 21.9542 42.5 25C42.5 25 47.125 30 48 36.5C48.875 42.9999 46 51 46 51L0 51L0 0Z" fill="#1A0350" fill-rule="evenodd" />
-      <rect id="Rectangle" width="41" height="13" fill="#DC1027" fill-rule="evenodd" transform="translate(0 38)" />
-    </g>
-    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_2)" fill-rule="evenodd" transform="translate(8 4)" />
-    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_3)" fill-rule="evenodd" transform="translate(0 8)" />
-    <rect id="Rectangle" width="8" height="8" fill="url(#gradient_3)" fill-rule="evenodd" />
-    <path id="Oval" d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z" fill="url(#gradient_4)" fill-rule="evenodd" transform="translate(12 16)" />
-    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(2 40)" />
-    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(11 40)" />
-    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(20 40)" />
-    <path id="Star" d="M4.27975 0L5.60227 2.67971L8.55951 3.10942L6.41963 5.19529L6.92479 8.14058L4.27975 6.75L1.63472 8.14058L2.13988 5.19529L0 3.10942L2.95724 2.67971L4.27975 0Z" fill="#1D1D31" fill-rule="evenodd" transform="translate(29 40)" />
+    <rect width="46" height="42" fill="#FFFFFF" fill-rule="evenodd" />
+    <rect id="Rectangle" width="23" height="23" fill="#FF0E2A" fill-rule="evenodd" />
+    <rect id="Rectangle" width="23" height="23" fill="#F93583" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(23 0)" />
+    <rect id="Rectangle" width="41" height="5" fill="#8010DC" fill-rule="evenodd" mix-blend-mode="soft-light" transform="translate(3 2)" />
+    <rect id="Rectangle" width="41" height="11" fill="#1710DC" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(3 10)" />
+    <rect id="Rectangle" width="46" height="3" fill="#0A0F16" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 39)" />
+    <rect id="Rectangle" width="46" height="3" fill="#DBDBDB" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 36)" />
+    <rect id="Rectangle" width="46" height="13" fill="#DC8010" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 23)" />
+    <rect id="Rectangle" width="17" height="13" fill="#DC1010" fill-rule="evenodd" mix-blend-mode="overlay" transform="translate(0 23)" />
+    <rect id="Rectangle" width="46" height="3" fill="#FFFFFF" fill-rule="evenodd" transform="translate(0 42)" />
+    <path d="M9.47461 21.498L6.3457 24.75L6.3457 33.3984L2.9707 33.3984L2.9707 7.80469L6.3457 7.80469L6.3457 20.4609L17.7188 7.80469L21.7969 7.80469L11.7246 19.1074L22.5879 33.3984L18.5449 33.3984L9.47461 21.498ZM38.0223 25.2773Q37.5477 29.3379 35.0252 31.5439Q32.5027 33.75 28.3191 33.75Q23.784 33.75 21.0506 30.498Q18.3172 27.2461 18.3172 21.7969L18.3172 19.3359Q18.3172 15.7676 19.5916 13.0605Q20.866 10.3535 23.2039 8.90332Q25.5418 7.45313 28.618 7.45313Q32.6961 7.45313 35.157 9.72949Q37.618 12.0059 38.0223 16.0313L34.6297 16.0313Q34.1902 12.9633 32.7225 11.5881Q31.2547 10.2129 28.618 10.2129Q25.3836 10.2129 23.5467 12.6056Q21.7098 14.9983 21.7098 19.4139L21.7098 21.8947Q21.7098 26.0642 23.45 28.5272Q25.1902 30.9902 28.3191 30.9902Q31.1316 30.9902 32.6346 29.7158Q34.1375 28.4414 34.6297 25.2773L38.0223 25.2773Z" fill="#0011FF" fill-opacity="0.349" transform="translate(5 2)" />
   </g>
 </svg>
