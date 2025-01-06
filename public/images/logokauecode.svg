@@ -7,15 +7,23 @@
   </defs>
   <g clip-path="url(#clip_path_1)">
     <rect width="46" height="42" fill="#FFFFFF" fill-rule="evenodd" />
-    <rect id="Rectangle" width="23" height="23" fill="#FF0E2A" fill-rule="evenodd" />
-    <rect id="Rectangle" width="23" height="23" fill="#F93583" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(23 0)" />
-    <rect id="Rectangle" width="41" height="5" fill="#8010DC" fill-rule="evenodd" mix-blend-mode="soft-light" transform="translate(3 2)" />
-    <rect id="Rectangle" width="41" height="11" fill="#1710DC" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(3 10)" />
-    <rect id="Rectangle" width="46" height="3" fill="#0A0F16" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 39)" />
-    <rect id="Rectangle" width="46" height="3" fill="#DBDBDB" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 36)" />
-    <rect id="Rectangle" width="46" height="13" fill="#DC8010" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(0 23)" />
-    <rect id="Rectangle" width="17" height="13" fill="#DC1010" fill-rule="evenodd" mix-blend-mode="overlay" transform="translate(0 23)" />
-    <rect id="Rectangle" width="46" height="3" fill="#FFFFFF" fill-rule="evenodd" transform="translate(0 42)" />
-    <path d="M9.47461 21.498L6.3457 24.75L6.3457 33.3984L2.9707 33.3984L2.9707 7.80469L6.3457 7.80469L6.3457 20.4609L17.7188 7.80469L21.7969 7.80469L11.7246 19.1074L22.5879 33.3984L18.5449 33.3984L9.47461 21.498ZM38.0223 25.2773Q37.5477 29.3379 35.0252 31.5439Q32.5027 33.75 28.3191 33.75Q23.784 33.75 21.0506 30.498Q18.3172 27.2461 18.3172 21.7969L18.3172 19.3359Q18.3172 15.7676 19.5916 13.0605Q20.866 10.3535 23.2039 8.90332Q25.5418 7.45313 28.618 7.45313Q32.6961 7.45313 35.157 9.72949Q37.618 12.0059 38.0223 16.0313L34.6297 16.0313Q34.1902 12.9633 32.7225 11.5881Q31.2547 10.2129 28.618 10.2129Q25.3836 10.2129 23.5467 12.6056Q21.7098 14.9983 21.7098 19.4139L21.7098 21.8947Q21.7098 26.0642 23.45 28.5272Q25.1902 30.9902 28.3191 30.9902Q31.1316 30.9902 32.6346 29.7158Q34.1375 28.4414 34.6297 25.2773L38.0223 25.2773Z" fill="#0011FF" fill-opacity="0.349" transform="translate(5 2)" />
+    <g id="Group" transform="translate(-1 0)">
+      <path id="Rectangle" d="M1.56522 3.06667L22.4348 0L22.4348 23.5111L0.521536 23.5111L0.00407612 23.5111L0 23.5111L1.56522 3.06667Z" fill="#FF0E2A" fill-rule="evenodd" transform="translate(1.565 0)" />
+      <path id="Rectangle" d="M0 0L20.8696 2.04445L22.5204 23.5111L22.4349 23.5111L0 23.5111L0 0Z" fill="#1A134B" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(24 0)" />
+      <path id="Rectangle" d="M0 0L44.9526 0L38.7722 17.3778L6.25654 17.3778L0 0Z" fill="#DC8010" fill-rule="evenodd" mix-blend-mode="darken" transform="translate(1.57 23.511)" />
+      <rect id="Rectangle" width="48" height="3.067" fill="#FFFFFF" fill-rule="evenodd" transform="translate(0 42.933)" />
+      <g transform="translate(7.304 3.289)">
+        <path d="M4.47412 10.1519L2.99658 11.6875L2.99658 15.7715L1.40283 15.7715L1.40283 3.68555L2.99658 3.68555L2.99658 9.66211L8.36719 3.68555L10.293 3.68555L5.53662 9.02295L10.6665 15.7715L8.75732 15.7715L4.47412 10.1519Z" fill="#000000" />
+        <path d="M2.99658 11.0905L2.99658 15.7715L-0.597168 15.7715L-0.597168 1.68555L2.99658 1.68555L2.99658 6.05316L6.92136 1.68555L11.5236 1.68555L5.8311 8.07342L11.6828 15.7715L7.26216 15.7715L3.38593 10.6858L2.99658 11.0905ZM2.77254 9.88103L1.99658 10.6875L1.99658 14.7715L0.402832 14.7715L0.402832 2.68555L1.99658 2.68555L1.99658 8.66211L2.99658 7.54928L7.36719 2.68555L9.29297 2.68555L8.40183 3.68555L4.53662 8.02295L8.90636 13.7715L9.6665 14.7715L7.75732 14.7715L4.08751 9.95663L3.47412 9.15186L2.77254 9.88103Z" fill="#000000" fill-opacity="0.376" fill-rule="evenodd" />
+      </g>
+      <g transform="translate(28.174 3.289)">
+        <path d="M8.06836 10.4341L2.99658 10.4341L2.99658 15.7715L1.40283 15.7715L1.40283 3.68555L8.89014 3.68555L8.89014 4.98877L2.99658 4.98877L2.99658 9.13086L8.06836 9.13086L8.06836 10.4341Z" fill="#000000" />
+        <path d="M1.99658 9.43408L1.99658 14.7715L0.402832 14.7715L0.402832 2.68555L7.89014 2.68555L7.89014 3.98877L1.99658 3.98877L1.99658 8.13086L7.06836 8.13086L7.06836 9.43408L1.99658 9.43408ZM2.99658 10.4341L2.99658 15.7715L-0.597168 15.7715L-0.597168 1.68555L8.89014 1.68555L8.89014 4.98877L2.99658 4.98877L2.99658 7.13086L8.06836 7.13086L8.06836 10.4341L2.99658 10.4341Z" fill="#000000" fill-opacity="0.376" fill-rule="evenodd" />
+      </g>
+      <g transform="translate(3.13 1.533)">
+        <path id="Vector" d="M1.90162 2.98596L0 21.9778L5.73913 38.3333L36 38.3333L41.7391 21.9778L39.6522 2.04444L20.8696 0L1.90162 2.98596Z" />
+        <path d="M20.8627 -1L1.00067 2.12671L0.923759 2.89486L-1 22.1078L5.04741 39.3419L36.726 39.3419L42.7742 22.1055L40.5799 1.14617L20.8627 -1ZM1.91878 2.99449L0.0171611 21.9863L5.75629 38.3419L36.0172 38.3419L41.7563 21.9863L39.6693 2.05297L20.8867 0.00852609L1.91878 2.99449Z" fill="#000000" fill-rule="evenodd" />
+      </g>
+    </g>
   </g>
 </svg>
