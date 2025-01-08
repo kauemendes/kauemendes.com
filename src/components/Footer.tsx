@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                   <Link href="/" className="flex items-center">
-                      <Image src="/images/logokauecode.svg" width={48} height={48} className="h-8 me-3" alt="kauecode Logo" />
+                      <Image src="/images/logokauecode.svg" width={48} height={48} className="h-8 me-3 rounded" alt="kauecode Logo" />
                       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KAUECODE<span className="font-bold text-amber-300 animate-pulse">.</span>COM</span>
                   </Link>
               </div>
