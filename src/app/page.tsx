@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Heading from "@/components/Heading"
-import DoubleQuotes from "@/components/DoubleQuotes"
 import { getRandomMessage } from "@/lib/content";
 import { Metadata } from 'next';
 
