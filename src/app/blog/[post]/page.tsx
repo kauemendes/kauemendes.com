@@ -21,8 +21,19 @@ export async function generateMetadata(props) {
   if (!content) {
     return notFound();
   }
+
+  const keywords = content.post.split('-')
+
   return {
     title: content.title,
+    description: content.description,
+    keywords: [keywords, 'blog'],
+    openGraph: {
+      title: content.title,
+      description: content.description,
+      image: content.image_banner,
+      keywords: [keywords, 'blog']
+    },
   }
 }
 

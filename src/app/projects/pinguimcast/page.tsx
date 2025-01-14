@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function PinguimCastPage() {
   return (
-    <div className="flex flex-col m-auto space-y-10 md:max-w-6xl sm:max-w-lg ">
+    <div className="flex flex-col m-auto space-y-10">
       <div className="w-auto border-b">
         <Heading>Pinguim Cast</Heading>
       </div>
