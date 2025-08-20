@@ -37,7 +37,7 @@ export default function NavBar() {
                 <NavLink href="/" aria-current="page">Home</NavLink>
               </li>
               <li>
-                <NavLink href="/about" >About</NavLink>
+                <NavLink href="/resume" >About</NavLink>
               </li>
               <li>
                 <NavLink href="/projects" >Projects</NavLink>
