@@ -1,4 +1,4 @@
-import Heading from "@/components/Heading";
+import { Heading } from '@/components';
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'Ops Not Found! - Kaue Code',

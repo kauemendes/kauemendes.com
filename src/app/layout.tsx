@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { ThemeProvider } from "next-themes"
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import NavBar from '@/components/NavBar'
-import { roboto, sourceCodePro, ebgaramond } from '@/app/font'
+import { NavBar } from '@/components'
+import { roboto, sourceCodePro, ebgaramond } from '@/styles/fonts'
 
-import './globals.css'
-import Footer from '@/components/Footer'
+import '@/styles/globals.css'
+import { Footer } from '@/components'
 
 interface LayoutProps {
   children: React.ReactNode
