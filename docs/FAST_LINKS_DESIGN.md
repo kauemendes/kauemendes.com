@@ -193,7 +193,7 @@ export const links: Link[] = [
   {
     id: "whatsapp",
     title: "WhatsApp",
-    description: "Quick message - +351 965 613 249",
+    description: "Quick message - +55 998 982 401",
     url: "https://wa.me/351965613249",
     icon: "phone",
     category: "social",

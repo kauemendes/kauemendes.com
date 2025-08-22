@@ -19,8 +19,8 @@ export const socialLinks = [
   },
   {
     name: "WhatsApp",
-    url: "https://wa.me/351965613249",
+    url: "https://wa.me/5511998982401",
     icon: "/icons/icon-whatsapp.svg", 
-    username: "+351 965 613 249"
+    username: "+55 11 998 982 401"
   }
 ];
