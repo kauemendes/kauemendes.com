@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: ['DevOps', 'Software Engineer', 'Resume', 'CV', 'Azure', 'Kubernetes', 'Python', 'TypeScript'],
   openGraph: {
     title: 'Kaue Mendes - Interactive Resume',
-    description: 'DevOps Engineer with 10+ years of experience in software development and infrastructure automation',
+    description: 'DevOps Engineer with 15+ years of experience in software development and infrastructure automation',
     type: 'profile',
     url: 'https://kauemendes.com/resume',
   },

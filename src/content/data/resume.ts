@@ -167,6 +167,32 @@ const workExperience: WorkExperience[] = [
     ],
     companyLogo: '/images/appticket.png',
     type: 'full-time'
+  },
+  {
+    id: 'planit',
+    company: 'PlanIT',
+    position: 'Programmer',
+    startDate: new Date('2007-05-01'),
+    endDate: new Date('2012-08-31'),
+    location: 'Mogi das Cruzes, São Paulo, Brazil',
+    description: 'Programmer using Visual FoxPro for CRM and Financial systems, PostgreSQL database, and server administration.',
+    responsibilities: [
+      'Developed and maintained CRM and financial systems using Visual FoxPro',
+      'Designed and optimized PostgreSQL databases for business applications',
+      'Administered Linux servers for system reliability and performance',
+      'Provided technical support and troubleshooting for internal and external users',
+      'Collaborated with business stakeholders to gather requirements and deliver solutions'
+    ],
+    achievements: [
+      'Improved system stability and performance through database optimization',
+      'Successfully migrated legacy data to PostgreSQL',
+      'Enhanced user experience and operational efficiency in CRM workflows'
+    ],
+    technologies: [
+      'Visual FoxPro', 'PostgreSQL', 'Linux', 'CRM Systems', 'Financial Systems'
+    ],
+    companyLogo: '/images/planit_logo.jpg',
+    type: 'full-time'
   }
 ]
 
