@@ -1,0 +1,19 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base chevrons pattern -->
+  <g id="chevrons">
+    <!-- First chevron -->
+    <path d="M8 12L14 18L8 24" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Second chevron -->
+    <path d="M16 12L22 18L16 24" stroke="#2EE6A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Third chevron -->
+    <path d="M24 12L30 18L24 24" stroke="#FF7A00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="40" y="25" font-family="'Poppins', sans-serif" font-size="16" font-weight="700" fill="#F5F7FA">
+    KAUECODE
+  </text>
+  
+  <!-- Accent dot -->
+  <circle cx="115" cy="24" r="2" fill="#00E5FF"/>
+</svg>

@@ -5,6 +5,7 @@ import { getRandomMessage, getPostsList } from '@/lib';
 import { projects } from '@/content/data/projects';
 import { socialLinks } from '@/content/data/social';
 import { Card } from '@/components';
+import { TechBackground } from '@/components/ui/TechBackground';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -24,45 +25,100 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-cover bg-no-repeat bg-[url('/images/bluehack.jpg')] bg-gray-700 bg-blend-multiply">
-        <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-            DevOps Engineer & Cloud Architect
+      <section className="relative bg-gradient-brand min-h-screen flex items-center overflow-hidden">
+        {/* Animated Tech Background */}
+        <TechBackground />
+        
+        {/* Additional overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/20 via-transparent to-brand-primary/20"></div>
+        
+        <div className="relative z-20 px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-32">
+          {/* Animated greeting */}
+          <div className="mb-6 animate-fadeIn">
+            <span className="bg-brand-accent1/20 backdrop-blur-sm text-brand-accent1 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent1/30 shadow-lg">
+              🚀 Welcome to the Future of DevOps
+            </span>
+          </div>
+          
+          <h1 className="mb-6 text-4xl font-bold font-poppins tracking-tight leading-tight text-brand-neutral-light md:text-5xl lg:text-6xl xl:text-7xl animate-fadeIn">
+            Building the <span className="bg-gradient-accent bg-clip-text text-transparent">Digital</span>
+            <br />
+            Infrastructure of Tomorrow
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            {randomMessage}
+          
+          <p className="mb-8 text-lg font-normal text-brand-neutral-light/90 lg:text-xl sm:px-16 lg:px-48 max-w-4xl mx-auto animate-fadeIn leading-relaxed">
+            Architecting scalable cloud solutions and neural network infrastructures that power the next generation of technology. 
+            Where DevOps meets artificial intelligence.
           </p>
-          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            <Link href="/resume" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:ring-rose-300 dark:focus:ring-rose-900">
+
+          {/* Tech Stats */}
+          <div className="mb-8 flex flex-wrap justify-center gap-6 animate-fadeIn">
+            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent1/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+              <span className="text-brand-accent1 font-bold">10+</span> Years Experience
+            </div>
+            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent2/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+              <span className="text-brand-accent2 font-bold">100k+</span> Deployments
+            </div>
+            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent3/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+              <span className="text-brand-accent3 font-bold">24/7</span> Uptime Focus
+            </div>
+          </div>
+          
+          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 animate-fadeIn">
+            <Link 
+              href="/resume" 
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-brand-accent1 hover:bg-brand-accent2 focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               View Resume
-              <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
               </svg>
             </Link>
-            <Link href="/projects" className="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+            
+            <Link 
+              href="/projects" 
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-neutral-light rounded-lg border-2 border-brand-accent1 hover:bg-brand-accent1 hover:text-brand-primary focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300"
+            >
               Explore Projects
+              <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
             </Link>  
+          </div>
+          
+          {/* Futuristic Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div className="flex flex-col items-center text-brand-neutral-light/60">
+              <div className="relative">
+                <div className="w-6 h-10 border-2 border-brand-accent1/50 rounded-full">
+                  <div className="w-1 h-3 bg-brand-accent1 rounded-full mx-auto mt-2 animate-bounce"></div>
+                </div>
+                <div className="absolute -inset-2 border border-brand-accent1/20 rounded-full animate-ping"></div>
+              </div>
+              <span className="text-xs mt-2 font-mono tracking-wider">EXPLORE_DATA</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="bg-brand-secondary">
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* About Section */}
           <div className="lg:col-span-2 space-y-12">
             {/* Introduction */}
             <section>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-6">
                 Hi, I'm Kaue Mendes
               </h2>
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-brand-neutral-light/80 leading-relaxed text-lg">
                   DevOps Engineer and Cloud Architect passionate about building scalable, reliable systems. 
                   I specialize in Azure cloud platforms, automation, and helping teams deliver software faster and more efficiently.
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-brand-neutral-light/80 leading-relaxed text-lg">
                   When I'm not architecting cloud solutions, you'll find me contributing to open-source projects, 
                   writing about technology trends, or exploring the latest DevOps tools and practices.
                 </p>
@@ -72,10 +128,10 @@ export default async function Home() {
             {/* Featured Projects */}
             <section>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light">
                   Featured Projects
                 </h2>
-                <Link href="/projects" className="text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 font-medium">
+                <Link href="/projects" className="text-brand-accent1 hover:text-brand-accent2 font-medium transition-colors duration-300">
                   View All →
                 </Link>
               </div>
@@ -209,11 +265,12 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Terminal Footer */}
-        <div className="mt-16 text-center">
-          <p className="font-mono text-gray-600 dark:text-gray-400">
-            with root in kauecode.com ¤ main ➜ <span className="font-bold animate-pulse">_</span>
-          </p>
+          {/* Terminal Footer */}
+          <div className="mt-16 text-center">
+            <p className="font-mono text-brand-neutral-medium">
+              with root in kauecode.com ¤ main ➜ <span className="font-bold animate-pulse">_</span>
+            </p>
+          </div>
         </div>
       </div>
     </>

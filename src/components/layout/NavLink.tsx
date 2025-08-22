@@ -12,19 +12,28 @@ interface NavLinkProps {
 
 export default function NavLink({ href, children, prefetch }: NavLinkProps) {
   const pathname = usePathname();
-  const isNotActive = pathname === href;
-  if (isNotActive) {
+  const isActive = pathname === href;
+  
+  if (isActive) {
     return (
       <span
-        className="block py-2 px-3 md:p-0 text-white bg-rose-700 rounded md:bg-transparent md:text-rose-700 md:dark:text-rose-500 dark:bg-rose-600 md:dark:bg-transparent" aria-current>
+        className="block py-2 px-3 md:p-0 text-brand-accent1 bg-brand-secondary rounded md:bg-transparent font-semibold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent1 after:rounded-full" 
+        aria-current="page"
+      >
         {children}
       </span>
     );
   }
+  
   return (
-    <Link href={href} prefetch={prefetch}
-      className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+    <Link 
+      href={href} 
+      prefetch={prefetch}
+      className="block py-2 px-3 md:p-0 text-brand-neutral-light rounded transition-all duration-300 hover:bg-brand-secondary md:hover:bg-transparent md:border-0 md:hover:text-brand-accent1 hover:text-brand-accent3 font-medium relative group"
+    >
       {children}
+      {/* Hover underline effect */}
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-accent1 to-brand-accent3 rounded-full transition-all duration-300 group-hover:w-full"></span>
     </Link>
   );
 }

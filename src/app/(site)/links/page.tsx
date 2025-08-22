@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Heading } from '@/components';
 import { socialLinks } from '@/content/data/social';
 import { linkCategories } from '@/content/data/links';
 import { FeaturedLinks, CategorySection } from './components';
@@ -29,76 +28,190 @@ export default function LinksPage() {
   };
 
   return (
-    <div className="m-auto mt-16 p-10 grow py-3">
-      <div className="flex flex-col m-auto space-y-10 md:max-w-4xl sm:max-w-lg">
-        {/* Header with existing avatar */}
-        <div className="text-center">
-          <Image 
-            src="/images/avatars/avatar.png" 
-            alt="Kaue Mendes" 
-            width={120} 
-            height={120}
-            className="rounded-full mx-auto mb-4"
-          />
-          <Heading>Kaue Mendes</Heading>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+    <div className="min-h-screen bg-gradient-brand">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        
+        {/* Header */}
+        <div className="text-center mb-16 pt-16">
+          <div className="mb-6">
+            <span className="bg-brand-accent2/10 text-brand-accent2 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent2/20">
+              Connect With Me
+            </span>
+          </div>
+          
+          <div className="mb-8">
+            <div className="relative inline-block">
+              <div className="absolute -inset-4 bg-gradient-to-r from-brand-accent1 to-brand-accent2 rounded-full opacity-20 blur-lg"></div>
+              <Image 
+                src="/images/avatars/avatar.png" 
+                alt="Kaue Mendes" 
+                width={150} 
+                height={150}
+                className="relative rounded-full mx-auto border-4 border-brand-accent1/30 shadow-2xl"
+              />
+            </div>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-brand-neutral-light mb-4">
+            <span className="bg-gradient-accent bg-clip-text text-transparent">Kaue</span> Mendes
+          </h1>
+          
+          <p className="text-brand-neutral-light/90 text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
             DevOps Engineer • Cloud Architect • Tech Enthusiast
           </p>
-          <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">
-            Connect with me and explore my work
+          
+          <p className="text-brand-neutral-light/70 text-base max-w-xl mx-auto">
+            Connect with me across various platforms and explore my work in DevOps, cloud computing, and software development.
           </p>
+        </div>
+
+        {/* Statistics */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+            <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
+              10+
+            </div>
+            <div className="text-brand-neutral-medium text-sm font-medium">
+              Platforms
+            </div>
+          </div>
+          
+          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+            <div className="text-3xl font-bold text-brand-accent2 mb-2 font-poppins">
+              5k+
+            </div>
+            <div className="text-brand-neutral-medium text-sm font-medium">
+              Connections
+            </div>
+          </div>
+          
+          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+            <div className="text-3xl font-bold text-brand-accent3 mb-2 font-poppins">
+              24/7
+            </div>
+            <div className="text-brand-neutral-medium text-sm font-medium">
+              Available
+            </div>
+          </div>
+          
+          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+            <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
+              100%
+            </div>
+            <div className="text-brand-neutral-medium text-sm font-medium">
+              Response Rate
+            </div>
+          </div>
         </div>
 
         {/* Featured Links */}
         <FeaturedLinks onLinkClick={handleLinkClick} />
 
         {/* Enhanced Social Links */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center mb-4">
-            Social & Professional
-          </h3>
-          {socialLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              className="block w-full p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              onClick={() => handleLinkClick(link.name)}
-            >
-              <div className="flex items-center space-x-4">
-                <Image 
-                  src={link.icon} 
-                  alt={link.name}
-                  width={32} 
-                  height={32}
-                />
-                <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    {link.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {link.username}
-                  </p>
-                </div>
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-8 text-center">
+            <span className="bg-gradient-accent bg-clip-text text-transparent">Social</span> & Professional
+          </h2>
+          <div className="space-y-4">
+            {socialLinks.map((link, index) => (
+              <div key={link.name} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
+                <Link
+                  href={link.url}
+                  target="_blank"
+                  className="group block w-full p-6 bg-brand-secondary/80 backdrop-blur-sm rounded-xl border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
+                  onClick={() => handleLinkClick(link.name)}
+                >
+                  <div className="flex items-center space-x-6">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-brand-accent1/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <Image 
+                        src={link.icon} 
+                        alt={link.name}
+                        width={40} 
+                        height={40}
+                        className="relative"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-brand-neutral-light text-lg group-hover:text-brand-accent1 transition-colors duration-300">
+                        {link.name}
+                      </h3>
+                      <p className="text-brand-neutral-light/70 text-sm mt-1">
+                        {link.username}
+                      </p>
+                    </div>
+                    <div className="text-brand-accent1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Additional Categories */}
-        <div className="space-y-8">
-          {linkCategories.filter(cat => cat.title !== "Social & Professional").map((category) => (
-            <CategorySection
-              key={category.title}
-              category={category}
-              onLinkClick={handleLinkClick}
-            />
+        <div className="space-y-12 mb-16">
+          {linkCategories.filter(cat => cat.title !== "Social & Professional").map((category, categoryIndex) => (
+            <div key={category.title} className="animate-fadeIn" style={{ animationDelay: `${(categoryIndex + socialLinks.length) * 0.1}s` }}>
+              <CategorySection
+                category={category}
+                onLinkClick={handleLinkClick}
+              />
+            </div>
           ))}
         </div>
 
+        {/* Call to Action */}
+        <div className="relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden mb-16">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E5FF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
+          
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins text-brand-neutral-light mb-4">
+              Let's Work Together!
+            </h2>
+            <p className="text-lg text-brand-neutral-light/80 mb-8 max-w-2xl mx-auto">
+              Ready to discuss your next DevOps project or cloud transformation? 
+              I'm always excited to tackle new challenges and help teams succeed.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/consult"
+                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-brand-accent1 hover:bg-brand-accent2 focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Start a Project
+                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+              </Link>
+              
+              <Link
+                href="/projects"
+                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-neutral-light rounded-lg border-2 border-brand-accent1 hover:bg-brand-accent1 hover:text-brand-primary focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300"
+              >
+                View My Work
+                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Footer */}
-        <div className="text-center mt-8 pb-4">
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
+        <div className="text-center pb-8">
+          <p className="font-mono text-brand-neutral-medium">
+            with root in kauecode.com/links ¤ main ➜ <span className="font-bold animate-pulse">_</span>
+          </p>
+          <p className="text-brand-neutral-light/60 text-sm mt-2">
             Built with Next.js • Updated regularly
           </p>
         </div>

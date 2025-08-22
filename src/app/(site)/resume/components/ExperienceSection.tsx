@@ -33,10 +33,15 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2 flex items-center">
+          <span className="w-8 h-8 bg-brand-accent1 rounded-lg flex items-center justify-center mr-3">
+            <svg className="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h8z" />
+            </svg>
+          </span>
           Professional Experience
         </h2>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-brand-neutral-light/70 pl-11">
           My journey through various roles and companies
         </p>
       </motion.div>
@@ -48,7 +53,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         className="relative"
       >
         {/* Timeline Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-400 to-green-400"></div>
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent1 via-brand-accent3 to-brand-accent2"></div>
 
         {experiences.map((experience, index) => (
           <motion.div
@@ -57,13 +62,13 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
             className="relative mb-12 last:mb-0"
           >
             {/* Timeline Dot */}
-            <div className="absolute left-6 w-4 h-4 bg-blue-600 border-4 border-white dark:border-slate-800 rounded-full shadow-lg z-10"></div>
+            <div className="absolute left-6 w-4 h-4 bg-brand-accent1 border-4 border-brand-neutral-light rounded-full shadow-lg z-10"></div>
 
             {/* Experience Card */}
             <div className="ml-20">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
+                className="bg-brand-primary/50 backdrop-blur-sm rounded-xl shadow-lg border border-brand-accent1/20 p-6 hover:shadow-xl hover:border-brand-accent1/40 transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
@@ -81,10 +86,10 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                         </div>
                       )}
                       <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                        <h3 className="text-xl font-bold font-poppins text-brand-neutral-light">
                           {experience.position}
                         </h3>
-                        <p className="text-blue-600 dark:text-blue-400 font-medium">
+                        <p className="text-brand-accent1 font-medium">
                           {experience.company}
                         </p>
                       </div>

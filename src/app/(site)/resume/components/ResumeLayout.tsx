@@ -53,8 +53,26 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
   }
 
   return (
-    <div className="m-auto mt-16 p-10 min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="min-h-screen bg-gradient-brand">
+      <div className="container mx-auto px-4 py-8 max-w-7xl pt-24">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="mb-6">
+            <span className="bg-brand-accent2/10 text-brand-accent2 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent2/20">
+              Interactive Resume
+            </span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-brand-neutral-light mb-6">
+            Professional <span className="bg-gradient-accent bg-clip-text text-transparent">Experience</span>
+          </h1>
+          
+          <p className="text-brand-neutral-light/80 text-lg max-w-3xl mx-auto leading-relaxed">
+            Comprehensive overview of my professional journey, skills, and achievements in DevOps, 
+            cloud architecture, and software engineering.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Navigation Sidebar */}
           <div className="lg:col-span-1">
@@ -76,7 +94,7 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+              className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden"
             >
               {renderSection()}
             </motion.div>
@@ -88,11 +106,11 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 1, duration: 0.3 }}
-          className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 bg-brand-accent1 hover:bg-brand-accent2 text-brand-primary p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
           onClick={() => window.print()}
           aria-label="Print Resume"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
           </svg>
         </motion.button>
