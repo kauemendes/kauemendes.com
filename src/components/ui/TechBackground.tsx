@@ -15,7 +15,7 @@ interface Node {
 
 export function TechBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number>(0);
   const nodesRef = useRef<Node[]>([]);
   const timeRef = useRef(0);
 
