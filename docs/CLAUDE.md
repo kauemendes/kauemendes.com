@@ -39,6 +39,7 @@ make stop-production
 - Jest configuration: `jest.config.ts`
 - Test files: `src/lib/__tests__/`
 - Run single test: `npm test -- content.test.ts`
+- TypeScript support: ts-jest preset with path aliases
 
 ## Project Structure
 
@@ -140,9 +141,11 @@ The site uses a fully static content approach:
 - Images: organized by category in `public/images/`
 
 ### Environment Configuration
-- Google Analytics: integrated via `@next/third-parties/google`
+- Google Analytics: integrated via `@next/third-parties/google` (GA ID: G-5D50WB6BVV)
 - Standalone output: configured for Docker deployment
 - Path aliases: `@/*` maps to `src/*` in tsconfig.json
+- Next.js redirects: `/linkedin`, `/whatsapp`, `/github` to social profiles
+- Remote image patterns: configured for CMS integration
 
 ### Styling
 - Tailwind CSS with typography plugin
