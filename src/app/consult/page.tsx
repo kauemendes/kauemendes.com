@@ -108,16 +108,16 @@ ${contactForm.name}`;
   const contactOptions = [
     {
       name: 'Email',
-      value: 'kauemendes@gmail.com',
+      value: 'kaue.mendes@gmail.com',
       icon: '📧',
-      action: 'mailto:kauemendes@gmail.com',
+      action: 'mailto:kaue.mendes@gmail.com',
       description: 'Best for detailed project discussions'
     },
     {
       name: 'WhatsApp',
-      value: '+55 998 982 401',
+      value: '+55 11 998 982 401',
       icon: '💬',
-      action: 'https://wa.me/351965613249',
+      action: 'https://wa.me/5511998982401',
       description: 'Quick questions and initial contact'
     },
     {

@@ -2,6 +2,39 @@ import { ResumeData, WorkExperience, SkillCategory, Project } from '@/lib/types/
 
 const workExperience: WorkExperience[] = [
   {
+    id: 'vortx',
+    company: 'Vórtx',
+    position: 'DevOps Specialist',
+    startDate: new Date('2025-03-10'),
+    endDate: undefined,
+    location: 'Hybrid (São Paulo, Brazil / Remote)',
+    description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform',
+    responsibilities: [
+      'Leading DevOps initiatives to enhance infrastructure automation and CI/CD pipelines',
+      'Collaborating with development teams to integrate DevOps practices into the software development lifecycle',
+      'Developing custom software solutions tailored to internal team needs',
+      'Implementing CI/CD pipelines and cloud infrastructure setups',
+      'Improving system reliability and scalability through automation',
+      'Best practices evangelist for DevOps culture within the organization',
+      'Offering training and workshops on DevOps tools and methodologies',
+      'API Gateway management and automation',
+      'Kubernetes architecture design and implementation',
+      'GitHub and Repository patterns standardization',
+      'Infrastructure as Code (IaC) implementation using Terraform and other tools'
+    ],
+    achievements: [
+      'Governance controls implemented for infrastructure as code (IaC) deployments',
+      'Transitioned Fargate ECS workloads to Kubernetes, enhancing scalability and management',
+      'Conducted workshops that improved team efficiency and collaboration'
+    ],
+    technologies: [
+      'Python', 'JavaScript', 'TypeScript', 'Docker', 'Kubernetes',
+      'Terraform', 'GitHub', 'AWS', 'CI/CD', 'GitOps', 'API Gateway', 'Helm'
+    ],
+    companyLogo: '/images/logo-vortx.svg',
+    type: 'full-time'
+  },
+  {
     id: 'millennium-bcp',
     company: 'Millennium BCP',
     position: 'DevOps Engineer',
