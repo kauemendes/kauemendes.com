@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+// Deterministic pseudo-random generator based on seed
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed * 9999) * 10000;
+  return x - Math.floor(x);
+}
 
 interface Node {
   x: number;
@@ -18,6 +24,11 @@ export function TechBackground() {
   const animationFrameRef = useRef<number>(0);
   const nodesRef = useRef<Node[]>([]);
   const timeRef = useRef(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -251,30 +262,30 @@ export function TechBackground() {
           />
         </div>
 
-        {/* Floating data particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Floating data particles - only render on client to avoid hydration mismatch */}
+        {isMounted && [...Array(20)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-brand-accent1 rounded-full opacity-60"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`
+              left: `${seededRandom(i * 1.1) * 100}%`,
+              top: `${seededRandom(i * 2.2) * 100}%`,
+              animation: `float ${3 + seededRandom(i * 3.3) * 4}s ease-in-out infinite`,
+              animationDelay: `${seededRandom(i * 4.4) * 5}s`
             }}
           />
         ))}
 
-        {/* Neural pulse rings */}
-        {[...Array(5)].map((_, i) => (
+        {/* Neural pulse rings - only render on client to avoid hydration mismatch */}
+        {isMounted && [...Array(5)].map((_, i) => (
           <div
             key={`pulse-${i}`}
             className="absolute border border-brand-accent2/20 rounded-full"
             style={{
               width: `${20 + i * 40}px`,
               height: `${20 + i * 40}px`,
-              left: `${20 + Math.random() * 60}%`,
-              top: `${20 + Math.random() * 60}%`,
+              left: `${20 + seededRandom(i * 5.5) * 60}%`,
+              top: `${20 + seededRandom(i * 6.6) * 60}%`,
               animation: `pulse ${2 + i * 0.5}s ease-in-out infinite`,
               animationDelay: `${i * 0.3}s`
             }}

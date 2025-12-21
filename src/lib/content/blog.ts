@@ -5,23 +5,23 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import type { PostMarkdown } from '@/lib/types';
 
-// Get all posts from all years
-export async function getPostsList(): Promise<PostMarkdown[]> {
+// Get all posts from all years for a specific locale
+export async function getPostsList(locale: string = 'en'): Promise<PostMarkdown[]> {
   const posts: PostMarkdown[] = [];
-  const blogPath = path.join(process.cwd(), '/src/content/blog/posts');
-  
+  const blogPath = path.join(process.cwd(), `/src/content/blog/posts/${locale}`);
+
   try {
     const years = await readdir(blogPath, 'utf8');
-    
+
     for (const year of years) {
       const yearPath = path.join(blogPath, year);
       try {
         const files = await readdir(yearPath, 'utf8');
         const markdownFiles = files.filter((file) => file.endsWith('.md'));
-        
+
         for (const file of markdownFiles) {
           const slug = file.slice(0, -'.md'.length);
-          const post = await getPostContent(slug, year);
+          const post = await getPostContent(slug, locale, year);
           posts.push(post);
         }
       } catch (error) {
@@ -32,22 +32,22 @@ export async function getPostsList(): Promise<PostMarkdown[]> {
   } catch (error) {
     console.error('Error reading blog posts directory:', error);
   }
-  
+
   posts.sort((a, b) => b.date.localeCompare(a.date));
   return posts;
 }
 
-// Get blog post content by slug and year
-export async function getPostContent(slug: string, year?: string): Promise<PostMarkdown> {
-  let filePath: string;
-  
+// Get blog post content by slug and year for a specific locale
+export async function getPostContent(slug: string, locale: string = 'en', year?: string): Promise<PostMarkdown> {
+  let filePath: string | undefined;
+
   if (year) {
-    filePath = path.join(process.cwd(), `/src/content/blog/posts/${year}/${slug}.md`);
+    filePath = path.join(process.cwd(), `/src/content/blog/posts/${locale}/${year}/${slug}.md`);
   } else {
     // Search for the file in all year directories if year not specified
-    const blogPath = path.join(process.cwd(), '/src/content/blog/posts');
+    const blogPath = path.join(process.cwd(), `/src/content/blog/posts/${locale}`);
     const years = await readdir(blogPath, 'utf8');
-    
+
     for (const yearDir of years) {
       const testPath = path.join(blogPath, yearDir, `${slug}.md`);
       try {
@@ -58,12 +58,12 @@ export async function getPostContent(slug: string, year?: string): Promise<PostM
         continue;
       }
     }
-    
+
     if (!filePath) {
       throw new Error(`Post not found: ${slug}`);
     }
   }
-  
+
   const text = await readFile(filePath, 'utf8');
   const { content, data: { post, title, description, date, image_banner, image_post } } = matter(text);
   const body = marked(content);

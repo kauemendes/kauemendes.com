@@ -1,0 +1,242 @@
+{
+  "common": {
+    "readMore": "Ler Mais",
+    "viewAll": "Ver Todos",
+    "back": "Voltar",
+    "loading": "Carregando...",
+    "viewResume": "Ver Currículo",
+    "allLinks": "Todos os Links",
+    "letsConnect": "Vamos Conectar",
+    "subscribe": "Inscrever-se",
+    "enterEmail": "Digite seu email",
+    "allRightsReserved": "Todos os Direitos Reservados",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  },
+  "navigation": {
+    "home": "Início",
+    "resume": "Currículo",
+    "projects": "Projetos",
+    "blog": "Blog",
+    "consult": "Consultoria",
+    "about": "Sobre",
+    "links": "Links"
+  },
+  "home": {
+    "hero": {
+      "badge": "Bem-vindo ao Futuro do DevOps",
+      "title1": "Construindo a",
+      "titleHighlight": "Infraestrutura Digital",
+      "title2": "do Amanhã",
+      "subtitle": "Arquitetando soluções cloud escaláveis e infraestruturas de rede neural que impulsionam a próxima geração de tecnologia. Onde DevOps encontra a inteligência artificial."
+    },
+    "stats": {
+      "yearsExperience": "Anos de Experiência",
+      "deployments": "Implantações",
+      "uptimeFocus": "Foco em Disponibilidade"
+    },
+    "about": {
+      "greeting": "Olá, sou Kaue Mendes",
+      "description1": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Especializado em plataformas cloud Azure, automação e ajudando equipes a entregar software mais rápido e eficientemente.",
+      "description2": "Quando não estou arquitetando soluções cloud, você me encontrará contribuindo para projetos open-source, escrevendo sobre tendências tecnológicas ou explorando as últimas ferramentas e práticas DevOps."
+    },
+    "featuredProjects": "Projetos em Destaque",
+    "latestBlog": "Últimas do Blog",
+    "coreExpertise": "Principais Competências",
+    "exploreData": "EXPLORAR_DADOS",
+    "noPosts": "Novos posts em breve! Volte para insights sobre DevOps, arquitetura cloud e tendências tecnológicas.",
+    "profileRole": "Engenheiro DevOps • Arquiteto Cloud"
+  },
+  "blog": {
+    "title": "Blog Pessoal",
+    "subtitle": "Insights de Tech e Experiências",
+    "articles": "Artigos",
+    "categories": "Categorias",
+    "readers": "Leitores",
+    "featured": "Destaque",
+    "readArticle": "Ler Artigo",
+    "allArticles": "Todos os Artigos",
+    "wantUpdates": "Quer Ficar Atualizado?",
+    "backToBlog": "Voltar ao Blog",
+    "previousArticle": "Artigo Anterior",
+    "nextArticle": "Próximo Artigo",
+    "enjoyedArticle": "Gostou deste Artigo?",
+    "readMoreArticles": "Ler Mais Artigos",
+    "share": "Compartilhar",
+    "publishedOn": "Publicado em"
+  },
+  "resume": {
+    "title": "Currículo Interativo",
+    "subtitle": "Experiência Profissional",
+    "description": "Visão abrangente da minha jornada profissional, habilidades e conquistas em DevOps, arquitetura cloud e engenharia de software.",
+    "overview": "Visão Geral",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "education": "Formação",
+    "contact": "Contato",
+    "printResume": "Imprimir Currículo",
+    "downloadPdf": "Baixar PDF",
+    "present": "Presente",
+    "responsibilities": "Responsabilidades",
+    "achievements": "Conquistas",
+    "technologies": "Tecnologias",
+    "experienceSection": {
+      "title": "Experiência Profissional",
+      "subtitle": "Minha jornada por diversos cargos e empresas",
+      "current": "Atual",
+      "keyResponsibilities": "Principais Responsabilidades:",
+      "keyAchievements": "Principais Conquistas:",
+      "technologiesTools": "Tecnologias e Ferramentas:"
+    },
+    "skillsSection": {
+      "title": "Habilidades e Expertise",
+      "subtitle": "Habilidades técnicas e níveis de proficiência em diferentes domínios",
+      "topSkillsOverview": "Visão Geral das Principais Habilidades",
+      "skills": "habilidades",
+      "proficiency": "Proficiência",
+      "yearsExperience": "anos de experiência",
+      "featured": "Destaque"
+    },
+    "projectsSection": {
+      "title": "Projetos em Destaque",
+      "subtitle": "Apresentando projetos-chave e seus impactos",
+      "allProjects": "Todos os Projetos",
+      "viewProject": "Ver Projeto",
+      "code": "Código",
+      "keyHighlights": "Principais Destaques:",
+      "impactResults": "Impacto e Resultados:",
+      "technologiesUsed": "Tecnologias Utilizadas:",
+      "more": "mais"
+    },
+    "educationSection": {
+      "title": "Formação e Certificações",
+      "subtitle": "Formação acadêmica e certificações profissionais",
+      "educationLabel": "Formação",
+      "certificationsLabel": "Certificações",
+      "achievements": "Conquistas:",
+      "valid": "Válido",
+      "expired": "Expirado",
+      "issued": "Emitido:",
+      "expires": "Expira:",
+      "viewCredential": "Ver Credencial",
+      "noEducation": "Nenhuma Formação ou Certificação Listada",
+      "noEducationDesc": "Informações sobre formação e certificações serão exibidas aqui quando disponíveis."
+    },
+    "contactSection": {
+      "title": "Entre em Contato",
+      "subtitle": "Vamos conectar e discutir oportunidades",
+      "contactInfo": "Informações de Contato",
+      "email": "Email",
+      "phone": "Telefone",
+      "location": "Localização",
+      "website": "Website",
+      "socialProfiles": "Perfis Sociais",
+      "readyToCollaborate": "Pronto para colaborar?",
+      "openToDiscuss": "Estou sempre aberto a discutir novas oportunidades, projetos interessantes ou apenas ter uma boa conversa sobre tecnologia.",
+      "sendEmail": "Envie-me um email",
+      "responseTime": "Tempo de Resposta",
+      "workAvailable": "Trabalho Disponível",
+      "timezone": "Fuso Horário",
+      "basedIn": "Localizado em São Paulo, Brasil",
+      "featured": "Destaque",
+      "remote": "Remoto"
+    }
+  },
+  "projects": {
+    "title": "Meus Projetos",
+    "subtitle": "Vitrine do Portfólio",
+    "projectsBuilt": "Projetos Construídos",
+    "downloads": "Downloads",
+    "latestRelease": "Último Lançamento",
+    "viewDetails": "Ver Detalhes",
+    "technologies": "Tecnologias",
+    "keyFeatures": "Principais Recursos",
+    "impact": "Impacto",
+    "interestedCustom": "Interessado em Desenvolvimento Customizado?",
+    "discussProject": "Discutir Seu Projeto",
+    "viewProject": "Ver Projeto",
+    "liveDemo": "Demo ao Vivo",
+    "sourceCode": "Código Fonte",
+    "status": {
+      "active": "Ativo",
+      "completed": "Concluído",
+      "inProgress": "Em Progresso"
+    }
+  },
+  "consult": {
+    "title": "Consultoria Cloud & DevOps Empresarial",
+    "subtitle": "Consultoria Profissional",
+    "getFreeConsultation": "Obter Consultação Gratuita",
+    "viewExperience": "Ver Minha Experiência",
+    "servicesOverview": "Visão Geral dos Serviços",
+    "completeSolutions": "Soluções Completas",
+    "howIWork": "Como Trabalho",
+    "getStarted": "Começar",
+    "contactMe": "Entre em Contato",
+    "services": {
+      "cloudInfrastructure": "Infraestrutura & Arquitetura Cloud",
+      "devopsAutomation": "DevOps & Soluções de Automação",
+      "managedHosting": "Hospedagem de Infraestrutura Gerenciada",
+      "fullStackDevelopment": "Desenvolvimento Full-Stack"
+    },
+    "packages": {
+      "startup": "Startup",
+      "medium": "Empresa Média",
+      "enterprise": "Enterprise"
+    }
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Conheça Mais",
+    "personal": "Pessoal",
+    "professional": "Profissional",
+    "personalDescription": "Minha história pessoal e jornada",
+    "professionalDescription": "Experiência profissional e carreira"
+  },
+  "links": {
+    "title": "Links",
+    "subtitle": "Links Curados",
+    "description": "Uma coleção de links e recursos úteis",
+    "connectWithMe": "Conecte-se Comigo",
+    "role": "Engenheiro DevOps • Arquiteto Cloud • Entusiasta Tech",
+    "intro": "Conecte-se comigo em várias plataformas e explore meu trabalho em DevOps, computação em nuvem e desenvolvimento de software.",
+    "stats": {
+      "platforms": "Plataformas",
+      "connections": "Conexões",
+      "available": "Disponível",
+      "responseRate": "Taxa de Resposta"
+    },
+    "quickAccess": "Acesso Rápido",
+    "socialProfessional": "Social e Profissional",
+    "letsWorkTogether": "Vamos Trabalhar Juntos!",
+    "ctaDescription": "Pronto para discutir seu próximo projeto DevOps ou transformação cloud? Estou sempre animado para enfrentar novos desafios e ajudar equipes a ter sucesso.",
+    "startProject": "Iniciar um Projeto",
+    "viewMyWork": "Ver Meu Trabalho",
+    "footerBuiltWith": "Feito com Next.js • Atualizado regularmente",
+    "categories": {
+      "contentBlog": "Conteúdo e Blog",
+      "projectsWork": "Projetos e Trabalho",
+      "professionalServices": "Serviços Profissionais"
+    }
+  },
+  "footer": {
+    "description": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Ajudando equipes a entregar software mais rápido e eficientemente.",
+    "content": "Conteúdo",
+    "professional": "Profissional",
+    "expertise": "Especialidades",
+    "stayUpdated": "Mantenha-se Atualizado",
+    "newsletterDescription": "Receba os últimos insights sobre DevOps, arquitetura cloud e tendências tecnológicas no seu email.",
+    "consulting": "Consultoria",
+    "azureCloud": "Azure Cloud",
+    "devopsCiCd": "DevOps & CI/CD",
+    "kubernetes": "Kubernetes",
+    "iac": "Infraestrutura como Código"
+  },
+  "metadata": {
+    "siteTitle": "kauecode.com",
+    "siteDescription": "Site pessoal de Kaue Mendes de Freitas, blog pessoal e portfólio.",
+    "homeTitle": "Kaue Code - Desenvolvedor|DevOps|Entusiasta Tech",
+    "homeDescription": "kauecode.com: Programação - a arte, a ciência e a paixão."
+  }
+}
