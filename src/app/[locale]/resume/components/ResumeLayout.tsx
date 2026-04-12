@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { ResumeData } from '@/lib/types/resume'
 import { ResumeHeader } from './ResumeHeader'
 import { ResumeNavigation } from './ResumeNavigation'
@@ -19,6 +19,7 @@ interface ResumeLayoutProps {
 export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
   const [activeSection, setActiveSection] = useState<string>('overview')
   const t = useTranslations('resume')
+  const locale = useLocale()
 
   const sections = [
     { id: 'overview', label: t('overview'), icon: '👤' },
@@ -108,7 +109,7 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
           animate={{ scale: 1 }}
           transition={{ delay: 1, duration: 0.3 }}
           className="fixed bottom-8 right-8 bg-brand-accent1 hover:bg-brand-accent2 text-brand-primary p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
-          onClick={() => window.print()}
+          onClick={() => window.open(`/${locale}/resume/print`, '_blank', 'noopener,noreferrer')}
           aria-label={t('printResume')}
         >
           <svg className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">

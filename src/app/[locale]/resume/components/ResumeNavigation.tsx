@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLocale, useTranslations } from 'next-intl'
 
 interface Section {
   id: string
@@ -15,6 +16,8 @@ interface ResumeNavigationProps {
 }
 
 export function ResumeNavigation({ sections, activeSection, onSectionChange }: ResumeNavigationProps) {
+  const locale = useLocale()
+  const t = useTranslations('resume')
   return (
     <nav className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-xl border border-brand-secondary p-6">
       <div className="space-y-2">
@@ -57,18 +60,20 @@ export function ResumeNavigation({ sections, activeSection, onSectionChange }: R
 
       {/* Download Section */}
       <div className="mt-8 pt-6 border-t border-brand-primary">
-        <motion.button
+        <motion.a
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.3 }}
           className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-brand-neutral-light hover:bg-brand-primary hover:text-brand-accent1 transition-all duration-300 border border-brand-accent1/30 group"
-          onClick={() => window.print()}
+          href={`/${locale}/resume/print`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          <span className="font-medium font-poppins">Download PDF</span>
-        </motion.button>
+          <span className="font-medium font-poppins">{t('downloadPdf')}</span>
+        </motion.a>
       </div>
     </nav>
   )
