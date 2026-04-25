@@ -231,12 +231,35 @@ const workExperience: WorkExperience[] = [
 
 const skillCategories: SkillCategory[] = [
   {
+    name: 'IA Empresarial & IAOps',
+    icon: '🤖',
+    color: '#0891B2',
+    skills: [
+      { name: 'Arquitetura de IA Empresarial', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'Sistemas Multi-Agente', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'MCP (Model Context Protocol)', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'IAOps / AIOps', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'AWS Bedrock', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'Spec-Driven Development', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'OpenAI Codex', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps' },
+      { name: 'Claude (Anthropic)', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'OpenWebUI', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps' },
+      { name: 'Modelos LLM em Kubernetes (GPU)', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'Gestão de Modelos Públicos (OpenAI, Anthropic, Mistral, Llama)', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps' },
+      { name: 'RAG & Engenharia de Contexto', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps' },
+      { name: 'Workflows Agênticos & Vibe Coding', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'Otimização de Processos com IA', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
+      { name: 'Governança e Segurança de IA', level: 8, yearsExperience: 1, category: 'IA Empresarial & IAOps' }
+    ]
+  },
+  {
     name: 'DevOps & Infraestrutura',
     icon: '🚀',
     color: '#3B82F6',
     skills: [
       { name: 'Docker', level: 9, yearsExperience: 8, category: 'DevOps & Infraestrutura', featured: true },
       { name: 'Kubernetes', level: 8, yearsExperience: 6, category: 'DevOps & Infraestrutura', featured: true },
+      { name: 'Kubernetes com GPUs (NVIDIA Operator)', level: 8, yearsExperience: 2, category: 'DevOps & Infraestrutura', featured: true },
       { name: 'Terraform', level: 8, yearsExperience: 5, category: 'DevOps & Infraestrutura', featured: true },
       { name: 'Azure DevOps', level: 9, yearsExperience: 6, category: 'DevOps & Infraestrutura', featured: true },
       { name: 'AWS', level: 7, yearsExperience: 7, category: 'DevOps & Infraestrutura' },

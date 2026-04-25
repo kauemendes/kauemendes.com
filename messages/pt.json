@@ -167,9 +167,9 @@
     }
   },
   "consult": {
-    "title": "Consultoria Cloud & DevOps Empresarial",
+    "title": "Consultoria Empresarial em IA, Cloud & DevOps",
     "subtitle": "Consultoria Profissional",
-    "getFreeConsultation": "Obter Consultação Gratuita",
+    "getFreeConsultation": "Agendar Consulta Gratuita",
     "viewExperience": "Ver Minha Experiência",
     "servicesOverview": "Visão Geral dos Serviços",
     "completeSolutions": "Soluções Completas",
@@ -177,6 +177,7 @@
     "getStarted": "Começar",
     "contactMe": "Entre em Contato",
     "services": {
+      "enterpriseAi": "Consultoria Exclusiva de IA Empresarial",
       "cloudInfrastructure": "Infraestrutura & Arquitetura Cloud",
       "devopsAutomation": "DevOps & Soluções de Automação",
       "managedHosting": "Hospedagem de Infraestrutura Gerenciada",
@@ -230,15 +231,15 @@
     "stayUpdated": "Mantenha-se Atualizado",
     "newsletterDescription": "Receba os últimos insights sobre DevOps, arquitetura cloud e tendências tecnológicas no seu email.",
     "consulting": "Consultoria",
-    "azureCloud": "Azure Cloud",
+    "azureCloud": "Nuvens Públicas",
     "devopsCiCd": "DevOps & CI/CD",
     "kubernetes": "Kubernetes",
     "iac": "Infraestrutura como Código"
   },
   "metadata": {
     "siteTitle": "kauecode.com",
-    "siteDescription": "Site pessoal de Kaue Mendes de Freitas, blog pessoal e portfólio.",
-    "homeTitle": "Kaue Code - Desenvolvedor|DevOps|Entusiasta Tech",
-    "homeDescription": "kauecode.com: Programação - a arte, a ciência e a paixão."
+    "siteDescription": "Kaue Mendes — Consultoria de IA Empresarial, Cloud e DevOps. Arquitetura de IA, IAOps, MCPs, sistemas multi-agente, AWS Bedrock e modelos LLM em Kubernetes com GPU.",
+    "homeTitle": "Kaue Mendes · Consultoria de IA Empresarial, Cloud & DevOps",
+    "homeDescription": "Consultoria especializada em IA Empresarial — arquitetura, IAOps, MCPs, sistemas multi-agente, Vibe Coding, Spec-Driven Development, AWS Bedrock e modelos LLM em Kubernetes com GPU. Também Cloud e DevOps."
   }
 }

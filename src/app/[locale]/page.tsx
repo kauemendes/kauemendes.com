@@ -17,13 +17,60 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  const isPt = locale === 'pt'
+
   return {
     title: t('homeTitle'),
     description: t('homeDescription'),
-    keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Developer', 'DevOps', 'Tech Enthusiast', 'Software Engineer', 'Cloud Engineer', 'Software Architect'],
+    keywords: [
+      'Kaue Mendes',
+      'Kaue Mendes de Freitas',
+      'Enterprise AI Consulting',
+      'AI Consultancy',
+      'IAOps',
+      'AIOps',
+      'MCP',
+      'Model Context Protocol',
+      'Multi-Agent Systems',
+      'Vibe Coding',
+      'Spec-Driven Development',
+      'AWS Bedrock',
+      'Anthropic Claude',
+      'OpenAI Codex',
+      'OpenWebUI',
+      'LLM on Kubernetes',
+      'GPU Kubernetes',
+      'AI Architecture',
+      'AI Governance',
+      'RAG',
+      'DevOps',
+      'Cloud Engineer',
+      'Software Architect',
+      'Tech Enthusiast',
+      isPt ? 'Consultoria de IA Empresarial' : 'Enterprise AI Consulting',
+      isPt ? 'IA Empresarial' : 'Enterprise AI',
+      isPt ? 'Consultoria DevOps' : 'DevOps Consulting',
+    ],
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
-  };
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { 'pt-BR': '/pt', en: '/en' },
+    },
+    openGraph: {
+      title: t('homeTitle'),
+      description: t('homeDescription'),
+      type: 'website',
+      locale: isPt ? 'pt_BR' : 'en_US',
+      url: `https://kauecode.com/${locale}`,
+      siteName: 'Kaue Mendes',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('homeTitle'),
+      description: t('homeDescription'),
+    },
+  }
 }
 
 export default async function Home({ params }: PageProps) {

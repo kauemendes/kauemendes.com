@@ -167,7 +167,7 @@
     }
   },
   "consult": {
-    "title": "Enterprise Cloud & DevOps Consulting",
+    "title": "Enterprise AI, Cloud & DevOps Consulting",
     "subtitle": "Professional Consulting",
     "getFreeConsultation": "Get Free Consultation",
     "viewExperience": "View My Experience",
@@ -177,6 +177,7 @@
     "getStarted": "Get Started",
     "contactMe": "Contact Me",
     "services": {
+      "enterpriseAi": "Enterprise AI Consulting",
       "cloudInfrastructure": "Cloud Infrastructure & Architecture",
       "devopsAutomation": "DevOps & Automation Solutions",
       "managedHosting": "Managed Infrastructure Hosting",
@@ -230,15 +231,15 @@
     "stayUpdated": "Stay Updated",
     "newsletterDescription": "Get the latest insights on DevOps, cloud architecture, and technology trends delivered to your inbox.",
     "consulting": "Consulting",
-    "azureCloud": "Azure Cloud",
+    "azureCloud": "Public Clouds",
     "devopsCiCd": "DevOps & CI/CD",
     "kubernetes": "Kubernetes",
     "iac": "Infrastructure as Code"
   },
   "metadata": {
     "siteTitle": "kauecode.com",
-    "siteDescription": "Personal Kaue Mendes de Freitas website, personal blog and portfolio.",
-    "homeTitle": "Kaue Code - Developer|DevOps|Tech Enthusiast",
-    "homeDescription": "kauecode.com: Coding - the art, the science, and the passion."
+    "siteDescription": "Kaue Mendes — Enterprise AI, Cloud and DevOps Consulting. AI architecture, IAOps, MCPs, multi-agent systems, AWS Bedrock and LLM models on Kubernetes with GPU.",
+    "homeTitle": "Kaue Mendes · Enterprise AI, Cloud & DevOps Consulting",
+    "homeDescription": "Specialized Enterprise AI consulting — architecture, IAOps, MCPs, multi-agent systems, Vibe Coding, Spec-Driven Development, AWS Bedrock and LLM models on Kubernetes with GPU. Plus Cloud and DevOps."
   }
 }

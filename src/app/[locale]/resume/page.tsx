@@ -14,27 +14,53 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: isPortuguese
-      ? 'Currículo - Kaue Mendes | Engenheiro DevOps & Desenvolvedor de Software'
-      : 'Resume - Kaue Mendes | DevOps Engineer & Software Developer',
+      ? 'Currículo · Kaue Mendes | Consultor de IA Empresarial, Cloud & DevOps'
+      : 'Resume · Kaue Mendes | Enterprise AI, Cloud & DevOps Consultant',
     description: isPortuguese
-      ? 'Currículo interativo mostrando minha experiência em DevOps, desenvolvimento de software e automação de infraestrutura.'
-      : 'Interactive resume showcasing my experience in DevOps, software development, and infrastructure automation.',
-    keywords: ['DevOps', 'Software Engineer', 'Resume', 'CV', 'Azure', 'Kubernetes', 'Python', 'TypeScript'],
+      ? 'Currículo interativo de Kaue Mendes — IA empresarial (IAOps, MCPs, multi-agente, AWS Bedrock, LLM em Kubernetes), Cloud, DevOps, automação e desenvolvimento de software.'
+      : 'Interactive resume of Kaue Mendes — Enterprise AI (IAOps, MCPs, multi-agent, AWS Bedrock, LLMs on Kubernetes), Cloud, DevOps, automation and software development.',
+    keywords: [
+      'Enterprise AI',
+      'IAOps',
+      'AIOps',
+      'MCP',
+      'Multi-Agent',
+      'Vibe Coding',
+      'AWS Bedrock',
+      'Anthropic',
+      'Codex',
+      'OpenWebUI',
+      'LLM Kubernetes',
+      'DevOps',
+      'Software Engineer',
+      'Resume',
+      'CV',
+      'Azure',
+      'Kubernetes',
+      'Python',
+      'TypeScript',
+    ],
+    alternates: {
+      canonical: `/${locale}/resume`,
+      languages: { 'pt-BR': '/pt/resume', en: '/en/resume' },
+    },
     openGraph: {
-      title: isPortuguese ? 'Kaue Mendes - Currículo Interativo' : 'Kaue Mendes - Interactive Resume',
+      title: isPortuguese ? 'Kaue Mendes · Currículo Interativo' : 'Kaue Mendes · Interactive Resume',
       description: isPortuguese
-        ? 'Engenheiro DevOps com mais de 15 anos de experiência em desenvolvimento de software e automação de infraestrutura'
-        : 'DevOps Engineer with 15+ years of experience in software development and infrastructure automation',
+        ? 'Consultor em IA Empresarial, Cloud e DevOps com mais de 15 anos de experiência em desenvolvimento de software, automação e infraestrutura.'
+        : 'Enterprise AI, Cloud and DevOps consultant with 15+ years of experience in software development, automation and infrastructure.',
       type: 'profile',
-      url: `https://kauemendes.com/${locale}/resume`,
+      locale: isPortuguese ? 'pt_BR' : 'en_US',
+      url: `https://kauecode.com/${locale}/resume`,
+      siteName: 'Kaue Mendes',
     },
     twitter: {
       card: 'summary_large_image',
-      title: isPortuguese ? 'Kaue Mendes - Currículo Interativo' : 'Kaue Mendes - Interactive Resume',
+      title: isPortuguese ? 'Kaue Mendes · Currículo Interativo' : 'Kaue Mendes · Interactive Resume',
       description: isPortuguese
-        ? 'Engenheiro DevOps com mais de 10 anos de experiência em desenvolvimento de software e automação de infraestrutura'
-        : 'DevOps Engineer with 10+ years of experience in software development and infrastructure automation',
-    }
+        ? 'Consultor em IA Empresarial, Cloud e DevOps com mais de 15 anos de experiência.'
+        : 'Enterprise AI, Cloud and DevOps consultant with 15+ years of experience.',
+    },
   }
 }
 

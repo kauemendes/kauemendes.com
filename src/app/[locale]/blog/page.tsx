@@ -11,14 +11,55 @@ export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'blog' });
 
+  const isPt = locale === 'pt'
+  const title = isPt
+    ? 'Blog · IA Empresarial, IAOps, Cloud & DevOps · Kaue Mendes'
+    : 'Blog · Enterprise AI, IAOps, Cloud & DevOps · Kaue Mendes'
+  const description = isPt
+    ? 'Insights sobre IA empresarial, IAOps, MCPs, sistemas multi-agente, Vibe Coding, Spec-Driven Development, arquitetura cloud e DevOps.'
+    : 'Insights on enterprise AI, IAOps, MCPs, multi-agent systems, Vibe Coding, Spec-Driven Development, cloud architecture and DevOps.'
+
   return {
-    title: locale === 'pt' ? 'Kaue Code - Blog & Insights' : 'Kaue Code - Blog & Insights',
-    description: locale === 'pt'
-      ? 'Descubra insights sobre DevOps, arquitetura cloud e tendências tecnológicas.'
-      : 'Discover insights on DevOps, cloud architecture, and technology trends.',
-    keywords: ['Kaue Mendes', 'DevOps Blog', 'Cloud Architecture', 'Tech Insights', 'Software Engineering', 'Azure', 'Kubernetes', 'Blog'],
+    title,
+    description,
+    keywords: [
+      'Kaue Mendes',
+      'Enterprise AI Blog',
+      'IAOps',
+      'AIOps',
+      'Vibe Coding',
+      'MCP',
+      'Multi-Agent',
+      'Spec-Driven Development',
+      'AWS Bedrock',
+      'Anthropic',
+      'Codex',
+      'OpenWebUI',
+      'LLM Kubernetes',
+      'DevOps Blog',
+      'Cloud Architecture',
+      'Tech Insights',
+      'Software Engineering',
+      'Azure',
+      'Kubernetes',
+      isPt ? 'Blog de IA Empresarial' : 'Enterprise AI Blog',
+      isPt ? 'IA Empresarial' : 'Enterprise AI',
+    ],
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: { 'pt-BR': '/pt/blog', en: '/en/blog' },
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: isPt ? 'pt_BR' : 'en_US',
+      url: `https://kauecode.com/${locale}/blog`,
+      siteName: 'Kaue Mendes',
+    },
+    twitter: { card: 'summary_large_image', title, description },
   }
 }
 

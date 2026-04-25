@@ -71,6 +71,40 @@ ${contactForm.name}`;
 
   const services = [
     {
+      id: 'enterprise-ai',
+      title: t('services.enterpriseAi'),
+      icon: '🤖',
+      featured: true,
+      description: isPt
+        ? 'Arquitetura, governança e operação de IA em ambiente empresarial — do MVP ao IAOps em produção'
+        : 'Architecture, governance and operations for AI in the enterprise — from MVP to IAOps in production',
+      features: isPt ? [
+        'Arquitetura de IA empresarial e estratégia de adoção',
+        'Sistemas multi-agente e workflows agênticos (Vibe Coding)',
+        'Integração com MCPs empresariais e ferramentas internas',
+        'IAOps: pipelines, observabilidade e governança de modelos',
+        'Implantação de modelos LLM em Kubernetes com GPUs (vLLM, Ollama, Triton)',
+        'AWS Bedrock, OpenAI, Anthropic, Mistral, Llama — gestão multi-modelo',
+        'Spec-Driven Development e padrões para projetos com IA',
+        'OpenWebUI, Codex, Claude Code e plataformas internas de IA',
+        'RAG, engenharia de contexto e bases de conhecimento corporativas',
+        'Otimização de processos e automação com IA',
+        'Segurança, compliance e custo de operação de IA'
+      ] : [
+        'Enterprise AI architecture and adoption strategy',
+        'Multi-agent systems and agentic workflows (Vibe Coding)',
+        'Integration with enterprise MCPs and internal tooling',
+        'IAOps: pipelines, observability and model governance',
+        'LLM model deployment on Kubernetes with GPUs (vLLM, Ollama, Triton)',
+        'AWS Bedrock, OpenAI, Anthropic, Mistral, Llama — multi-model management',
+        'Spec-Driven Development and patterns for AI projects',
+        'OpenWebUI, Codex, Claude Code and internal AI platforms',
+        'RAG, context engineering and corporate knowledge bases',
+        'Process optimization and AI-driven automation',
+        'AI security, compliance and operating cost'
+      ]
+    },
+    {
       id: 'cloud-infrastructure',
       title: t('services.cloudInfrastructure'),
       icon: '☁️',
@@ -395,27 +429,48 @@ ${contactForm.name}`;
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {services.map((service, index) => (
-                <div key={service.id} className="group bg-brand-secondary rounded-xl shadow-lg border border-brand-secondary hover:border-brand-accent1/30 p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex items-center mb-4">
-                    <span className="text-4xl mr-4">{service.icon}</span>
-                    <h3 className="text-xl font-bold font-poppins text-brand-neutral-light group-hover:text-brand-accent1 transition-colors duration-300">
-                      {service.title}
-                    </h3>
+              {services.map((service, index) => {
+                const featured = (service as { featured?: boolean }).featured
+                return (
+                  <div
+                    key={service.id}
+                    id={service.id}
+                    className={`group rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+                      featured
+                        ? 'md:col-span-2 bg-gradient-to-br from-cyan-900/40 to-brand-secondary border-2 border-cyan-500/50 hover:border-cyan-400 relative overflow-hidden'
+                        : 'bg-brand-secondary border border-brand-secondary hover:border-brand-accent1/30'
+                    }`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {featured && (
+                      <div className="absolute top-0 right-0 bg-cyan-500 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                        {isPt ? 'Em Destaque · Novo' : 'Featured · New'}
+                      </div>
+                    )}
+                    <div className="flex items-center mb-4">
+                      <span className="text-4xl mr-4">{service.icon}</span>
+                      <h3 className={`text-xl font-bold font-poppins transition-colors duration-300 ${
+                        featured
+                          ? 'text-cyan-300 group-hover:text-cyan-200'
+                          : 'text-brand-neutral-light group-hover:text-brand-accent1'
+                      }`}>
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="text-brand-neutral-light/80 mb-6">
+                      {service.description}
+                    </p>
+                    <ul className={`space-y-2 ${featured ? 'md:grid md:grid-cols-2 md:gap-x-6 md:space-y-0' : ''}`}>
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start md:py-1">
+                          <span className={`mr-3 mt-0.5 text-base ${featured ? 'text-cyan-400' : 'text-brand-accent2'}`}>▸</span>
+                          <span className="text-brand-neutral-light/80 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-brand-neutral-light/80 mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="text-brand-accent2 mr-3 mt-0.5 text-base">▸</span>
-                        <span className="text-brand-neutral-light/80 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}
@@ -683,6 +738,7 @@ ${contactForm.name}`;
                         className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                       >
                         <option value="">{isPt ? 'Selecione um serviço' : 'Select a service'}</option>
+                        <option value="Enterprise AI Consulting">{isPt ? 'Consultoria de IA Empresarial' : 'Enterprise AI Consulting'}</option>
                         <option value="Cloud Infrastructure">{isPt ? 'Infraestrutura Cloud' : 'Cloud Infrastructure'}</option>
                         <option value="DevOps Automation">{isPt ? 'Automação DevOps' : 'DevOps Automation'}</option>
                         <option value="Managed Hosting">{isPt ? 'Hospedagem Gerenciada' : 'Managed Hosting'}</option>

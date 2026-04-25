@@ -25,7 +25,16 @@ function formatYear(date: Date | string): string {
   return new Date(date).getFullYear().toString()
 }
 
+const SHORTLINK_PATHS: Record<string, string> = {
+  linkedin: '/linkedin',
+  github: '/github',
+  whatsapp: '/whatsapp',
+}
+
 function socialDisplay(s: SocialProfile): string {
+  const key = s.platform.toLowerCase()
+  const shortPath = SHORTLINK_PATHS[key]
+  if (shortPath) return `kauecode.com${shortPath}`
   if (s.username) return s.username
   try {
     const u = new URL(s.url)

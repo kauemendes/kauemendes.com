@@ -33,6 +33,49 @@ body:has(.print-page) nav,
 body:has(.print-page) footer {
   display: none !important;
 }
+/* Force readable colors on the print page regardless of dark mode.
+   Tailwind's base layer sets `dark:text-white` on h1-h5/p/span/strong globally,
+   which makes text invisible on the white print background. Reset them here. */
+.dark .print-page,
+.dark .print-page h1,
+.dark .print-page h2,
+.dark .print-page h3,
+.dark .print-page h4,
+.dark .print-page h5,
+.dark .print-page p,
+.dark .print-page li,
+.dark .print-page span,
+.dark .print-page strong,
+.dark .print-page div,
+.dark .print-page article {
+  color: #111827;
+}
+.dark .print-page .text-gray-500 { color: #6b7280; }
+.dark .print-page .text-gray-600 { color: #4b5563; }
+.dark .print-page .text-gray-700 { color: #374151; }
+.dark .print-page .text-gray-800 { color: #1f2937; }
+.dark .print-page .text-gray-900 { color: #111827; }
+@media print {
+  .print-page,
+  .print-page h1,
+  .print-page h2,
+  .print-page h3,
+  .print-page h4,
+  .print-page h5,
+  .print-page p,
+  .print-page li,
+  .print-page span,
+  .print-page strong,
+  .print-page div,
+  .print-page article {
+    color: #111827;
+  }
+  .print-page .text-gray-500 { color: #6b7280; }
+  .print-page .text-gray-600 { color: #4b5563; }
+  .print-page .text-gray-700 { color: #374151; }
+  .print-page .text-gray-800 { color: #1f2937; }
+  .print-page .text-gray-900 { color: #111827; }
+}
 
 @media print {
   @page {
