@@ -213,25 +213,25 @@ export default async function Home({ params }: PageProps) {
             {/* Recent Blog Posts */}
             <section>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light">
                   {t('latestBlog')}
                 </h2>
-                <Link href={`/${locale}/blog`} className="text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 font-medium">
+                <Link href={`/${locale}/blog`} className="text-accent hover:text-accent-strong font-medium transition-colors duration-300">
                   {tCommon('readMore')} →
                 </Link>
               </div>
               {recentPosts.length > 0 ? (
                 <div className="space-y-4">
                   {recentPosts.map((post) => (
-                    <article key={post.post} className="border-l-4 border-rose-500 pl-4">
+                    <article key={post.post} className="bg-surface-raised/80 backdrop-blur border border-edge border-l-4 border-l-accent rounded-xl p-4">
                       <Link href={`/${locale}/blog/${post.post}`} className="group">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                        <h3 className="text-lg font-semibold text-ink group-hover:text-accent transition-colors">
                           {post.title}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 mt-1 text-sm">
+                        <p className="text-ink-muted mt-1 text-sm">
                           {post.description}
                         </p>
-                        <p className="text-gray-500 dark:text-gray-400 text-xs mt-2">
+                        <p className="text-ink-muted text-xs mt-2">
                           {new Date(post.date).toLocaleDateString(dateLocale, {
                             year: 'numeric',
                             month: 'long',
@@ -243,7 +243,7 @@ export default async function Home({ params }: PageProps) {
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-brand-neutral-light/80">
                   {t('noPosts')}
                 </p>
               )}
@@ -253,7 +253,7 @@ export default async function Home({ params }: PageProps) {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Profile Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+            <div className="bg-surface-raised/80 backdrop-blur border border-edge rounded-xl shadow-md p-6">
               <div className="text-center mb-6">
                 <Image
                   src="/images/avatars/avatar.png"
@@ -262,30 +262,30 @@ export default async function Home({ params }: PageProps) {
                   height={120}
                   className="rounded-full mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-xl font-bold font-poppins text-ink">
                   Kaue Mendes
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-ink-muted text-sm">
                   {t('profileRole')}
                 </p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
+                <p className="text-ink-muted text-xs mt-1">
                   Portugal 🇵🇹
                 </p>
               </div>
 
               <div className="space-y-3">
-                <Link href={`/${locale}/links`} className="block w-full py-2 px-4 bg-rose-600 hover:bg-rose-700 text-white text-center rounded-lg font-medium transition-colors">
+                <Link href={`/${locale}/links`} className="block w-full py-2 px-4 bg-accent hover:bg-accent-strong text-brand-primary text-center rounded-lg font-medium transition-colors">
                   {tCommon('allLinks')}
                 </Link>
-                <Link href={`/${locale}/resume`} className="block w-full py-2 px-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-center rounded-lg font-medium transition-colors">
+                <Link href={`/${locale}/resume`} className="block w-full py-2 px-4 border border-edge text-ink hover:bg-surface text-center rounded-lg font-medium transition-colors">
                   {tCommon('viewResume')}
                 </Link>
               </div>
             </div>
 
             {/* Contact Links */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            <div className="bg-surface-raised/80 backdrop-blur border border-edge rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold font-poppins text-ink mb-4">
                 {tCommon('letsConnect')}
               </h3>
               <div className="space-y-3">
@@ -294,7 +294,7 @@ export default async function Home({ params }: PageProps) {
                     key={link.name}
                     href={link.url}
                     target="_blank"
-                    className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+                    className="flex items-center space-x-3 text-ink-muted hover:text-accent transition-colors"
                   >
                     <Image
                       src={link.icon}
@@ -309,15 +309,15 @@ export default async function Home({ params }: PageProps) {
             </div>
 
             {/* Skills Highlight */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            <div className="bg-surface-raised/80 backdrop-blur border border-edge rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold font-poppins text-ink mb-4">
                 {t('coreExpertise')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {['Azure', 'DevOps', 'Kubernetes', 'Terraform', 'CI/CD', 'Docker', 'Python', 'PowerShell'].map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                    className="px-3 py-1 bg-surface border border-edge text-ink-muted text-xs rounded-full"
                   >
                     {skill}
                   </span>
