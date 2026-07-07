@@ -437,13 +437,13 @@ ${contactForm.name}`;
                     id={service.id}
                     className={`group rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
                       featured
-                        ? 'md:col-span-2 bg-linear-to-br from-cyan-900/40 to-brand-secondary border-2 border-cyan-500/50 hover:border-cyan-400 relative overflow-hidden'
+                        ? 'md:col-span-2 bg-linear-to-br from-accent/10 to-brand-secondary border-2 border-accent/50 hover:border-accent hover:shadow-accent/20 relative overflow-hidden'
                         : 'bg-brand-secondary border border-brand-secondary hover:border-brand-accent1/30'
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {featured && (
-                      <div className="absolute top-0 right-0 bg-cyan-500 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                      <div className="absolute top-0 right-0 bg-accent text-brand-primary text-xs font-semibold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
                         {isPt ? 'Em Destaque · Novo' : 'Featured · New'}
                       </div>
                     )}
@@ -451,7 +451,7 @@ ${contactForm.name}`;
                       <span className="text-4xl mr-4">{service.icon}</span>
                       <h3 className={`text-xl font-bold font-poppins transition-colors duration-300 ${
                         featured
-                          ? 'text-cyan-300 group-hover:text-cyan-200'
+                          ? 'text-accent group-hover:text-accent-strong'
                           : 'text-brand-neutral-light group-hover:text-brand-accent1'
                       }`}>
                         {service.title}
@@ -463,7 +463,7 @@ ${contactForm.name}`;
                     <ul className={`space-y-2 ${featured ? 'md:grid md:grid-cols-2 md:gap-x-6 md:space-y-0' : ''}`}>
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start md:py-1">
-                          <span className={`mr-3 mt-0.5 text-base ${featured ? 'text-cyan-400' : 'text-brand-accent2'}`}>▸</span>
+                          <span className={`mr-3 mt-0.5 text-base ${featured ? 'text-accent' : 'text-brand-accent2'}`}>▸</span>
                           <span className="text-brand-neutral-light/80 text-sm">{feature}</span>
                         </li>
                       ))}
