@@ -31,7 +31,7 @@ export function LinkCard({ link, onClick }: LinkCardProps) {
     <div 
       className={`
         group p-6 rounded-xl border transition-all duration-300 cursor-pointer
-        bg-brand-secondary/80 backdrop-blur-sm
+        bg-brand-secondary/80 backdrop-blur-xs
         border-brand-secondary
         hover:border-brand-accent1/30
         hover:shadow-2xl hover:-translate-y-2

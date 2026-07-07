@@ -13,7 +13,7 @@ export default function ShareLinkButton() {
 
   return (
     <button onClick={HandleClick}
-      className="flex gap-1 items-center bg-rose-700 hover:bg-rose-900 font-bold py-2 px-4 rounded text-slate-100">
+      className="flex gap-1 items-center bg-rose-700 hover:bg-rose-900 font-bold py-2 px-4 rounded-sm text-slate-100">
       <LinkIcon className="w-4 h-4 inline" />
       {clicked ? 'Link Copied': 'Share Link'}
     </button>

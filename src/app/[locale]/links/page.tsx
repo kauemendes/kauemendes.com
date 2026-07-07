@@ -46,7 +46,7 @@ export default function LinksPage() {
 
           <div className="mb-8">
             <div className="relative inline-block">
-              <div className="absolute -inset-4 bg-gradient-to-r from-brand-accent1 to-brand-accent2 rounded-full opacity-20 blur-lg"></div>
+              <div className="absolute -inset-4 bg-linear-to-r from-brand-accent1 to-brand-accent2 rounded-full opacity-20 blur-lg"></div>
               <Image
                 src="/images/avatars/avatar.png"
                 alt="Kaue Mendes"
@@ -72,7 +72,7 @@ export default function LinksPage() {
 
         {/* Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               10+
             </div>
@@ -81,7 +81,7 @@ export default function LinksPage() {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent2 mb-2 font-poppins">
               5k+
             </div>
@@ -90,7 +90,7 @@ export default function LinksPage() {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent3 mb-2 font-poppins">
               24/7
             </div>
@@ -99,7 +99,7 @@ export default function LinksPage() {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               100%
             </div>
@@ -123,7 +123,7 @@ export default function LinksPage() {
                 <Link
                   href={link.url}
                   target="_blank"
-                  className="group block w-full p-6 bg-brand-secondary/80 backdrop-blur-sm rounded-xl border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
+                  className="group block w-full p-6 bg-brand-secondary/80 backdrop-blur-xs rounded-xl border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1"
                   onClick={() => handleLinkClick(link.name)}
                 >
                   <div className="flex items-center space-x-6">
@@ -170,7 +170,7 @@ export default function LinksPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden mb-16">
+        <div className="relative bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden mb-16">
           {/* Background decoration */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{

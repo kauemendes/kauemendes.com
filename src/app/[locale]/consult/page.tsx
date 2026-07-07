@@ -393,7 +393,7 @@ ${contactForm.name}`;
 
       {/* Navigation Tabs */}
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap justify-center border-b border-brand-secondary bg-brand-secondary/50 backdrop-blur-sm rounded-t-2xl">
+        <div className="flex flex-wrap justify-center border-b border-brand-secondary bg-brand-secondary/50 backdrop-blur-xs rounded-t-2xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -437,7 +437,7 @@ ${contactForm.name}`;
                     id={service.id}
                     className={`group rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
                       featured
-                        ? 'md:col-span-2 bg-gradient-to-br from-cyan-900/40 to-brand-secondary border-2 border-cyan-500/50 hover:border-cyan-400 relative overflow-hidden'
+                        ? 'md:col-span-2 bg-linear-to-br from-cyan-900/40 to-brand-secondary border-2 border-cyan-500/50 hover:border-cyan-400 relative overflow-hidden'
                         : 'bg-brand-secondary border border-brand-secondary hover:border-brand-accent1/30'
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
@@ -600,7 +600,7 @@ ${contactForm.name}`;
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 text-center border border-brand-accent1/30">
+            <div className="bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 text-center border border-brand-accent1/30">
               <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-4">
                 {isPt ? 'Consulta Inicial Gratuita' : 'Free Initial Consultation'}
               </h3>
@@ -691,7 +691,7 @@ ${contactForm.name}`;
                         required
                         value={contactForm.name}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                       />
                     </div>
                     <div>
@@ -705,7 +705,7 @@ ${contactForm.name}`;
                         required
                         value={contactForm.email}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                       />
                     </div>
                   </div>
@@ -720,7 +720,7 @@ ${contactForm.name}`;
                       name="company"
                       value={contactForm.company}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                     />
                   </div>
 
@@ -735,7 +735,7 @@ ${contactForm.name}`;
                         required
                         value={contactForm.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                       >
                         <option value="">{isPt ? 'Selecione um serviço' : 'Select a service'}</option>
                         <option value="Enterprise AI Consulting">{isPt ? 'Consultoria de IA Empresarial' : 'Enterprise AI Consulting'}</option>
@@ -756,7 +756,7 @@ ${contactForm.name}`;
                         name="budget"
                         value={contactForm.budget}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                       >
                         <option value="">{isPt ? 'Selecione faixa de orçamento' : 'Select budget range'}</option>
                         <option value="Under €5,000">{isPt ? 'Abaixo de €5.000' : 'Under €5,000'}</option>
@@ -781,7 +781,7 @@ ${contactForm.name}`;
                       value={contactForm.message}
                       onChange={handleInputChange}
                       placeholder={isPt ? 'Conte-me sobre seu projeto, desafios atuais e objetivos...' : 'Tell me about your project, current challenges, and goals...'}
-                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
                     />
                   </div>
 

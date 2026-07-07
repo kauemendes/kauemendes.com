@@ -47,16 +47,16 @@ export default function InfoPage() {
           <span className='text-4xl text-center pt-4 pb-4'>Profiles</span>
         </div>
         <div className="flex flex-row w-auto m-auto">
-          <ul className="flex flex-wrap w-fit m-auto flex-grow gap-3">
-            <li className="bg-white dark:bg-gray-800 border rounded dark:border-gray-950 w-32 shadow hover:shadow-xl hover:shadow-sm">
+          <ul className="flex flex-wrap w-fit m-auto grow gap-3">
+            <li className="bg-white dark:bg-gray-800 border rounded-sm dark:border-gray-950 w-32 shadow-sm hover:shadow-xl hover:shadow-xs">
               <Link href="/about/personal">
-                <Image src="/images/avatar_vermelho.png" width={140} height={140} className='bg-red-600 rounded' alt='Kaue with a smile in gray scale in a red background'/>
+                <Image src="/images/avatar_vermelho.png" width={140} height={140} className='bg-red-600 rounded-sm' alt='Kaue with a smile in gray scale in a red background'/>
                 <h2 className='py-1 text-center'>Personal</h2>
               </Link>
             </li>
-            <li className="bg-white dark:bg-gray-800 border rounded dark:border-gray-950 w-32 shadow hover:shadow-xl hover:shadow-sm">
+            <li className="bg-white dark:bg-gray-800 border rounded-sm dark:border-gray-950 w-32 shadow-sm hover:shadow-xl hover:shadow-xs">
               <Link href="/about/professional">
-                <Image src="/images/avatars/avatar.png" width={140} height={140} className='bg-yellow-500 rounded' alt='Kaue in gray scale in a yellow background' />
+                <Image src="/images/avatars/avatar.png" width={140} height={140} className='bg-yellow-500 rounded-sm' alt='Kaue in gray scale in a yellow background' />
                 <h2 className='py-1 text-center'>Professional</h2>
               </Link>
             </li>

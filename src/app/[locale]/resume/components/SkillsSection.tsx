@@ -52,7 +52,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
+          className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
         >
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
             {t('topSkillsOverview')}
@@ -71,7 +71,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
             <motion.div
               key={category.name}
               variants={itemVariants}
-              className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
+              className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
             >
               <div className="flex items-center space-x-3 mb-4">
                 <span className="text-2xl">{category.icon}</span>
@@ -101,7 +101,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
           <motion.div
             key={category.name}
             variants={itemVariants}
-            className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
+            className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6"
           >
             <div className="flex items-center space-x-3 mb-6">
               <span className="text-3xl">{category.icon}</span>
@@ -147,7 +147,7 @@ function SkillBar({ skill }: SkillBarProps) {
           initial={{ width: 0 }}
           animate={{ width: `${(skill.level / 10) * 100}%` }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+          className="h-2 rounded-full bg-linear-to-r from-blue-500 to-purple-500"
         />
       </div>
     </div>
@@ -189,7 +189,7 @@ function SkillCard({ skill, t }: SkillCardProps) {
               initial={{ width: 0 }}
               animate={{ width: `${(skill.level / 10) * 100}%` }}
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="h-1.5 rounded-full bg-gradient-to-r from-green-400 to-blue-500"
+              className="h-1.5 rounded-full bg-linear-to-r from-green-400 to-blue-500"
             />
           </div>
         </div>

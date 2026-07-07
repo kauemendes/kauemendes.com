@@ -94,12 +94,12 @@ export default async function Home({ params }: PageProps) {
         <TechBackground />
 
         {/* Additional overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/20 via-transparent to-brand-primary/20"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-brand-primary/20 via-transparent to-brand-primary/20"></div>
 
-        <div className="relative z-20 px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-32">
+        <div className="relative z-20 px-4 mx-auto max-w-(--breakpoint-xl) text-center py-24 lg:py-32">
           {/* Animated greeting */}
           <div className="mb-6 animate-fadeIn">
-            <span className="bg-brand-accent1/20 backdrop-blur-sm text-brand-accent1 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent1/30 shadow-lg">
+            <span className="bg-brand-accent1/20 backdrop-blur-xs text-brand-accent1 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent1/30 shadow-lg">
               🚀 {t('hero.badge')}
             </span>
           </div>
@@ -116,13 +116,13 @@ export default async function Home({ params }: PageProps) {
 
           {/* Tech Stats */}
           <div className="mb-8 flex flex-wrap justify-center gap-6 animate-fadeIn">
-            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent1/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent1/20 rounded-lg px-4 py-2 text-brand-neutral-light">
               <span className="text-brand-accent1 font-bold">10+</span> {t('stats.yearsExperience')}
             </div>
-            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent2/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent2/20 rounded-lg px-4 py-2 text-brand-neutral-light">
               <span className="text-brand-accent2 font-bold">100k+</span> {t('stats.deployments')}
             </div>
-            <div className="bg-brand-secondary/20 backdrop-blur-sm border border-brand-accent3/20 rounded-lg px-4 py-2 text-brand-neutral-light">
+            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent3/20 rounded-lg px-4 py-2 text-brand-neutral-light">
               <span className="text-brand-accent3 font-bold">24/7</span> {t('stats.uptimeFocus')}
             </div>
           </div>

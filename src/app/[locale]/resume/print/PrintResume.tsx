@@ -81,7 +81,7 @@ export function PrintResume({ data, locale }: PrintResumeProps) {
             </h1>
             <p className="text-[11pt] text-gray-700 mt-1">{personal.title}</p>
           </div>
-          <div className="text-[8.5pt] text-gray-700 text-right leading-[1.5] min-w-[40%]">
+          <div className="text-[8.5pt] text-gray-700 text-right leading-normal min-w-[40%]">
             <div>{personal.location}</div>
             <div>{personal.email}</div>
             {personal.phone && <div>{personal.phone}</div>}

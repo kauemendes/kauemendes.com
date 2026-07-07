@@ -1,6 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --font-roboto: var(--font-roboto), sans-serif;
+  --font-sourceCodePro: var(--font-source-code-pro), monospace;
+  --font-ebGaramond: var(--font-ebgaramond), sans;
+  --font-poppins: Poppins, sans-serif;
+  --font-montserrat: Montserrat, sans-serif;
+
+  --color-brand-primary: #0b132b;
+  --color-brand-secondary: #1c2541;
+  --color-brand-accent1: #00e5ff;
+  --color-brand-accent2: #2ee6a6;
+  --color-brand-accent3: #ff7a00;
+  --color-brand-neutral-light: #f5f7fa;
+  --color-brand-neutral-medium: #9aa0a6;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+  --background-image-gradient-brand: linear-gradient(
+    135deg,
+    #0b132b 0%,
+    #1c2541 100%
+  );
+  --background-image-gradient-accent: linear-gradient(
+    135deg,
+    #00e5ff 0%,
+    #2ee6a6 100%
+  );
+
+  --animate-blink: blink 0.5s infinite;
+  --animate-fadeIn: fadeIn 0.6s ease-out;
+  --animate-slideIn: slideIn 0.5s ease-out;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /*
   * {

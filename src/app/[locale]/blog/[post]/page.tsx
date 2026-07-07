@@ -78,7 +78,7 @@ export default async function PostPage(props: { params: Promise<{ locale: string
         </div>
 
         {/* Article Header */}
-        <article className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden">
+        <article className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden">
           {/* Hero Image */}
           <div className="relative h-64 md:h-80">
             <Image 
@@ -87,7 +87,7 @@ export default async function PostPage(props: { params: Promise<{ locale: string
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">
               <div className="mb-4">
                 <span className="bg-brand-accent1/90 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">
@@ -156,7 +156,7 @@ export default async function PostPage(props: { params: Promise<{ locale: string
           {previousPost && (
             <Link
               href={`/${locale}/blog/${previousPost.post}`}
-              className="group bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 hover:shadow-lg"
+              className="group bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-start space-x-4">
                 <div className="text-brand-accent1 mt-1">
@@ -177,7 +177,7 @@ export default async function PostPage(props: { params: Promise<{ locale: string
           {nextPost && (
             <Link
               href={`/${locale}/blog/${nextPost.post}`}
-              className="group bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 hover:shadow-lg md:ml-auto"
+              className="group bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 hover:shadow-lg md:ml-auto"
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-1 min-w-0 text-right">
@@ -197,7 +197,7 @@ export default async function PostPage(props: { params: Promise<{ locale: string
         </div>
 
         {/* Related Articles CTA */}
-        <div className="mt-16 relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
+        <div className="mt-16 relative bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{

@@ -63,7 +63,7 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={edu.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div className="flex-1">
@@ -142,7 +142,7 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={cert.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">

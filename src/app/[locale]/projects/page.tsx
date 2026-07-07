@@ -49,7 +49,7 @@ function ProjectCard({ project, locale, t }: ProjectCardProps) {
           height={200}
           className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent"></div>
         <div className="absolute top-4 right-4">
           <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${statusColors[project.status as keyof typeof statusColors] || 'bg-brand-accent1/20 text-brand-accent1 border-brand-accent1/30'}`}>
             {project.status}
@@ -206,7 +206,7 @@ export default async function ProjectsPage({ params }: PageProps) {
 
         {/* Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               {projects.length}
             </div>
@@ -215,7 +215,7 @@ export default async function ProjectsPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent2 mb-2 font-poppins">
               1500+
             </div>
@@ -224,7 +224,7 @@ export default async function ProjectsPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent3 mb-2 font-poppins">
               {categories.length}
             </div>
@@ -233,7 +233,7 @@ export default async function ProjectsPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               2023
             </div>
@@ -273,7 +273,7 @@ export default async function ProjectsPage({ params }: PageProps) {
         </div>
 
         {/* Call to Action */}
-        <div className="relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
+        <div className="relative bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{

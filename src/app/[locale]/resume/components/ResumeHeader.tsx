@@ -123,22 +123,22 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
         variants={itemVariants}
         className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
       >
-        <div className="text-center p-6 bg-gradient-to-br from-brand-accent1/20 to-brand-accent1/10 rounded-xl border border-brand-accent1/20">
+        <div className="text-center p-6 bg-linear-to-br from-brand-accent1/20 to-brand-accent1/10 rounded-xl border border-brand-accent1/20">
           <div className="text-3xl font-bold font-poppins text-brand-accent1">{totalExperience}+</div>
           <div className="text-sm text-brand-neutral-light/70 mt-1">Years Experience</div>
         </div>
         
-        <div className="text-center p-6 bg-gradient-to-br from-brand-accent2/20 to-brand-accent2/10 rounded-xl border border-brand-accent2/20">
+        <div className="text-center p-6 bg-linear-to-br from-brand-accent2/20 to-brand-accent2/10 rounded-xl border border-brand-accent2/20">
           <div className="text-3xl font-bold font-poppins text-brand-accent2">{experience.length}</div>
           <div className="text-sm text-brand-neutral-light/70 mt-1">Companies</div>
         </div>
         
-        <div className="text-center p-6 bg-gradient-to-br from-brand-accent3/20 to-brand-accent3/10 rounded-xl border border-brand-accent3/20">
+        <div className="text-center p-6 bg-linear-to-br from-brand-accent3/20 to-brand-accent3/10 rounded-xl border border-brand-accent3/20">
           <div className="text-3xl font-bold font-poppins text-brand-accent3">{resumeData.projects.length}</div>
           <div className="text-sm text-brand-neutral-light/70 mt-1">Projects</div>
         </div>
         
-        <div className="text-center p-6 bg-gradient-to-br from-brand-accent1/20 to-brand-accent2/10 rounded-xl border border-brand-accent1/20">
+        <div className="text-center p-6 bg-linear-to-br from-brand-accent1/20 to-brand-accent2/10 rounded-xl border border-brand-accent1/20">
           <div className="text-3xl font-bold font-poppins text-brand-accent1">
             {resumeData.skills.reduce((total, category) => total + category.skills.length, 0)}
           </div>
@@ -182,7 +182,7 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
       {/* Call to Action */}
       <motion.div
         variants={itemVariants}
-        className="relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 border border-brand-accent1/30 overflow-hidden"
+        className="relative bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 border border-brand-accent1/30 overflow-hidden"
       >
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-10">

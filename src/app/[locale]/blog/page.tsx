@@ -99,7 +99,7 @@ export default async function BlogPage({ params }: PageProps) {
 
         {/* Statistics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               {posts.length}
             </div>
@@ -108,7 +108,7 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent2 mb-2 font-poppins">
               5+
             </div>
@@ -117,7 +117,7 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent3 mb-2 font-poppins">
               1k+
             </div>
@@ -126,7 +126,7 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
+          <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-xl p-6 text-center shadow-lg border border-brand-secondary">
             <div className="text-3xl font-bold text-brand-accent1 mb-2 font-poppins">
               2025
             </div>
@@ -142,7 +142,7 @@ export default async function BlogPage({ params }: PageProps) {
             <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-8 text-center">
               <span className="bg-gradient-accent bg-clip-text text-transparent">{t('featured')}</span> {locale === 'pt' ? 'Artigo' : 'Article'}
             </h2>
-            <div className="relative bg-brand-secondary/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 group">
+            <div className="relative bg-brand-secondary/80 backdrop-blur-xs rounded-2xl overflow-hidden shadow-2xl border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300 group">
               <div className="md:flex">
                 <div className="md:w-1/2">
                   <Image
@@ -199,7 +199,7 @@ export default async function BlogPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post, index) => (
                 <div key={post.post} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <article className="group bg-brand-secondary/80 backdrop-blur-sm rounded-xl shadow-lg border border-brand-secondary hover:border-brand-accent1/30 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <article className="group bg-brand-secondary/80 backdrop-blur-xs rounded-xl shadow-lg border border-brand-secondary hover:border-brand-accent1/30 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                     <div className="relative">
                       <Image
                         src={post.image_banner}
@@ -208,7 +208,7 @@ export default async function BlogPage({ params }: PageProps) {
                         height={250}
                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent"></div>
+                      <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4">
                         <span className="bg-brand-accent1/90 text-brand-primary text-xs font-semibold px-3 py-1 rounded-full">
                           {locale === 'pt' ? 'Artigo' : 'Article'}
@@ -263,7 +263,7 @@ export default async function BlogPage({ params }: PageProps) {
         </div>
 
         {/* Call to Action */}
-        <div className="relative bg-gradient-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
+        <div className="relative bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 md:p-12 text-center border border-brand-accent1/30 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E5FF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -284,7 +284,7 @@ export default async function BlogPage({ params }: PageProps) {
               <input
                 type="email"
                 placeholder={tCommon('enterEmail')}
-                className="flex-1 px-4 py-3 rounded-lg bg-brand-secondary border border-brand-secondary focus:border-brand-accent1 focus:outline-none text-brand-neutral-light placeholder-brand-neutral-light/50"
+                className="flex-1 px-4 py-3 rounded-lg bg-brand-secondary border border-brand-secondary focus:border-brand-accent1 focus:outline-hidden text-brand-neutral-light placeholder-brand-neutral-light/50"
               />
               <button className="px-6 py-3 bg-brand-accent1 text-brand-primary rounded-lg hover:bg-brand-accent2 transition-colors duration-300 font-semibold">
                 {tCommon('subscribe')}

@@ -112,7 +112,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               animate="animate"
               exit="exit"
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Image */}
@@ -124,7 +124,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                   
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4">
@@ -253,7 +253,7 @@ function ProjectModal({ project, onClose, t }: ProjectModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <motion.div

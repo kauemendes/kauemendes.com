@@ -55,7 +55,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         className="relative"
       >
         {/* Timeline Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-accent1 via-brand-accent3 to-brand-accent2"></div>
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-brand-accent1 via-brand-accent3 to-brand-accent2"></div>
 
         {experiences.map((experience, index) => (
           <motion.div
@@ -70,7 +70,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
             <div className="ml-20">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-brand-primary/50 backdrop-blur-sm rounded-xl shadow-lg border border-brand-accent1/20 p-6 hover:shadow-xl hover:border-brand-accent1/40 transition-all duration-300"
+                className="bg-brand-primary/50 backdrop-blur-xs rounded-xl shadow-lg border border-brand-accent1/20 p-6 hover:shadow-xl hover:border-brand-accent1/40 transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">

@@ -96,7 +96,7 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden"
+              className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden"
             >
               {renderSection()}
             </motion.div>

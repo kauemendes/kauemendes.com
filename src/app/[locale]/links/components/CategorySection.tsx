@@ -26,12 +26,12 @@ export function CategorySection({ category, onLinkClick }: CategorySectionProps)
     <div className="mb-12">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-2">
-          <span className={`bg-gradient-to-r ${gradientClasses} bg-clip-text text-transparent`}>
+          <span className={`bg-linear-to-r ${gradientClasses} bg-clip-text text-transparent`}>
             {category.title.split(' ')[0]}
           </span>{' '}
           {category.title.split(' ').slice(1).join(' ')}
         </h2>
-        <div className={`h-1 w-20 bg-gradient-to-r ${gradientClasses} rounded-full mx-auto`}></div>
+        <div className={`h-1 w-20 bg-linear-to-r ${gradientClasses} rounded-full mx-auto`}></div>
       </div>
       
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1">

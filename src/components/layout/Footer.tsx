@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-primary border-t border-brand-secondary">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-16 lg:py-20">
         {/* Main Footer Content */}
         <div className="md:flex md:justify-between mb-12">
           {/* Brand Section */}
@@ -154,7 +154,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="bg-gradient-to-r from-brand-accent1/10 to-brand-accent2/10 rounded-2xl p-8 md:p-12 mb-12 border border-brand-accent1/20">
+        <div className="bg-linear-to-r from-brand-accent1/10 to-brand-accent2/10 rounded-2xl p-8 md:p-12 mb-12 border border-brand-accent1/20">
           <div className="text-center">
             <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-4">
               {t('stayUpdated')}
@@ -166,7 +166,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder={tCommon('enterEmail')}
-                className="flex-1 px-4 py-3 rounded-lg bg-brand-secondary border border-brand-secondary focus:border-brand-accent1 focus:outline-none text-brand-neutral-light placeholder-brand-neutral-light/50"
+                className="flex-1 px-4 py-3 rounded-lg bg-brand-secondary border border-brand-secondary focus:border-brand-accent1 focus:outline-hidden text-brand-neutral-light placeholder-brand-neutral-light/50"
               />
               <button className="px-6 py-3 bg-brand-accent1 text-brand-primary rounded-lg hover:bg-brand-accent2 transition-colors duration-300 font-semibold">
                 {tCommon('subscribe')}

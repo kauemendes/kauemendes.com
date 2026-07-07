@@ -61,7 +61,7 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
       >
         {/* Contact Information */}
         <motion.div variants={itemVariants}>
-          <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
+          <div className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
               <span className="text-2xl">📧</span>
               <span>{t('contactInfo')}</span>
@@ -156,7 +156,7 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
 
         {/* Social Profiles */}
         <motion.div variants={itemVariants}>
-          <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
+          <div className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
               <span className="text-2xl">🌐</span>
               <span>{t('socialProfiles')}</span>
@@ -201,7 +201,7 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
             {/* Call to Action */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white"
+              className="mt-8 p-6 bg-linear-to-r from-blue-500 to-purple-600 rounded-xl text-white"
             >
               <h4 className="text-lg font-bold mb-2">{t('readyToCollaborate')}</h4>
               <p className="text-blue-100 mb-4 text-sm">

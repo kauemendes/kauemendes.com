@@ -53,7 +53,7 @@ export default async function AzdevopsPipelineVariablesPage({ params }: PageProp
         </div>
 
         {/* Project Header */}
-        <div className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden">
+        <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden">
           {/* Hero Image */}
           <div className="relative h-64 md:h-80">
             <Image
@@ -62,7 +62,7 @@ export default async function AzdevopsPipelineVariablesPage({ params }: PageProp
               fill
               className="object-contain bg-brand-primary p-8"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
             <div className="absolute top-4 right-4">
               <span className="bg-brand-accent2/90 text-brand-primary text-sm font-semibold px-4 py-2 rounded-full">
                 {project.status}
@@ -144,7 +144,7 @@ export default async function AzdevopsPipelineVariablesPage({ params }: PageProp
 
             {/* Impact */}
             {project.impact && (
-              <div className="mb-8 p-6 bg-gradient-to-r from-brand-accent2/20 to-brand-accent1/20 rounded-xl border border-brand-accent2/30">
+              <div className="mb-8 p-6 bg-linear-to-r from-brand-accent2/20 to-brand-accent1/20 rounded-xl border border-brand-accent2/30">
                 <h3 className="text-lg font-bold font-poppins text-brand-accent2 mb-2 flex items-center">
                   <span className="mr-2">📊</span>
                   {t('impact')}

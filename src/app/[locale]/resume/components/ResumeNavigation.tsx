@@ -19,7 +19,7 @@ export function ResumeNavigation({ sections, activeSection, onSectionChange }: R
   const locale = useLocale()
   const t = useTranslations('resume')
   return (
-    <nav className="bg-brand-secondary/80 backdrop-blur-sm rounded-2xl shadow-xl border border-brand-secondary p-6">
+    <nav className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-xl border border-brand-secondary p-6">
       <div className="space-y-2">
         {sections.map((section, index) => (
           <motion.button
