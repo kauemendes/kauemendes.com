@@ -204,6 +204,7 @@ export default async function Home({ params }: PageProps) {
                     body={project.description}
                     image={project.image_banner}
                     url={`/${locale}/projects/${project.id}`}
+                    readMoreLabel={tCommon('readMore')}
                   />
                 ))}
               </div>
