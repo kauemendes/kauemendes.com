@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import NavLink from './NavLink';
 import LanguageSwitcher from './LanguageSwitcher';
+import { DarkModeButton } from '@/components/features/theme';
 import { useRouter } from 'next/navigation';
 
 export default function NavBar() {
@@ -38,25 +39,28 @@ export default function NavBar() {
           />
         </Link>
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          onClick={handleClick}
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-brand-neutral-light rounded-lg md:hidden hover:bg-brand-secondary focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 transition-colors duration-200"
-          aria-controls="navbar-main"
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation menu"
-        >
-          <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
+        {/* Mobile controls: theme toggle + menu button */}
+        <div className="flex items-center gap-1 md:hidden">
+          <DarkModeButton />
+          <button
+            type="button"
+            onClick={handleClick}
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-brand-neutral-light rounded-lg hover:bg-brand-secondary focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 transition-colors duration-200"
+            aria-controls="navbar-main"
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation menu"
+          >
+            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
 
         {/* Navigation menu */}
         <div
@@ -95,6 +99,9 @@ export default function NavBar() {
             </li>
             <li className="mt-4 md:mt-0">
               <LanguageSwitcher />
+            </li>
+            <li className="hidden md:block">
+              <DarkModeButton />
             </li>
           </ul>
         </div>
