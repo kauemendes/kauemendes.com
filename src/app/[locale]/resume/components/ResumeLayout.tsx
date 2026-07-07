@@ -61,16 +61,16 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="mb-6">
-            <span className="bg-brand-accent2/10 text-brand-accent2 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent2/20">
+            <span className="bg-accent/10 text-accent text-sm font-medium px-4 py-2 rounded-full border border-accent/20">
               {t('title')}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-brand-neutral-light mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-ink mb-6">
             {t('subtitle').split(' ')[0]} <span className="bg-gradient-accent bg-clip-text text-transparent">{t('subtitle').split(' ')[1] || t('experience')}</span>
           </h1>
 
-          <p className="text-brand-neutral-light/80 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-ink-muted text-lg max-w-3xl mx-auto leading-relaxed">
             {t('description')}
           </p>
         </div>
@@ -96,7 +96,7 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden"
+              className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-2xl border border-edge overflow-hidden"
             >
               {renderSection()}
             </motion.div>
@@ -108,7 +108,7 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 1, duration: 0.3 }}
-          className="fixed bottom-8 right-8 bg-brand-accent1 hover:bg-brand-accent2 text-brand-primary p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
+          className="fixed bottom-8 right-8 bg-accent hover:bg-accent-strong text-brand-primary p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
           onClick={() => window.open(`/${locale}/resume/print`, '_blank', 'noopener,noreferrer')}
           aria-label={t('printResume')}
         >

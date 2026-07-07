@@ -35,15 +35,15 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2 flex items-center">
-          <span className="w-8 h-8 bg-brand-accent1 rounded-lg flex items-center justify-center mr-3">
+        <h2 className="text-3xl font-bold font-poppins text-ink mb-2 flex items-center">
+          <span className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center mr-3">
             <svg className="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h8z" />
             </svg>
           </span>
           {t('title')}
         </h2>
-        <p className="text-brand-neutral-light/70 pl-11">
+        <p className="text-ink-muted pl-11">
           {t('subtitle')}
         </p>
       </motion.div>
@@ -55,7 +55,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         className="relative"
       >
         {/* Timeline Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-brand-accent1 via-brand-accent3 to-brand-accent2"></div>
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-accent"></div>
 
         {experiences.map((experience, index) => (
           <motion.div
@@ -64,13 +64,13 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
             className="relative mb-12 last:mb-0"
           >
             {/* Timeline Dot */}
-            <div className="absolute left-6 w-4 h-4 bg-brand-accent1 border-4 border-brand-neutral-light rounded-full shadow-lg z-10"></div>
+            <div className="absolute left-6 w-4 h-4 bg-accent border-4 border-surface-raised rounded-full shadow-lg z-10"></div>
 
             {/* Experience Card */}
             <div className="ml-20">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-brand-primary/50 backdrop-blur-xs rounded-xl shadow-lg border border-brand-accent1/20 p-6 hover:shadow-xl hover:border-brand-accent1/40 transition-all duration-300"
+                className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl hover:border-accent/40 transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
@@ -88,16 +88,16 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                         </div>
                       )}
                       <div>
-                        <h3 className="text-xl font-bold font-poppins text-brand-neutral-light">
+                        <h3 className="text-xl font-bold font-poppins text-ink">
                           {experience.position}
                         </h3>
-                        <p className="text-brand-accent1 font-medium">
+                        <p className="text-accent font-medium">
                           {experience.company}
                         </p>
                       </div>
                     </div>
                     
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-ink-muted">
                       <span className="flex items-center space-x-1">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -122,25 +122,25 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                   </div>
 
                   {!experience.endDate && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/15 text-accent">
                       {t('current')}
                     </span>
                   )}
                 </div>
 
                 {/* Description */}
-                <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+                <p className="text-ink-muted mb-4 leading-relaxed">
                   {experience.description}
                 </p>
 
                 {/* Responsibilities */}
                 {experience.responsibilities && experience.responsibilities.length > 0 && (
                   <div className="mb-4">
-                    <h4 className="font-semibold text-slate-900 dark:text-white mb-2">{t('keyResponsibilities')}</h4>
+                    <h4 className="font-semibold text-ink mb-2">{t('keyResponsibilities')}</h4>
                     <ul className="space-y-1">
                       {experience.responsibilities.slice(0, 4).map((responsibility, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-sm text-slate-600 dark:text-slate-400">
-                          <span className="text-blue-500 mt-1">•</span>
+                        <li key={idx} className="flex items-start space-x-2 text-sm text-ink-muted">
+                          <span className="text-accent mt-1">•</span>
                           <span>{responsibility}</span>
                         </li>
                       ))}
@@ -151,11 +151,11 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                 {/* Achievements */}
                 {experience.achievements && experience.achievements.length > 0 && (
                   <div className="mb-4">
-                    <h4 className="font-semibold text-slate-900 dark:text-white mb-2">{t('keyAchievements')}</h4>
+                    <h4 className="font-semibold text-ink mb-2">{t('keyAchievements')}</h4>
                     <ul className="space-y-1">
                       {experience.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-sm text-slate-600 dark:text-slate-400">
-                          <span className="text-green-500 mt-1">✓</span>
+                        <li key={idx} className="flex items-start space-x-2 text-sm text-ink-muted">
+                          <span className="text-accent mt-1">✓</span>
                           <span>{achievement}</span>
                         </li>
                       ))}
@@ -165,13 +165,13 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
 
                 {/* Technologies */}
                 <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">{t('technologiesTools')}</h4>
+                  <h4 className="font-semibold text-ink mb-3">{t('technologiesTools')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {experience.technologies.map((tech, idx) => (
                       <motion.span
                         key={idx}
                         whileHover={{ scale: 1.05 }}
-                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors duration-200"
+                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-colors duration-200"
                       >
                         {tech}
                       </motion.span>

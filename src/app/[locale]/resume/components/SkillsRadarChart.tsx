@@ -150,7 +150,7 @@ export function SkillsRadarChart({ skills }: SkillsRadarChartProps) {
       
       {/* Legend Enhancement */}
       <div className="absolute bottom-0 left-0 right-0 text-center">
-        <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+        <div className="text-xs text-ink-muted mt-2">
           Skills radar showing proficiency level and years of experience
         </div>
       </div>

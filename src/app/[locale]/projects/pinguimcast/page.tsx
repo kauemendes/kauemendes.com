@@ -43,7 +43,7 @@ export default async function PinguimCastPage({ params }: PageProps) {
         <div className="pt-16 mb-8">
           <Link
             href={`/${locale}/projects`}
-            className="group inline-flex items-center text-brand-accent1 hover:text-brand-accent2 transition-colors duration-300"
+            className="group inline-flex items-center text-accent hover:text-accent-strong transition-colors duration-300"
           >
             <svg className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
@@ -53,7 +53,7 @@ export default async function PinguimCastPage({ params }: PageProps) {
         </div>
 
         {/* Project Header */}
-        <div className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-2xl border border-brand-secondary overflow-hidden">
+        <div className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-2xl border border-edge overflow-hidden">
           {/* Hero Image */}
           <div className="relative h-64 md:h-80">
             <Image
@@ -82,7 +82,7 @@ export default async function PinguimCastPage({ params }: PageProps) {
           <div className="p-6 md:p-8 lg:p-12">
             {/* Description */}
             <div className="mb-8">
-              <p className="text-brand-neutral-light/80 text-lg leading-relaxed">
+              <p className="text-ink-muted text-lg leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -90,16 +90,16 @@ export default async function PinguimCastPage({ params }: PageProps) {
             {/* Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               {/* Technologies */}
-              <div className="bg-brand-primary/50 rounded-xl p-6 border border-brand-secondary">
-                <h3 className="text-lg font-bold font-poppins text-brand-neutral-light mb-4 flex items-center">
-                  <span className="text-brand-accent1 mr-2">🛠️</span>
+              <div className="bg-surface/60 rounded-xl p-6 border border-edge">
+                <h3 className="text-lg font-bold font-poppins text-ink mb-4 flex items-center">
+                  <span className="text-accent mr-2">🛠️</span>
                   {t('technologies')}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-brand-accent1/10 text-brand-accent1 text-sm rounded-full border border-brand-accent1/20 font-medium"
+                      className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full border border-accent/20 font-medium"
                     >
                       {tech}
                     </span>
@@ -108,19 +108,19 @@ export default async function PinguimCastPage({ params }: PageProps) {
               </div>
 
               {/* Year & Status */}
-              <div className="bg-brand-primary/50 rounded-xl p-6 border border-brand-secondary">
-                <h3 className="text-lg font-bold font-poppins text-brand-neutral-light mb-4 flex items-center">
-                  <span className="text-brand-accent2 mr-2">📅</span>
+              <div className="bg-surface/60 rounded-xl p-6 border border-edge">
+                <h3 className="text-lg font-bold font-poppins text-ink mb-4 flex items-center">
+                  <span className="text-accent mr-2">📅</span>
                   {isPt ? 'Informações' : 'Information'}
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-brand-neutral-medium">{isPt ? 'Ano' : 'Year'}:</span>
-                    <span className="text-brand-neutral-light font-medium">{project.year}</span>
+                    <span className="text-ink-muted">{isPt ? 'Ano' : 'Year'}:</span>
+                    <span className="text-ink font-medium">{project.year}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-brand-neutral-medium">Status:</span>
-                    <span className="text-brand-accent1 font-medium">{project.status}</span>
+                    <span className="text-ink-muted">Status:</span>
+                    <span className="text-accent font-medium">{project.status}</span>
                   </div>
                 </div>
               </div>
@@ -128,15 +128,15 @@ export default async function PinguimCastPage({ params }: PageProps) {
 
             {/* Features */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-4 flex items-center">
-                <span className="text-brand-accent2 mr-2">✨</span>
+              <h3 className="text-xl font-bold font-poppins text-ink mb-4 flex items-center">
+                <span className="text-accent mr-2">✨</span>
                 {t('keyFeatures')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {project.features.map((feature, index) => (
-                  <div key={index} className="flex items-start bg-brand-primary/30 rounded-lg p-4 border border-brand-secondary">
-                    <span className="text-brand-accent2 mr-3 mt-0.5">▸</span>
-                    <span className="text-brand-neutral-light/80">{feature}</span>
+                  <div key={index} className="flex items-start bg-surface/60 rounded-lg p-4 border border-edge">
+                    <span className="text-accent mr-3 mt-0.5">▸</span>
+                    <span className="text-ink-muted">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -144,12 +144,12 @@ export default async function PinguimCastPage({ params }: PageProps) {
 
             {/* Impact */}
             {project.impact && (
-              <div className="mb-8 p-6 bg-linear-to-r from-brand-accent2/20 to-brand-accent1/20 rounded-xl border border-brand-accent2/30">
-                <h3 className="text-lg font-bold font-poppins text-brand-accent2 mb-2 flex items-center">
+              <div className="mb-8 p-6 bg-linear-to-r from-accent/15 to-accent-strong/15 rounded-xl border border-accent/30">
+                <h3 className="text-lg font-bold font-poppins text-accent mb-2 flex items-center">
                   <span className="mr-2">📊</span>
                   {t('impact')}
                 </h3>
-                <p className="text-brand-neutral-light text-lg">
+                <p className="text-ink text-lg">
                   {project.impact}
                 </p>
               </div>
@@ -157,8 +157,8 @@ export default async function PinguimCastPage({ params }: PageProps) {
 
             {/* Spotify Embed */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-4 flex items-center">
-                <span className="text-green-500 mr-2">🎧</span>
+              <h3 className="text-xl font-bold font-poppins text-ink mb-4 flex items-center">
+                <span className="text-accent mr-2">🎧</span>
                 {isPt ? 'Ouça no Spotify' : 'Listen on Spotify'}
               </h3>
               <div className="rounded-xl overflow-hidden">
@@ -176,13 +176,13 @@ export default async function PinguimCastPage({ params }: PageProps) {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-wrap gap-4 pt-6 border-t border-brand-secondary">
+            <div className="flex flex-wrap gap-4 pt-6 border-t border-edge">
               {project.demo && (
                 <a
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center px-6 py-3 bg-brand-accent1 text-brand-primary rounded-lg hover:bg-brand-accent2 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="group inline-flex items-center px-6 py-3 bg-accent text-brand-primary rounded-lg hover:bg-accent-strong transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   {t('liveDemo')}
                   <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +196,7 @@ export default async function PinguimCastPage({ params }: PageProps) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center px-6 py-3 border-2 border-brand-accent1 text-brand-accent1 rounded-lg hover:bg-brand-accent1 hover:text-brand-primary transition-all duration-300 font-semibold"
+                  className="group inline-flex items-center px-6 py-3 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-brand-primary transition-all duration-300 font-semibold"
                 >
                   GitHub
                   <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
@@ -207,7 +207,7 @@ export default async function PinguimCastPage({ params }: PageProps) {
 
               <Link
                 href={`/${locale}/projects`}
-                className="group inline-flex items-center px-6 py-3 border-2 border-brand-neutral-medium text-brand-neutral-light rounded-lg hover:border-brand-accent1 hover:text-brand-accent1 transition-all duration-300 font-semibold"
+                className="group inline-flex items-center px-6 py-3 border-2 border-edge text-ink rounded-lg hover:border-accent hover:text-accent transition-all duration-300 font-semibold"
               >
                 {isPt ? 'Ver Todos os Projetos' : 'View All Projects'}
               </Link>

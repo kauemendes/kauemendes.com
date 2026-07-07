@@ -36,10 +36,10 @@ export function EducationSection({ education, certifications }: EducationSection
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2">
+        <h2 className="text-3xl font-bold font-poppins text-ink mb-2">
           {t('title')}
         </h2>
-        <p className="text-brand-neutral-light/70">
+        <p className="text-ink-muted">
           {t('subtitle')}
         </p>
       </motion.div>
@@ -53,7 +53,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Education Section */}
         {education.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6 flex items-center space-x-3">
+            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
               <span className="text-2xl">🎓</span>
               <span>{t('educationLabel')}</span>
             </h3>
@@ -132,7 +132,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Certifications Section */}
         {certifications.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6 flex items-center space-x-3">
+            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
               <span className="text-2xl">🏆</span>
               <span>{t('certificationsLabel')}</span>
             </h3>
@@ -230,10 +230,10 @@ export function EducationSection({ education, certifications }: EducationSection
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">🎓</div>
-            <h3 className="text-xl font-medium font-poppins text-brand-neutral-light mb-2">
+            <h3 className="text-xl font-medium font-poppins text-ink mb-2">
               {t('noEducation')}
             </h3>
-            <p className="text-brand-neutral-light/70">
+            <p className="text-ink-muted">
               {t('noEducationDesc')}
             </p>
           </motion.div>

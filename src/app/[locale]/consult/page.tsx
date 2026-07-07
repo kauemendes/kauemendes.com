@@ -352,16 +352,16 @@ ${contactForm.name}`;
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <div className="mb-6">
-            <span className="bg-brand-accent1/10 text-brand-accent1 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent1/20">
+            <span className="bg-accent/10 text-accent text-sm font-medium px-4 py-2 rounded-full border border-accent/20">
               {t('subtitle')}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-brand-neutral-light mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-ink mb-6">
             {isPt ? 'Consultoria' : 'Enterprise'} <span className="bg-gradient-accent bg-clip-text text-transparent">{isPt ? 'Cloud & DevOps' : 'Cloud & DevOps'}</span> {isPt ? 'Empresarial' : 'Consulting'}
           </h1>
 
-          <p className="text-xl text-brand-neutral-light/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-ink-muted mb-8 max-w-3xl mx-auto leading-relaxed">
             {isPt
               ? 'Transforme seu negócio com infraestrutura cloud escalável, pipelines DevOps automatizados e soluções de hospedagem gerenciada. De startups a sistemas enterprise.'
               : 'Transform your business with scalable cloud infrastructure, automated DevOps pipelines, and managed hosting solutions. From small startups to enterprise systems.'}
@@ -370,7 +370,7 @@ ${contactForm.name}`;
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button
               onClick={() => setActiveTab('contact')}
-              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-brand-accent1 hover:bg-brand-accent2 focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-accent hover:bg-accent-strong focus:ring-4 focus:ring-accent/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {t('getFreeConsultation')}
               <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -380,7 +380,7 @@ ${contactForm.name}`;
 
             <Link
               href={`/${locale}/resume`}
-              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-neutral-light rounded-lg border-2 border-brand-accent1 hover:bg-brand-accent1 hover:text-brand-primary focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300"
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-ink rounded-lg border-2 border-accent hover:bg-accent hover:text-brand-primary focus:ring-4 focus:ring-accent/30 transition-all duration-300"
             >
               {t('viewExperience')}
               <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -393,15 +393,15 @@ ${contactForm.name}`;
 
       {/* Navigation Tabs */}
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap justify-center border-b border-brand-secondary bg-brand-secondary/50 backdrop-blur-xs rounded-t-2xl">
+        <div className="flex flex-wrap justify-center border-b border-edge bg-surface-raised/50 backdrop-blur rounded-t-2xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`group px-6 py-4 font-medium text-sm border-b-2 transition-all duration-300 ${
                 activeTab === tab.id
-                  ? 'border-brand-accent1 text-brand-accent1 bg-brand-accent1/5'
-                  : 'border-transparent text-brand-neutral-light hover:text-brand-accent1 hover:border-brand-accent1/50'
+                  ? 'border-accent text-accent bg-accent/5'
+                  : 'border-transparent text-ink hover:text-accent hover:border-accent/50'
               }`}
             >
               <span className="mr-2">{tab.icon}</span>
@@ -418,10 +418,10 @@ ${contactForm.name}`;
         {activeTab === 'overview' && (
           <div className="space-y-12 animate-fadeIn">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-4">
+              <h2 className="text-3xl font-bold font-poppins text-ink mb-4">
                 {isPt ? 'Soluções Tecnológicas Completas' : 'Complete Technology Solutions'}
               </h2>
-              <p className="text-brand-neutral-light/80 text-lg">
+              <p className="text-ink-muted text-lg">
                 {isPt
                   ? 'Eu não apenas construo websites - eu projeto soluções completas que escalam com seu negócio. De infraestrutura cloud a hospedagem gerenciada, veja como posso ajudar a transformar seu cenário tecnológico.'
                   : 'I don\'t just build websites - I architect complete solutions that scale with your business. From cloud infrastructure to managed hosting, here\'s how I can help transform your technology landscape.'}
@@ -437,8 +437,8 @@ ${contactForm.name}`;
                     id={service.id}
                     className={`group rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
                       featured
-                        ? 'md:col-span-2 bg-linear-to-br from-accent/10 to-brand-secondary border-2 border-accent/50 hover:border-accent hover:shadow-accent/20 relative overflow-hidden'
-                        : 'bg-brand-secondary border border-brand-secondary hover:border-brand-accent1/30'
+                        ? 'md:col-span-2 bg-linear-to-br from-accent/10 to-surface-raised border-2 border-accent/50 hover:border-accent hover:shadow-accent/20 relative overflow-hidden'
+                        : 'bg-surface-raised/80 backdrop-blur border border-edge hover:border-accent/30'
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
@@ -452,19 +452,19 @@ ${contactForm.name}`;
                       <h3 className={`text-xl font-bold font-poppins transition-colors duration-300 ${
                         featured
                           ? 'text-accent group-hover:text-accent-strong'
-                          : 'text-brand-neutral-light group-hover:text-brand-accent1'
+                          : 'text-ink group-hover:text-accent'
                       }`}>
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-brand-neutral-light/80 mb-6">
+                    <p className="text-ink-muted mb-6">
                       {service.description}
                     </p>
                     <ul className={`space-y-2 ${featured ? 'md:grid md:grid-cols-2 md:gap-x-6 md:space-y-0' : ''}`}>
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start md:py-1">
-                          <span className={`mr-3 mt-0.5 text-base ${featured ? 'text-accent' : 'text-brand-accent2'}`}>▸</span>
-                          <span className="text-brand-neutral-light/80 text-sm">{feature}</span>
+                          <span className={`mr-3 mt-0.5 text-base text-accent`}>▸</span>
+                          <span className="text-ink-muted text-sm">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -479,10 +479,10 @@ ${contactForm.name}`;
         {activeTab === 'solutions' && (
           <div className="space-y-12 animate-fadeIn">
             <div className="text-center">
-              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-4">
+              <h2 className="text-3xl font-bold font-poppins text-ink mb-4">
                 {isPt ? 'Soluções Ponta a Ponta' : 'End-to-End Solutions'}
               </h2>
-              <p className="text-brand-neutral-light/80 text-lg max-w-3xl mx-auto">
+              <p className="text-ink-muted text-lg max-w-3xl mx-auto">
                 {isPt
                   ? 'Da consulta inicial ao suporte contínuo, eu forneço soluções abrangentes que atendem toda a sua stack tecnológica.'
                   : 'From initial consultation to ongoing support, I provide comprehensive solutions that address your entire technology stack.'}
@@ -491,74 +491,74 @@ ${contactForm.name}`;
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Startup Package */}
-              <div className="bg-brand-secondary rounded-xl shadow-lg border border-brand-secondary p-8 hover:border-brand-accent2/30 transition-all duration-300">
+              <div className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-8 hover:border-accent/30 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-brand-accent2/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">🚀</span>
                   </div>
-                  <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-2">
+                  <h3 className="text-2xl font-bold font-poppins text-ink mb-2">
                     {packages.startup.title}
                   </h3>
-                  <p className="text-brand-neutral-light/80">
+                  <p className="text-ink-muted">
                     {packages.startup.description}
                   </p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {packages.startup.items.map((item, idx) => (
                     <li key={idx} className="flex items-center">
-                      <span className="text-brand-accent2 mr-3">✓</span>
-                      <span className="text-brand-neutral-light/80">{item}</span>
+                      <span className="text-accent mr-3">✓</span>
+                      <span className="text-ink-muted">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Medium Package */}
-              <div className="relative bg-brand-secondary rounded-xl shadow-lg border-2 border-brand-accent1 p-8 transform scale-105">
+              <div className="relative bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border-2 border-accent p-8 transform scale-105">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-brand-accent1 text-brand-primary px-4 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-accent text-brand-primary px-4 py-1 rounded-full text-sm font-semibold">
                     {isPt ? 'Mais Popular' : 'Most Popular'}
                   </span>
                 </div>
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-brand-accent1/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">⚡</span>
                   </div>
-                  <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-2">
+                  <h3 className="text-2xl font-bold font-poppins text-ink mb-2">
                     {packages.medium.title}
                   </h3>
-                  <p className="text-brand-neutral-light/80">
+                  <p className="text-ink-muted">
                     {packages.medium.description}
                   </p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {packages.medium.items.map((item, idx) => (
                     <li key={idx} className="flex items-center">
-                      <span className="text-brand-accent1 mr-3">✓</span>
-                      <span className="text-brand-neutral-light/80">{item}</span>
+                      <span className="text-accent mr-3">✓</span>
+                      <span className="text-ink-muted">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Enterprise Package */}
-              <div className="bg-brand-secondary rounded-xl shadow-lg border border-brand-secondary p-8 hover:border-brand-accent3/30 transition-all duration-300">
+              <div className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-8 hover:border-accent/30 transition-all duration-300">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-brand-accent3/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">🏢</span>
                   </div>
-                  <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-2">
+                  <h3 className="text-2xl font-bold font-poppins text-ink mb-2">
                     {packages.enterprise.title}
                   </h3>
-                  <p className="text-brand-neutral-light/80">
+                  <p className="text-ink-muted">
                     {packages.enterprise.description}
                   </p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {packages.enterprise.items.map((item, idx) => (
                     <li key={idx} className="flex items-center">
-                      <span className="text-brand-accent3 mr-3">✓</span>
-                      <span className="text-brand-neutral-light/80">{item}</span>
+                      <span className="text-accent mr-3">✓</span>
+                      <span className="text-ink-muted">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -571,10 +571,10 @@ ${contactForm.name}`;
         {activeTab === 'process' && (
           <div className="space-y-12 animate-fadeIn">
             <div className="text-center">
-              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-4">
+              <h2 className="text-3xl font-bold font-poppins text-ink mb-4">
                 {isPt ? 'Meu Processo de Consultoria' : 'My Consulting Process'}
               </h2>
-              <p className="text-brand-neutral-light/80 text-lg max-w-3xl mx-auto">
+              <p className="text-ink-muted text-lg max-w-3xl mx-auto">
                 {isPt
                   ? 'Uma metodologia comprovada que garante entrega bem-sucedida de projetos e sucesso a longo prazo.'
                   : 'A proven methodology that ensures successful project delivery and long-term success.'}
@@ -584,34 +584,34 @@ ${contactForm.name}`;
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {processSteps.map((item, index) => (
                 <div key={index} className="text-center group" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="bg-brand-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-brand-accent1/30 group-hover:border-brand-accent1 transition-all duration-300 group-hover:scale-110">
+                  <div className="bg-surface-raised/80 backdrop-blur w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-accent/30 group-hover:border-accent transition-all duration-300 group-hover:scale-110">
                     <span className="text-3xl">{item.icon}</span>
                   </div>
-                  <div className="text-sm font-bold text-brand-accent1 mb-2">
+                  <div className="text-sm font-bold text-accent mb-2">
                     {isPt ? 'PASSO' : 'STEP'} {item.step}
                   </div>
-                  <h3 className="text-lg font-bold font-poppins text-brand-neutral-light mb-3">
+                  <h3 className="text-lg font-bold font-poppins text-ink mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-brand-neutral-light/80 text-sm">
+                  <p className="text-ink-muted text-sm">
                     {item.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-linear-to-r from-brand-accent1/20 to-brand-accent2/20 rounded-2xl p-8 text-center border border-brand-accent1/30">
-              <h3 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-4">
+            <div className="bg-linear-to-r from-accent/15 to-accent-strong/15 rounded-2xl p-8 text-center border border-accent/30">
+              <h3 className="text-2xl font-bold font-poppins text-ink mb-4">
                 {isPt ? 'Consulta Inicial Gratuita' : 'Free Initial Consultation'}
               </h3>
-              <p className="text-brand-neutral-light/80 mb-6">
+              <p className="text-ink-muted mb-6">
                 {isPt
                   ? 'Todo projeto começa com uma consulta gratuita de 30 minutos para entender suas necessidades e explorar como posso ajudar a alcançar seus objetivos.'
                   : 'Every project starts with a free 30-minute consultation to understand your needs and explore how I can help achieve your goals.'}
               </p>
               <button
                 onClick={() => setActiveTab('contact')}
-                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-brand-accent1 hover:bg-brand-accent2 focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-accent hover:bg-accent-strong focus:ring-4 focus:ring-accent/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 {isPt ? 'Agende Sua Consulta Gratuita' : 'Schedule Your Free Consultation'}
                 <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -626,10 +626,10 @@ ${contactForm.name}`;
         {activeTab === 'contact' && (
           <div className="space-y-12 animate-fadeIn">
             <div className="text-center">
-              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-4">
+              <h2 className="text-3xl font-bold font-poppins text-ink mb-4">
                 {isPt ? 'Vamos Começar Seu Projeto' : 'Let\'s Start Your Project'}
               </h2>
-              <p className="text-brand-neutral-light/80 text-lg max-w-3xl mx-auto">
+              <p className="text-ink-muted text-lg max-w-3xl mx-auto">
                 {isPt
                   ? 'Pronto para transformar sua infraestrutura? Escolha como gostaria de entrar em contato, e eu responderei em até 24 horas.'
                   : 'Ready to transform your infrastructure? Choose how you\'d like to get in touch, and I\'ll respond within 24 hours.'}
@@ -639,19 +639,19 @@ ${contactForm.name}`;
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Options */}
               <div className="space-y-6">
-                <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6">
+                <h3 className="text-xl font-bold font-poppins text-ink mb-6">
                   {isPt ? 'Entre em Contato' : 'Get In Touch'}
                 </h3>
 
                 {contactOptions.map((option, index) => (
-                  <div key={index} className="bg-brand-secondary rounded-xl p-6 shadow-lg border border-brand-secondary hover:border-brand-accent1/30 transition-all duration-300">
+                  <div key={index} className="bg-surface-raised/80 backdrop-blur rounded-xl p-6 shadow-lg border border-edge hover:border-accent/30 transition-all duration-300">
                     <div className="flex items-start space-x-4">
                       <span className="text-2xl">{option.icon}</span>
                       <div className="flex-1">
-                        <h4 className="font-semibold font-poppins text-brand-neutral-light mb-1">
+                        <h4 className="font-semibold font-poppins text-ink mb-1">
                           {option.name}
                         </h4>
-                        <p className="text-brand-neutral-light/80 text-sm mb-2">
+                        <p className="text-ink-muted text-sm mb-2">
                           {option.description}
                         </p>
                         {option.note && (
@@ -663,7 +663,7 @@ ${contactForm.name}`;
                           href={option.action}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-brand-accent1 hover:text-brand-accent2 font-medium transition-colors duration-300"
+                          className="text-accent hover:text-accent-strong font-medium transition-colors duration-300"
                         >
                           {option.value}
                         </a>
@@ -674,14 +674,14 @@ ${contactForm.name}`;
               </div>
 
               {/* Contact Form */}
-              <div className="bg-brand-secondary rounded-xl shadow-lg border border-brand-secondary p-8">
-                <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6">
+              <div className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-8">
+                <h3 className="text-xl font-bold font-poppins text-ink mb-6">
                   {isPt ? 'Formulário de Consulta' : 'Project Inquiry Form'}
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium text-ink mb-1">
                         {isPt ? 'Seu Nome *' : 'Your Name *'}
                       </label>
                       <input
@@ -691,11 +691,11 @@ ${contactForm.name}`;
                         required
                         value={contactForm.name}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                      <label htmlFor="email" className="block text-sm font-medium text-ink mb-1">
                         {isPt ? 'Endereço de Email *' : 'Email Address *'}
                       </label>
                       <input
@@ -705,13 +705,13 @@ ${contactForm.name}`;
                         required
                         value={contactForm.email}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                    <label htmlFor="company" className="block text-sm font-medium text-ink mb-1">
                       {isPt ? 'Empresa/Organização' : 'Company/Organization'}
                     </label>
                     <input
@@ -720,13 +720,13 @@ ${contactForm.name}`;
                       name="company"
                       value={contactForm.company}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                      className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                      <label htmlFor="service" className="block text-sm font-medium text-ink mb-1">
                         {isPt ? 'Serviço Desejado *' : 'Service Needed *'}
                       </label>
                       <select
@@ -735,7 +735,7 @@ ${contactForm.name}`;
                         required
                         value={contactForm.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                       >
                         <option value="">{isPt ? 'Selecione um serviço' : 'Select a service'}</option>
                         <option value="Enterprise AI Consulting">{isPt ? 'Consultoria de IA Empresarial' : 'Enterprise AI Consulting'}</option>
@@ -748,7 +748,7 @@ ${contactForm.name}`;
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                      <label htmlFor="budget" className="block text-sm font-medium text-ink mb-1">
                         {isPt ? 'Faixa de Orçamento' : 'Budget Range'}
                       </label>
                       <select
@@ -756,7 +756,7 @@ ${contactForm.name}`;
                         name="budget"
                         value={contactForm.budget}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                        className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                       >
                         <option value="">{isPt ? 'Selecione faixa de orçamento' : 'Select budget range'}</option>
                         <option value="Under €5,000">{isPt ? 'Abaixo de €5.000' : 'Under €5,000'}</option>
@@ -770,7 +770,7 @@ ${contactForm.name}`;
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-brand-neutral-light mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-ink mb-1">
                       {isPt ? 'Detalhes do Projeto *' : 'Project Details *'}
                     </label>
                     <textarea
@@ -781,18 +781,18 @@ ${contactForm.name}`;
                       value={contactForm.message}
                       onChange={handleInputChange}
                       placeholder={isPt ? 'Conte-me sobre seu projeto, desafios atuais e objetivos...' : 'Tell me about your project, current challenges, and goals...'}
-                      className="w-full px-3 py-2 border border-brand-primary rounded-md focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 bg-brand-primary text-brand-neutral-light"
+                      className="w-full px-3 py-2 border border-edge rounded-md focus:outline-hidden focus:ring-2 focus:ring-accent bg-surface-raised text-ink placeholder-ink-muted"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-brand-accent1 text-brand-primary py-3 px-6 rounded-md font-semibold hover:bg-brand-accent2 transition-all duration-300 transform hover:scale-105"
+                    className="w-full bg-accent text-brand-primary py-3 px-6 rounded-md font-semibold hover:bg-accent-strong transition-all duration-300 transform hover:scale-105"
                   >
                     {isPt ? 'Enviar Consulta via Email' : 'Send Inquiry via Email'}
                   </button>
 
-                  <p className="text-brand-neutral-medium text-sm text-center">
+                  <p className="text-ink-muted text-sm text-center">
                     {isPt ? 'Isso abrirá seu cliente de email com os dados do formulário preenchidos' : 'This will open your email client with the form data pre-filled'}
                   </p>
                 </form>

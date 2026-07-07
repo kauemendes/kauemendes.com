@@ -19,7 +19,7 @@ export function ResumeNavigation({ sections, activeSection, onSectionChange }: R
   const locale = useLocale()
   const t = useTranslations('resume')
   return (
-    <nav className="bg-brand-secondary/80 backdrop-blur-xs rounded-2xl shadow-xl border border-brand-secondary p-6">
+    <nav className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-xl border border-edge p-6">
       <div className="space-y-2">
         {sections.map((section, index) => (
           <motion.button
@@ -31,8 +31,8 @@ export function ResumeNavigation({ sections, activeSection, onSectionChange }: R
             className={`
               w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-left transition-all duration-300 group
               ${activeSection === section.id
-                ? 'bg-brand-accent1 text-brand-primary shadow-lg'
-                : 'text-brand-neutral-light hover:bg-brand-primary hover:text-brand-accent1'
+                ? 'bg-accent text-brand-primary shadow-lg'
+                : 'text-ink hover:bg-accent/10 hover:text-accent'
               }
             `}
           >
@@ -59,12 +59,12 @@ export function ResumeNavigation({ sections, activeSection, onSectionChange }: R
       </div>
 
       {/* Download Section */}
-      <div className="mt-8 pt-6 border-t border-brand-primary">
+      <div className="mt-8 pt-6 border-t border-edge">
         <motion.a
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.3 }}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-brand-neutral-light hover:bg-brand-primary hover:text-brand-accent1 transition-all duration-300 border border-brand-accent1/30 group"
+          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-ink hover:bg-accent/10 hover:text-accent transition-all duration-300 border border-accent/30 group"
           href={`/${locale}/resume/print`}
           target="_blank"
           rel="noopener noreferrer"

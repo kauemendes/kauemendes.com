@@ -45,10 +45,10 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2">
+        <h2 className="text-3xl font-bold font-poppins text-ink mb-2">
           {t('title')}
         </h2>
-        <p className="text-brand-neutral-light/70">
+        <p className="text-ink-muted">
           {t('subtitle')}
         </p>
       </motion.div>
@@ -211,7 +211,7 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleEmailClick}
-                className="w-full bg-brand-primary text-accent font-semibold py-3 px-6 rounded-lg hover:bg-brand-secondary transition-colors duration-300"
+                className="w-full bg-brand-primary text-brand-accent2 font-semibold py-3 px-6 rounded-lg hover:bg-brand-secondary transition-colors duration-300"
               >
                 {t('sendEmail')}
               </motion.button>
