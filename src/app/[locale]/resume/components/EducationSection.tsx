@@ -36,10 +36,10 @@ export function EducationSection({ education, certifications }: EducationSection
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2">
           {t('title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-brand-neutral-light/70">
           {t('subtitle')}
         </p>
       </motion.div>
@@ -53,7 +53,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Education Section */}
         {education.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
+            <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6 flex items-center space-x-3">
               <span className="text-2xl">🎓</span>
               <span>{t('educationLabel')}</span>
             </h3>
@@ -63,28 +63,28 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={edu.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                      <h4 className="text-lg font-bold font-poppins text-ink mb-1">
                         {edu.degree}
                       </h4>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium mb-1">
+                      <p className="text-accent font-medium mb-1">
                         {edu.field}
                       </p>
-                      <p className="text-slate-600 dark:text-slate-400 mb-2">
+                      <p className="text-ink-muted mb-2">
                         {edu.institution}
                       </p>
-                      
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-ink-muted">
                         <span className="flex items-center space-x-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           <span>{formatDateRange(edu.startDate, edu.endDate)}</span>
                         </span>
-                        
+
                         <span className="flex items-center space-x-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -105,18 +105,18 @@ export function EducationSection({ education, certifications }: EducationSection
                   </div>
 
                   {edu.description && (
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+                    <p className="text-ink-muted mb-4 leading-relaxed">
                       {edu.description}
                     </p>
                   )}
 
                   {edu.achievements && edu.achievements.length > 0 && (
                     <div>
-                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">{t('achievements')}</h5>
+                      <h5 className="font-semibold text-ink mb-2">{t('achievements')}</h5>
                       <ul className="space-y-1">
                         {edu.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start space-x-2 text-sm text-slate-600 dark:text-slate-400">
-                            <span className="text-green-500 mt-1">✓</span>
+                          <li key={idx} className="flex items-start space-x-2 text-sm text-ink-muted">
+                            <span className="text-accent mt-1">✓</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -132,7 +132,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Certifications Section */}
         {certifications.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
+            <h3 className="text-xl font-bold font-poppins text-brand-neutral-light mb-6 flex items-center space-x-3">
               <span className="text-2xl">🏆</span>
               <span>{t('certificationsLabel')}</span>
             </h3>
@@ -142,30 +142,30 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={cert.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                      <h4 className="text-lg font-bold font-poppins text-ink mb-1">
                         {cert.name}
                       </h4>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                      <p className="text-accent font-medium mb-2">
                         {cert.issuer}
                       </p>
                     </div>
-                    
+
                     {!cert.expiryDate || new Date(cert.expiryDate) > new Date() ? (
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent/15 text-accent">
                         ✓ {t('valid')}
                       </span>
                     ) : (
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-500/15 text-red-400">
                         {t('expired')}
                       </span>
                     )}
                   </div>
 
-                  <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400 mb-4">
+                  <div className="space-y-2 text-sm text-ink-muted mb-4">
                     <div className="flex items-center space-x-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -199,7 +199,7 @@ export function EducationSection({ education, certifications }: EducationSection
                   </div>
 
                   {cert.description && (
-                    <p className="text-slate-700 dark:text-slate-300 text-sm mb-4 leading-relaxed">
+                    <p className="text-ink-muted text-sm mb-4 leading-relaxed">
                       {cert.description}
                     </p>
                   )}
@@ -209,7 +209,7 @@ export function EducationSection({ education, certifications }: EducationSection
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium"
+                      className="inline-flex items-center space-x-2 text-accent hover:text-accent-strong text-sm font-medium"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -230,10 +230,10 @@ export function EducationSection({ education, certifications }: EducationSection
             className="text-center py-12"
           >
             <div className="text-6xl mb-4">🎓</div>
-            <h3 className="text-xl font-medium text-slate-900 dark:text-white mb-2">
+            <h3 className="text-xl font-medium font-poppins text-brand-neutral-light mb-2">
               {t('noEducation')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400">
+            <p className="text-brand-neutral-light/70">
               {t('noEducationDesc')}
             </p>
           </motion.div>

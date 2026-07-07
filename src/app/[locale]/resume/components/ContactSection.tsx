@@ -45,10 +45,10 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-2">
           {t('title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-brand-neutral-light/70">
           {t('subtitle')}
         </p>
       </motion.div>
@@ -61,8 +61,8 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
       >
         {/* Contact Information */}
         <motion.div variants={itemVariants}>
-          <div className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
+          <div className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6">
+            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
               <span className="text-2xl">📧</span>
               <span>{t('contactInfo')}</span>
             </h3>
@@ -73,18 +73,18 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleEmailClick}
-                className="w-full flex items-center space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-300"
+                className="w-full flex items-center space-x-4 p-4 bg-accent/10 border border-accent/25 rounded-lg hover:bg-accent/20 transition-all duration-300"
               >
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 bg-accent/15 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div className="flex-1 text-left">
-                  <div className="font-medium text-slate-900 dark:text-white">{t('email')}</div>
-                  <div className="text-sm text-blue-600 dark:text-blue-400">{personal.email}</div>
+                  <div className="font-medium text-ink">{t('email')}</div>
+                  <div className="text-sm text-accent">{personal.email}</div>
                 </div>
-                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </motion.button>
@@ -95,34 +95,34 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handlePhoneClick}
-                  className="w-full flex items-center space-x-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-all duration-300"
+                  className="w-full flex items-center space-x-4 p-4 bg-accent/10 border border-accent/25 rounded-lg hover:bg-accent/20 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-accent/15 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div className="flex-1 text-left">
-                    <div className="font-medium text-slate-900 dark:text-white">{t('phone')}</div>
-                    <div className="text-sm text-green-600 dark:text-green-400">{personal.phone}</div>
+                    <div className="font-medium text-ink">{t('phone')}</div>
+                    <div className="text-sm text-accent">{personal.phone}</div>
                   </div>
-                  <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </motion.button>
               )}
 
               {/* Location */}
-              <div className="flex items-center space-x-4 p-4 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg">
-                <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center space-x-4 p-4 bg-accent-cyan/10 border border-accent-cyan/25 rounded-lg">
+                <div className="w-10 h-10 bg-accent-cyan/15 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <div className="font-medium text-slate-900 dark:text-white">{t('location')}</div>
-                  <div className="text-sm text-purple-600 dark:text-purple-400">{personal.location}</div>
+                  <div className="font-medium text-ink">{t('location')}</div>
+                  <div className="text-sm text-accent-cyan">{personal.location}</div>
                 </div>
               </div>
 
@@ -134,18 +134,18 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center space-x-4 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-all duration-300"
+                  className="w-full flex items-center space-x-4 p-4 bg-accent-cyan/10 border border-accent-cyan/25 rounded-lg hover:bg-accent-cyan/20 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/50 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 bg-accent-cyan/15 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c5-5 9-9 9-9m-9 9c-5-5-9-9-9-9" />
                     </svg>
                   </div>
                   <div className="flex-1 text-left">
-                    <div className="font-medium text-slate-900 dark:text-white">{t('website')}</div>
-                    <div className="text-sm text-orange-600 dark:text-orange-400">{personal.website}</div>
+                    <div className="font-medium text-ink">{t('website')}</div>
+                    <div className="text-sm text-accent-cyan">{personal.website}</div>
                   </div>
-                  <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </motion.a>
@@ -156,8 +156,8 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
 
         {/* Social Profiles */}
         <motion.div variants={itemVariants}>
-          <div className="bg-linear-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-3">
+          <div className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6">
+            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
               <span className="text-2xl">🌐</span>
               <span>{t('socialProfiles')}</span>
             </h3>
@@ -171,27 +171,27 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-4 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300"
+                  className="flex items-center space-x-4 p-4 bg-surface/60 border border-edge rounded-lg hover:shadow-md hover:border-accent/40 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center">
-                    <span className="text-lg font-semibold text-slate-700 dark:text-slate-300">
+                  <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                    <span className="text-lg font-semibold text-accent">
                       {profile.platform.charAt(0).toUpperCase()}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <div className="font-medium text-slate-900 dark:text-white">
+                    <div className="font-medium text-ink">
                       {profile.platform}
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                    <div className="text-sm text-ink-muted">
                       @{profile.username}
                     </div>
                   </div>
                   {profile.featured && (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent/15 text-accent">
                       {t('featured')}
                     </span>
                   )}
-                  <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </motion.a>
@@ -201,17 +201,17 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
             {/* Call to Action */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 p-6 bg-linear-to-r from-blue-500 to-purple-600 rounded-xl text-white"
+              className="mt-8 p-6 bg-gradient-accent rounded-xl text-brand-primary"
             >
-              <h4 className="text-lg font-bold mb-2">{t('readyToCollaborate')}</h4>
-              <p className="text-blue-100 mb-4 text-sm">
+              <h4 className="text-lg font-bold font-poppins mb-2">{t('readyToCollaborate')}</h4>
+              <p className="text-brand-primary/80 mb-4 text-sm">
                 {t('openToDiscuss')}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleEmailClick}
-                className="w-full bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors duration-300"
+                className="w-full bg-brand-primary text-accent font-semibold py-3 px-6 rounded-lg hover:bg-brand-secondary transition-colors duration-300"
               >
                 {t('sendEmail')}
               </motion.button>
@@ -225,24 +225,24 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
         variants={itemVariants}
         className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
       >
-        <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700">
-          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">24h</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400">{t('responseTime')}</div>
+        <div className="text-center p-4 bg-surface-raised/80 backdrop-blur rounded-xl shadow-md border border-edge">
+          <div className="text-2xl font-bold text-accent">24h</div>
+          <div className="text-xs text-ink-muted">{t('responseTime')}</div>
         </div>
 
-        <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700">
-          <div className="text-2xl font-bold text-green-600 dark:text-green-400">{t('remote')}</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400">{t('workAvailable')}</div>
+        <div className="text-center p-4 bg-surface-raised/80 backdrop-blur rounded-xl shadow-md border border-edge">
+          <div className="text-2xl font-bold text-accent">{t('remote')}</div>
+          <div className="text-xs text-ink-muted">{t('workAvailable')}</div>
         </div>
 
-        <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700">
-          <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">GMT+1</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400">{t('timezone')}</div>
+        <div className="text-center p-4 bg-surface-raised/80 backdrop-blur rounded-xl shadow-md border border-edge">
+          <div className="text-2xl font-bold text-accent-cyan">GMT+1</div>
+          <div className="text-xs text-ink-muted">{t('timezone')}</div>
         </div>
 
-        <div className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-md border border-slate-200 dark:border-slate-700">
-          <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">🇵🇹</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400">{t('basedIn')}</div>
+        <div className="text-center p-4 bg-surface-raised/80 backdrop-blur rounded-xl shadow-md border border-edge">
+          <div className="text-2xl font-bold">🇵🇹</div>
+          <div className="text-xs text-ink-muted">{t('basedIn')}</div>
         </div>
       </motion.div>
     </div>
