@@ -212,7 +212,7 @@ export default function LinksPage() {
 
         {/* Footer */}
         <div className="text-center pb-8">
-          <p className="font-mono text-brand-neutral-medium">
+          <p className="font-mono text-ink-muted">
             with root in kauecode.com/links ¤ main ➜ <span className="font-bold animate-pulse">_</span>
           </p>
           <p className="text-ink-muted text-sm mt-2">

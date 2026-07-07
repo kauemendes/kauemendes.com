@@ -130,7 +130,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   <div className="absolute top-4 right-4">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium backdrop-blur ${
                       project.status === 'completed'
-                        ? 'bg-brand-primary/80 text-accent'
+                        ? 'bg-brand-primary/80 text-brand-accent2'
                         : project.status === 'in-progress'
                         ? 'bg-brand-primary/80 text-brand-accent3'
                         : 'bg-brand-primary/80 text-brand-neutral-light'
