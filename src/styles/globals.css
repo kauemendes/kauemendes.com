@@ -12,10 +12,17 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 
+  /*
+    The self-references below are intentional: next/font sets these variables
+    via an unlayered class on <html>, which wins over this @layer theme
+    emission (same pattern for all three fonts).
+  */
   --font-roboto: var(--font-roboto), sans-serif;
   --font-sourceCodePro: var(--font-source-code-pro), monospace;
   --font-poppins: var(--font-poppins), sans-serif;
 
+  /* Legacy System-A compatibility tokens, kept while pages still use brand-*
+     classes (accent1 == accent-cyan and accent2 == accent duplication is intentional). */
   --color-brand-primary: #0b132b;
   --color-brand-secondary: #1c2541;
   --color-brand-accent1: #00e5ff;
@@ -147,8 +154,9 @@ body:has(.print-page) footer {
   display: none !important;
 }
 /* Force readable colors on the print page regardless of dark mode.
-   Tailwind's base layer sets `dark:text-white` on h1-h5/p/span/strong globally,
-   which makes text invisible on the white print background. Reset them here. */
+   The base layer sets `color: var(--ink)` on body (#f5f7fa in dark mode),
+   which is inherited by the print page's text and would make it invisible
+   on the white print background. Reset it here — do not delete this block. */
 .dark .print-page,
 .dark .print-page h1,
 .dark .print-page h2,
