@@ -66,6 +66,6 @@ export async function getPostContent(slug: string, locale: string = 'en', year?:
 
   const text = await readFile(filePath, 'utf8');
   const { content, data: { post, title, description, date, image_banner, image_post } } = matter(text);
-  const body = marked(content);
+  const body = marked.parse(content, { async: false });
   return { post, title, description, date, image_banner, image_post, body };
 }

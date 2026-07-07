@@ -10,6 +10,6 @@ export async function getContent(slug: string): Promise<Review> {
   // https://vercel.com/guides/loading-static-file-nextjs-api-route
   const text = await readFile(path.join(process.cwd(), `/src/content/${slug}.md`), 'utf8');
   const { content, data: { title, date, image } } = matter(text);
-  const body = marked(content);
+  const body = marked.parse(content, { async: false });
   return { title, date, image, body };
 }

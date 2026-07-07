@@ -12,9 +12,7 @@ const config: Config = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  haste: {
-    forceNodeFilesystemAPI: true,
-  },
+  modulePathIgnorePatterns: ['<rootDir>/.next/'],
 };
 
 export default config
