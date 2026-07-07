@@ -14,9 +14,7 @@
 
   --font-roboto: var(--font-roboto), sans-serif;
   --font-sourceCodePro: var(--font-source-code-pro), monospace;
-  --font-ebGaramond: var(--font-ebgaramond), sans;
-  --font-poppins: Poppins, sans-serif;
-  --font-montserrat: Montserrat, sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
 
   --color-brand-primary: #0b132b;
   --color-brand-secondary: #1c2541;
@@ -26,15 +24,14 @@
   --color-brand-neutral-light: #f5f7fa;
   --color-brand-neutral-medium: #9aa0a6;
 
+  --color-accent: #2ee6a6;
+  --color-accent-strong: #19c98c;
+  --color-accent-cyan: #00e5ff;
+
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(
     from 180deg at 50% 50%,
     var(--tw-gradient-stops)
-  );
-  --background-image-gradient-brand: linear-gradient(
-    135deg,
-    #0b132b 0%,
-    #1c2541 100%
   );
   --background-image-gradient-accent: linear-gradient(
     135deg,
@@ -76,6 +73,41 @@
 }
 
 /*
+  Semantic, mode-aware tokens. Declared with `@theme inline` so utilities
+  like `bg-surface` reference the runtime variables directly and resolve
+  per-element in both light and dark modes.
+*/
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-edge: var(--edge);
+
+  --background-image-gradient-brand: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--surface-raised) 100%
+  );
+}
+
+:root {
+  --surface: #f5f7fa;
+  --surface-raised: #ffffff;
+  --ink: #0b132b;
+  --ink-muted: #4a5568;
+  --edge: rgba(11, 19, 43, 0.12);
+}
+
+.dark {
+  --surface: #0b132b;
+  --surface-raised: #1c2541;
+  --ink: #f5f7fa;
+  --ink-muted: #9aa0a6;
+  --edge: rgba(245, 247, 250, 0.12);
+}
+
+/*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
@@ -101,18 +133,8 @@
 
 @layer base {
   body {
-    @apply dark:bg-gray-800 bg-white;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  p,
-  strong,
-  span {
-    @apply dark:text-white text-gray-800;
+    background-color: var(--surface);
+    color: var(--ink);
   }
 }
 
