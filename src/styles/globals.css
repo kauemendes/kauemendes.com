@@ -31,19 +31,14 @@
   --color-brand-neutral-light: #f5f7fa;
   --color-brand-neutral-medium: #9aa0a6;
 
-  --color-accent: #2ee6a6;
-  --color-accent-strong: #19c98c;
+  /* --color-accent / --color-accent-strong are mode-aware and live in the
+     `@theme inline` block below. Only the static cyan stays here. */
   --color-accent-cyan: #00e5ff;
 
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(
     from 180deg at 50% 50%,
     var(--tw-gradient-stops)
-  );
-  --background-image-gradient-accent: linear-gradient(
-    135deg,
-    #00e5ff 0%,
-    #2ee6a6 100%
   );
 
   --animate-blink: blink 0.5s infinite;
@@ -91,11 +86,20 @@
   --color-ink-muted: var(--ink-muted);
   --color-edge: var(--edge);
 
+  /* Mode-aware green accent: dark enough for contrast on light surfaces,
+     bright on dark surfaces. Fixed-navy elements should use the static
+     brand tokens (e.g. text-brand-accent2) instead. */
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+
   --background-image-gradient-brand: linear-gradient(
     135deg,
     var(--surface) 0%,
     var(--surface-raised) 100%
   );
+
+  /* Mode-aware cyan→green accent gradient (used for bg-clip-text headings). */
+  --background-image-gradient-accent: var(--gradient-accent);
 }
 
 :root {
@@ -104,6 +108,9 @@
   --ink: #0b132b;
   --ink-muted: #4a5568;
   --edge: rgba(11, 19, 43, 0.12);
+  --accent: #0f9d6e;
+  --accent-strong: #0b7a55;
+  --gradient-accent: linear-gradient(135deg, #0891b2 0%, #0f9d6e 100%);
 }
 
 .dark {
@@ -112,6 +119,9 @@
   --ink: #f5f7fa;
   --ink-muted: #9aa0a6;
   --edge: rgba(245, 247, 250, 0.12);
+  --accent: #2ee6a6;
+  --accent-strong: #19c98c;
+  --gradient-accent: linear-gradient(135deg, #00e5ff 0%, #2ee6a6 100%);
 }
 
 /*

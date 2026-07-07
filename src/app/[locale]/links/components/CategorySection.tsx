@@ -7,31 +7,16 @@ interface CategorySectionProps {
 }
 
 export function CategorySection({ category, onLinkClick }: CategorySectionProps) {
-  const getGradientClasses = (title: string) => {
-    switch (title) {
-      case 'Content & Blog':
-        return 'from-brand-accent1 to-brand-accent2';
-      case 'Projects & Work':
-        return 'from-brand-accent2 to-brand-accent3';
-      case 'Professional Services':
-        return 'from-brand-accent3 to-brand-accent1';
-      default:
-        return 'from-brand-accent1 to-brand-accent2';
-    }
-  };
-
-  const gradientClasses = getGradientClasses(category.title);
-
   return (
     <div className="mb-12">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-2">
-          <span className={`bg-linear-to-r ${gradientClasses} bg-clip-text text-transparent`}>
+        <h2 className="text-2xl font-bold font-poppins text-ink mb-2">
+          <span className="bg-gradient-accent bg-clip-text text-transparent">
             {category.title.split(' ')[0]}
           </span>{' '}
           {category.title.split(' ').slice(1).join(' ')}
         </h2>
-        <div className={`h-1 w-20 bg-linear-to-r ${gradientClasses} rounded-full mx-auto`}></div>
+        <div className="h-1 w-20 bg-gradient-accent rounded-full mx-auto"></div>
       </div>
       
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1">

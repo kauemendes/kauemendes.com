@@ -99,38 +99,38 @@ export default async function Home({ params }: PageProps) {
         <div className="relative z-20 px-4 mx-auto max-w-(--breakpoint-xl) text-center py-24 lg:py-32">
           {/* Animated greeting */}
           <div className="mb-6 animate-fadeIn">
-            <span className="bg-brand-accent1/20 backdrop-blur-xs text-brand-accent1 text-sm font-medium px-4 py-2 rounded-full border border-brand-accent1/30 shadow-lg">
+            <span className="bg-accent/20 backdrop-blur-xs text-accent text-sm font-medium px-4 py-2 rounded-full border border-accent/30 shadow-lg">
               🚀 {t('hero.badge')}
             </span>
           </div>
 
-          <h1 className="mb-6 text-4xl font-bold font-poppins tracking-tight leading-tight text-brand-neutral-light md:text-5xl lg:text-6xl xl:text-7xl animate-fadeIn">
+          <h1 className="mb-6 text-4xl font-bold font-poppins tracking-tight leading-tight text-ink md:text-5xl lg:text-6xl xl:text-7xl animate-fadeIn">
             {t('hero.title1')} <span className="bg-gradient-accent bg-clip-text text-transparent">{t('hero.titleHighlight')}</span>
             <br />
             {t('hero.title2')}
           </h1>
 
-          <p className="mb-8 text-lg font-normal text-brand-neutral-light/90 lg:text-xl sm:px-16 lg:px-48 max-w-4xl mx-auto animate-fadeIn leading-relaxed">
+          <p className="mb-8 text-lg font-normal text-ink-muted lg:text-xl sm:px-16 lg:px-48 max-w-4xl mx-auto animate-fadeIn leading-relaxed">
             {t('hero.subtitle')}
           </p>
 
           {/* Tech Stats */}
           <div className="mb-8 flex flex-wrap justify-center gap-6 animate-fadeIn">
-            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent1/20 rounded-lg px-4 py-2 text-brand-neutral-light">
-              <span className="text-brand-accent1 font-bold">10+</span> {t('stats.yearsExperience')}
+            <div className="bg-surface-raised/60 backdrop-blur-xs border border-accent/20 rounded-lg px-4 py-2 text-ink">
+              <span className="text-accent font-bold">10+</span> {t('stats.yearsExperience')}
             </div>
-            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent2/20 rounded-lg px-4 py-2 text-brand-neutral-light">
-              <span className="text-brand-accent2 font-bold">100k+</span> {t('stats.deployments')}
+            <div className="bg-surface-raised/60 backdrop-blur-xs border border-accent/20 rounded-lg px-4 py-2 text-ink">
+              <span className="text-accent font-bold">100k+</span> {t('stats.deployments')}
             </div>
-            <div className="bg-brand-secondary/20 backdrop-blur-xs border border-brand-accent3/20 rounded-lg px-4 py-2 text-brand-neutral-light">
-              <span className="text-brand-accent3 font-bold">24/7</span> {t('stats.uptimeFocus')}
+            <div className="bg-surface-raised/60 backdrop-blur-xs border border-accent/20 rounded-lg px-4 py-2 text-ink">
+              <span className="text-accent font-bold">24/7</span> {t('stats.uptimeFocus')}
             </div>
           </div>
 
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 animate-fadeIn">
             <Link
               href={`/${locale}/resume`}
-              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-brand-accent1 hover:bg-brand-accent2 focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-accent hover:bg-accent-strong focus:ring-4 focus:ring-accent/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               {tCommon('viewResume')}
               <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -140,7 +140,7 @@ export default async function Home({ params }: PageProps) {
 
             <Link
               href={`/${locale}/projects`}
-              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-neutral-light rounded-lg border-2 border-brand-accent1 hover:bg-brand-accent1 hover:text-brand-primary focus:ring-4 focus:ring-brand-accent1/30 transition-all duration-300"
+              className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-ink rounded-lg border-2 border-accent hover:bg-accent hover:text-brand-primary focus:ring-4 focus:ring-accent/30 transition-all duration-300"
             >
               {t('featuredProjects')}
               <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -151,12 +151,12 @@ export default async function Home({ params }: PageProps) {
 
           {/* Futuristic Scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div className="flex flex-col items-center text-brand-neutral-light/60">
+            <div className="flex flex-col items-center text-ink-muted">
               <div className="relative">
-                <div className="w-6 h-10 border-2 border-brand-accent1/50 rounded-full">
-                  <div className="w-1 h-3 bg-brand-accent1 rounded-full mx-auto mt-2 animate-bounce"></div>
+                <div className="w-6 h-10 border-2 border-accent/50 rounded-full">
+                  <div className="w-1 h-3 bg-accent rounded-full mx-auto mt-2 animate-bounce"></div>
                 </div>
-                <div className="absolute -inset-2 border border-brand-accent1/20 rounded-full animate-ping"></div>
+                <div className="absolute -inset-2 border border-accent/20 rounded-full animate-ping"></div>
               </div>
               <span className="text-xs mt-2 font-mono tracking-wider">{t('exploreData')}</span>
             </div>
@@ -165,7 +165,7 @@ export default async function Home({ params }: PageProps) {
       </section>
 
       {/* Main Content */}
-      <div className="bg-brand-secondary">
+      <div className="bg-gradient-brand">
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
@@ -173,14 +173,14 @@ export default async function Home({ params }: PageProps) {
           <div className="lg:col-span-2 space-y-12">
             {/* Introduction */}
             <section>
-              <h2 className="text-3xl font-bold font-poppins text-brand-neutral-light mb-6">
+              <h2 className="text-3xl font-bold font-poppins text-ink mb-6">
                 {t('about.greeting')}
               </h2>
               <div className="prose prose-lg max-w-none">
-                <p className="text-brand-neutral-light/80 leading-relaxed text-lg">
+                <p className="text-ink-muted leading-relaxed text-lg">
                   {t('about.description1')}
                 </p>
-                <p className="text-brand-neutral-light/80 leading-relaxed text-lg">
+                <p className="text-ink-muted leading-relaxed text-lg">
                   {t('about.description2')}
                 </p>
               </div>
@@ -189,10 +189,10 @@ export default async function Home({ params }: PageProps) {
             {/* Featured Projects */}
             <section>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light">
+                <h2 className="text-2xl font-bold font-poppins text-ink">
                   {t('featuredProjects')}
                 </h2>
-                <Link href={`/${locale}/projects`} className="text-brand-accent1 hover:text-brand-accent2 font-medium transition-colors duration-300">
+                <Link href={`/${locale}/projects`} className="text-accent hover:text-accent-strong font-medium transition-colors duration-300">
                   {tCommon('viewAll')} →
                 </Link>
               </div>
@@ -213,7 +213,7 @@ export default async function Home({ params }: PageProps) {
             {/* Recent Blog Posts */}
             <section>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light">
+                <h2 className="text-2xl font-bold font-poppins text-ink">
                   {t('latestBlog')}
                 </h2>
                 <Link href={`/${locale}/blog`} className="text-accent hover:text-accent-strong font-medium transition-colors duration-300">
@@ -243,7 +243,7 @@ export default async function Home({ params }: PageProps) {
                   ))}
                 </div>
               ) : (
-                <p className="text-brand-neutral-light/80">
+                <p className="text-ink-muted">
                   {t('noPosts')}
                 </p>
               )}

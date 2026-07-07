@@ -13,7 +13,7 @@ export function FeaturedLinks({ onLinkClick }: FeaturedLinksProps) {
 
   return (
     <div className="mb-16">
-      <h2 className="text-2xl font-bold font-poppins text-brand-neutral-light mb-8 text-center">
+      <h2 className="text-2xl font-bold font-poppins text-ink mb-8 text-center">
         <span className="bg-gradient-accent bg-clip-text text-transparent">{words[0]}</span> {words.slice(1).join(' ')}
       </h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
