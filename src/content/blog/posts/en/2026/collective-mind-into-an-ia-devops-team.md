@@ -1,7 +1,7 @@
 ---
 post: "collective-mind-into-an-ia-devops-team"
-title: "10. A mente coletiva: por que a IA da sua equipe deveria compartilhar um cérebro"
-description: "Adoção de IA em equipes de engenharia costuma ser medida errada. Contamos quantas pessoas usam um assistente, quantos prompts por dia, quanto código foi gerado. Mas há um custo silencioso que essas métricas não capturam: cada pessoa está construindo, isoladamente, um contexto que morre com ela."
+title: "10. The Collective Mind: Why Your Team's AI Should Share a Brain"
+description: "AI adoption in engineering teams is usually measured the wrong way. We count how many people use an assistant, how many prompts per day, how much code gets generated. But there's a silent cost these metrics miss: every engineer is building, in isolation, a context that dies with them."
 image_banner: "/images/blog/banner_10_post_blog.png"
 image_post: "/images/blog/banner_10_post_blog@2x.png"
 date: "2026-07-19"
@@ -36,6 +36,42 @@ Today it contains **225 operational knowledge notes**, distilled from **34 proje
 Everything is sanitized—no sensitive information—making it safe to share across the team.
 
 Any engineer can connect their AI assistant to the knowledge base with just a few lines of configuration. From that point on, whenever the assistant lacks DevOps context that isn't available in the current repository, it consults the collective mind before answering.
+
+## The Network From the Inside: Markdown + Obsidian
+
+The collective mind isn't a platform—it's a folder of markdown files versioned in Git. Each note is small and atomic: a runbook, a decision, an operational rule. What turns that folder into a network is one simple convention: **every note points to other notes using `[[wikilinks]]`.**
+
+Open the vault in Obsidian and every wikilink becomes an edge—the graph view reveals the team's "brain":
+
+![Obsidian graph view showing the collective mind's network of notes](/images/blog/obsidian-graph-collective-mind.svg)
+
+The structure you see there was never designed—it emerged on its own:
+
+* **Clusters are domains.** Kubernetes, AWS, Terraform, incidents, CI/CD—each color is a group of notes that reference each other.
+* **The big nodes are MOCs** (*Maps of Content*): index notes that list and connect everything in a domain. They're the entry point—for humans and AI alike.
+* **The dashed lines crossing domains are where the value lives.** A Kubernetes rollback runbook pointing to the SEV1 incident checklist—that's the kind of connection no folder-based wiki captures.
+
+In practice, a note looks like this:
+
+```markdown
+# k8s-rollback-runbook
+tags: #kubernetes #runbook
+
+Before any production rollback:
+- check the deploy window in [[deploy-freeze-policy]]
+- if it is an incident, follow the [[sev1-checklist]]
+- ready-to-run commands in [[helm-rollback-cmds]]
+
+Never roll back a database migration without checking [[db-migration-rules]].
+
+Related: [[moc-kubernetes]]
+```
+
+And here's how Obsidian displays it, with the *local graph* showing the note's immediate neighborhood:
+
+![Obsidian note with highlighted wikilinks and its local graph](/images/blog/obsidian-note-wikilinks-en.svg)
+
+This graph is exactly what the AI traverses: it enters through a MOC and follows wikilinks the way an engineer would, reaching the right context within two or three hops. An orphan note—one with no links—is a warning sign: knowledge that exists, but that nobody, human or AI, will ever find.
 
 It sounds simple.
 

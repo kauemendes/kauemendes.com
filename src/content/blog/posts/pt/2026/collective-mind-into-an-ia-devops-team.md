@@ -23,6 +23,42 @@ Construí o que chamo de **mente coletiva**: uma base de conhecimento única, ve
 
 Qualquer engenheiro liga sua IA à base com poucas linhas de configuração. A partir daí, quando falta contexto de DevOps que não está no projeto atual, a IA consulta a mente coletiva antes de responder.
 
+## A rede vista de dentro: markdown + Obsidian
+
+A mente coletiva não é uma plataforma — é uma pasta de arquivos markdown versionada em git. Cada nota é pequena e atômica: um runbook, uma decisão, uma regra operacional. O que transforma essa pasta em rede é uma convenção simples: **toda nota aponta para outras notas com wikilinks `[[assim]]`**.
+
+Abrindo a base no Obsidian, cada wikilink vira uma aresta — e o graph view revela o "cérebro" da equipe:
+
+![Graph view do Obsidian mostrando a rede de notas da mente coletiva](/images/blog/obsidian-graph-collective-mind.svg)
+
+A estrutura que aparece aí não foi desenhada — ela emergiu sozinha:
+
+- **Os aglomerados são os domínios.** Kubernetes, AWS, Terraform, incidentes, CI/CD — cada cor é um grupo de notas que se citam entre si.
+- **Os nós grandes são os MOCs** (*Maps of Content*): notas-índice que listam e conectam as notas do domínio. São a porta de entrada — para humanos e para a IA.
+- **As linhas tracejadas cruzando domínios são onde mora o valor.** Um runbook de rollback do Kubernetes apontando para o checklist de incidente SEV1 — é o tipo de conexão que nenhuma wiki organizada por pastas captura.
+
+Na prática, uma nota é assim:
+
+```markdown
+# k8s-rollback-runbook
+tags: #kubernetes #runbook
+
+Antes de qualquer rollback em produção:
+- confirmar a janela de deploy em [[deploy-freeze-policy]]
+- se for incidente, seguir o [[sev1-checklist]]
+- comandos prontos em [[helm-rollback-cmds]]
+
+Nunca fazer rollback de migração de banco sem checar [[db-migration-rules]].
+
+Relacionado: [[moc-kubernetes]]
+```
+
+E é assim que o Obsidian a exibe, com o *local graph* mostrando a vizinhança imediata da nota:
+
+![Nota no Obsidian com wikilinks destacados e o local graph da vizinhança](/images/blog/obsidian-note-wikilinks-pt.svg)
+
+É exatamente esse grafo que a IA percorre: entra por um MOC e segue os wikilinks como um engenheiro seguiria, chegando ao contexto certo em dois ou três saltos. Nota órfã — sem nenhum link — é sinal de alerta: conhecimento que existe, mas que ninguém, humano ou IA, vai encontrar.
+
 Parece simples. Mas por baixo há uma razão técnica e científica de por que isso funciona tão bem — e por que era o passo que faltava.
 
 ## Por que funciona: como as IAs realmente "pensam"
