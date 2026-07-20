@@ -27,16 +27,23 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
   }
 
   const keywords = content.post.split('-')
+  const shareImage = content.image_og ?? content.image_banner
 
   return {
     title: content.title,
     description: content.description,
     keywords: [keywords, 'blog'],
     openGraph: {
+      type: 'article',
       title: content.title,
       description: content.description,
-      image: content.image_banner,
-      keywords: [keywords, 'blog']
+      images: [shareImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: content.title,
+      description: content.description,
+      images: [shareImage],
     },
   }
 }

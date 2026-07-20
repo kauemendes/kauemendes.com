@@ -4,6 +4,7 @@ title: "10. The Collective Mind: Why Your Team's AI Should Share a Brain"
 description: "AI adoption in engineering teams is usually measured the wrong way. We count how many people use an assistant, how many prompts per day, how much code gets generated. But there's a silent cost these metrics miss: every engineer is building, in isolation, a context that dies with them."
 image_banner: "/images/blog/banner_10_post_blog.png"
 image_post: "/images/blog/banner_10_post_blog@2x.png"
+image_og: "/images/blog/banner_10_post_blog_og.jpg"
 date: "2026-07-19"
 ---
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.kauecode.com'),
   title: {
     default: 'kauecode.com',
     template: '%s | kauecode.com'

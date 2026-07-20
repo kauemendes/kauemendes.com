@@ -12,5 +12,6 @@ export interface PostMarkdown {
   description: string;
   image_banner: string;
   image_post: string;
+  image_og?: string;
   body: string;
 }
