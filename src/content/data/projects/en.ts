@@ -2,6 +2,24 @@ import { Project } from './index';
 
 export const projects: Project[] = [
   {
+    title: 'Syspec',
+    description: 'A visual system architecture builder: draw your infrastructure, simulate capacity and failure scenarios, get a design score, and export a deployment-ready harness for your DevOps team — architecture you can trust before provisioning a single resource.',
+    image_banner: '/images/projects/syspec-banner.png',
+    id: 'syspec',
+    category: 'Architecture Tools',
+    technologies: ['System Design', 'Capacity Planning', 'Failure Simulation', 'DevOps Automation'],
+    features: [
+      'Visual canvas to design your system architecture',
+      'Capacity and failure scenario simulation',
+      'Automatic scoring of the design quality',
+      'Deployment-ready harness export',
+      'A trustworthy alternative to AI-hallucinated diagrams'
+    ],
+    status: 'Active',
+    demo: 'https://syspec.dev',
+    year: '2026'
+  },
+  {
     title: 'Azure DevOps - Pipeline Variables',
     description: 'A powerful Azure DevOps extension that provides comprehensive visibility into pipeline variables, making debugging and monitoring easier for development teams.',
     image_banner: '/images/projects/extension-devops-printvariables.png',

@@ -3,7 +3,8 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getRandomMessage, getPostsList } from '@/lib';
-import { projects } from '@/content/data/projects';
+import { getProjects } from '@/content/data/projects';
+import { Locale } from '@/i18n';
 import { socialLinks } from '@/content/data/social';
 import { Card } from '@/components';
 import { TechBackground } from '@/components/ui/TechBackground';
@@ -81,8 +82,8 @@ export default async function Home({ params }: PageProps) {
   const tCommon = await getTranslations({ locale, namespace: 'common' });
 
   const randomMessage = await getRandomMessage();
-  const recentPosts = (await getPostsList()).slice(0, 3);
-  const featuredProjects = projects.slice(0, 2);
+  const recentPosts = (await getPostsList(locale)).slice(0, 3);
+  const featuredProjects = (await getProjects(locale as Locale)).slice(0, 2);
 
   const dateLocale = locale === 'pt' ? 'pt-BR' : 'en-US';
 

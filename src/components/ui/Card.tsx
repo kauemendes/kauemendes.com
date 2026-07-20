@@ -19,7 +19,7 @@ export default function Card({ title, body, image, url, readMoreLabel = "Read mo
             <Link href={url}>
                 <h5 className="mb-2 text-2xl font-poppins font-semibold tracking-tight text-ink">{title}</h5>
             </Link>
-            <p className="mb-3 text-ink-muted">{body}.</p>
+            <p className="mb-3 text-ink-muted">{body}</p>
             <Link href={url} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-brand-primary bg-accent rounded-lg hover:bg-accent-strong transition-colors focus:ring-4 focus:outline-hidden focus:ring-accent/30">
                 {readMoreLabel}
                 <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
