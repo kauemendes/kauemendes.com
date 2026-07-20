@@ -55,7 +55,7 @@ A language model generates responses based on what's inside its **context window
 
 Outside of that window, it knows nothing about your previous interactions.
 
-The mechanism that allows it to make use of new information without retraining is **in-context learning**: the model conditions its reasoning on whatever information is present in the prompt.[REF: Attention Is All You Need (Vaswani et al., 2017); Language Models are Few-Shot Learners (Brown et al., 2020)]
+The mechanism that allows it to make use of new information without retraining is **in-context learning**: the model conditions its reasoning on whatever information is present in the prompt.
 
 The implication is straightforward:
 
@@ -63,7 +63,7 @@ The implication is straightforward:
 
 The collective mind serves as the **external memory** the model architecture doesn't possess.
 
-This follows the same principle behind Retrieval-Augmented Generation (RAG), where a model retrieves relevant external knowledge before generating its response.[REF: Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks, 2020]
+This follows the same principle behind Retrieval-Augmented Generation (RAG), where a model retrieves relevant external knowledge before generating its response.
 
 ---
 
@@ -71,7 +71,7 @@ This follows the same principle behind Retrieval-Augmented Generation (RAG), whe
 
 Language models hallucinate more frequently when operating outside their knowledge boundaries and without supporting material.
 
-Providing factual, domain-specific context anchors the model's reasoning and significantly reduces this behavior.[REF: Ji et al., Survey of Hallucination in Natural Language Generation, 2023]
+Providing factual, domain-specific context anchors the model's reasoning and significantly reduces this behavior.
 
 For an engineering team, this means every assistant starts producing answers grounded in **the team's actual decisions**, rather than generic assumptions learned from the public internet.
 
@@ -90,7 +90,7 @@ Knowledge exists in two forms:
 * **Explicit knowledge**—what is documented.
 * **Tacit knowledge**—the practical know-how living inside people's heads.
 
-Classical knowledge management argues that organizations create value by transforming tacit knowledge into explicit knowledge that everyone can reuse.[REF: Nonaka & Takeuchi, *The Knowledge-Creating Company*, 1995]
+Classical knowledge management argues that organizations create value by transforming tacit knowledge into explicit knowledge that everyone can reuse.
 
 The collective mind is, in practice, an **externalization mechanism**.
 
@@ -106,7 +106,7 @@ This works well while everyone is around.
 
 It breaks the moment someone leaves—or simply goes on vacation.
 
-A shared knowledge base externalizes that memory into something independent of any individual.[REF: Wegner, Transactive Memory Systems, 1986]
+A shared knowledge base externalizes that memory into something independent of any individual.
 
 ---
 
@@ -118,7 +118,7 @@ The next engineer has to pay again to rediscover the exact same solution.
 
 Organizational theory describes this as a coordination or transaction cost.
 
-Reducing duplicated discovery directly reduces those costs.[REF: Coase, *The Nature of the Firm*, 1937; Malone & Crowston, *The Interdisciplinary Study of Coordination*, 1994]
+Reducing duplicated discovery directly reduces those costs.
 
 ---
 
@@ -170,7 +170,7 @@ Individually, every AI assistant is a brilliant worker with amnesia.
 
 Connected to a shared memory, they become a team that learns.
 
-Intelligence stops being a property of isolated conversations and becomes a property of the system itself—the kind of capability that only emerges when independent parts become connected.[REF: *The Wisdom of Crowds* (Surowiecki, 2004); MIT Center for Collective Intelligence]
+Intelligence stops being a property of isolated conversations and becomes a property of the system itself—the kind of capability that only emerges when independent parts become connected.
 
 I didn't build a better AI.
 

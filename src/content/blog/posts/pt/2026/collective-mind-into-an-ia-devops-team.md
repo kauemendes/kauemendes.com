@@ -30,27 +30,27 @@ Parece simples. Mas por baixo há uma razão técnica e científica de por que i
 Existe um mal-entendido fundamental sobre modelos de linguagem: as pessoas acham que a IA "aprende" e "lembra" das conversas. Ela não faz nenhum dos dois, na maioria dos usos práticos.
 
 **1. LLMs não têm memória entre sessões — eles raciocinam sobre a janela de contexto.**
-Um modelo de linguagem gera respostas com base no que está na sua *janela de contexto* naquele instante. Fora dali, ele não sabe de nada. O mecanismo que o faz "usar" informação nova sem ser retreinado é o *in-context learning*: o modelo condiciona sua resposta ao conteúdo fornecido no prompt [REF: mecanismo de atenção — Vaswani et al., "Attention Is All You Need", 2017 — confirmar; conceito de in-context learning — Brown et al., "Language Models are Few-Shot Learners" (GPT-3), 2020 — confirmar].
+Um modelo de linguagem gera respostas com base no que está na sua *janela de contexto* naquele instante. Fora dali, ele não sabe de nada. O mecanismo que o faz "usar" informação nova sem ser retreinado é o *in-context learning*: o modelo condiciona sua resposta ao conteúdo fornecido no prompt.
 
-A consequência é direta: **se o conhecimento da equipe não estiver acessível à IA no momento certo, ela vai reinventá-lo — ou pior, alucinar uma versão plausível e errada.** A mente coletiva funciona como a *memória externa* que a arquitetura do modelo não possui. É a mesma lógica por trás de sistemas de geração aumentada por recuperação, onde o modelo busca conhecimento externo relevante antes de gerar a resposta [REF: retrieval-augmented generation — Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", 2020 — confirmar].
+A consequência é direta: **se o conhecimento da equipe não estiver acessível à IA no momento certo, ela vai reinventá-lo — ou pior, alucinar uma versão plausível e errada.** A mente coletiva funciona como a *memória externa* que a arquitetura do modelo não possui. É a mesma lógica por trás de sistemas de geração aumentada por recuperação, onde o modelo busca conhecimento externo relevante antes de gerar a resposta.
 
 **2. Contexto de qualidade reduz alucinação e variância.**
-Modelos alucinam com mais frequência quando operam fora do que sabem e sem material de apoio. Fornecer contexto factual e específico reduz esse comportamento e ancora a resposta em fatos verificáveis [REF: survey sobre alucinação em LLMs — Ji et al., "Survey of Hallucination in Natural Language Generation", 2023 — confirmar]. Numa equipe, isso significa que a IA de cada pessoa passa a dar respostas ancoradas no que o time de fato decidiu — não em suposições genéricas da internet.
+Modelos alucinam com mais frequência quando operam fora do que sabem e sem material de apoio. Fornecer contexto factual e específico reduz esse comportamento e ancora a resposta em fatos verificáveis. Numa equipe, isso significa que a IA de cada pessoa passa a dar respostas ancoradas no que o time de fato decidiu — não em suposições genéricas da internet.
 
 ## Por que faltava: o problema é de gestão do conhecimento, não de tecnologia
 
 A parte científica mais interessante não vem da IA — vem de décadas antes dela.
 
 **3. O ativo mais valioso de um time é o conhecimento tácito.**
-Existe o conhecimento explícito (o que está documentado) e o *tácito* (o "jeito de fazer" que vive na cabeça das pessoas e raramente é escrito). A teoria clássica de gestão do conhecimento mostra que a criação de valor organizacional depende de *converter* conhecimento tácito em explícito — torná-lo compartilhável — para que a organização, e não só o indivíduo, aprenda [REF: modelo SECI (Socialization, Externalization, Combination, Internalization) — Nonaka & Takeuchi, "The Knowledge-Creating Company", 1995 — confirmar].
+Existe o conhecimento explícito (o que está documentado) e o *tácito* (o "jeito de fazer" que vive na cabeça das pessoas e raramente é escrito). A teoria clássica de gestão do conhecimento mostra que a criação de valor organizacional depende de *converter* conhecimento tácito em explícito — torná-lo compartilhável — para que a organização, e não só o indivíduo, aprenda.
 
 A mente coletiva é, na prática, um mecanismo de *externalização*: pega o conhecimento tácito que estava emergindo nas conversas com IA e o solidifica num artefato compartilhado.
 
 **4. Memória de grupo é um conceito real — e distribuída é frágil.**
-Times desenvolvem uma "memória transativa": um saber coletivo sobre *quem sabe o quê*. É eficiente enquanto todos estão por perto — mas frágil, porque quando a pessoa sai (ou só está de férias), o conhecimento vai junto [REF: transactive memory systems — Wegner, 1986 — confirmar]. Uma base compartilhada externaliza essa memória para um lugar que não depende de nenhum indivíduo estar disponível.
+Times desenvolvem uma "memória transativa": um saber coletivo sobre *quem sabe o quê*. É eficiente enquanto todos estão por perto — mas frágil, porque quando a pessoa sai (ou só está de férias), o conhecimento vai junto. Uma base compartilhada externaliza essa memória para um lugar que não depende de nenhum indivíduo estar disponível.
 
 **5. Silos têm um custo de coordenação mensurável.**
-Cada problema resolvido em isolamento tem um custo invisível: a próxima pessoa paga de novo para redescobrir a mesma coisa. A teoria organizacional trata isso como custo de coordenação/transação — e reduzir redundância de trabalho é reduzir esse custo diretamente [REF: Coase, "The Nature of the Firm", 1937 — confirmar; coordination theory — Malone & Crowston, "The Interdisciplinary Study of Coordination", 1994 — confirmar].
+Cada problema resolvido em isolamento tem um custo invisível: a próxima pessoa paga de novo para redescobrir a mesma coisa. A teoria organizacional trata isso como custo de coordenação/transação — e reduzir redundância de trabalho é reduzir esse custo diretamente.
 
 ## Os três ganhos concretos
 
@@ -66,7 +66,7 @@ Juntando a teoria com a operação real, os benefícios se materializam em três
 
 O que fez a diferença não foi uma IA mais poderosa. Foi uma mudança de enquadramento: **parar de ver a IA como uma ferramenta pessoal e passar a vê-la como nós de uma rede que compartilham um cérebro comum.**
 
-Individualmente, cada assistente de IA é um trabalhador brilhante com amnésia. Conectados a uma memória coletiva, viram um time que aprende. A inteligência deixa de ser um atributo de cada sessão isolada e passa a ser uma propriedade do sistema — exatamente o tipo de ganho que só emerge quando as partes se conectam [REF: inteligência coletiva / "The Wisdom of Crowds" — Surowiecki, 2004, ou pesquisa de collective intelligence do MIT Center for Collective Intelligence — confirmar].
+Individualmente, cada assistente de IA é um trabalhador brilhante com amnésia. Conectados a uma memória coletiva, viram um time que aprende. A inteligência deixa de ser um atributo de cada sessão isolada e passa a ser uma propriedade do sistema — exatamente o tipo de ganho que só emerge quando as partes se conectam.
 
 Não construí uma IA melhor. Construí a **memória coletiva que a equipe sempre teve, mas nunca conseguiu compartilhar** — e dei a ela um endereço que qualquer IA consegue ler.
 
