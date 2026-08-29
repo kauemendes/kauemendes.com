@@ -33,7 +33,7 @@
       "role": "DevOps Engineer & Cloud Architect",
       "location": "Portugal",
       "since": "Writing since 2023",
-      "statement": "Ten years building platforms that outlive the teams that built them. Azure, Kubernetes and automation — and lately, what happens when engineering teams give their AI a shared brain."
+      "statement": "Building platforms that outlive the teams that built them. Azure, Kubernetes and automation — and lately, what happens when engineering teams give their AI a shared brain."
     },
     "index": {
       "title": "Index",
@@ -51,19 +51,9 @@
   },
   "blog": {
     "title": "Personal Blog",
-    "subtitle": "Tech Insights and Experiences",
-    "articles": "Articles",
-    "categories": "Categories",
-    "readers": "Readers",
-    "featured": "Featured",
-    "readArticle": "Read Article",
-    "allArticles": "All Articles",
-    "wantUpdates": "Want to Stay Updated?",
     "backToBlog": "Back to Blog",
     "previousArticle": "Previous Article",
     "nextArticle": "Next Article",
-    "enjoyedArticle": "Enjoyed this Article?",
-    "readMoreArticles": "Read More Articles",
     "share": "Share",
     "publishedOn": "Published on",
     "index": "Writing",
@@ -71,8 +61,9 @@
     "count": "{count} essays",
     "alsoIn": "Also in Portuguese",
     "backToIndex": "All writing",
-    "previous": "Previous",
-    "next": "Next"
+    "newer": "Newer",
+    "older": "Older",
+    "shareCopied": "Link copied"
   },
   "resume": {
     "title": "Interactive Resume",
@@ -156,15 +147,10 @@
   },
   "projects": {
     "title": "My Projects",
-    "subtitle": "Portfolio Showcase",
-    "projectsBuilt": "Projects Built",
-    "downloads": "Downloads",
-    "latestRelease": "Latest Release",
     "viewDetails": "View Details",
     "technologies": "Technologies",
     "keyFeatures": "Key Features",
     "impact": "Impact",
-    "interestedCustom": "Interested in Custom Development?",
     "discussProject": "Discuss Your Project",
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
@@ -173,7 +159,17 @@
       "active": "Active",
       "completed": "Completed",
       "inProgress": "In Progress"
-    }
+    },
+    "index": "Work",
+    "indexSubtitle": "things I have shipped",
+    "count": "{count} projects",
+    "marketplace": "Marketplace",
+    "backToProjects": "All work",
+    "information": "Details",
+    "year": "Year",
+    "statusLabel": "Status",
+    "viewAll": "View all projects",
+    "openProject": "Open project"
   },
   "consult": {
     "title": "Enterprise AI, Cloud & DevOps Consulting",
@@ -199,12 +195,16 @@
     }
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Learn More",
+    "title": "About",
+    "greeting": "Hi, I'm Kauê",
+    "paragraph1": "I am a software developer with a passion for making developers' lives easier. I've been in the software development game for over 15 years, and let me tell you, I've seen more code than a coffee machine sees coffee beans.",
+    "paragraph2": "Currently I work as a DevOps Engineer, and I'm thrilled by the magic of automation and the endless possibilities it brings. From frontend to backend, I've had my hands on a plethora of technologies, always eager to learn and innovate.",
+    "tagline1": "Passion for the future",
+    "tagline2": "Geostationary orbit @ Lisbon",
+    "profiles": "Profiles",
     "personal": "Personal",
     "professional": "Professional",
-    "personalDescription": "My personal story and journey",
-    "professionalDescription": "Professional experience and career"
+    "backToAbout": "Back to about"
   },
   "links": {
     "title": "Links",

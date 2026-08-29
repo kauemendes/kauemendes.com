@@ -33,7 +33,7 @@
       "role": "Engenheiro DevOps & Arquiteto Cloud",
       "location": "Portugal",
       "since": "Escrevendo desde 2023",
-      "statement": "Dez anos construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
+      "statement": "Construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
     },
     "index": {
       "title": "Índice",
@@ -51,19 +51,9 @@
   },
   "blog": {
     "title": "Blog Pessoal",
-    "subtitle": "Insights de Tech e Experiências",
-    "articles": "Artigos",
-    "categories": "Categorias",
-    "readers": "Leitores",
-    "featured": "Destaque",
-    "readArticle": "Ler Artigo",
-    "allArticles": "Todos os Artigos",
-    "wantUpdates": "Quer Ficar Atualizado?",
     "backToBlog": "Voltar ao Blog",
     "previousArticle": "Artigo Anterior",
     "nextArticle": "Próximo Artigo",
-    "enjoyedArticle": "Gostou deste Artigo?",
-    "readMoreArticles": "Ler Mais Artigos",
     "share": "Compartilhar",
     "publishedOn": "Publicado em",
     "index": "Escritos",
@@ -71,8 +61,9 @@
     "count": "{count} ensaios",
     "alsoIn": "Também em inglês",
     "backToIndex": "Todos os escritos",
-    "previous": "Anterior",
-    "next": "Próximo"
+    "newer": "Mais recente",
+    "older": "Mais antigo",
+    "shareCopied": "Link copiado"
   },
   "resume": {
     "title": "Currículo Interativo",
@@ -156,15 +147,10 @@
   },
   "projects": {
     "title": "Meus Projetos",
-    "subtitle": "Vitrine do Portfólio",
-    "projectsBuilt": "Projetos Construídos",
-    "downloads": "Downloads",
-    "latestRelease": "Último Lançamento",
     "viewDetails": "Ver Detalhes",
     "technologies": "Tecnologias",
     "keyFeatures": "Principais Recursos",
     "impact": "Impacto",
-    "interestedCustom": "Interessado em Desenvolvimento Customizado?",
     "discussProject": "Discutir Seu Projeto",
     "viewProject": "Ver Projeto",
     "liveDemo": "Demo ao Vivo",
@@ -173,7 +159,17 @@
       "active": "Ativo",
       "completed": "Concluído",
       "inProgress": "Em Progresso"
-    }
+    },
+    "index": "Trabalhos",
+    "indexSubtitle": "coisas que coloquei no ar",
+    "count": "{count} projetos",
+    "marketplace": "Marketplace",
+    "backToProjects": "Todos os trabalhos",
+    "information": "Detalhes",
+    "year": "Ano",
+    "statusLabel": "Status",
+    "viewAll": "Ver todos os projetos",
+    "openProject": "Acessar projeto"
   },
   "consult": {
     "title": "Consultoria Empresarial em IA, Cloud & DevOps",
@@ -199,12 +195,16 @@
     }
   },
   "about": {
-    "title": "Sobre Mim",
-    "subtitle": "Conheça Mais",
+    "title": "Sobre",
+    "greeting": "Olá, sou o Kauê",
+    "paragraph1": "Sou desenvolvedor de software com paixão por facilitar a vida de quem programa. Estou nesse jogo há mais de 15 anos e, acredite, já vi mais código do que máquina de café vê grão.",
+    "paragraph2": "Hoje trabalho como Engenheiro DevOps, e me encanta a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
+    "tagline1": "Paixão pelo futuro",
+    "tagline2": "Órbita geoestacionária @ Lisboa",
+    "profiles": "Perfis",
     "personal": "Pessoal",
     "professional": "Profissional",
-    "personalDescription": "Minha história pessoal e jornada",
-    "professionalDescription": "Experiência profissional e carreira"
+    "backToAbout": "Voltar para sobre"
   },
   "links": {
     "title": "Links",

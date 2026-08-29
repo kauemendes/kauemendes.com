@@ -180,7 +180,11 @@
     border-top: 2px solid var(--ink);
   }
 
-  .drop-cap::first-letter {
+  /*
+    Opens an article. Applied to the prose container rather than the paragraph,
+    because the body arrives as pre-rendered markdown HTML.
+  */
+  .drop-cap > p:first-of-type::first-letter {
     font-family: var(--font-display);
     float: left;
     font-size: 4.1em;

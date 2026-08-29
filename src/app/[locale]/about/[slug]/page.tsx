@@ -1,45 +1,41 @@
-import { getContent } from "@/lib/content";
+import Link from 'next/link';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-export default async function InfoPage(props: { params: Promise<{ locale: string; slug: string }> }) {
-  const params = await props.params;
+import { getContent } from '@/lib/content';
+import { Prose } from '@/components';
 
-  const {
-    slug
-  } = params;
+interface PageProps {
+  params: Promise<{ locale: string; slug: string }>;
+}
 
+export default async function AboutSlugPage({ params }: PageProps) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations({ locale, namespace: 'about' });
   const content = await getContent(slug);
+
   return (
-    <div className="min-h-screen bg-gradient-brand">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-6">
 
-        {/* Header */}
-        <div className="text-center mb-8 pt-16">
-          <h1 className="text-4xl md:text-5xl font-bold font-poppins text-ink mb-6">
-            <span className="bg-gradient-accent bg-clip-text text-transparent">{content.title}</span>
-          </h1>
-        </div>
-
-        {/* Banner */}
-        <div className={`bg-no-repeat bg-center bg-[url('/images/banner2.jpg')] w-full h-[100px] rounded-xl mb-8`}></div>
-
-        {/* Content */}
-        <div className="bg-surface-raised/80 backdrop-blur border border-edge rounded-xl p-6 md:p-8 lg:p-12 mb-16 shadow-lg">
-          <article
-            dangerouslySetInnerHTML={{ __html: content.body }}
-            className="prose prose-lg max-w-none mx-auto
-              prose-headings:text-ink prose-headings:font-poppins prose-headings:font-bold
-              prose-p:text-ink-muted prose-p:leading-relaxed
-              prose-a:text-accent prose-a:no-underline hover:prose-a:text-accent-strong prose-a:transition-colors
-              prose-strong:text-ink prose-strong:font-semibold
-              prose-code:text-accent prose-code:bg-surface prose-code:px-2 prose-code:py-1 prose-code:rounded
-              prose-pre:bg-surface prose-pre:border prose-pre:border-edge
-              prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:bg-surface/50 prose-blockquote:text-ink
-              prose-ul:text-ink-muted prose-ol:text-ink-muted
-              prose-li:text-ink-muted
-              prose-img:rounded-xl prose-img:shadow-lg"
-          />
-        </div>
+      <div className="pt-8 pb-10">
+        <Link
+          href={`/${locale}/about`}
+          className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-muted hover:text-accent transition-colors duration-150"
+        >
+          &larr; {t('backToAbout')}
+        </Link>
       </div>
+
+      <h1 className="font-display text-[clamp(2.1rem,6vw,3.4rem)] leading-[1.02] tracking-[-0.015em] text-ink mb-8">
+        {content.title}
+      </h1>
+
+      <hr className="rule-solid mb-10" />
+
+      <article className="pb-20">
+        <Prose html={content.body} />
+      </article>
     </div>
   );
 }
