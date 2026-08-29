@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { ButtonLink } from '@/components'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { ResumeData } from '@/lib/types/resume'
 import { calculateTotalExperience } from '@/lib/utils/resume'
 
@@ -15,6 +16,7 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
   const { personal, social, experience } = resumeData
   const totalExperience = calculateTotalExperience(experience)
   const locale = useLocale()
+  const t = useTranslations('resume')
 
   const containerVariants = {
     initial: { opacity: 0 },
@@ -46,7 +48,7 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
           variants={itemVariants}
           className="relative"
         >
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-accent/30 shadow-xl">
+          <div className="w-32 h-32 md:w-40 md:h-40 overflow-hidden ring-4 ring-accent/30 shadow-hard-sm">
             <Image
               src={personal.avatar || '/images/avatars/avatar.png'}
               alt={personal.name}
@@ -57,8 +59,8 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
           </div>
           
           {/* Status Indicator */}
-          <div className="absolute -bottom-2 -right-2 bg-accent w-6 h-6 rounded-full border-4 border-surface-raised flex items-center justify-center">
-            <div className="w-2 h-2 bg-surface-raised rounded-full animate-pulse"></div>
+          <div className="absolute -bottom-2 -right-2 bg-accent w-6 h-6 border-4 border-paper flex items-center justify-center">
+            <div className="w-2 h-2 bg-paper-2"></div>
           </div>
         </motion.div>
 
@@ -66,7 +68,7 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
         <div className="flex-1">
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold font-poppins text-ink mb-2"
+            className="text-4xl md:text-5xl font-display text-ink mb-2"
           >
             {personal.name}
           </motion.h1>
@@ -105,9 +107,9 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
         variants={itemVariants}
         className="mb-12"
       >
-        <h2 className="text-2xl font-bold font-poppins text-ink mb-4 flex items-center">
-          <span className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center mr-3">
-            <svg className="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h2 className="text-2xl font-display text-ink mb-4 flex items-center">
+          <span className="w-8 h-8 bg-accent flex items-center justify-center mr-3">
+            <svg className="w-4 h-4 text-paper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </span>
@@ -123,23 +125,23 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
         variants={itemVariants}
         className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
       >
-        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 rounded-xl border border-accent/20">
-          <div className="text-3xl font-bold font-poppins text-accent">{totalExperience}+</div>
+        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 border border-accent/20">
+          <div className="text-3xl font-display text-accent">{totalExperience}+</div>
           <div className="text-sm text-ink-muted mt-1">Years Experience</div>
         </div>
         
-        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 rounded-xl border border-accent/20">
-          <div className="text-3xl font-bold font-poppins text-accent">{experience.length}</div>
+        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 border border-accent/20">
+          <div className="text-3xl font-display text-accent">{experience.length}</div>
           <div className="text-sm text-ink-muted mt-1">Companies</div>
         </div>
         
-        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 rounded-xl border border-accent/20">
-          <div className="text-3xl font-bold font-poppins text-accent">{resumeData.projects.length}</div>
+        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 border border-accent/20">
+          <div className="text-3xl font-display text-accent">{resumeData.projects.length}</div>
           <div className="text-sm text-ink-muted mt-1">Projects</div>
         </div>
         
-        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 rounded-xl border border-accent/20">
-          <div className="text-3xl font-bold font-poppins text-accent">
+        <div className="text-center p-6 bg-linear-to-br from-accent/15 to-accent/5 border border-accent/20">
+          <div className="text-3xl font-display text-accent">
             {resumeData.skills.reduce((total, category) => total + category.skills.length, 0)}
           </div>
           <div className="text-sm text-ink-muted mt-1">Skills</div>
@@ -151,9 +153,9 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
         variants={itemVariants}
         className="mb-8"
       >
-        <h3 className="text-lg font-bold font-poppins text-ink mb-4 flex items-center">
-          <span className="w-6 h-6 bg-accent rounded-lg flex items-center justify-center mr-3">
-            <svg className="w-3 h-3 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h3 className="text-lg font-display text-ink mb-4 flex items-center">
+          <span className="w-6 h-6 bg-accent flex items-center justify-center mr-3">
+            <svg className="w-3 h-3 text-paper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
             </svg>
           </span>
@@ -168,10 +170,10 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 px-4 py-2 bg-surface/60 border border-accent/30 text-ink rounded-lg hover:bg-accent hover:text-brand-primary transition-all duration-300 group"
+              className="flex items-center space-x-2 px-4 py-2 bg-paper border border-accent/30 text-ink hover:bg-accent hover:text-paper transition-all duration-300 group"
             >
               <span className="capitalize font-medium">{socialProfile.platform}</span>
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 transition-colors duration-300 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </motion.a>
@@ -182,44 +184,22 @@ export function ResumeHeader({ resumeData }: ResumeHeaderProps) {
       {/* Call to Action */}
       <motion.div
         variants={itemVariants}
-        className="relative bg-linear-to-r from-accent/15 to-accent-strong/15 rounded-2xl p-8 border border-accent/30 overflow-hidden"
+        className="border-2 border-ink border-l-8 border-l-accent bg-paper-2 p-6 mt-10"
       >
-        {/* Background decoration */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E5FF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}></div>
-        </div>
-        
-        <div className="relative z-10 text-center">
-          <h3 className="text-xl font-bold font-poppins text-ink mb-3">
-            Ready to Collaborate?
-          </h3>
-          <p className="text-ink-muted mb-6">
-            Let's discuss how I can contribute to your team's success in DevOps and cloud architecture.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={`/${locale}/consult`}
-              className="group inline-flex justify-center items-center py-3 px-6 bg-accent text-brand-primary rounded-lg hover:bg-accent-strong transition-all duration-300 font-semibold"
-            >
-              Start a Conversation
-              <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </Link>
+        <h3 className="font-display text-[1.6rem] leading-[1.1] text-ink mb-2">
+          {t('readyToCollaborate')}
+        </h3>
+        <p className="font-text text-[15.5px] leading-[1.65] text-ink-soft mb-6 max-w-[54ch]">
+          {t('collaborateDescription')}
+        </p>
 
-            <Link
-              href={`/${locale}/projects`}
-              className="group inline-flex justify-center items-center py-3 px-6 text-ink rounded-lg border border-accent/30 hover:bg-accent hover:text-brand-primary transition-all duration-300 font-medium"
-            >
-              View My Work
-              <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </Link>
-          </div>
+        <div className="flex flex-wrap gap-3">
+          <ButtonLink href={`/${locale}/consult`} variant="accent">
+            {t('startConversation')}
+          </ButtonLink>
+          <ButtonLink href={`/${locale}/projects`}>
+            {t('viewMyWork')}
+          </ButtonLink>
         </div>
       </motion.div>
     </motion.div>

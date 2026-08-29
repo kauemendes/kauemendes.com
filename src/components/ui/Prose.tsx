@@ -28,10 +28,10 @@ export function Prose({ html, className = '' }: { html: string; className?: stri
         // Code: bordered mono, no Tailwind backtick pseudo-elements.
         'prose-code:font-mono prose-code:text-ink prose-code:bg-paper-2 prose-code:font-normal',
         'prose-code:border prose-code:border-rule prose-code:px-1.5 prose-code:py-0.5',
-        'prose-code:before:content-none prose-code:after:content-none',
-        'prose-pre:bg-paper-2 prose-pre:text-ink prose-pre:border-2 prose-pre:border-ink',
+        'prose-code:before:content-none prose-code:after:content-none prose-code:rounded-none',
+        'prose-pre:bg-paper-2 prose-pre:text-ink prose-pre:border-2 prose-pre:border-ink prose-pre:rounded-none',
         // Everything square, everything ruled.
-        'prose-img:border-2 prose-img:border-ink',
+        'prose-img:border-2 prose-img:border-ink prose-img:rounded-none',
         'prose-hr:border-rule prose-hr:border-dashed',
         'prose-th:font-mono prose-th:uppercase prose-th:text-[10px] prose-th:tracking-[0.12em]',
         'prose-th:text-ink-muted prose-th:font-medium prose-th:border-ink',

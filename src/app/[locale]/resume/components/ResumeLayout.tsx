@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import { ResumeData } from '@/lib/types/resume'
+import { ButtonExternal } from '@/components'
 import { ResumeHeader } from './ResumeHeader'
 import { ResumeNavigation } from './ResumeNavigation'
 import { ExperienceSection } from './ExperienceSection'
@@ -21,25 +21,21 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
   const t = useTranslations('resume')
   const locale = useLocale()
 
+  /*
+   * Sections are numbered rather than iconified — the résumé reads in this
+   * order, so the numbering carries meaning the six emoji did not.
+   */
   const sections = [
-    { id: 'overview', label: t('overview'), icon: '👤' },
-    { id: 'experience', label: t('experience'), icon: '💼' },
-    { id: 'skills', label: t('skills'), icon: '🚀' },
-    { id: 'projects', label: t('projects'), icon: '⚡' },
-    { id: 'education', label: t('education'), icon: '🎓' },
-    { id: 'contact', label: t('contact'), icon: '📧' }
+    { id: 'overview', label: t('overview') },
+    { id: 'experience', label: t('experience') },
+    { id: 'skills', label: t('skills') },
+    { id: 'projects', label: t('projects') },
+    { id: 'education', label: t('education') },
+    { id: 'contact', label: t('contact') },
   ]
-
-  const pageVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 }
-  }
 
   const renderSection = () => {
     switch (activeSection) {
-      case 'overview':
-        return <ResumeHeader resumeData={resumeData} />
       case 'experience':
         return <ExperienceSection experiences={resumeData.experience} />
       case 'skills':
@@ -50,72 +46,44 @@ export function ResumeLayout({ resumeData }: ResumeLayoutProps) {
         return <EducationSection education={resumeData.education} certifications={resumeData.certifications} />
       case 'contact':
         return <ContactSection personal={resumeData.personal} social={resumeData.social} />
+      case 'overview':
       default:
         return <ResumeHeader resumeData={resumeData} />
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-brand">
-      <div className="container mx-auto px-4 py-8 max-w-7xl pt-24">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="mb-6">
-            <span className="bg-accent/10 text-accent text-sm font-medium px-4 py-2 rounded-full border border-accent/20">
-              {t('title')}
-            </span>
-          </div>
+    <div className="max-w-(--breakpoint-xl) mx-auto px-6">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-ink mb-6">
-            {t('subtitle').split(' ')[0]} <span className="bg-gradient-accent bg-clip-text text-transparent">{t('subtitle').split(' ')[1] || t('experience')}</span>
-          </h1>
+      <header className="pt-14 pb-8 md:pt-20 md:pb-10">
+        <h1 className="font-display text-[clamp(2.4rem,7vw,4rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-4">
+          {t('title')}
+        </h1>
+        <p className="font-text text-[16.5px] leading-[1.7] text-ink-soft max-w-[58ch]">
+          {t('description')}
+        </p>
+      </header>
 
-          <p className="text-ink-muted text-lg max-w-3xl mx-auto leading-relaxed">
-            {t('description')}
-          </p>
-        </div>
+      <div className="rule-solid pt-6 pb-20 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Navigation Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <ResumeNavigation
-                sections={sections}
-                activeSection={activeSection}
-                onSectionChange={setActiveSection}
-              />
+        <div>
+          <div className="lg:sticky lg:top-24">
+            <ResumeNavigation
+              sections={sections}
+              activeSection={activeSection}
+              onSectionChange={setActiveSection}
+            />
+            <div className="mt-6">
+              <ButtonExternal href={`/${locale}/resume/print`} variant="solid">
+                {t('downloadPdf')}
+              </ButtonExternal>
             </div>
           </div>
-
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            <motion.div
-              key={activeSection}
-              variants={pageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-2xl border border-edge overflow-hidden"
-            >
-              {renderSection()}
-            </motion.div>
-          </div>
         </div>
 
-        {/* Print Button - Fixed Position */}
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 1, duration: 0.3 }}
-          className="fixed bottom-8 right-8 bg-accent hover:bg-accent-strong text-brand-primary p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group"
-          onClick={() => window.open(`/${locale}/resume/print`, '_blank', 'noopener,noreferrer')}
-          aria-label={t('printResume')}
-        >
-          <svg className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-          </svg>
-        </motion.button>
+        <div key={activeSection} className="animate-fadeIn min-w-0">
+          {renderSection()}
+        </div>
       </div>
     </div>
   )

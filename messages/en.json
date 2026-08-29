@@ -143,7 +143,11 @@
       "basedIn": "Based in Sao Paulo, Brazil",
       "featured": "Featured",
       "remote": "Remote"
-    }
+    },
+    "readyToCollaborate": "Ready to collaborate?",
+    "collaborateDescription": "Let's discuss how I can contribute to your team's success in DevOps and cloud architecture.",
+    "startConversation": "Start a conversation",
+    "viewMyWork": "View my work"
   },
   "projects": {
     "title": "My Projects",
@@ -192,7 +196,23 @@
       "startup": "Startup",
       "medium": "Medium Enterprise",
       "enterprise": "Enterprise"
-    }
+    },
+    "indexSubtitle": "enterprise AI, cloud and DevOps",
+    "mostPopular": "Most popular",
+    "includes": "Includes",
+    "contactVia": "Direct contact",
+    "formTitle": "Send a brief",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "service": "Service",
+    "budget": "Budget",
+    "message": "Message",
+    "send": "Open in mail client",
+    "formNote": "This composes an email in your own mail client — nothing is sent from this page.",
+    "selectService": "Select a service",
+    "selectBudget": "Select a range",
+    "process": "Process"
   },
   "about": {
     "title": "About",
@@ -208,28 +228,14 @@
   },
   "links": {
     "title": "Links",
-    "subtitle": "Curated Links",
-    "description": "A collection of useful links and resources",
-    "connectWithMe": "Connect With Me",
-    "role": "DevOps Engineer • Cloud Architect • Tech Enthusiast",
-    "intro": "Connect with me across various platforms and explore my work in DevOps, cloud computing, and software development.",
-    "stats": {
-      "platforms": "Platforms",
-      "connections": "Connections",
-      "available": "Available",
-      "responseRate": "Response Rate"
-    },
-    "quickAccess": "Quick Access",
-    "socialProfessional": "Social & Professional",
-    "letsWorkTogether": "Let's Work Together!",
-    "ctaDescription": "Ready to discuss your next DevOps project or cloud transformation? I'm always excited to tackle new challenges and help teams succeed.",
-    "startProject": "Start a Project",
-    "viewMyWork": "View My Work",
-    "footerBuiltWith": "Built with Next.js • Updated regularly",
+    "indexSubtitle": "everywhere you can find me",
+    "featured": "Featured",
+    "elsewhere": "Elsewhere",
     "categories": {
-      "contentBlog": "Content & Blog",
-      "projectsWork": "Projects & Work",
-      "professionalServices": "Professional Services"
+      "social": "Social & professional",
+      "content": "Writing",
+      "projects": "Work",
+      "services": "Services"
     }
   },
   "footer": {

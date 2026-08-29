@@ -35,9 +35,9 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-ink mb-2 flex items-center">
-          <span className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center mr-3">
-            <svg className="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h2 className="text-3xl font-display text-ink mb-2 flex items-center">
+          <span className="w-8 h-8 bg-accent flex items-center justify-center mr-3">
+            <svg className="w-4 h-4 text-paper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h8z" />
             </svg>
           </span>
@@ -55,7 +55,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         className="relative"
       >
         {/* Timeline Line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-accent"></div>
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-accent"></div>
 
         {experiences.map((experience, index) => (
           <motion.div
@@ -64,20 +64,20 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
             className="relative mb-12 last:mb-0"
           >
             {/* Timeline Dot */}
-            <div className="absolute left-6 w-4 h-4 bg-accent border-4 border-surface-raised rounded-full shadow-lg z-10"></div>
+            <div className="absolute left-6 w-4 h-4 bg-accent border-4 border-paper shadow-hard-sm z-10"></div>
 
             {/* Experience Card */}
             <div className="ml-20">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl hover:border-accent/40 transition-all duration-300"
+                className="bg-paper-2 shadow-hard-sm border-2 border-ink p-6 hover:border-accent/40 transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center space-x-4 mb-2">
                       {experience.companyLogo && (
-                        <div className="w-12 h-12 rounded-full overflow-hidden bg-white shadow-md">
+                        <div className="w-12 h-12 overflow-hidden bg-white">
                           <Image
                             src={experience.companyLogo}
                             alt={`${experience.company} logo`}
@@ -88,7 +88,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                         </div>
                       )}
                       <div>
-                        <h3 className="text-xl font-bold font-poppins text-ink">
+                        <h3 className="text-xl font-display text-ink">
                           {experience.position}
                         </h3>
                         <p className="text-accent font-medium">
@@ -122,7 +122,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                   </div>
 
                   {!experience.endDate && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/15 text-accent">
+                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-accent/15 text-accent">
                       {t('current')}
                     </span>
                   )}
@@ -155,7 +155,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                     <ul className="space-y-1">
                       {experience.achievements.map((achievement, idx) => (
                         <li key={idx} className="flex items-start space-x-2 text-sm text-ink-muted">
-                          <span className="text-accent mt-1">✓</span>
+                          <span className="text-accent font-mono text-[11px] mt-1" aria-hidden="true">&rarr;</span>
                           <span>{achievement}</span>
                         </li>
                       ))}
@@ -171,7 +171,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
                       <motion.span
                         key={idx}
                         whileHover={{ scale: 1.05 }}
-                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-colors duration-200"
+                        className="inline-flex items-center px-3 py-1 text-xs font-medium bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-colors duration-200"
                       >
                         {tech}
                       </motion.span>

@@ -1,4 +1,4 @@
-import { Instrument_Serif, Newsreader, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Serif, Newsreader, JetBrains_Mono, Roboto } from 'next/font/google'
 
 /**
  * Display face. High-contrast, 400-only — headlines, entry titles, drop caps.
@@ -30,5 +30,16 @@ export const newsreader = Newsreader({
 export const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
+  display: 'swap'
+})
+
+/**
+ * Retained only for /resume/print, which has its own locked print styles and is
+ * deliberately excluded from the paper redesign. Not used anywhere on screen.
+ */
+export const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-roboto',
   display: 'swap'
 })

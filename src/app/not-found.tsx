@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: 'Ops Not Found! - Kaue Code',
   keywords: 'kaue freitas, kaue mendes, developer, devops, software engineer, tech enthusiast, software engineer, full-stack developer, web developer, cloud engineer, cloud architect, cloud consultant',
@@ -9,25 +10,27 @@ export const metadata: Metadata = {
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-gradient-brand flex items-center justify-center px-4">
-      <div className="w-full max-w-xl text-center">
-        <h1 className="text-7xl md:text-8xl font-bold font-poppins mb-8">
-          <span className="bg-gradient-accent bg-clip-text text-transparent">404</span>
+    <div className="min-h-screen bg-paper text-ink flex items-center justify-center px-6">
+      <div className="w-full max-w-lg">
+        <p className="font-mono text-[11px] tracking-[0.14em] uppercase text-ink-muted mb-4">
+          Error 404
+        </p>
+
+        <h1 className="font-display text-[clamp(3rem,12vw,6rem)] leading-[0.9] tracking-[-0.02em] mb-6">
+          Out of reach
         </h1>
 
-        <div className="bg-surface-raised/80 backdrop-blur border border-edge rounded-xl p-6 text-left shadow-lg mb-8">
-          <p className="font-sourceCodePro text-ink-muted">
-            with root in kauecode.com ¤ main ➜{' '}
-            <span className="text-ink font-semibold">🛑 Out of reach 🪐</span>{' '}
-            <span className="text-accent font-bold animate-pulse">_</span>
-          </p>
-        </div>
+        <hr className="rule-solid mb-6" />
+
+        <p className="font-text text-[16.5px] leading-[1.7] text-ink-soft mb-8">
+          This page does not exist, or it moved. The index has everything that does.
+        </p>
 
         <Link
           href="/"
-          className="font-sourceCodePro text-accent hover:text-accent-strong transition-colors duration-300"
+          className="inline-block font-mono text-[12px] font-bold tracking-[0.1em] uppercase px-4 py-2.5 border-2 border-ink bg-paper text-ink shadow-hard-sm press no-underline"
         >
-          cd ~/ &rarr; back to home
+          Back to the index
         </Link>
       </div>
     </div>

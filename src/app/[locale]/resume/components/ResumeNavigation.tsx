@@ -1,80 +1,41 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useLocale, useTranslations } from 'next-intl'
-
-interface Section {
-  id: string
-  label: string
-  icon: string
-}
-
 interface ResumeNavigationProps {
-  sections: Section[]
+  sections: { id: string; label: string }[]
   activeSection: string
-  onSectionChange: (sectionId: string) => void
+  onSectionChange: (id: string) => void
 }
 
 export function ResumeNavigation({ sections, activeSection, onSectionChange }: ResumeNavigationProps) {
-  const locale = useLocale()
-  const t = useTranslations('resume')
   return (
-    <nav className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-xl border border-edge p-6">
-      <div className="space-y-2">
-        {sections.map((section, index) => (
-          <motion.button
-            key={section.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.3 }}
-            onClick={() => onSectionChange(section.id)}
-            className={`
-              w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-left transition-all duration-300 group
-              ${activeSection === section.id
-                ? 'bg-accent text-brand-primary shadow-lg'
-                : 'text-ink hover:bg-accent/10 hover:text-accent'
-              }
-            `}
-          >
-            <span className="text-xl">{section.icon}</span>
-            <span className="font-medium font-poppins">{section.label}</span>
-            
-            {activeSection === section.id && (
-              <motion.div
-                layoutId="activeIndicator"
-                className="ml-auto w-2 h-2 bg-brand-primary rounded-full"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
-            
-            {activeSection !== section.id && (
-              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            )}
-          </motion.button>
-        ))}
-      </div>
-
-      {/* Download Section */}
-      <div className="mt-8 pt-6 border-t border-edge">
-        <motion.a
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.3 }}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-ink hover:bg-accent/10 hover:text-accent transition-all duration-300 border border-accent/30 group"
-          href={`/${locale}/resume/print`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span className="font-medium font-poppins">{t('downloadPdf')}</span>
-        </motion.a>
-      </div>
+    <nav className="border-2 border-ink shadow-hard-sm bg-paper">
+      <ul>
+        {sections.map((section, index) => {
+          const isActive = activeSection === section.id
+          return (
+            <li key={section.id} className="border-b-2 border-ink last:border-b-0">
+              <button
+                type="button"
+                onClick={() => onSectionChange(section.id)}
+                aria-current={isActive ? 'true' : undefined}
+                className={`w-full flex items-baseline gap-3 px-3.5 py-2.5 text-left cursor-pointer transition-colors duration-150 ${
+                  isActive ? 'bg-ink text-paper' : 'bg-paper text-ink-muted hover:text-ink'
+                }`}
+              >
+                <span
+                  className={`font-mono text-[10px] font-bold ${isActive ? 'text-paper' : 'text-accent'}`}
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="font-mono text-[11px] tracking-[0.1em] uppercase">
+                  {section.label}
+                </span>
+              </button>
+            </li>
+          )
+        })}
+      </ul>
     </nav>
   )
 }

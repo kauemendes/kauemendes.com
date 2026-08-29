@@ -26,6 +26,8 @@
   --font-display: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
   --font-text: var(--font-newsreader), Georgia, 'Times New Roman', serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, monospace;
+  /* Print CV only — see src/app/[locale]/resume/print. */
+  --font-roboto: var(--font-roboto), system-ui, sans-serif;
 
   --radius-*: initial;
   --radius-none: 0;
@@ -57,16 +59,6 @@
   --color-rule: var(--rule);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-
-  /*
-    Compatibility aliases. Pages are migrated to the paper names phase by
-    phase; these keep un-migrated routes rendering coherently in between.
-    Remove once `rg 'surface|border-edge|accent-strong'` comes back empty.
-  */
-  --color-surface: var(--paper);
-  --color-surface-raised: var(--paper-2);
-  --color-edge: var(--rule);
-  --color-accent-strong: var(--accent);
 
   /* Zero-blur offset shadows — the only depth cue in the system. */
   --shadow-hard-sm: 3px 3px 0 0 var(--ink);
@@ -192,6 +184,18 @@
     padding: 0.06em 0.09em 0 0;
     color: var(--ink);
   }
+}
+
+/*
+  The typography plugin rounds `code` and `pre`, and the prose-* variants do not
+  out-specify its :where() selectors. Unlayered, so this always wins.
+*/
+.prose code,
+.prose pre,
+.prose img,
+.prose blockquote,
+.prose table {
+  border-radius: 0;
 }
 
 /* ===== Print CV (resume/print) ===== */

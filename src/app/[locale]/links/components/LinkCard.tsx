@@ -1,92 +1,83 @@
-'use client';
-
 import Link from 'next/link';
+import {
+  BriefcaseIcon,
+  CodeBracketIcon,
+  ChatBubbleLeftRightIcon,
+  PencilSquareIcon,
+  UserIcon,
+  CommandLineIcon,
+  WrenchScrewdriverIcon,
+  RocketLaunchIcon,
+  DocumentTextIcon,
+  LinkIcon,
+} from '@heroicons/react/24/outline';
+
 import { LinkItem } from '@/content/data/links';
+import { Frame } from '@/components/ui';
+
+/**
+ * Line icons replacing the emoji map this component used to render at text-4xl.
+ * Keys match the `icon` field in src/content/data/links.ts.
+ */
+const iconMap = {
+  linkedin: BriefcaseIcon,
+  github: CodeBracketIcon,
+  whatsapp: ChatBubbleLeftRightIcon,
+  blog: PencilSquareIcon,
+  user: UserIcon,
+  code: CommandLineIcon,
+  tool: WrenchScrewdriverIcon,
+  consulting: RocketLaunchIcon,
+  resume: DocumentTextIcon,
+} as const;
 
 interface LinkCardProps {
   link: LinkItem;
-  onClick?: () => void;
+  locale: string;
 }
 
-const iconMap: Record<string, string> = {
-  linkedin: '💼',
-  github: '🐙',
-  whatsapp: '💬',
-  blog: '📝',
-  user: '👤',
-  code: '💻',
-  tool: '🔧',
-  consulting: '🚀',
-  resume: '📄'
-};
+export default function LinkCard({ link, locale }: LinkCardProps) {
+  const Icon = iconMap[link.icon as keyof typeof iconMap] ?? LinkIcon;
+  // Internal paths need the locale prefix; external ones are used verbatim.
+  const href = link.external ? link.url : `/${locale}${link.url}`;
 
-export function LinkCard({ link, onClick }: LinkCardProps) {
-  const icon = iconMap[link.icon || ''] || '🔗';
-  
-  const handleClick = () => {
-    onClick?.();
-  };
-
-  const cardContent = (
-    <div 
-      className={`
-        group p-6 rounded-xl border transition-all duration-300 cursor-pointer
-        bg-surface-raised/80 backdrop-blur
-        border-edge
-        hover:border-accent/30
-        hover:shadow-2xl hover:-translate-y-2
-        ${link.featured ? 'ring-2 ring-accent/20' : ''}
-      `}
-      onClick={handleClick}
-    >
-      <div className="flex items-center gap-6">
-        <div className="relative">
-          <div className="absolute -inset-3 bg-accent/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="relative text-4xl">{icon}</div>
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-ink text-lg truncate group-hover:text-accent transition-colors duration-300">
-            {link.name}
-          </h3>
-          {link.description && (
-            <p className="text-sm text-ink-muted mt-2 leading-relaxed">
-              {link.description}
-            </p>
-          )}
-          {link.featured && (
-            <div className="mt-3">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
-                Featured
-              </span>
-            </div>
-          )}
-        </div>
-        <div className="text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-          {link.external ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          )}
-        </div>
-      </div>
-    </div>
+  const body = (
+    <>
+      <span className="shrink-0 border-2 border-ink p-2 bg-paper-2">
+        <Icon className="h-5 w-5 text-ink" strokeWidth={1.75} aria-hidden="true" />
+      </span>
+      <span className="min-w-0">
+        <span className="block font-display text-[1.25rem] leading-[1.15] text-ink mb-0.5">
+          {link.name}
+        </span>
+        {link.description && (
+          <span className="block font-text text-[13.5px] leading-[1.55] text-ink-soft">
+            {link.description}
+          </span>
+        )}
+      </span>
+      <span
+        className="ml-auto shrink-0 self-center font-mono text-[13px] text-ink-muted"
+        aria-hidden="true"
+      >
+        {link.external ? '↗' : '→'}
+      </span>
+    </>
   );
 
-  if (link.external) {
-    return (
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
-        {cardContent}
-      </a>
-    );
-  }
+  const className = 'flex items-start gap-4 p-4 no-underline w-full';
 
   return (
-    <Link href={link.url}>
-      {cardContent}
-    </Link>
+    <Frame shadow="sm" press>
+      {link.external ? (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" className={className}>
+          {body}
+        </a>
+      ) : (
+        <Link href={href} className={className}>
+          {body}
+        </Link>
+      )}
+    </Frame>
   );
 }

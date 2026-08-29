@@ -8,12 +8,16 @@ export interface LinkItem {
 }
 
 export interface LinkCategory {
+  /** Stable identifier used to look up the translated label. */
+  key: 'social' | 'content' | 'projects' | 'services';
+  /** English fallback, shown only if a translation is missing. */
   title: string;
   links: LinkItem[];
 }
 
 export const linkCategories: LinkCategory[] = [
   {
+    key: "social",
     title: "Social & Professional",
     links: [
       {
@@ -43,6 +47,7 @@ export const linkCategories: LinkCategory[] = [
     ]
   },
   {
+    key: "content",
     title: "Content & Blog",
     links: [
       {
@@ -64,6 +69,7 @@ export const linkCategories: LinkCategory[] = [
     ]
   },
   {
+    key: "projects",
     title: "Projects & Work",
     links: [
       {
@@ -93,6 +99,7 @@ export const linkCategories: LinkCategory[] = [
     ]
   },
   {
+    key: "services",
     title: "Professional Services",
     links: [
       {
