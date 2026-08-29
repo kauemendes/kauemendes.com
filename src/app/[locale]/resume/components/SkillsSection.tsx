@@ -6,6 +6,26 @@ import { SkillCategory, Skill } from '@/lib/types/resume'
 import { SkillsRadarChart } from './SkillsRadarChart'
 import { getTopSkills } from '@/lib/utils/resume'
 
+import {
+  CpuChipIcon,
+  RocketLaunchIcon,
+  CommandLineIcon,
+  PaintBrushIcon,
+  WrenchScrewdriverIcon,
+  ChartBarIcon,
+  SparklesIcon,
+} from '@heroicons/react/24/outline'
+
+/** Keyed off the `icon` field in src/content/data/resume — was emoji. */
+const skillIcons = {
+  ai: CpuChipIcon,
+  devops: RocketLaunchIcon,
+  languages: CommandLineIcon,
+  frontend: PaintBrushIcon,
+  tooling: WrenchScrewdriverIcon,
+  methods: ChartBarIcon,
+} as const
+
 interface SkillsSectionProps {
   skillCategories: SkillCategory[]
 }
@@ -74,7 +94,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
               className="bg-paper-2 shadow-hard-sm border-2 border-ink p-6"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <span className="text-2xl">{category.icon}</span>
+                <CategoryIcon category={category.icon} className="h-5 w-5" />
                 <h3 className="text-lg font-display text-ink">
                   {category.name}
                 </h3>
@@ -104,7 +124,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
             className="bg-paper-2 shadow-hard-sm border-2 border-ink p-6"
           >
             <div className="flex items-center space-x-3 mb-6">
-              <span className="text-3xl">{category.icon}</span>
+              <CategoryIcon category={category.icon} className="h-6 w-6" />
               <div>
                 <h3 className="text-xl font-display text-ink">
                   {category.name}
@@ -200,4 +220,8 @@ function SkillCard({ skill, t }: SkillCardProps) {
       </div>
     </motion.div>
   )
+}
+function CategoryIcon({ category, className }: { category?: string; className?: string }) {
+  const Icon = skillIcons[category as keyof typeof skillIcons] ?? SparklesIcon
+  return <Icon className={`${className} text-accent`} strokeWidth={1.75} aria-hidden="true" />
 }
