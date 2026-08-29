@@ -4,6 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================
+   PAPER & INK — design tokens
+   Ground: flat warm paper. Depth: 2px ink border + zero-blur
+   offset shadow. Radius: 0 everywhere. One accent, used in
+   four places only (links, entry numbers, live status, active nav).
+   ============================================================ */
+
 @theme {
   --breakpoint-*: initial;
   --breakpoint-sm: 640px;
@@ -13,144 +20,172 @@
   --breakpoint-2xl: 1536px;
 
   /*
-    The self-references below are intentional: next/font sets these variables
-    via an unlayered class on <html>, which wins over this @layer theme
-    emission (same pattern for all three fonts).
+    Self-references are intentional: next/font sets these variables via an
+    unlayered class on <html>, which wins over this @layer theme emission.
   */
-  --font-roboto: var(--font-roboto), sans-serif;
-  --font-sourceCodePro: var(--font-source-code-pro), monospace;
-  --font-poppins: var(--font-poppins), sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
+  --font-text: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, Menlo, monospace;
 
-  /* Legacy System-A compatibility tokens, kept while pages still use brand-*
-     classes (accent1 == accent-cyan and accent2 == accent duplication is intentional). */
-  --color-brand-primary: #0b132b;
-  --color-brand-secondary: #1c2541;
-  --color-brand-accent1: #00e5ff;
-  --color-brand-accent2: #2ee6a6;
-  --color-brand-accent3: #ff7a00;
-  --color-brand-neutral-light: #f5f7fa;
-  --color-brand-neutral-medium: #9aa0a6;
+  --radius-*: initial;
+  --radius-none: 0;
+  --radius-full: 9999px;
 
-  /* --color-accent / --color-accent-strong are mode-aware and live in the
-     `@theme inline` block below. Only the static cyan stays here. */
-  --color-accent-cyan: #00e5ff;
+  --animate-fadeIn: fadeIn 0.4s ease-out;
 
-  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
-
-  --animate-blink: blink 0.5s infinite;
-  --animate-fadeIn: fadeIn 0.6s ease-out;
-  --animate-slideIn: slideIn 0.5s ease-out;
-
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: translateY(10px);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
     }
   }
 }
 
 /*
-  Semantic, mode-aware tokens. Declared with `@theme inline` so utilities
-  like `bg-surface` reference the runtime variables directly and resolve
-  per-element in both light and dark modes.
+  Semantic tokens. `@theme inline` so utilities reference the runtime
+  variables directly and resolve per-element in both light and dark.
 */
 @theme inline {
-  --color-surface: var(--surface);
-  --color-surface-raised: var(--surface-raised);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
   --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --color-ink-muted: var(--ink-muted);
-  --color-edge: var(--edge);
-
-  /* Mode-aware green accent: dark enough for contrast on light surfaces,
-     bright on dark surfaces. Fixed-navy elements should use the static
-     brand tokens (e.g. text-brand-accent2) instead. */
+  --color-rule: var(--rule);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
 
-  --background-image-gradient-brand: linear-gradient(
-    135deg,
-    var(--surface) 0%,
-    var(--surface-raised) 100%
-  );
+  /*
+    Compatibility aliases. Pages are migrated to the paper names phase by
+    phase; these keep un-migrated routes rendering coherently in between.
+    Remove once `rg 'surface|border-edge|accent-strong'` comes back empty.
+  */
+  --color-surface: var(--paper);
+  --color-surface-raised: var(--paper-2);
+  --color-edge: var(--rule);
+  --color-accent-strong: var(--accent);
 
-  /* Mode-aware cyan→green accent gradient (used for bg-clip-text headings). */
-  --background-image-gradient-accent: var(--gradient-accent);
+  /* Zero-blur offset shadows — the only depth cue in the system. */
+  --shadow-hard-sm: 3px 3px 0 0 var(--ink);
+  --shadow-hard: 4px 4px 0 0 var(--ink);
+  --shadow-hard-lg: 6px 6px 0 0 var(--ink);
+  --shadow-hard-press: 1px 1px 0 0 var(--ink);
+  --shadow-hard-accent: 4px 4px 0 0 var(--accent);
 }
 
 :root {
-  --surface: #f5f7fa;
-  --surface-raised: #ffffff;
-  --ink: #0b132b;
-  --ink-muted: #4a5568;
-  --edge: rgba(11, 19, 43, 0.12);
-  --accent: #0f9d6e;
-  --accent-strong: #0b7a55;
-  --gradient-accent: linear-gradient(135deg, #0891b2 0%, #0f9d6e 100%);
+  --paper: #f0eee6;
+  --paper-2: #e7e3d4;
+  --paper-3: #ded9c6;
+  --ink: #1a1a19;
+  --ink-soft: #4a4a47;
+  --ink-muted: #8a8778;
+  --rule: #d9d4c2;
+  /* Brand green darkened to clear 4.5:1 on paper. */
+  --accent: #0f7a57;
+  --accent-ink: #f0eee6;
 }
 
 .dark {
-  --surface: #0b132b;
-  --surface-raised: #1c2541;
-  --ink: #f5f7fa;
-  --ink-muted: #9aa0a6;
-  --edge: rgba(245, 247, 250, 0.12);
+  --paper: #14140f;
+  --paper-2: #1d1d16;
+  --paper-3: #26251c;
+  --ink: #edeae0;
+  --ink-soft: #b6b2a4;
+  --ink-muted: #86836f;
+  --rule: #34332a;
   --accent: #2ee6a6;
-  --accent-strong: #19c98c;
-  --gradient-accent: linear-gradient(135deg, #00e5ff 0%, #2ee6a6 100%);
+  --accent-ink: #14140f;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
+  /*
+    Tailwind v4 defaults the border color to `currentcolor`; the system wants
+    hairlines to default to the rule token instead.
+  */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--rule);
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Headlines are set in the display serif and want tight, balanced lines. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 }
 
-/*
-  * {
-    border: 1px solid red;
+@layer utilities {
+  /*
+    The one interaction gesture in the system: a control presses into its own
+    shadow rather than lifting off the page. Replaces every hover:-translate-y-1.
+  */
+  .press {
+    transition:
+      transform 90ms ease,
+      box-shadow 90ms ease;
   }
-*/
 
-@layer base {
-  body {
-    background-color: var(--surface);
+  .press:hover {
+    transform: translate(2px, 2px);
+    box-shadow: var(--shadow-hard-press);
+  }
+
+  .press:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .press,
+    .press:hover,
+    .press:active {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Dashed hairline between siblings in a list. */
+  .rule-dash {
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Solid 2px ink between regions of a page. */
+  .rule-solid {
+    border-top: 2px solid var(--ink);
+  }
+
+  .drop-cap::first-letter {
+    font-family: var(--font-display);
+    float: left;
+    font-size: 4.1em;
+    line-height: 0.82;
+    padding: 0.06em 0.09em 0 0;
     color: var(--ink);
   }
 }

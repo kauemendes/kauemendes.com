@@ -11,7 +11,8 @@
     "enterEmail": "Digite seu email",
     "allRightsReserved": "Todos os Direitos Reservados",
     "privacyPolicy": "Política de Privacidade",
-    "termsOfService": "Termos de Serviço"
+    "termsOfService": "Termos de Serviço",
+    "backToTop": "Voltar ao topo"
   },
   "navigation": {
     "home": "Início",
@@ -23,29 +24,30 @@
     "links": "Links"
   },
   "home": {
-    "hero": {
-      "badge": "Bem-vindo ao Futuro do DevOps",
-      "title1": "Construindo a",
-      "titleHighlight": "Infraestrutura Digital",
-      "title2": "do Amanhã",
-      "subtitle": "Arquitetando soluções cloud escaláveis e infraestruturas de rede neural que impulsionam a próxima geração de tecnologia. Onde DevOps encontra a inteligência artificial."
-    },
-    "stats": {
-      "yearsExperience": "Anos de Experiência",
-      "deployments": "Implantações",
-      "uptimeFocus": "Foco em Disponibilidade"
-    },
     "about": {
       "greeting": "Olá, sou Kaue Mendes",
       "description1": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Especializado em plataformas cloud Azure, automação e ajudando equipes a entregar software mais rápido e eficientemente.",
       "description2": "Quando não estou arquitetando soluções cloud, você me encontrará contribuindo para projetos open-source, escrevendo sobre tendências tecnológicas ou explorando as últimas ferramentas e práticas DevOps."
     },
-    "featuredProjects": "Projetos em Destaque",
-    "latestBlog": "Últimas do Blog",
-    "coreExpertise": "Principais Competências",
-    "exploreData": "EXPLORAR_DADOS",
-    "noPosts": "Novos posts em breve! Volte para insights sobre DevOps, arquitetura cloud e tendências tecnológicas.",
-    "profileRole": "Engenheiro DevOps • Arquiteto Cloud"
+    "masthead": {
+      "role": "Engenheiro DevOps & Arquiteto Cloud",
+      "location": "Portugal",
+      "since": "Escrevendo desde 2023",
+      "statement": "Dez anos construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
+    },
+    "index": {
+      "title": "Índice",
+      "subtitle": "tudo, do mais recente ao mais antigo",
+      "count": "{count} entradas",
+      "viewAll": "Todas as {count} entradas",
+      "empty": "Nada publicado ainda. Ensaios sobre DevOps, arquitetura cloud e IA estão a caminho."
+    },
+    "kind": {
+      "essay": "Ensaio",
+      "project": "Projeto"
+    },
+    "readTime": "{minutes} min",
+    "bothLocales": "PT / EN"
   },
   "blog": {
     "title": "Blog Pessoal",
@@ -63,7 +65,14 @@
     "enjoyedArticle": "Gostou deste Artigo?",
     "readMoreArticles": "Ler Mais Artigos",
     "share": "Compartilhar",
-    "publishedOn": "Publicado em"
+    "publishedOn": "Publicado em",
+    "index": "Escritos",
+    "indexSubtitle": "ensaios sobre DevOps, cloud e IA",
+    "count": "{count} ensaios",
+    "alsoIn": "Também em inglês",
+    "backToIndex": "Todos os escritos",
+    "previous": "Anterior",
+    "next": "Próximo"
   },
   "resume": {
     "title": "Currículo Interativo",

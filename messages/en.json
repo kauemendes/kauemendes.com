@@ -11,7 +11,8 @@
     "enterEmail": "Enter your email",
     "allRightsReserved": "All Rights Reserved",
     "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Service",
+    "backToTop": "Back to top"
   },
   "navigation": {
     "home": "Home",
@@ -23,29 +24,30 @@
     "links": "Links"
   },
   "home": {
-    "hero": {
-      "badge": "Welcome to the Future of DevOps",
-      "title1": "Building the",
-      "titleHighlight": "Digital Infrastructure",
-      "title2": "of Tomorrow",
-      "subtitle": "Architecting scalable cloud solutions and neural network infrastructures that power the next generation of technology. Where DevOps meets artificial intelligence."
-    },
-    "stats": {
-      "yearsExperience": "Years Experience",
-      "deployments": "Deployments",
-      "uptimeFocus": "Uptime Focus"
-    },
     "about": {
       "greeting": "Hi, I'm Kaue Mendes",
       "description1": "DevOps Engineer and Cloud Architect passionate about building scalable, reliable systems. I specialize in Azure cloud platforms, automation, and helping teams deliver software faster and more efficiently.",
       "description2": "When I'm not architecting cloud solutions, you'll find me contributing to open-source projects, writing about technology trends, or exploring the latest DevOps tools and practices."
     },
-    "featuredProjects": "Featured Projects",
-    "latestBlog": "Latest from the Blog",
-    "coreExpertise": "Core Expertise",
-    "exploreData": "EXPLORE_DATA",
-    "noPosts": "New blog posts coming soon! Check back for insights on DevOps, cloud architecture, and technology trends.",
-    "profileRole": "DevOps Engineer • Cloud Architect"
+    "masthead": {
+      "role": "DevOps Engineer & Cloud Architect",
+      "location": "Portugal",
+      "since": "Writing since 2023",
+      "statement": "Ten years building platforms that outlive the teams that built them. Azure, Kubernetes and automation — and lately, what happens when engineering teams give their AI a shared brain."
+    },
+    "index": {
+      "title": "Index",
+      "subtitle": "everything, newest first",
+      "count": "{count} entries",
+      "viewAll": "All {count} entries",
+      "empty": "Nothing published yet. Essays on DevOps, cloud architecture and AI are on the way."
+    },
+    "kind": {
+      "essay": "Essay",
+      "project": "Project"
+    },
+    "readTime": "{minutes} min",
+    "bothLocales": "PT / EN"
   },
   "blog": {
     "title": "Personal Blog",
@@ -63,7 +65,14 @@
     "enjoyedArticle": "Enjoyed this Article?",
     "readMoreArticles": "Read More Articles",
     "share": "Share",
-    "publishedOn": "Published on"
+    "publishedOn": "Published on",
+    "index": "Writing",
+    "indexSubtitle": "essays on DevOps, cloud and AI",
+    "count": "{count} essays",
+    "alsoIn": "Also in Portuguese",
+    "backToIndex": "All writing",
+    "previous": "Previous",
+    "next": "Next"
   },
   "resume": {
     "title": "Interactive Resume",

@@ -6,7 +6,7 @@ import { ThemeProvider } from "next-themes"
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { NavBar, Footer } from '@/components'
-import { roboto, sourceCodePro, poppins } from '@/styles/fonts'
+import { instrumentSerif, newsreader, jetbrainsMono } from '@/styles/fonts'
 import { locales, Locale } from '@/i18n'
 
 import '@/styles/globals.css'
@@ -59,12 +59,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${roboto.variable} ${sourceCodePro.variable} ${poppins.variable}`} suppressHydrationWarning>
-      <body className='flex flex-col min-h-screen font-roboto'>
+    <html lang={locale} className={`${instrumentSerif.variable} ${newsreader.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className='flex flex-col min-h-screen font-text bg-paper text-ink'>
         <ThemeProvider attribute="class">
           <NextIntlClientProvider messages={messages}>
             <NavBar />
-            <main className="">
+            <main className="flex-1">
               {children}
             </main>
             <Footer />

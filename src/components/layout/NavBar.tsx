@@ -1,110 +1,97 @@
 'use client';
 
 import Link from 'next/link';
-import Image from "next/image";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import NavLink from './NavLink';
 import LanguageSwitcher from './LanguageSwitcher';
 import { DarkModeButton } from '@/components/features/theme';
-import { useRouter } from 'next/navigation';
 
+/**
+ * Site rail. `sticky` rather than `fixed` so it participates in flow and pages
+ * need no compensating top padding.
+ */
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
   const t = useTranslations('navigation');
   const locale = useLocale();
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
-  useEffect(() => {
-    const closeMenu = () => isOpen && setIsOpen(false);
-  }, [isOpen, router]);
+  const links = [
+    { href: '/', label: t('home') },
+    { href: '/blog', label: t('blog') },
+    { href: '/projects', label: t('projects') },
+    { href: '/about', label: t('about') },
+    { href: '/resume', label: t('resume') },
+    { href: '/consult', label: t('consult') },
+  ];
 
   return (
-    <nav className="bg-brand-primary fixed w-full z-20 top-0 inset-s-0 border-b border-brand-secondary shadow-lg">
-      <div className="max-w-(--breakpoint-xl) flex flex-wrap items-center justify-between mx-auto px-4 py-3">
+    <nav className="sticky top-0 z-30 bg-paper border-b-2 border-ink">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-6">
+        <div className="flex items-center justify-between gap-6 py-3">
 
-        {/* Logo */}
-        <Link href={`/${locale}`} className="flex items-center space-x-3 rtl:space-x-reverse group">
-          <Image
-            src="/images/brand/logo_novo.svg"
-            width={120}
-            height={40}
-            className="h-10 transition-transform duration-300 group-hover:scale-105"
-            alt="KaueCode Logo"
-            priority
-          />
-        </Link>
-
-        {/* Mobile controls: theme toggle + menu button */}
-        <div className="flex items-center gap-1 md:hidden">
-          <DarkModeButton />
-          <button
-            type="button"
-            onClick={handleClick}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-brand-neutral-light rounded-lg hover:bg-brand-secondary focus:outline-hidden focus:ring-2 focus:ring-brand-accent1 transition-colors duration-200"
-            aria-controls="navbar-main"
-            aria-expanded={isOpen}
-            aria-label="Toggle navigation menu"
+          {/* Wordmark — the slash is the only accent in the rail. */}
+          <Link
+            href={`/${locale}`}
+            className="font-mono text-[13px] font-bold tracking-[0.06em] text-ink shrink-0"
           >
-            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+            kauecode<span className="text-accent">/</span>
+          </Link>
+
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-6 mr-auto">
+            {links.map((link) => (
+              <li key={link.href}>
+                <NavLink href={link.href}>{link.label}</NavLink>
+              </li>
+            ))}
+          </ul>
+
+          <div className="hidden md:flex items-center gap-2">
+            <LanguageSwitcher />
+            <DarkModeButton />
+          </div>
+
+          {/* Mobile controls */}
+          <div className="flex items-center gap-2 md:hidden">
+            <DarkModeButton />
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex h-9 w-9 items-center justify-center border-2 border-ink bg-paper text-ink shadow-hard-sm press"
+              aria-controls="navbar-main"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation menu"
+            >
+              <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="square"
+                  strokeWidth="2"
+                  d={isOpen ? 'M2 2l13 10M15 2L2 12' : 'M1 1h15M1 7h15M1 13h15'}
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Navigation menu */}
-        <div
-          className={`w-full md:block md:w-auto transition-all duration-300 ease-in-out ${
-            isOpen
-              ? 'block animate-fadeIn'
-              : 'hidden'
-          }`}
-          id="navbar-main"
-        >
-          <ul className="flex flex-col font-medium mt-4 rounded-lg bg-brand-secondary/95 backdrop-blur-xs md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent md:backdrop-blur-none p-4 md:p-0 md:items-center">
-            <li>
-              <NavLink href="/" aria-current="page">
-                {t('home')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href="/resume">
-                {t('resume')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href="/projects">
-                {t('projects')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href="/blog">
-                {t('blog')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href="/consult">
-                {t('consult')}
-              </NavLink>
-            </li>
-            <li className="mt-4 md:mt-0">
+        {/* Mobile menu */}
+        {isOpen && (
+          <div id="navbar-main" className="md:hidden border-t border-dashed border-rule animate-fadeIn">
+            <ul className="flex flex-col py-2">
+              {links.map((link) => (
+                <li key={link.href} className="py-2 border-b border-dashed border-rule last:border-b-0">
+                  <NavLink href={link.href} onNavigate={() => setIsOpen(false)}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <div className="py-3 border-t border-dashed border-rule">
               <LanguageSwitcher />
-            </li>
-            <li className="hidden md:block">
-              <DarkModeButton />
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
