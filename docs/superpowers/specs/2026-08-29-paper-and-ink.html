@@ -276,13 +276,13 @@ code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:1
 <header class="masthead">
   <div class="wrap">
     <div class="mh-meta">
-      <span>Design Proposal</span><span>&middot;</span>
+      <span>Shipped</span><span>&middot;</span>
       <span>kauecode.com</span><span>&middot;</span>
       <span>2026.08.29</span><span>&middot;</span>
-      <span>Rev. A</span>
+      <span>Rev. B</span>
     </div>
     <h1 class="mh-title">Paper<br><em>&amp;</em> Ink</h1>
-    <p class="mh-lede">Strip the gradients, the glass and the glow. Rebuild the site as a dated journal on paper stock &mdash; hard rules, one accent, and the writing carrying the page.</p>
+    <p class="mh-lede">Gradients, glass and glow are gone. The site is now a dated journal on paper stock &mdash; hard rules, one accent, and the writing carrying the page. Built and shipped on <code style="font-size:.85em">feat/paper-and-ink-redesign</code>.</p>
     <dl class="spec-strip">
       <div class="spec"><dt>Direction</dt><dd>Neo-brutalist<br>editorial</dd></div>
       <div class="spec"><dt>Ground</dt><dd>Paper #F0EEE6<br>Ink #1A1A19</dd></div>
@@ -655,8 +655,8 @@ code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:1
   <div class="sec-head">
     <span class="sec-num">06</span>
     <div>
-      <h2 class="sec-title">The work</h2>
-      <p class="sec-sub">Four phases. Each one ends with the site building, tests green and every route rendering in both locales &mdash; so you can stop after any of them.</p>
+      <h2 class="sec-title">What shipped</h2>
+      <p class="sec-sub">Four phases, all shipped. Each one ended with the site building, tests green and every route rendering in both locales.</p>
     </div>
   </div>
   <div class="callout col">
@@ -714,24 +714,46 @@ code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:1
     </div>
   </div>
 
+
+  <div style="height:34px"></div>
+  <div class="eyebrow">Found while restyling &mdash; fixed in passing</div>
+  <div class="scroll">
+  <table class="scale">
+    <thead><tr><th>Where</th><th>What was wrong</th><th>Now</th></tr></thead>
+    <tbody>
+      <tr><td>Site chrome</td><td class="f">NavBar, Footer, NavLink, LanguageSwitcher, BackToTop and DarkModeButton hardcoded the static <code>brand-*</code> palette, so none of them responded to dark mode</td><td class="f">On tokens; dark mode works site-wide</td></tr>
+      <tr><td>consult</td><td class="f">The contact form composed mail to <code>kauemendes@gmail.com</code> &mdash; not your address</td><td class="f"><code>kaue.mendes@gmail.com</code></td></tr>
+      <tr><td>about</td><td class="f">Page was hardcoded English with no <code>useTranslations</code>; PT visitors got English</td><td class="f">Fully localised</td></tr>
+      <tr><td>about</td><td class="f">Profile links missing the locale prefix (<code>/about/personal</code>)</td><td class="f">Locale-prefixed</td></tr>
+      <tr><td>links</td><td class="f">Category filter matched the hardcoded English string <code>"Social &amp; Professional"</code>, so it broke under PT</td><td class="f">Keyed lookup</td></tr>
+      <tr><td>Footer</td><td class="f">Newsletter form had no handler at all &mdash; it collected an email and discarded it</td><td class="f">Removed</td></tr>
+      <tr><td>Footer</td><td class="f">Privacy Policy and Terms links both pointed at <code>#</code></td><td class="f">Removed</td></tr>
+      <tr><td>projects</td><td class="f">Category filter had <code>cursor-pointer</code> but no click handler</td><td class="f">Removed</td></tr>
+      <tr><td>resume</td><td class="f">Skills radar chart hardcoded blue/green/slate and ignored the theme entirely</td><td class="f">Paints from the paper palette, follows light/dark</td></tr>
+      <tr><td>Copy</td><td class="f">Home claimed <code>10+ years</code> while /about says <code>15 years</code></td><td class="f">Masthead no longer claims a number</td></tr>
+      <tr><td>Dead code</td><td class="f"><code>Heading.tsx</code> unused, NavBar dead <code>useEffect</code>, Footer empty <code>&lt;p&gt;</code>, links unused <code>clickCounts</code>, <code>font-semi</code> typo</td><td class="f">All removed</td></tr>
+    </tbody>
+  </table>
+  </div>
+
   <div class="grid2" style="margin-top:34px">
     <div class="callout" style="margin:0">
-      <span class="lb">Three calls I need from you</span>
+      <span class="lb">The three calls, decided</span>
       <p style="font-family:var(--mono);font-size:12.5px;line-height:1.8;color:var(--ink-soft)">
-        <b style="color:var(--ink)">1.</b> Body face &mdash; A or B from &sect;03.<br><br>
-        <b style="color:var(--ink)">2.</b> The invented metrics (<code>1k+ readers</code>, <code>5k+ clicks</code>, <code>1500+ installs</code>, <code>24/7</code>, <code>100%</code>) &mdash; drop them, or keep and restyle?<br><br>
-        <b style="color:var(--ink)">3.</b> The ~40 emoji used as structural icons &mdash; swap for a line-icon set, or set them as mono glyphs?
+        <b style="color:var(--ink)">1. Body face &rarr; Newsreader.</b> Instrument Serif stays for display only.<br><br>
+        <b style="color:var(--ink)">2. Invented metrics &rarr; removed.</b> <code>1k+ readers</code>, <code>5k+ clicks</code>, <code>1500+ installs</code>, <code>24/7</code>, <code>100%</code> and the <code>10+/100k+</code> hero pills are gone rather than restyled.<br><br>
+        <b style="color:var(--ink)">3. Emoji &rarr; Heroicons.</b> All ~45 swapped for the outline set already in your dependencies. Rendered emoji count across both locales is now <b style="color:var(--accent)">zero</b>.
       </p>
     </div>
     <div class="callout" style="margin:0">
-      <span class="lb">Gates on every phase</span>
+      <span class="lb">Gates, all green</span>
       <p style="font-family:var(--mono);font-size:12.5px;line-height:1.8;color:var(--ink-soft)">
-        <code>tsc --noEmit</code> clean<br>
-        <code>next build</code> succeeds<br>
-        <code>jest</code> &mdash; 4/4 passing<br>
-        All 13 routes render in <code>pt</code> <b style="color:var(--ink)">and</b> <code>en</code><br>
-        Both themes checked per phase<br>
-        <code>/resume/print</code> unchanged
+<b style="color:var(--accent)">&#10003;</b> <code>tsc --noEmit</code> clean<br>
+        <b style="color:var(--accent)">&#10003;</b> <code>next build</code> succeeds<br>
+        <b style="color:var(--accent)">&#10003;</b> <code>eslint</code> &mdash; 0 errors<br>
+        <b style="color:var(--accent)">&#10003;</b> <code>jest</code> &mdash; 4/4 passing<br>
+        <b style="color:var(--accent)">&#10003;</b> 22/22 routes 200 in <code>pt</code> and <code>en</code><br>
+        <b style="color:var(--accent)">&#10003;</b> <code>/resume/print</code> byte-identical
       </p>
     </div>
   </div>
@@ -739,7 +761,7 @@ code{font-family:var(--mono);font-size:.86em;background:var(--paper-2);padding:1
 </section>
 
 <div class="foot wrap">
-  <p><b>Paper &amp; Ink</b> &mdash; design proposal, rev. A &middot; 2026.08.29<br>
+  <p><b>Paper &amp; Ink</b> &mdash; shipped, rev. B &middot; 2026.08.29<br>
   Specimen set in Instrument Serif, Newsreader and JetBrains Mono, all SIL OFL.<br>
   This page is built in the system it proposes.</p>
 </div>
