@@ -4,11 +4,11 @@ const workExperience: WorkExperience[] = [
   {
     id: 'vortx',
     company: 'Vórtx',
-    position: 'DevOps Specialist',
+    position: 'Infrastructure Coordinator',
     startDate: new Date('2025-03-10'),
     endDate: undefined,
     location: 'Hybrid (São Paulo, Brazil / Remote)',
-    description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform',
+    description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
     responsibilities: [
       'Leading DevOps initiatives to enhance infrastructure automation and CI/CD pipelines',
       'Collaborating with development teams to integrate DevOps practices into the software development lifecycle',
@@ -39,7 +39,7 @@ const workExperience: WorkExperience[] = [
     company: 'Millennium BCP',
     position: 'DevOps Engineer',
     startDate: new Date('2021-07-01'),
-    endDate: undefined,
+    endDate: new Date('2025-02-28'),
     location: 'Lisbon, Portugal',
     description: 'Working as a member of an ALM Team, focus on delivering the best solutions within connection infrastructure cloud and on-premises into development of internal and external products for Millennium BCP',
     responsibilities: [
@@ -394,7 +394,7 @@ const projects: Project[] = [
 export const resumeData: ResumeData = {
   personal: {
     name: 'Kaue Mendes',
-    title: 'DevOps Engineer & Software Developer',
+    title: 'Infrastructure Coordinator & DevOps Engineer',
     email: 'kaue.mendes@gmail.com',
     phone: '+55 11 998 982 401',
     location: 'São Paulo, Brazil',

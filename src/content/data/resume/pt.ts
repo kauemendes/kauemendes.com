@@ -4,11 +4,11 @@ const workExperience: WorkExperience[] = [
   {
     id: 'vortx',
     company: 'Vórtx',
-    position: 'Especialista DevOps',
+    position: 'Coordenador de Infraestrutura',
     startDate: new Date('2025-03-10'),
     endDate: undefined,
     location: 'Híbrido (São Paulo, Brasil / Remoto)',
-    description: 'Implementando melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS)',
+    description: 'Implementando melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS). Promovido a Coordenador de Infraestrutura em julho de 2026.',
     responsibilities: [
       'Liderando iniciativas DevOps para aprimorar automação de infraestrutura e pipelines de CI/CD',
       'Colaborando com equipes de desenvolvimento para integrar práticas DevOps no ciclo de desenvolvimento',
@@ -39,7 +39,7 @@ const workExperience: WorkExperience[] = [
     company: 'Millennium BCP',
     position: 'Engenheiro DevOps',
     startDate: new Date('2021-07-01'),
-    endDate: undefined,
+    endDate: new Date('2025-02-28'),
     location: 'Lisboa, Portugal',
     description: 'Trabalhando como membro de uma Equipe ALM, focado em entregar as melhores soluções de conexão entre infraestrutura cloud e on-premises no desenvolvimento de produtos internos e externos para o Millennium BCP',
     responsibilities: [
@@ -394,7 +394,7 @@ const projects: Project[] = [
 export const resumeData: ResumeData = {
   personal: {
     name: 'Kaue Mendes',
-    title: 'Engenheiro DevOps & Desenvolvedor de Software',
+    title: 'Coordenador de Infraestrutura & Engenheiro DevOps',
     email: 'kaue.mendes@gmail.com',
     phone: '+55 11 998 982 401',
     location: 'São Paulo, Brasil',

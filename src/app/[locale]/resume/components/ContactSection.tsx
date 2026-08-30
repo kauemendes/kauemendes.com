@@ -112,16 +112,16 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
               )}
 
               {/* Location */}
-              <div className="flex items-center space-x-4 p-4 bg-accent-cyan/10 border border-accent-cyan/25">
-                <div className="w-10 h-10 bg-accent-cyan/15 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center space-x-4 p-4 bg-paper-2 border-2 border-ink">
+                <div className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center">
+                  <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div className="flex-1">
                   <div className="font-medium text-ink">{t('location')}</div>
-                  <div className="text-sm text-accent-cyan">{personal.location}</div>
+                  <div className="text-sm text-ink-soft">{personal.location}</div>
                 </div>
               </div>
 
@@ -133,16 +133,16 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center space-x-4 p-4 bg-accent-cyan/10 border border-accent-cyan/25 hover:bg-accent-cyan/20 transition-all duration-300"
+                  className="w-full flex items-center space-x-4 p-4 bg-paper-2 border-2 border-ink press transition-all duration-300"
                 >
-                  <div className="w-10 h-10 bg-accent-cyan/15 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 border-2 border-ink bg-paper flex items-center justify-center">
+                    <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c5-5 9-9 9-9m-9 9c-5-5-9-9-9-9" />
                     </svg>
                   </div>
                   <div className="flex-1 text-left">
                     <div className="font-medium text-ink">{t('website')}</div>
-                    <div className="text-sm text-accent-cyan">{personal.website}</div>
+                    <div className="text-sm text-accent">{personal.website}</div>
                   </div>
                   <svg className="w-5 h-5 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -234,12 +234,12 @@ export function ContactSection({ personal, social }: ContactSectionProps) {
         </div>
 
         <div className="text-center p-4 bg-paper-2 border-2 border-ink">
-          <div className="text-2xl font-bold text-accent-cyan">GMT+1</div>
+          <div className="text-2xl font-bold text-accent">GMT-3</div>
           <div className="text-xs text-ink-muted">{t('timezone')}</div>
         </div>
 
         <div className="text-center p-4 bg-paper-2 border-2 border-ink">
-          <div className="text-2xl font-bold">🇵🇹</div>
+          <div className="text-2xl font-bold text-accent">BR</div>
           <div className="text-xs text-ink-muted">{t('basedIn')}</div>
         </div>
       </motion.div>
