@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { linkCategories } from '@/content/data/links';
 import { socialLinks } from '@/content/data/social';
 import { LinkCard } from './components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -16,10 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t('title'),
     description: t('indexSubtitle'),
-    alternates: {
-      canonical: `/${locale}/links`,
-      languages: { 'pt-BR': '/pt/links', en: '/en/links' },
-    },
+    alternates: buildAlternates(locale, '/links'),
   };
 }
 

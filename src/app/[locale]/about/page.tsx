@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Metadata } from 'next'
 
 import { Frame } from '@/components'
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -19,10 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: ['Kaue Mendes', 'Kaue Mendes de Freitas', 'Kaue Mendes Profile', 'Kaue Mendes Personal Website', 'Profile'],
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
-    alternates: {
-      canonical: `/${locale}/about`,
-      languages: { 'pt-BR': '/pt/about', en: '/en/about' },
-    },
+    alternates: buildAlternates(locale, '/about'),
   };
 }
 

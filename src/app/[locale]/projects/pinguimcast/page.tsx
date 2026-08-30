@@ -4,6 +4,10 @@ import { setRequestLocale } from 'next-intl/server';
 import { getProjects } from '@/content/data/projects';
 import { Locale } from '@/i18n';
 import { ProjectDetail } from '@/components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
+
+const FALLBACK_TITLE = 'PinguimCast';
+const KEYWORDS = ['Kaue Mendes', 'PinguimCast', 'Podcast', 'Technology', 'DevOps'];
 
 const PROJECT_ID = 'pinguimcast';
 
@@ -16,12 +20,33 @@ export async function generateMetadata({ params }: PageProps) {
   const projects = await getProjects(locale as Locale);
   const project = projects.find(p => p.id === PROJECT_ID);
 
+  const title = project?.title ?? FALLBACK_TITLE;
+  const description = project?.description ?? `About ${FALLBACK_TITLE}.`;
+  const path = `/projects/${PROJECT_ID}`;
+
   return {
-    title: project?.title ?? 'PinguimCast',
-    description: project?.description ?? 'About PinguimCast.',
-    keywords: ['Kaue Mendes', 'PinguimCast', 'Podcast', 'Technology', 'DevOps'],
+    title,
+    description,
+    keywords: KEYWORDS,
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
+    // Without this the locale layout's canonical is inherited and the page
+    // tells crawlers the real page is the home page.
+    alternates: buildAlternates(locale, path),
+    openGraph: {
+      type: 'website',
+      title,
+      description,
+      url: absoluteUrl(locale, path),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   }
 }
 
