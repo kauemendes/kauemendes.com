@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { getResumeData } from '@/content/data/resume'
 import { ResumeLayout } from './components/ResumeLayout'
 import { Locale } from '@/i18n'
+import { buildAlternates, absoluteUrl } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>
@@ -40,10 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'Python',
       'TypeScript',
     ],
-    alternates: {
-      canonical: `/${locale}/resume`,
-      languages: { 'pt-BR': '/pt/resume', en: '/en/resume' },
-    },
+    alternates: buildAlternates(locale, '/resume'),
     openGraph: {
       title: isPortuguese ? 'Kaue Mendes · Currículo Interativo' : 'Kaue Mendes · Interactive Resume',
       description: isPortuguese
@@ -51,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : 'Enterprise AI, Cloud and DevOps consultant with 15+ years of experience in software development, automation and infrastructure.',
       type: 'profile',
       locale: isPortuguese ? 'pt_BR' : 'en_US',
-      url: `https://kauecode.com/${locale}/resume`,
+      url: absoluteUrl(locale, '/resume'),
       siteName: 'Kaue Mendes',
     },
     twitter: {

@@ -60,9 +60,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: t('homeTitle'),
       description: t('homeDescription'),
       type: 'website',
-      locale: isPt ? 'pt_BR' : 'en_US',
-      url: `https://kauecode.com/${locale}`,
-      siteName: 'Kaue Mendes',
+      locale: ogLocale(locale),
+      url: absoluteUrl(locale),
+      siteName: SITE_NAME,
+      alternateLocale: alternateOgLocales(locale),
     },
     twitter: {
       card: 'summary_large_image',

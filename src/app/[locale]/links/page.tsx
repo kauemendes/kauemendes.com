@@ -18,6 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: t('title'),
     description: t('indexSubtitle'),
     alternates: buildAlternates(locale, '/links'),
+    openGraph: {
+      type: 'website',
+      title: t('title'),
+      description: t('indexSubtitle'),
+      url: absoluteUrl(locale, '/links'),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('indexSubtitle'),
+    },
   };
 }
 

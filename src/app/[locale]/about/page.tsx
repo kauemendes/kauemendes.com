@@ -21,6 +21,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
     alternates: buildAlternates(locale, '/about'),
+    openGraph: {
+      type: 'website',
+      title: t('title'),
+      description: t('paragraph1'),
+      url: absoluteUrl(locale, '/about'),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('paragraph1'),
+    },
   };
 }
 
