@@ -8,7 +8,6 @@ image_og: "/images/blog/banner_10_post_blog_og.jpg"
 date: "2026-07-19"
 ---
 
-# The Collective Mind: Why Your Team's AI Should Share a Brain
 
 ---
 

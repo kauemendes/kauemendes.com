@@ -6,7 +6,6 @@ image_banner: "/images/blog/platformops.png"
 image_post: "/images/blog/platformops@2x.png"
 date: "2023-11-29"
 ---
-# Abraçando o Futuro: O Padrão PlatformOps Revolucionando Empresas
 
 ## Introdução
 

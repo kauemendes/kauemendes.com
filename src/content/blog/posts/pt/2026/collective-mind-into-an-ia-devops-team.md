@@ -8,8 +8,6 @@ image_og: "/images/blog/banner_10_post_blog_og.jpg"
 date: "2026-07-19"
 ---
 
-# A mente coletiva: por que a IA da sua equipe deveria compartilhar um cérebro
----
 ## O problema que ninguém estava vendo
 
 Adoção de IA em equipes de engenharia costuma ser medida errada. Contamos quantas pessoas usam um assistente, quantos prompts por dia, quanto código foi gerado. Mas há um custo silencioso que essas métricas não capturam: **cada pessoa está construindo, isoladamente, um contexto que morre com ela.**
