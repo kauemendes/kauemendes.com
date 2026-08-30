@@ -2,6 +2,9 @@
 post: "glad-i-am-old-fundamentals-and-ai"
 title: "11. Ainda bem que eu sou velho"
 description: "Aprendi tecnologia numa época de escassez, quando cada bit importava e não existia curso online. Esse acúmulo virou critério, e é o que me ajuda a conversar com uma IA hoje. Só que tem uma pergunta que eu não sei responder: qual pedaço do que eu sei ainda sustenta peso, e qual pedaço é só apego ao esforço que eu paguei para aprender?"
+image_banner: "/images/blog/estou-muito-velho-pra-isso.png"
+image_post: "/images/blog/estou-muito-velho-pra-isso@2x.png"
+image_og: "/images/blog/estou-muito-velho-pra-isso_og.jpg"
 date: "2026-08-30"
 ---
 

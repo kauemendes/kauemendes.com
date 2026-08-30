@@ -2,6 +2,9 @@
 post: "glad-i-am-old-fundamentals-and-ai"
 title: "11. I'm glad I'm old"
 description: "I learned technology in an age of scarcity, when every bit mattered and online courses didn't exist. That accumulation turned into judgment, and it's what helps me talk to an AI today. But there's a question I can't answer: which part of what I know still bears weight, and which part is just attachment to the effort I paid to learn it?"
+image_banner: "/images/blog/estou-muito-velho-pra-isso.png"
+image_post: "/images/blog/estou-muito-velho-pra-isso@2x.png"
+image_og: "/images/blog/estou-muito-velho-pra-isso_og.jpg"
 date: "2026-08-30"
 ---
 
