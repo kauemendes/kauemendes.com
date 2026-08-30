@@ -8,7 +8,13 @@ image_og: "/images/blog/estou-muito-velho-pra-isso_og.jpg"
 date: "2026-08-30"
 ---
 
-Tenho pensado cada vez mais nessa frase, "ainda bem que eu sou velho". Não é pela idade. É pelo que eu tive que atravessar para entender de tecnologia.
+"Estou ficando velho demais pra essa merda."
+
+Roger Murtaugh diz isso em Máquina Mortífera, 1987. A frase virou meme, virou camiseta, virou o que a gente fala quando o dia aperta. Tem um detalhe nela que eu só fui reparar agora: Danny Glover tinha 40 anos quando gravou a cena. Ele não estava velho. Ele estava interpretando velho.
+
+Eu penso nisso toda vez que me pego falando alguma versão dessa frase. E, por algum motivo, o que sai de mim ultimamente é o contrário dela.
+
+Tenho pensado cada vez mais em "ainda bem que eu sou velho". Não é pela idade. É pelo que eu tive que atravessar para entender de tecnologia.
 
 Como funciona um endereçamento de memória. Como era a época em que você precisava pensar em cada bit e cada byte que trafegava ou era processado, porque CPU e memória eram escassos. Internet, então, era novidade.
 
@@ -54,7 +60,7 @@ Ninguém hoje escreve o próprio alocador de memória. Ninguém aprende a config
 
 Então a pergunta honesta não é "fundamento importa?". É outra, e é bem mais desconfortável: **qual pedaço do que eu sei ainda sustenta peso, e qual pedaço é só apego ao esforço que eu paguei para aprender?**
 
-E eu não consigo responder isso de dentro. Eu sou a pessoa menos confiável do mundo para julgar se a dor que eu passei valeu a pena, porque eu passei por ela.
+E eu não consigo responder isso de dentro. Eu sou a pessoa menos confiável do mundo para julgar se a dor que eu passei valeu a pena, porque eu passei por ela. Talvez eu esteja fazendo o que o Glover fez: interpretando velho.
 
 Tem um detalhe nessa camada nova que me faz coçar a cabeça e que eu ainda não fechei. Todas as abstrações anteriores tinham chão. O Docker esconde o kernel, mas o kernel continua lá, e você pode descer até ele. É determinístico. Se você tiver paciência e conhecimento, você chega no fundo e entende exatamente por que quebrou. A camada de IA não tem esse chão do mesmo jeito. Você recebe um artefato pronto e não existe um `strace` para o raciocínio que produziu aquilo. O caminho de depuração mudou de formato, e não só de altura.
 
