@@ -8,7 +8,13 @@ image_og: "/images/blog/estou-muito-velho-pra-isso_og.jpg"
 date: "2026-08-30"
 ---
 
-I keep coming back to that phrase: I'm glad I'm old. It's not about age. It's about what I had to go through to understand technology.
+"I'm getting too old for this shit."
+
+Roger Murtaugh says it in Lethal Weapon, 1987. The line became a meme, became a t-shirt, became the thing we all say when the day gets heavy. There's a detail in it I only noticed recently: Danny Glover was 40 when he shot that scene. He wasn't old. He was playing old.
+
+I think about that every time I catch myself saying some version of it. And for some reason, what keeps coming out of me lately is the opposite.
+
+I keep coming back to a different phrase: I'm glad I'm old. It's not about age. It's about what I had to go through to understand technology.
 
 How memory addressing works. What it was like back when you had to account for every bit and every byte that moved or got processed, because CPU and memory were scarce. And the internet was brand new.
 
@@ -54,7 +60,7 @@ Nobody writes their own memory allocator today. Nobody learns to configure IRQs 
 
 So the honest question isn't "do fundamentals matter?". It's a different one, and a lot more uncomfortable: **which part of what I know still bears weight, and which part is just attachment to the effort I paid to learn it?**
 
-And I can't answer that from the inside. I'm the least trustworthy person in the world to judge whether the pain I went through was worth it, because I'm the one who went through it.
+And I can't answer that from the inside. I'm the least trustworthy person in the world to judge whether the pain I went through was worth it, because I'm the one who went through it. Maybe I'm doing what Glover did: playing old.
 
 There's a detail in this new layer that makes me scratch my head, and I haven't settled it. Every previous abstraction had a floor. Docker hides the kernel, but the kernel is still there, and you can climb down to it. It's deterministic. With enough patience and knowledge, you reach the bottom and understand exactly why it broke. The AI layer doesn't have that floor in the same way. You receive a finished artifact and there is no `strace` for the reasoning that produced it. The debugging path changed shape, not just height.
 
