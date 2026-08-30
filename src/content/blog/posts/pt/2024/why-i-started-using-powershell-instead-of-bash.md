@@ -6,7 +6,6 @@ image_banner: "/images/blog/powershell-vs-bash.png"
 image_post: "/images/blog/powershell-vs-bash@2x.png"
 date: "2024-08-20"
 ---
-# Por que Comecei a Usar PowerShell ao Invés de Bash?
 
 <img src="https://repository-images.githubusercontent.com/301529364/80afd1cf-a018-4d3f-a6bf-1cf2e1e35dfc" />
 

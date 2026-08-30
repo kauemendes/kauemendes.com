@@ -6,7 +6,6 @@ image_banner: "/images/blog/tug-of-war.png"
 image_post: "/images/blog/tug-of-war@2x.png"
 date: "2023-11-26"
 ---
-# Tech Workers vs. Outdated Corporate Visions
 
 ## Introduction
 

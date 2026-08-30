@@ -6,7 +6,6 @@ image_banner: "/images/blog/platformops.png"
 image_post: "/images/blog/platformops@2x.png"
 date: "2023-11-29"
 ---
-# Embracing the Future: The PlatformOps Pattern Revolutionizing Companies
 
 ## Introduction
 
