@@ -1,2 +1,5 @@
-export { default as Card } from './Card'
-export { default as Heading } from './Heading'
+export { Frame } from './Frame'
+export { Meta, Eyebrow, Tag } from './Meta'
+export { Button, ButtonLink, ButtonExternal } from './Button'
+export { Prose } from './Prose'
+export { Entry } from './Entry'

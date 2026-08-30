@@ -1,3 +1,1 @@
-export { LinkCard } from './LinkCard';
-export { CategorySection } from './CategorySection';
-export { FeaturedLinks } from './FeaturedLinks';
+export { default as LinkCard } from './LinkCard'

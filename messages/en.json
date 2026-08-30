@@ -11,7 +11,8 @@
     "enterEmail": "Enter your email",
     "allRightsReserved": "All Rights Reserved",
     "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Service",
+    "backToTop": "Back to top"
   },
   "navigation": {
     "home": "Home",
@@ -23,47 +24,46 @@
     "links": "Links"
   },
   "home": {
-    "hero": {
-      "badge": "Welcome to the Future of DevOps",
-      "title1": "Building the",
-      "titleHighlight": "Digital Infrastructure",
-      "title2": "of Tomorrow",
-      "subtitle": "Architecting scalable cloud solutions and neural network infrastructures that power the next generation of technology. Where DevOps meets artificial intelligence."
-    },
-    "stats": {
-      "yearsExperience": "Years Experience",
-      "deployments": "Deployments",
-      "uptimeFocus": "Uptime Focus"
-    },
     "about": {
       "greeting": "Hi, I'm Kaue Mendes",
       "description1": "DevOps Engineer and Cloud Architect passionate about building scalable, reliable systems. I specialize in Azure cloud platforms, automation, and helping teams deliver software faster and more efficiently.",
       "description2": "When I'm not architecting cloud solutions, you'll find me contributing to open-source projects, writing about technology trends, or exploring the latest DevOps tools and practices."
     },
-    "featuredProjects": "Featured Projects",
-    "latestBlog": "Latest from the Blog",
-    "coreExpertise": "Core Expertise",
-    "exploreData": "EXPLORE_DATA",
-    "noPosts": "New blog posts coming soon! Check back for insights on DevOps, cloud architecture, and technology trends.",
-    "profileRole": "DevOps Engineer • Cloud Architect"
+    "masthead": {
+      "role": "DevOps Engineer & Cloud Architect",
+      "location": "Portugal",
+      "since": "Writing since 2023",
+      "statement": "Building platforms that outlive the teams that built them. Azure, Kubernetes and automation — and lately, what happens when engineering teams give their AI a shared brain."
+    },
+    "index": {
+      "title": "Index",
+      "subtitle": "everything, newest first",
+      "count": "{count} entries",
+      "viewAll": "All {count} entries",
+      "empty": "Nothing published yet. Essays on DevOps, cloud architecture and AI are on the way."
+    },
+    "kind": {
+      "essay": "Essay",
+      "project": "Project"
+    },
+    "readTime": "{minutes} min",
+    "bothLocales": "PT / EN"
   },
   "blog": {
     "title": "Personal Blog",
-    "subtitle": "Tech Insights and Experiences",
-    "articles": "Articles",
-    "categories": "Categories",
-    "readers": "Readers",
-    "featured": "Featured",
-    "readArticle": "Read Article",
-    "allArticles": "All Articles",
-    "wantUpdates": "Want to Stay Updated?",
     "backToBlog": "Back to Blog",
     "previousArticle": "Previous Article",
     "nextArticle": "Next Article",
-    "enjoyedArticle": "Enjoyed this Article?",
-    "readMoreArticles": "Read More Articles",
     "share": "Share",
-    "publishedOn": "Published on"
+    "publishedOn": "Published on",
+    "index": "Writing",
+    "indexSubtitle": "essays on DevOps, cloud and AI",
+    "count": "{count} essays",
+    "alsoIn": "Also in Portuguese",
+    "backToIndex": "All writing",
+    "newer": "Newer",
+    "older": "Older",
+    "shareCopied": "Link copied"
   },
   "resume": {
     "title": "Interactive Resume",
@@ -143,19 +143,18 @@
       "basedIn": "Based in Sao Paulo, Brazil",
       "featured": "Featured",
       "remote": "Remote"
-    }
+    },
+    "readyToCollaborate": "Ready to collaborate?",
+    "collaborateDescription": "Let's discuss how I can contribute to your team's success in DevOps and cloud architecture.",
+    "startConversation": "Start a conversation",
+    "viewMyWork": "View my work"
   },
   "projects": {
     "title": "My Projects",
-    "subtitle": "Portfolio Showcase",
-    "projectsBuilt": "Projects Built",
-    "downloads": "Downloads",
-    "latestRelease": "Latest Release",
     "viewDetails": "View Details",
     "technologies": "Technologies",
     "keyFeatures": "Key Features",
     "impact": "Impact",
-    "interestedCustom": "Interested in Custom Development?",
     "discussProject": "Discuss Your Project",
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
@@ -164,7 +163,17 @@
       "active": "Active",
       "completed": "Completed",
       "inProgress": "In Progress"
-    }
+    },
+    "index": "Work",
+    "indexSubtitle": "things I have shipped",
+    "count": "{count} projects",
+    "marketplace": "Marketplace",
+    "backToProjects": "All work",
+    "information": "Details",
+    "year": "Year",
+    "statusLabel": "Status",
+    "viewAll": "View all projects",
+    "openProject": "Open project"
   },
   "consult": {
     "title": "Enterprise AI, Cloud & DevOps Consulting",
@@ -187,40 +196,46 @@
       "startup": "Startup",
       "medium": "Medium Enterprise",
       "enterprise": "Enterprise"
-    }
+    },
+    "indexSubtitle": "enterprise AI, cloud and DevOps",
+    "mostPopular": "Most popular",
+    "includes": "Includes",
+    "contactVia": "Direct contact",
+    "formTitle": "Send a brief",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "service": "Service",
+    "budget": "Budget",
+    "message": "Message",
+    "send": "Open in mail client",
+    "formNote": "This composes an email in your own mail client — nothing is sent from this page.",
+    "selectService": "Select a service",
+    "selectBudget": "Select a range",
+    "process": "Process"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Learn More",
+    "title": "About",
+    "greeting": "Hi, I'm Kauê",
+    "paragraph1": "I am a software developer with a passion for making developers' lives easier. I've been in the software development game for over 15 years, and let me tell you, I've seen more code than a coffee machine sees coffee beans.",
+    "paragraph2": "Currently I work as a DevOps Engineer, and I'm thrilled by the magic of automation and the endless possibilities it brings. From frontend to backend, I've had my hands on a plethora of technologies, always eager to learn and innovate.",
+    "tagline1": "Passion for the future",
+    "tagline2": "Geostationary orbit @ Lisbon",
+    "profiles": "Profiles",
     "personal": "Personal",
     "professional": "Professional",
-    "personalDescription": "My personal story and journey",
-    "professionalDescription": "Professional experience and career"
+    "backToAbout": "Back to about"
   },
   "links": {
     "title": "Links",
-    "subtitle": "Curated Links",
-    "description": "A collection of useful links and resources",
-    "connectWithMe": "Connect With Me",
-    "role": "DevOps Engineer • Cloud Architect • Tech Enthusiast",
-    "intro": "Connect with me across various platforms and explore my work in DevOps, cloud computing, and software development.",
-    "stats": {
-      "platforms": "Platforms",
-      "connections": "Connections",
-      "available": "Available",
-      "responseRate": "Response Rate"
-    },
-    "quickAccess": "Quick Access",
-    "socialProfessional": "Social & Professional",
-    "letsWorkTogether": "Let's Work Together!",
-    "ctaDescription": "Ready to discuss your next DevOps project or cloud transformation? I'm always excited to tackle new challenges and help teams succeed.",
-    "startProject": "Start a Project",
-    "viewMyWork": "View My Work",
-    "footerBuiltWith": "Built with Next.js • Updated regularly",
+    "indexSubtitle": "everywhere you can find me",
+    "featured": "Featured",
+    "elsewhere": "Elsewhere",
     "categories": {
-      "contentBlog": "Content & Blog",
-      "projectsWork": "Projects & Work",
-      "professionalServices": "Professional Services"
+      "social": "Social & professional",
+      "content": "Writing",
+      "projects": "Work",
+      "services": "Services"
     }
   },
   "footer": {

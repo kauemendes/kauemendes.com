@@ -6,4 +6,5 @@ export * from './layout'
 
 // Feature Components
 export * from './features/blog'
+export * from './features/projects'
 export * from './features/theme'

@@ -232,7 +232,7 @@ const workExperience: WorkExperience[] = [
 const skillCategories: SkillCategory[] = [
   {
     name: 'IA Empresarial & IAOps',
-    icon: '🤖',
+    icon: 'ai',
     color: '#0891B2',
     skills: [
       { name: 'Arquitetura de IA Empresarial', level: 9, yearsExperience: 1, category: 'IA Empresarial & IAOps', featured: true },
@@ -254,7 +254,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'DevOps & Infraestrutura',
-    icon: '🚀',
+    icon: 'devops',
     color: '#3B82F6',
     skills: [
       { name: 'Docker', level: 9, yearsExperience: 8, category: 'DevOps & Infraestrutura', featured: true },
@@ -269,7 +269,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Linguagens de Programação',
-    icon: '💻',
+    icon: 'languages',
     color: '#10B981',
     skills: [
       { name: 'Python', level: 9, yearsExperience: 10, category: 'Linguagens de Programação', featured: true },
@@ -283,7 +283,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Desenvolvimento Frontend',
-    icon: '🎨',
+    icon: 'frontend',
     color: '#F59E0B',
     skills: [
       { name: 'React', level: 8, yearsExperience: 7, category: 'Desenvolvimento Frontend', featured: true },
@@ -296,7 +296,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Desenvolvimento Backend',
-    icon: '⚙️',
+    icon: 'tooling',
     color: '#8B5CF6',
     skills: [
       { name: 'Node.js', level: 8, yearsExperience: 7, category: 'Desenvolvimento Backend', featured: true },
@@ -309,7 +309,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Metodologias & Práticas',
-    icon: '📊',
+    icon: 'methods',
     color: '#EF4444',
     skills: [
       { name: 'Scrum', level: 9, yearsExperience: 8, category: 'Metodologias & Práticas', featured: true },

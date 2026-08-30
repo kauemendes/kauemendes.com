@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShareLinkButton } from '@/components';
+import { ShareLinkButton, Prose, Meta } from '@/components';
 import { getPostContent, getPostsList } from '@/lib';
+import { parseEntryTitle, stampDate, readingMinutes } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { locales } from '@/i18n';
@@ -54,198 +55,111 @@ export default async function PostPage(props: { params: Promise<{ locale: string
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: 'blog' });
+  const tHome = await getTranslations({ locale, namespace: 'home' });
   const content = await getPostContent(post, locale);
   const allPosts = await getPostsList(locale);
-  
+
   if (!content) {
     return notFound();
   }
 
-  // Find current post index for navigation
+  // Posts are sorted newest first, so the lower index is the newer entry.
   const currentIndex = allPosts.findIndex(p => p.post === post);
-  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-  const dateLocale = locale === 'pt' ? 'pt-BR' : 'en-US';
+  const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const olderPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
+  const { number, title } = parseEntryTitle(content.title);
 
   return (
-    <div className="min-h-screen bg-gradient-brand">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto px-6">
 
-        {/* Back Navigation */}
-        <div className="pt-16 mb-8">
-          <Link
-            href={`/${locale}/blog`}
-            className="group inline-flex items-center text-accent hover:text-accent-strong transition-colors duration-300"
-          >
-            <svg className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            {t('backToBlog')}
-          </Link>
-        </div>
-
-        {/* Article Header */}
-        <article className="bg-surface-raised/80 backdrop-blur rounded-2xl shadow-2xl border border-edge overflow-hidden">
-          {/* Hero Image */}
-          <div className="relative h-64 md:h-80">
-            <Image 
-              src={content.image_post} 
-              alt={content.title}  
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-brand-primary/80 via-brand-primary/20 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="mb-4">
-                <span className="bg-brand-accent1/90 text-brand-primary text-sm font-semibold px-3 py-1 rounded-full">
-                  {locale === 'pt' ? 'Artigo' : 'Article'}
-                </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-brand-neutral-light leading-tight">
-                {content.title}
-              </h1>
-            </div>
-          </div>
-
-          {/* Article Meta */}
-          <div className="p-6 md:p-8 border-b border-edge">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-3">
-                  <Image 
-                    src="/images/avatars/avatar.png" 
-                    alt="Kaue Mendes" 
-                    width={48} 
-                    height={48}
-                    className="rounded-full border-2 border-accent/30"
-                  />
-                  <div>
-                    <div className="font-semibold text-ink">Kaue Mendes</div>
-                    <div className="text-sm text-ink-muted">DevOps Engineer & Cloud Architect</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-6">
-                <div className="text-sm text-ink-muted">
-                  📅 {new Date(content.date).toLocaleDateString(dateLocale, {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </div>
-                <ShareLinkButton />
-              </div>
-            </div>
-          </div>
-
-          {/* Article Content */}
-          <div className="p-6 md:p-8 lg:p-12">
-            <div 
-              dangerouslySetInnerHTML={{ __html: content.body }}
-              className="prose prose-lg max-w-none
-                prose-headings:text-ink prose-headings:font-poppins prose-headings:font-bold
-                prose-p:text-ink-muted prose-p:leading-relaxed
-                prose-a:text-accent prose-a:no-underline hover:prose-a:text-accent-strong prose-a:transition-colors
-                prose-strong:text-ink prose-strong:font-semibold
-                prose-code:text-accent prose-code:bg-surface prose-code:px-2 prose-code:py-1 prose-code:rounded
-                prose-pre:bg-surface prose-pre:border prose-pre:border-edge
-                prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:bg-surface/50 prose-blockquote:text-ink
-                prose-ul:text-ink-muted prose-ol:text-ink-muted
-                prose-li:text-ink-muted
-                prose-img:rounded-xl prose-img:shadow-lg"
-            />
-          </div>
-        </article>
-
-        {/* Article Navigation */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {previousPost && (
-            <Link
-              href={`/${locale}/blog/${previousPost.post}`}
-              className="group bg-surface-raised/80 backdrop-blur rounded-xl p-6 border border-edge hover:border-accent/30 transition-all duration-300 hover:shadow-lg"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="text-accent mt-1">
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-                  </svg>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm text-accent font-medium mb-1">{t('previousArticle')}</div>
-                  <h3 className="text-ink font-semibold group-hover:text-accent transition-colors duration-300 line-clamp-2">
-                    {previousPost.title}
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          )}
-
-          {nextPost && (
-            <Link
-              href={`/${locale}/blog/${nextPost.post}`}
-              className="group bg-surface-raised/80 backdrop-blur rounded-xl p-6 border border-edge hover:border-accent/30 transition-all duration-300 hover:shadow-lg md:ml-auto"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-1 min-w-0 text-right">
-                  <div className="text-sm text-accent font-medium mb-1">{t('nextArticle')}</div>
-                  <h3 className="text-ink font-semibold group-hover:text-accent transition-colors duration-300 line-clamp-2">
-                    {nextPost.title}
-                  </h3>
-                </div>
-                <div className="text-accent mt-1">
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          )}
-        </div>
-
-        {/* Related Articles CTA */}
-        <div className="mt-16 relative bg-linear-to-r from-accent/15 to-accent-strong/15 rounded-2xl p-8 md:p-12 text-center border border-accent/30 overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E5FF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}></div>
-          </div>
-          
-          <div className="relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold font-poppins text-ink mb-4">
-              {t('enjoyedArticle')}
-            </h2>
-            <p className="text-ink-muted mb-8 max-w-2xl mx-auto">
-              {locale === 'pt'
-                ? 'Explore mais insights sobre DevOps, arquitetura cloud e tendências tecnológicas no meu blog.'
-                : 'Explore more insights on DevOps, cloud architecture, and technology trends in my blog.'}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={`/${locale}/blog`}
-                className="group inline-flex justify-center items-center py-3 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-accent hover:bg-accent-strong focus:ring-4 focus:ring-accent/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                {t('readMoreArticles')}
-                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </Link>
-
-              <Link
-                href={`/${locale}/projects`}
-                className="group inline-flex justify-center items-center py-3 px-8 text-base font-semibold text-center text-ink rounded-lg border-2 border-accent hover:bg-accent hover:text-brand-primary focus:ring-4 focus:ring-accent/30 transition-all duration-300"
-              >
-                {locale === 'pt' ? 'Ver Meus Projetos' : 'View My Projects'}
-                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
+      <div className="pt-8 pb-10">
+        <Link
+          href={`/${locale}/blog`}
+          className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-muted hover:text-accent transition-colors duration-150"
+        >
+          &larr; {t('backToIndex')}
+        </Link>
       </div>
+
+      <article>
+        <header>
+          <Meta
+            items={[
+              number ? <span key="n" className="text-accent font-bold">№ {number}</span> : null,
+              stampDate(content.date),
+              tHome('kind.essay'),
+              tHome('readTime', { minutes: readingMinutes(content.body) }),
+              t('alsoIn'),
+            ]}
+            className="mb-4"
+          />
+
+          <h1 className="font-display text-[clamp(2.1rem,6vw,3.4rem)] leading-[1.02] tracking-[-0.015em] text-ink mb-5">
+            {title}
+          </h1>
+
+          <p className="font-text italic text-[17px] md:text-[18px] leading-[1.62] text-ink-soft max-w-[56ch] mb-8">
+            {content.description}
+          </p>
+        </header>
+
+        <hr className="rule-solid mb-10" />
+
+        {content.image_post && (
+          <figure className="mb-10">
+            <div className="relative w-full aspect-[2/1] border-2 border-ink overflow-hidden">
+              <Image
+                src={content.image_post}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </figure>
+        )}
+
+        <Prose html={content.body} className="drop-cap" />
+      </article>
+
+      {/* Footer strip — share and chronological neighbours in one rail. */}
+      <div className="rule-solid mt-16 pt-5 pb-4 flex flex-wrap items-center justify-between gap-4">
+        <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-muted">
+          {t('publishedOn')} {stampDate(content.date)}
+        </p>
+        <ShareLinkButton />
+      </div>
+
+      <nav className="rule-dash grid grid-cols-1 sm:grid-cols-2 gap-px pb-20">
+        {newerPost && (
+          <Link
+            href={`/${locale}/blog/${newerPost.post}`}
+            className="group py-5 pr-4 no-underline"
+          >
+            <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-muted mb-2">
+              &larr; {t('newer')}
+            </p>
+            <p className="font-display text-[1.2rem] leading-[1.15] text-ink group-hover:text-accent transition-colors duration-150">
+              {parseEntryTitle(newerPost.title).title}
+            </p>
+          </Link>
+        )}
+        {olderPost && (
+          <Link
+            href={`/${locale}/blog/${olderPost.post}`}
+            className="group py-5 sm:text-right sm:border-l sm:border-dashed sm:border-rule sm:pl-4 no-underline"
+          >
+            <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-muted mb-2">
+              {t('older')} &rarr;
+            </p>
+            <p className="font-display text-[1.2rem] leading-[1.15] text-ink group-hover:text-accent transition-colors duration-150">
+              {parseEntryTitle(olderPost.title).title}
+            </p>
+          </Link>
+        )}
+      </nav>
     </div>
   );
 }

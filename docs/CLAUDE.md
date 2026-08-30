@@ -4,8 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15.5.0 personal portfolio and blog website for Kaue Mendes. The site features:
+This is a Next.js 16 personal portfolio and blog website for Kaue Mendes. The site features:
 - Static markdown blog posts with gray-matter frontmatter
+- Bilingual (pt/en) via next-intl; every route lives under `src/app/[locale]/`
 - React 19 with latest stable types  
 - Dark mode support via next-themes
 - Docker multi-environment setup
@@ -153,131 +154,105 @@ The site uses a fully static content approach:
 - Dark mode: class-based theme switching
 - Global styles: `src/styles/globals.css`
 
-## Brand Design System (January 2025)
+## Design System — Paper & Ink (August 2026)
 
-### Color Palette
-The website implements a comprehensive brand color system:
+The site was redesigned from the 2025 navy/glassmorphism brand into a
+neo-brutalist editorial system. Proposal and shipped record:
+`docs/superpowers/specs/2026-08-29-paper-and-ink.html`.
 
-```typescript
-// Brand Colors (tailwind.config.ts)
-colors: {
-  brand: {
-    primary: '#0B132B',        // Navy - main backgrounds
-    secondary: '#1C2541',      // Dark blue - UI components
-    accent1: '#00E5FF',        // Cyan - primary actions/links
-    accent2: '#2EE6A6',        // Green - success/highlights
-    accent3: '#FF7A00',        // Orange - warnings/CTAs
-    'neutral-light': '#F5F7FA', // Light text
-    'neutral-medium': '#9AA0A6' // Medium text
-  }
-}
-```
+**The old `brand-*` palette, gradients, glassmorphism and Poppins/Montserrat are
+gone. Do not reintroduce them.**
 
-### Typography
-- **Primary Font**: Poppins (headings, important text)
-- **Secondary Font**: Montserrat (body text, descriptions)
-- **Mono Font**: Source Code Pro (code, technical elements)
+### Tokens (`src/styles/globals.css`)
 
-### Component Design Patterns
-- **Glassmorphism**: `bg-brand-secondary/80 backdrop-blur-sm`
-- **Gradient Text**: `bg-gradient-accent bg-clip-text text-transparent`
-- **Hover Effects**: Consistent 300ms transitions with scale/color changes
-- **Border Styling**: Subtle borders with accent colors at 20-30% opacity
-- **Shadow System**: Multiple shadow levels for depth hierarchy
+Seven semantic tokens, defined on `:root` and redefined under `.dark`
+(next-themes, `attribute="class"`):
 
-## Recent Major Updates (January 2025)
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--paper` | `#F0EEE6` | `#14140F` | page ground |
+| `--paper-2` | `#E7E3D4` | `#1D1D16` | raised fills, table heads |
+| `--paper-3` | `#DED9C6` | `#26251C` | rare third step |
+| `--ink` | `#1A1A19` | `#EDEAE0` | text, all borders |
+| `--ink-soft` | `#4A4A47` | `#B6B2A4` | body prose, descriptions |
+| `--ink-muted` | `#8A8778` | `#86836F` | mono metadata |
+| `--rule` | `#D9D4C2` | `#34332A` | dashed hairlines |
+| `--accent` | `#0F7A57` | `#2EE6A6` | see discipline below |
 
-### Complete Brand Redesign
-**Scope**: Full website conversion to new brand identity
-**Files Updated**: All major pages and components
-**Key Changes**:
-- Replaced all generic colors with brand-specific palette
-- Updated logo to `logo_novo.svg` with chevron patterns
-- Implemented consistent design system across all pages
-- Added Poppins and Montserrat fonts to design system
+Utilities: `bg-paper`, `text-ink-soft`, `border-rule`, `shadow-hard`,
+`shadow-hard-sm`, `shadow-hard-lg`, `press`, `rule-dash`, `rule-solid`,
+`drop-cap`.
 
-### Page-Specific Updates
+### Accent discipline
 
-#### 1. Projects Page (`/projects`)
-- **New Features**: Statistics dashboard, enhanced ProjectCard components
-- **Design**: Gradient backgrounds, hover animations, status badges
-- **Content**: Detailed project information with technologies and features
-- **Typography**: Poppins headings with brand color hierarchy
+The green is the only chroma in the system. It appears in exactly four places:
+link underlines, the entry number in the index, the "live" status on project
+cards, and the active nav marker. Nothing else is coloured. The light value is
+darkened from the old `#2EE6A6` so it clears 4.5:1 on paper.
 
-#### 2. Consulting Page (`/consult`)
-- **New Features**: Tabbed interface, pricing tiers, service cards
-- **Design**: Interactive forms with brand styling
-- **Content**: Enhanced service descriptions and contact options
-- **Layout**: Improved responsive design with better CTAs
+### Typography (`src/styles/fonts.ts`)
 
-#### 3. Links Page (`/links`)
-- **New Features**: Statistics dashboard, enhanced link cards
-- **Design**: Category-based color coding, hover effects
-- **Content**: Better organization with featured links
-- **Animations**: Staggered entrance effects and smooth transitions
+- **Instrument Serif** (`font-display`) — headlines, entry titles, drop caps.
+  Single weight; never apply `font-bold` to it, and never use it below 20px or
+  for running text.
+- **Newsreader** (`font-text`) — article prose and ledes at 16.5px/1.78.
+- **JetBrains Mono** (`font-mono`) — every label, date, tag, button, nav item
+  and byline. Uppercase, `tracking-[0.1em]`–`[0.16em]`, 9.5–11.5px.
+- **Roboto** — retained *solely* for `/resume/print`. Not used on screen.
 
-#### 4. Blog Pages (`/blog`)
-- **Main Page**: Featured article section, statistics dashboard
-- **Post Pages**: Enhanced typography, navigation between posts
-- **Design**: Improved prose styling with brand colors
-- **SEO**: Enhanced metadata structure and OpenGraph tags
+### Primitives (`src/components/ui/`)
 
-#### 5. Resume Page (`/resume`)
-- **Background**: Brand gradient background with header section
-- **Navigation**: Updated with brand colors and hover effects
-- **Content**: Enhanced statistics cards and social links
-- **Design**: Improved visual hierarchy with icon integration
+Use these rather than hand-rolling classes:
 
-#### 6. Homepage (`/`)
-- **Background**: Custom animated tech background with network patterns
-- **Content**: Future-focused messaging with tech statistics
-- **Animations**: Neural network and data flow visualizations
-- **UI**: Futuristic scroll indicator and enhanced CTAs
+- `Frame` — the box: 2px ink border, square, offset shadow. Replaced a card
+  recipe repeated ~20 times.
+- `Meta` / `Eyebrow` / `Tag` — mono metadata rails and the three tag species
+  (`kind` filled, `tech` outline, `status` accent).
+- `Button` / `ButtonLink` / `ButtonExternal` — replaced a CTA string repeated
+  7 times.
+- `Prose` — article body styling; replaced a `prose-*` block duplicated in the
+  post page and the about-slug page.
+- `Entry` — one index row (marker, stamp, meta, title, description).
+- `ProjectDetail` (`components/features/projects/`) — shared detail view; the
+  four project pages went from ~200 lines each to ~40.
 
-### Footer Enhancement
-- **Design**: Complete redesign with brand colors
-- **Content**: Newsletter signup, organized link sections
-- **Features**: Social media integration, back-to-top button
-- **Layout**: Improved responsive design with better spacing
+### Rules
 
-### Technical Achievements
+- `border-radius: 0`. The radius scale is reset in `@theme`, so a stray
+  `rounded-xl` is a silent no-op rather than a regression.
+- One interaction gesture: `press` — the control shifts 2px into its own shadow.
+  No lift, no scale, no `hover:-translate-y-*`.
+- Dashed hairlines separate siblings; solid 2px ink separates page regions.
+- No emoji in UI chrome. Use `@heroicons/react/24/outline`.
+- No invented metrics. Numbers on the site must be real.
+- Blog post titles carry a `"N. "` sequence prefix. `parseEntryTitle()` in
+  `src/lib/utils` splits it into a margin entry number — do not strip it in
+  content.
 
-#### Animated Tech Background
-**File**: `src/components/ui/TechBackground.tsx`
-**Features**:
-- Canvas-based network animation with 3 node types (hub, neural, data)
-- Dynamic connections with flowing data packets
-- Neural wave patterns and pulsing effects
-- Brand color integration (cyan, green, orange)
-- Responsive animation that adapts to screen size
-- Performance optimized with proper cleanup
+### Excluded from the redesign
 
-#### Component Architecture
-- **Consistent Patterns**: All components follow brand design system
-- **Reusable Elements**: Shared design patterns across components
-- **Type Safety**: Full TypeScript implementation
-- **Performance**: Optimized animations and rendering
+`src/app/[locale]/resume/print/` keeps its own locked print styles and the
+`.print-page` block at the bottom of `globals.css`. Leave both alone.
 
-#### Build Configuration
-- **Successful Builds**: All pages compile without errors
-- **Font Integration**: Proper font loading with `next/font/google`
-- **Responsive Design**: Mobile-first approach throughout
-- **Accessibility**: Maintained contrast ratios and semantic markup
+### Tailwind v4 gotcha
+
+Plain CSS using `:is()` at the top level is dropped by the v4 parser. The prose
+radius override in `globals.css` uses an explicit descendant selector list for
+this reason — do not "simplify" it back to `:is()`.
 
 ## Design Philosophy
 
-### Visual Hierarchy
-1. **Primary Actions**: Accent1 (cyan) for main CTAs and links
-2. **Success States**: Accent2 (green) for positive feedback
-3. **Attention**: Accent3 (orange) for highlights and warnings
-4. **Backgrounds**: Primary/secondary navy for depth and contrast
-5. **Text**: Neutral colors for optimal readability
+### Visual hierarchy
 
-### Interaction Design
-- **Hover States**: Consistent scale and color transitions
-- **Loading States**: Smooth animations with brand colors
-- **Focus States**: Accessible focus indicators
-- **Error States**: Clear visual feedback with accent colors
+Weight, size and rules carry hierarchy — not colour. A page reads: display
+serif headline, mono metadata rail, serif body, dashed rules between items,
+solid rules between regions. The accent marks state, never decoration.
+
+### Interaction design
+
+One gesture (`press`). Focus is a 2px accent outline at 3px offset, set
+globally. Motion is limited to a 0.4s `fadeIn` on tab and section swaps, and
+`prefers-reduced-motion` disables the press transform.
 
 ### Mobile-First Approach
 - All components designed for mobile first
@@ -287,10 +262,10 @@ colors: {
 
 ## Future Considerations
 
-### Dark/Light Mode Implementation
-- **Plan**: Comprehensive plan documented in `docs/DARK_LIGHT_MODE_PLAN.md`
-- **Approach**: CSS custom properties with next-themes
-- **Status**: Ready for implementation when requested
+### Dark mode
+- **Status**: Shipped. Both themes are designed, including the site chrome,
+  which was on the static `brand-*` palette and never responded to the toggle
+  before the August 2026 redesign.
 
 ### Performance Optimizations
 - **Images**: Next.js Image optimization throughout
@@ -298,4 +273,6 @@ colors: {
 - **Bundle**: Code splitting and lazy loading where appropriate
 - **SEO**: Enhanced metadata and structured data
 
-This brand redesign successfully transforms the website into a modern, cohesive digital experience that properly represents expertise in DevOps, cloud architecture, and cutting-edge technology.
+The January 2025 sections above are kept for history. The live design system
+is **Paper & Ink** — see that section, not the brand-colour one, when working
+on any screen route.

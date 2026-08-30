@@ -9,23 +9,29 @@ interface NavLinkProps {
   href: string;
   children: ReactNode;
   prefetch?: boolean;
+  /** Called after navigation — used to close the mobile menu. */
+  onNavigate?: () => void;
 }
 
-export default function NavLink({ href, children, prefetch }: NavLinkProps) {
+const base = 'font-mono text-[11px] tracking-[0.1em] uppercase transition-colors duration-150';
+
+export default function NavLink({ href, children, prefetch, onNavigate }: NavLinkProps) {
   const pathname = usePathname();
   const locale = useLocale();
 
-  // Build locale-prefixed href
   const localizedHref = href === '/' ? `/${locale}` : `/${locale}${href}`;
 
-  // Check if current path matches (accounting for locale prefix)
   const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-  const isActive = pathWithoutLocale === href || (href === '/' && pathWithoutLocale === '');
+  // Section links stay active on their detail pages (/blog matches /blog/slug).
+  const isActive =
+    href === '/'
+      ? pathWithoutLocale === '/'
+      : pathWithoutLocale === href || pathWithoutLocale.startsWith(`${href}/`);
 
   if (isActive) {
     return (
       <span
-        className="block py-2 px-3 md:p-0 text-brand-accent1 bg-brand-secondary rounded-sm md:bg-transparent font-semibold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent1 after:rounded-full"
+        className={`${base} block text-ink font-bold shadow-[0_2px_0_0_var(--accent)]`}
         aria-current="page"
       >
         {children}
@@ -37,11 +43,10 @@ export default function NavLink({ href, children, prefetch }: NavLinkProps) {
     <Link
       href={localizedHref}
       prefetch={prefetch}
-      className="block py-2 px-3 md:p-0 text-brand-neutral-light rounded-sm transition-all duration-300 hover:bg-brand-secondary md:hover:bg-transparent md:border-0 md:hover:text-brand-accent1 hover:text-brand-accent3 font-medium relative group"
+      onClick={onNavigate}
+      className={`${base} block text-ink-muted hover:text-ink`}
     >
       {children}
-      {/* Hover underline effect */}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-brand-accent1 to-brand-accent3 rounded-full transition-all duration-300 group-hover:w-full"></span>
     </Link>
   );
 }

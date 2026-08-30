@@ -36,7 +36,7 @@ export function EducationSection({ education, certifications }: EducationSection
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-ink mb-2">
+        <h2 className="text-3xl font-display text-ink mb-2">
           {t('title')}
         </h2>
         <p className="text-ink-muted">
@@ -53,8 +53,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Education Section */}
         {education.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
-              <span className="text-2xl">🎓</span>
+            <h3 className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-ink font-bold pb-3 mb-5 border-b-2 border-ink">
               <span>{t('educationLabel')}</span>
             </h3>
 
@@ -63,11 +62,11 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={edu.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-paper-2 shadow-hard-sm border-2 border-ink p-6 transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold font-poppins text-ink mb-1">
+                      <h4 className="text-lg font-display text-ink mb-1">
                         {edu.degree}
                       </h4>
                       <p className="text-accent font-medium mb-1">
@@ -116,7 +115,7 @@ export function EducationSection({ education, certifications }: EducationSection
                       <ul className="space-y-1">
                         {edu.achievements.map((achievement, idx) => (
                           <li key={idx} className="flex items-start space-x-2 text-sm text-ink-muted">
-                            <span className="text-accent mt-1">✓</span>
+                            <span className="text-accent font-mono text-[11px] mt-1" aria-hidden="true">&rarr;</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -132,8 +131,7 @@ export function EducationSection({ education, certifications }: EducationSection
         {/* Certifications Section */}
         {certifications.length > 0 && (
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold font-poppins text-ink mb-6 flex items-center space-x-3">
-              <span className="text-2xl">🏆</span>
+            <h3 className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-ink font-bold pb-3 mb-5 border-b-2 border-ink">
               <span>{t('certificationsLabel')}</span>
             </h3>
 
@@ -142,11 +140,11 @@ export function EducationSection({ education, certifications }: EducationSection
                 <motion.div
                   key={cert.id}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge p-6 hover:shadow-xl transition-all duration-300"
+                  className="bg-paper-2 shadow-hard-sm border-2 border-ink p-6 transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold font-poppins text-ink mb-1">
+                      <h4 className="text-lg font-display text-ink mb-1">
                         {cert.name}
                       </h4>
                       <p className="text-accent font-medium mb-2">
@@ -155,11 +153,11 @@ export function EducationSection({ education, certifications }: EducationSection
                     </div>
 
                     {!cert.expiryDate || new Date(cert.expiryDate) > new Date() ? (
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent/15 text-accent">
-                        ✓ {t('valid')}
+                      <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-accent/15 text-accent">
+                        {t('valid')}
                       </span>
                     ) : (
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-500/15 text-red-400">
+                      <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-500/15 text-red-400">
                         {t('expired')}
                       </span>
                     )}
@@ -209,7 +207,7 @@ export function EducationSection({ education, certifications }: EducationSection
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-accent hover:text-accent-strong text-sm font-medium"
+                      className="inline-flex items-center space-x-2 text-accent hover:text-accent text-sm font-medium"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -229,8 +227,7 @@ export function EducationSection({ education, certifications }: EducationSection
             variants={itemVariants}
             className="text-center py-12"
           >
-            <div className="text-6xl mb-4">🎓</div>
-            <h3 className="text-xl font-medium font-poppins text-ink mb-2">
+            <h3 className="text-xl font-medium font-display text-ink mb-2">
               {t('noEducation')}
             </h3>
             <p className="text-ink-muted">

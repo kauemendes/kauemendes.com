@@ -11,7 +11,8 @@
     "enterEmail": "Digite seu email",
     "allRightsReserved": "Todos os Direitos Reservados",
     "privacyPolicy": "Política de Privacidade",
-    "termsOfService": "Termos de Serviço"
+    "termsOfService": "Termos de Serviço",
+    "backToTop": "Voltar ao topo"
   },
   "navigation": {
     "home": "Início",
@@ -23,47 +24,46 @@
     "links": "Links"
   },
   "home": {
-    "hero": {
-      "badge": "Bem-vindo ao Futuro do DevOps",
-      "title1": "Construindo a",
-      "titleHighlight": "Infraestrutura Digital",
-      "title2": "do Amanhã",
-      "subtitle": "Arquitetando soluções cloud escaláveis e infraestruturas de rede neural que impulsionam a próxima geração de tecnologia. Onde DevOps encontra a inteligência artificial."
-    },
-    "stats": {
-      "yearsExperience": "Anos de Experiência",
-      "deployments": "Implantações",
-      "uptimeFocus": "Foco em Disponibilidade"
-    },
     "about": {
       "greeting": "Olá, sou Kaue Mendes",
       "description1": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Especializado em plataformas cloud Azure, automação e ajudando equipes a entregar software mais rápido e eficientemente.",
       "description2": "Quando não estou arquitetando soluções cloud, você me encontrará contribuindo para projetos open-source, escrevendo sobre tendências tecnológicas ou explorando as últimas ferramentas e práticas DevOps."
     },
-    "featuredProjects": "Projetos em Destaque",
-    "latestBlog": "Últimas do Blog",
-    "coreExpertise": "Principais Competências",
-    "exploreData": "EXPLORAR_DADOS",
-    "noPosts": "Novos posts em breve! Volte para insights sobre DevOps, arquitetura cloud e tendências tecnológicas.",
-    "profileRole": "Engenheiro DevOps • Arquiteto Cloud"
+    "masthead": {
+      "role": "Engenheiro DevOps & Arquiteto Cloud",
+      "location": "Portugal",
+      "since": "Escrevendo desde 2023",
+      "statement": "Construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
+    },
+    "index": {
+      "title": "Índice",
+      "subtitle": "tudo, do mais recente ao mais antigo",
+      "count": "{count} entradas",
+      "viewAll": "Todas as {count} entradas",
+      "empty": "Nada publicado ainda. Ensaios sobre DevOps, arquitetura cloud e IA estão a caminho."
+    },
+    "kind": {
+      "essay": "Ensaio",
+      "project": "Projeto"
+    },
+    "readTime": "{minutes} min",
+    "bothLocales": "PT / EN"
   },
   "blog": {
     "title": "Blog Pessoal",
-    "subtitle": "Insights de Tech e Experiências",
-    "articles": "Artigos",
-    "categories": "Categorias",
-    "readers": "Leitores",
-    "featured": "Destaque",
-    "readArticle": "Ler Artigo",
-    "allArticles": "Todos os Artigos",
-    "wantUpdates": "Quer Ficar Atualizado?",
     "backToBlog": "Voltar ao Blog",
     "previousArticle": "Artigo Anterior",
     "nextArticle": "Próximo Artigo",
-    "enjoyedArticle": "Gostou deste Artigo?",
-    "readMoreArticles": "Ler Mais Artigos",
     "share": "Compartilhar",
-    "publishedOn": "Publicado em"
+    "publishedOn": "Publicado em",
+    "index": "Escritos",
+    "indexSubtitle": "ensaios sobre DevOps, cloud e IA",
+    "count": "{count} ensaios",
+    "alsoIn": "Também em inglês",
+    "backToIndex": "Todos os escritos",
+    "newer": "Mais recente",
+    "older": "Mais antigo",
+    "shareCopied": "Link copiado"
   },
   "resume": {
     "title": "Currículo Interativo",
@@ -143,19 +143,18 @@
       "basedIn": "Localizado em São Paulo, Brasil",
       "featured": "Destaque",
       "remote": "Remoto"
-    }
+    },
+    "readyToCollaborate": "Vamos trabalhar juntos?",
+    "collaborateDescription": "Vamos conversar sobre como posso contribuir para o sucesso da sua equipe em DevOps e arquitetura cloud.",
+    "startConversation": "Iniciar uma conversa",
+    "viewMyWork": "Ver meus trabalhos"
   },
   "projects": {
     "title": "Meus Projetos",
-    "subtitle": "Vitrine do Portfólio",
-    "projectsBuilt": "Projetos Construídos",
-    "downloads": "Downloads",
-    "latestRelease": "Último Lançamento",
     "viewDetails": "Ver Detalhes",
     "technologies": "Tecnologias",
     "keyFeatures": "Principais Recursos",
     "impact": "Impacto",
-    "interestedCustom": "Interessado em Desenvolvimento Customizado?",
     "discussProject": "Discutir Seu Projeto",
     "viewProject": "Ver Projeto",
     "liveDemo": "Demo ao Vivo",
@@ -164,7 +163,17 @@
       "active": "Ativo",
       "completed": "Concluído",
       "inProgress": "Em Progresso"
-    }
+    },
+    "index": "Trabalhos",
+    "indexSubtitle": "coisas que coloquei no ar",
+    "count": "{count} projetos",
+    "marketplace": "Marketplace",
+    "backToProjects": "Todos os trabalhos",
+    "information": "Detalhes",
+    "year": "Ano",
+    "statusLabel": "Status",
+    "viewAll": "Ver todos os projetos",
+    "openProject": "Acessar projeto"
   },
   "consult": {
     "title": "Consultoria Empresarial em IA, Cloud & DevOps",
@@ -187,40 +196,46 @@
       "startup": "Startup",
       "medium": "Empresa Média",
       "enterprise": "Enterprise"
-    }
+    },
+    "indexSubtitle": "IA empresarial, cloud e DevOps",
+    "mostPopular": "Mais procurado",
+    "includes": "Inclui",
+    "contactVia": "Contato direto",
+    "formTitle": "Enviar um briefing",
+    "name": "Nome",
+    "email": "E-mail",
+    "company": "Empresa",
+    "service": "Serviço",
+    "budget": "Orçamento",
+    "message": "Mensagem",
+    "send": "Abrir no cliente de e-mail",
+    "formNote": "Isto abre um e-mail no seu próprio cliente — nada é enviado por esta página.",
+    "selectService": "Selecione um serviço",
+    "selectBudget": "Selecione uma faixa",
+    "process": "Processo"
   },
   "about": {
-    "title": "Sobre Mim",
-    "subtitle": "Conheça Mais",
+    "title": "Sobre",
+    "greeting": "Olá, sou o Kauê",
+    "paragraph1": "Sou desenvolvedor de software com paixão por facilitar a vida de quem programa. Estou nesse jogo há mais de 15 anos e, acredite, já vi mais código do que máquina de café vê grão.",
+    "paragraph2": "Hoje trabalho como Engenheiro DevOps, e me encanta a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
+    "tagline1": "Paixão pelo futuro",
+    "tagline2": "Órbita geoestacionária @ Lisboa",
+    "profiles": "Perfis",
     "personal": "Pessoal",
     "professional": "Profissional",
-    "personalDescription": "Minha história pessoal e jornada",
-    "professionalDescription": "Experiência profissional e carreira"
+    "backToAbout": "Voltar para sobre"
   },
   "links": {
     "title": "Links",
-    "subtitle": "Links Curados",
-    "description": "Uma coleção de links e recursos úteis",
-    "connectWithMe": "Conecte-se Comigo",
-    "role": "Engenheiro DevOps • Arquiteto Cloud • Entusiasta Tech",
-    "intro": "Conecte-se comigo em várias plataformas e explore meu trabalho em DevOps, computação em nuvem e desenvolvimento de software.",
-    "stats": {
-      "platforms": "Plataformas",
-      "connections": "Conexões",
-      "available": "Disponível",
-      "responseRate": "Taxa de Resposta"
-    },
-    "quickAccess": "Acesso Rápido",
-    "socialProfessional": "Social e Profissional",
-    "letsWorkTogether": "Vamos Trabalhar Juntos!",
-    "ctaDescription": "Pronto para discutir seu próximo projeto DevOps ou transformação cloud? Estou sempre animado para enfrentar novos desafios e ajudar equipes a ter sucesso.",
-    "startProject": "Iniciar um Projeto",
-    "viewMyWork": "Ver Meu Trabalho",
-    "footerBuiltWith": "Feito com Next.js • Atualizado regularmente",
+    "indexSubtitle": "onde me encontrar",
+    "featured": "Destaques",
+    "elsewhere": "Em outros lugares",
     "categories": {
-      "contentBlog": "Conteúdo e Blog",
-      "projectsWork": "Projetos e Trabalho",
-      "professionalServices": "Serviços Profissionais"
+      "social": "Social & profissional",
+      "content": "Escritos",
+      "projects": "Trabalhos",
+      "services": "Serviços"
     }
   },
   "footer": {

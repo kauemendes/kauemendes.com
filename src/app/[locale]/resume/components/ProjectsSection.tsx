@@ -52,7 +52,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-8"
       >
-        <h2 className="text-3xl font-bold font-poppins text-ink mb-2">
+        <h2 className="text-3xl font-display text-ink mb-2">
           {t('title')}
         </h2>
         <p className="text-ink-muted">
@@ -70,11 +70,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              filter === 'all'
-                ? 'bg-accent text-brand-primary shadow-lg'
-                : 'bg-surface-raised/80 backdrop-blur border border-edge text-ink-muted hover:text-ink hover:border-accent/40'
-            }`}
+            className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${ filter === 'all' ? 'bg-accent text-paper shadow-hard-sm' : 'bg-paper-2 border-2 border-ink text-ink-muted hover:text-ink hover:border-accent/40' }`}
           >
             {t('allProjects')}
           </button>
@@ -82,11 +78,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             <button
               key={tech}
               onClick={() => setFilter(tech)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === tech
-                  ? 'bg-accent text-brand-primary shadow-lg'
-                  : 'bg-surface-raised/80 backdrop-blur border border-edge text-ink-muted hover:text-ink hover:border-accent/40'
-              }`}
+              className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${ filter === tech ? 'bg-accent text-paper shadow-hard-sm' : 'bg-paper-2 border-2 border-ink text-ink-muted hover:text-ink hover:border-accent/40' }`}
             >
               {tech}
             </button>
@@ -112,7 +104,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               animate="animate"
               exit="exit"
               whileHover={{ y: -5 }}
-              className="bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="bg-paper-2 shadow-hard-sm border-2 border-ink overflow-hidden transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Image */}
@@ -122,19 +114,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     src={project.images[0]}
                     alt={project.name}
                     fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    className="object-cover transition-colors duration-300"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
 
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium backdrop-blur ${
-                      project.status === 'completed'
-                        ? 'bg-brand-primary/80 text-brand-accent2'
-                        : project.status === 'in-progress'
-                        ? 'bg-brand-primary/80 text-brand-accent3'
-                        : 'bg-brand-primary/80 text-brand-neutral-light'
-                    }`}>
+                    <span className={`inline-flex items-center px-3 py-1 text-xs font-medium ${ project.status === 'completed' ? 'bg-paper text-accent' : project.status === 'in-progress' ? 'bg-paper text-accent' : 'bg-paper text-ink' }`}>
                       {project.status}
                     </span>
                   </div>
@@ -145,7 +131,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold font-poppins text-ink mb-1">
+                    <h3 className="text-lg font-display text-ink mb-1">
                       {project.name}
                     </h3>
                     <p className="text-sm text-accent mb-2">
@@ -154,7 +140,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </div>
 
                   {project.featured && (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-brand-accent3/15 text-brand-accent3">
+                    <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-accent text-accent">
                       ⭐ Featured
                     </span>
                   )}
@@ -177,13 +163,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   {project.technologies.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-surface border border-edge text-ink-muted"
+                      className="inline-flex items-center px-2 py-1 text-xs font-medium bg-paper border-2 border-ink text-ink-muted"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-surface border border-edge text-ink-muted">
+                    <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-paper border-2 border-ink text-ink-muted">
                       +{project.technologies.length - 4} {t('more')}
                     </span>
                   )}
@@ -197,7 +183,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center space-x-1 text-accent hover:text-accent-strong text-sm font-medium"
+                      className="inline-flex items-center space-x-1 text-accent hover:text-accent text-sm font-medium"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -253,21 +239,21 @@ function ProjectModal({ project, onClose, t }: ProjectModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-surface-raised border border-edge rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-paper-2 border-2 border-ink shadow-hard-sm max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-6">
           {/* Header */}
           <div className="flex justify-between items-start mb-6">
             <div>
-              <h3 className="text-2xl font-bold font-poppins text-ink mb-2">
+              <h3 className="text-2xl font-display text-ink mb-2">
                 {project.name}
               </h3>
               <p className="text-accent font-medium">
@@ -297,7 +283,7 @@ function ProjectModal({ project, onClose, t }: ProjectModalProps) {
                 <ul className="space-y-2">
                   {project.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start space-x-2 text-ink-muted">
-                      <span className="text-accent mt-1">✓</span>
+                      <span className="text-accent font-mono text-[11px] mt-1" aria-hidden="true">&rarr;</span>
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -311,7 +297,7 @@ function ProjectModal({ project, onClose, t }: ProjectModalProps) {
                 <h4 className="font-semibold text-ink mb-3">{t('impactResults')}</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.impact.map((metric, idx) => (
-                    <div key={idx} className="bg-surface border border-edge rounded-lg p-4">
+                    <div key={idx} className="bg-paper border-2 border-ink p-4">
                       <div className="text-2xl font-bold text-accent">
                         {metric.value}
                       </div>
@@ -336,7 +322,7 @@ function ProjectModal({ project, onClose, t }: ProjectModalProps) {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-surface border border-edge text-ink-muted"
+                    className="inline-flex items-center px-3 py-1 text-sm font-medium bg-paper border-2 border-ink text-ink-muted"
                   >
                     {tech}
                   </span>

@@ -1,177 +1,67 @@
-import { getProjects, Project } from '@/content/data/projects';
-import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Metadata } from 'next';
+
+import { getProjects, Project } from '@/content/data/projects';
 import { Locale } from '@/i18n';
+import { Frame, Tag } from '@/components';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'projects' });
 
   return {
-    title: locale === 'pt' ? 'Kaue Code - Projetos' : 'Kaue Code - Projects',
-    description: locale === 'pt'
-      ? 'Portfólio de ferramentas DevOps, extensões e projetos de tecnologia por Kaue Mendes'
-      : 'Portfolio of DevOps tools, extensions, and technology projects by Kaue Mendes',
-    keywords: ['Kaue Mendes', 'DevOps Tools', 'Azure DevOps Extensions', 'Software Projects', 'Cloud Engineer', 'Portfolio'],
-    publisher: 'Kaue Mendes',
-    creator: 'Kaue Mendes',
-  }
-}
-
-interface ProjectCardProps {
-  project: Project;
-  locale: string;
-  t: (key: string) => string;
-}
-
-function ProjectCard({ project, locale, t }: ProjectCardProps) {
-  // Badges are overlaid on project photos (static backdrop), so they keep
-  // fixed navy scrims + static brand accent text in both modes.
-  const statusColors = {
-    'Published': 'bg-brand-primary/80 text-brand-accent2 border-brand-accent2/30',
-    'Publicado': 'bg-brand-primary/80 text-brand-accent2 border-brand-accent2/30',
-    'Active': 'bg-brand-primary/80 text-brand-accent2 border-brand-accent2/30',
-    'Ativo': 'bg-brand-primary/80 text-brand-accent2 border-brand-accent2/30',
-    'In Development': 'bg-brand-primary/80 text-brand-accent3 border-brand-accent3/30',
-    'Em Desenvolvimento': 'bg-brand-primary/80 text-brand-accent3 border-brand-accent3/30'
+    title: t('title'),
+    description: t('indexSubtitle'),
+    alternates: {
+      canonical: `/${locale}/projects`,
+      languages: { 'pt-BR': '/pt/projects', en: '/en/projects' },
+    },
   };
+}
+
+/** Statuses that read as currently-live get the accent; everything else is ink. */
+const LIVE_STATUSES = ['active', 'ativo', 'published', 'publicado'];
+
+function ProjectCard({ project, locale, viewLabel }: { project: Project; locale: string; viewLabel: string }) {
+  const isLive = LIVE_STATUSES.includes(project.status.toLowerCase());
 
   return (
-    <div className="group bg-surface-raised/80 backdrop-blur rounded-xl shadow-lg border border-edge hover:border-accent/30 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-      {/* Project Header */}
-      <div className="relative">
-        <Image
-          src={project.image_banner}
-          alt={project.title}
-          width={400}
-          height={200}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent"></div>
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${statusColors[project.status as keyof typeof statusColors] || 'bg-brand-primary/80 text-brand-neutral-light border-brand-neutral-light/30'}`}>
+    <Frame as="article" shadow="sm" press className="flex flex-col">
+      <Link href={`/${locale}/projects/${project.id}`} className="flex flex-col flex-1 no-underline">
+        <div className="flex justify-between gap-3 px-4 pt-3 font-mono text-[9.5px] tracking-[0.12em] uppercase text-ink-muted">
+          <span>{project.category}</span>
+          <span>{project.year}</span>
+        </div>
+
+        <div className="px-4 pt-2.5 pb-4 flex flex-col flex-1">
+          <h2 className="font-display text-[1.5rem] leading-[1.05] text-ink mb-2">
+            {project.title}
+          </h2>
+          <p className="font-text text-[13.5px] leading-[1.6] text-ink-soft mb-4">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 mt-auto">
+            {project.technologies.slice(0, 3).map((tech) => (
+              <Tag key={tech}>{tech}</Tag>
+            ))}
+          </div>
+        </div>
+
+        <div className="border-t-2 border-ink bg-paper-2 px-4 py-2 flex justify-between gap-3 font-mono text-[10px] tracking-[0.1em] uppercase">
+          <span className={isLive ? 'text-accent font-bold' : 'text-ink-muted'}>
+            {isLive && <span aria-hidden="true">&#9679; </span>}
             {project.status}
           </span>
+          <span className="text-ink-muted">{viewLabel} &rarr;</span>
         </div>
-      </div>
-
-      {/* Project Content */}
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-xl font-bold font-poppins text-ink mb-2 group-hover:text-accent transition-colors duration-300">
-              {project.title}
-            </h3>
-            <div className="flex items-center space-x-4 text-sm text-ink-muted">
-              <span className="bg-accent/10 border border-accent/20 px-3 py-1 rounded-full text-accent font-medium">
-                {project.category}
-              </span>
-              <span>{project.year}</span>
-            </div>
-          </div>
-        </div>
-
-        <p className="text-ink-muted mb-6 leading-relaxed">
-          {project.description}
-        </p>
-
-        {/* Technologies */}
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold font-poppins text-ink mb-3">
-            {t('technologies')}:
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full border border-accent/20 font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Key Features */}
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold font-poppins text-ink mb-3">
-            {t('keyFeatures')}:
-          </h4>
-          <ul className="text-sm text-ink-muted space-y-2">
-            {project.features.slice(0, 3).map((feature, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-accent mr-3 mt-0.5 text-base">▸</span>
-                {feature}
-              </li>
-            ))}
-            {project.features.length > 3 && (
-              <li className="text-ink-muted text-xs pl-6">
-                +{project.features.length - 3} {locale === 'pt' ? 'mais recursos' : 'more features'}
-              </li>
-            )}
-          </ul>
-        </div>
-
-        {/* Impact */}
-        {project.impact && (
-          <div className="mb-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
-            <h4 className="text-sm font-semibold font-poppins text-accent mb-2">
-              📊 {t('impact')}:
-            </h4>
-            <p className="text-sm text-ink">
-              {project.impact}
-            </p>
-          </div>
-        )}
-
-        {/* Actions */}
-        <div className="flex flex-wrap gap-3 pt-4 border-t border-edge">
-          <Link
-            href={`/${locale}/projects/${project.id}`}
-            className="flex-1 px-4 py-2 bg-accent text-brand-primary rounded-lg hover:bg-accent-strong transition-all duration-300 text-sm font-semibold text-center transform hover:scale-105"
-          >
-            {t('viewDetails')}
-          </Link>
-
-          {project.marketplace && (
-            <a
-              href={project.marketplace}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent hover:text-brand-primary transition-all duration-300 text-sm font-medium"
-            >
-              Marketplace
-            </a>
-          )}
-
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent hover:text-brand-primary transition-all duration-300 text-sm font-medium"
-            >
-              GitHub
-            </a>
-          )}
-
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-accent text-accent rounded-lg hover:bg-accent hover:text-brand-primary transition-all duration-300 text-sm font-medium"
-            >
-              {t('liveDemo')}
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
+      </Link>
+    </Frame>
   );
 }
 
@@ -181,142 +71,40 @@ export default async function ProjectsPage({ params }: PageProps) {
 
   const t = await getTranslations({ locale, namespace: 'projects' });
   const projects = await getProjects(locale as Locale);
-  const categories = Array.from(new Set(projects.map(p => p.category)));
 
   return (
-    <div className="min-h-screen bg-gradient-brand">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-(--breakpoint-xl) mx-auto px-6">
 
-        {/* Header */}
-        <div className="text-center mb-16 pt-16">
-          <div className="mb-6">
-            <span className="bg-accent/10 text-accent text-sm font-medium px-4 py-2 rounded-full border border-accent/20">
-              {t('subtitle')}
-            </span>
-          </div>
+      <header className="pt-14 pb-8 md:pt-20 md:pb-10">
+        <h1 className="font-display text-[clamp(2.4rem,7vw,4rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-4">
+          {t('index')}
+        </h1>
+        <p className="font-mono text-[11.5px] tracking-[0.12em] uppercase text-ink-muted">
+          {t('indexSubtitle')}
+        </p>
+      </header>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-ink mb-6">
-            {t('title').split(' ')[0]} <span className="bg-gradient-accent bg-clip-text text-transparent">{t('title').split(' ')[1] || 'Projects'}</span>
-          </h1>
-
-          <p className="text-ink-muted text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
-            {locale === 'pt'
-              ? 'Explore minha coleção de ferramentas DevOps, extensões Azure e projetos de tecnologia. Cada projeto representa uma solução para desafios reais em desenvolvimento de software e operações.'
-              : 'Explore my collection of DevOps tools, Azure extensions, and technology projects. Each project represents a solution to real-world challenges in software development and operations.'}
+      <section className="rule-solid pt-4 pb-16">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pb-6">
+          <h2 className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-ink font-bold">
+            {t('index')}
+          </h2>
+          <p className="font-mono text-[10.5px] tracking-[0.14em] uppercase text-ink-muted">
+            {t('count', { count: projects.length })}
           </p>
         </div>
 
-        {/* Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-surface-raised/80 backdrop-blur rounded-xl p-6 text-center shadow-lg border border-edge">
-            <div className="text-3xl font-bold text-accent mb-2 font-poppins">
-              {projects.length}
-            </div>
-            <div className="text-ink-muted text-sm font-medium">
-              {t('projectsBuilt')}
-            </div>
-          </div>
-
-          <div className="bg-surface-raised/80 backdrop-blur rounded-xl p-6 text-center shadow-lg border border-edge">
-            <div className="text-3xl font-bold text-accent mb-2 font-poppins">
-              1500+
-            </div>
-            <div className="text-ink-muted text-sm font-medium">
-              {t('downloads')}
-            </div>
-          </div>
-
-          <div className="bg-surface-raised/80 backdrop-blur rounded-xl p-6 text-center shadow-lg border border-edge">
-            <div className="text-3xl font-bold text-accent mb-2 font-poppins">
-              {categories.length}
-            </div>
-            <div className="text-ink-muted text-sm font-medium">
-              {locale === 'pt' ? 'Categorias' : 'Categories'}
-            </div>
-          </div>
-
-          <div className="bg-surface-raised/80 backdrop-blur rounded-xl p-6 text-center shadow-lg border border-edge">
-            <div className="text-3xl font-bold text-accent mb-2 font-poppins">
-              2023
-            </div>
-            <div className="text-ink-muted text-sm font-medium">
-              {t('latestRelease')}
-            </div>
-          </div>
-        </div>
-
-        {/* Category Filter */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold font-poppins text-ink mb-6 text-center">
-            {locale === 'pt' ? 'Categorias de Projetos' : 'Project Categories'}
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <div
-                key={category}
-                className="px-6 py-3 bg-surface-raised/80 backdrop-blur border border-accent/30 rounded-full text-ink shadow-lg hover:bg-accent/10 hover:border-accent transition-all duration-300 cursor-pointer"
-              >
-                <span className="font-medium">{category}</span>
-                <span className="ml-2 text-accent font-bold">
-                  ({projects.filter(p => p.category === category).length})
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <div key={project.id} className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }}>
-              <ProjectCard project={project} locale={locale} t={t} />
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              locale={locale}
+              viewLabel={t('viewDetails')}
+            />
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="relative bg-linear-to-r from-accent/15 to-accent-strong/15 rounded-2xl p-8 md:p-12 text-center border border-accent/30 overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300E5FF' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}></div>
-          </div>
-
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins text-ink mb-4">
-              {t('interestedCustom')}
-            </h2>
-            <p className="text-lg text-ink-muted mb-8 max-w-2xl mx-auto">
-              {locale === 'pt'
-                ? 'Eu crio ferramentas DevOps personalizadas, extensões Azure e soluções de automação para empresas. Vamos discutir como posso ajudar a resolver seus desafios específicos.'
-                : 'I create custom DevOps tools, Azure extensions, and automation solutions for businesses. Let\'s discuss how I can help solve your specific challenges.'}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={`/${locale}/consult`}
-                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-brand-primary rounded-lg bg-accent hover:bg-accent-strong focus:ring-4 focus:ring-accent/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                {t('discussProject')}
-                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </Link>
-
-              <Link
-                href={`/${locale}/resume`}
-                className="group inline-flex justify-center items-center py-4 px-8 text-base font-semibold text-center text-ink rounded-lg border-2 border-accent hover:bg-accent hover:text-brand-primary focus:ring-4 focus:ring-accent/30 transition-all duration-300"
-              >
-                {locale === 'pt' ? 'Ver Minha Experiência' : 'View My Experience'}
-                <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
