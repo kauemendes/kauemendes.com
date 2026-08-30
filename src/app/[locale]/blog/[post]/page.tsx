@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ShareLinkButton, Prose, Meta } from '@/components';
 import { getPostContent, getPostsList } from '@/lib';
 import { parseEntryTitle, stampDate, readingMinutes } from '@/lib/utils';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, socialTitle, ogImage, SITE_NAME, SITE_URL, AUTHOR } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { locales } from '@/i18n';
@@ -27,24 +28,41 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
     return notFound();
   }
 
-  const keywords = content.post.split('-')
-  const shareImage = content.image_og ?? content.image_banner
+  const title = socialTitle(content.title);
+  const path = `/blog/${post}`;
+
+  /*
+   * When the post declares its own share image we use it; otherwise the
+   * branded card from opengraph-image.tsx applies automatically. Setting
+   * `images` here is what suppresses the file-based route.
+   */
+  const declaredImage = content.image_og ?? undefined;
 
   return {
-    title: content.title,
+    title,
     description: content.description,
-    keywords: [keywords, 'blog'],
+    keywords: [...content.post.split('-'), 'blog', 'Kaue Mendes'],
+    authors: [{ name: AUTHOR.name, url: AUTHOR.url }],
+    // Without this the locale layout's `canonical: /${locale}` is inherited and
+    // every post tells crawlers the real page is the home page.
+    alternates: buildAlternates(locale, path),
     openGraph: {
       type: 'article',
-      title: content.title,
+      title,
       description: content.description,
-      images: [shareImage],
+      url: absoluteUrl(locale, path),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+      publishedTime: new Date(content.date).toISOString(),
+      authors: [AUTHOR.name],
+      ...(declaredImage ? { images: ogImage(declaredImage, title) } : {}),
     },
     twitter: {
       card: 'summary_large_image',
-      title: content.title,
+      title,
       description: content.description,
-      images: [shareImage],
+      ...(declaredImage ? { images: [declaredImage] } : {}),
     },
   }
 }
@@ -70,8 +88,28 @@ export default async function PostPage(props: { params: Promise<{ locale: string
 
   const { number, title } = parseEntryTitle(content.title);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description: content.description,
+    datePublished: new Date(content.date).toISOString(),
+    dateModified: new Date(content.date).toISOString(),
+    inLanguage: locale === 'pt' ? 'pt-BR' : 'en',
+    author: { '@type': 'Person', name: AUTHOR.name, url: AUTHOR.url },
+    publisher: { '@type': 'Person', name: SITE_NAME, url: SITE_URL },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(locale, `/blog/${post}`) },
+    image: content.image_og
+      ? `${SITE_URL}${content.image_og}`
+      : `${absoluteUrl(locale, `/blog/${post}`)}/opengraph-image`,
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className="pt-8 pb-10">
         <Link

@@ -24,14 +24,9 @@
     "links": "Links"
   },
   "home": {
-    "about": {
-      "greeting": "Hi, I'm Kaue Mendes",
-      "description1": "DevOps Engineer and Cloud Architect passionate about building scalable, reliable systems. I specialize in Azure cloud platforms, automation, and helping teams deliver software faster and more efficiently.",
-      "description2": "When I'm not architecting cloud solutions, you'll find me contributing to open-source projects, writing about technology trends, or exploring the latest DevOps tools and practices."
-    },
     "masthead": {
-      "role": "DevOps Engineer & Cloud Architect",
-      "location": "Portugal",
+      "role": "Infrastructure Coordinator",
+      "location": "São Paulo, Brazil",
       "since": "Writing since 2023",
       "statement": "Building platforms that outlive the teams that built them. Azure, Kubernetes and automation — and lately, what happens when engineering teams give their AI a shared brain."
     },
@@ -218,9 +213,9 @@
     "title": "About",
     "greeting": "Hi, I'm Kauê",
     "paragraph1": "I am a software developer with a passion for making developers' lives easier. I've been in the software development game for over 15 years, and let me tell you, I've seen more code than a coffee machine sees coffee beans.",
-    "paragraph2": "Currently I work as a DevOps Engineer, and I'm thrilled by the magic of automation and the endless possibilities it brings. From frontend to backend, I've had my hands on a plethora of technologies, always eager to learn and innovate.",
+    "paragraph2": "Today I work as an Infrastructure Coordinator, and I'm still thrilled by the magic of automation and the endless possibilities it brings. From frontend to backend, I've had my hands on a plethora of technologies, always eager to learn and innovate.",
     "tagline1": "Passion for the future",
-    "tagline2": "Geostationary orbit @ Lisbon",
+    "tagline2": "Geostationary orbit @ São Paulo",
     "profiles": "Profiles",
     "personal": "Personal",
     "professional": "Professional",
@@ -239,7 +234,7 @@
     }
   },
   "footer": {
-    "description": "DevOps Engineer and Cloud Architect passionate about building scalable, reliable systems. Helping teams deliver software faster and more efficiently.",
+    "description": "Infrastructure Coordinator and Cloud Architect passionate about building scalable, reliable systems. Helping teams deliver software faster and more efficiently.",
     "content": "Content",
     "professional": "Professional",
     "expertise": "Expertise",

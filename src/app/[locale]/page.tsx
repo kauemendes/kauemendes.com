@@ -6,6 +6,7 @@ import { parseEntryTitle, stampDate, readingMinutes } from '@/lib/utils';
 import { getProjects } from '@/content/data/projects';
 import { Locale } from '@/i18n';
 import { Entry, ButtonLink } from '@/components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -54,17 +55,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ],
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { 'pt-BR': '/pt', en: '/en' },
-    },
+    alternates: buildAlternates(locale, ''),
     openGraph: {
       title: t('homeTitle'),
       description: t('homeDescription'),
       type: 'website',
-      locale: isPt ? 'pt_BR' : 'en_US',
-      url: `https://kauecode.com/${locale}`,
-      siteName: 'Kaue Mendes',
+      locale: ogLocale(locale),
+      url: absoluteUrl(locale),
+      siteName: SITE_NAME,
+      alternateLocale: alternateOgLocales(locale),
     },
     twitter: {
       card: 'summary_large_image',

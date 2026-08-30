@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildAlternates, absoluteUrl } from '@/lib/seo';
 
 type LayoutProps = {
   children: React.ReactNode
@@ -57,19 +58,13 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     keywords,
     publisher: 'Kaue Mendes',
     creator: 'Kaue Mendes',
-    alternates: {
-      canonical: `/${locale}/consult`,
-      languages: {
-        'pt-BR': '/pt/consult',
-        en: '/en/consult',
-      },
-    },
+    alternates: buildAlternates(locale, '/consult'),
     openGraph: {
       title,
       description,
       type: 'website',
       locale: isPt ? 'pt_BR' : 'en_US',
-      url: `https://kauecode.com/${locale}/consult`,
+      url: absoluteUrl(locale, '/consult'),
       siteName: 'Kaue Mendes',
     },
     twitter: {

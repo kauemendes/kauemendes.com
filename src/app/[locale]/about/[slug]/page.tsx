@@ -3,9 +3,29 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getContent } from '@/lib/content';
 import { Prose } from '@/components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { locale, slug } = await params;
+  const content = await getContent(slug);
+  const path = `/about/${slug}`;
+
+  return {
+    title: content.title,
+    alternates: buildAlternates(locale, path),
+    openGraph: {
+      type: 'profile',
+      title: content.title,
+      url: absoluteUrl(locale, path),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+  };
 }
 
 export default async function AboutSlugPage({ params }: PageProps) {

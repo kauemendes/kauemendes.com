@@ -24,14 +24,9 @@
     "links": "Links"
   },
   "home": {
-    "about": {
-      "greeting": "Olá, sou Kaue Mendes",
-      "description1": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Especializado em plataformas cloud Azure, automação e ajudando equipes a entregar software mais rápido e eficientemente.",
-      "description2": "Quando não estou arquitetando soluções cloud, você me encontrará contribuindo para projetos open-source, escrevendo sobre tendências tecnológicas ou explorando as últimas ferramentas e práticas DevOps."
-    },
     "masthead": {
-      "role": "Engenheiro DevOps & Arquiteto Cloud",
-      "location": "Portugal",
+      "role": "Coordenador de Infraestrutura",
+      "location": "São Paulo, Brasil",
       "since": "Escrevendo desde 2023",
       "statement": "Construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
     },
@@ -218,9 +213,9 @@
     "title": "Sobre",
     "greeting": "Olá, sou o Kauê",
     "paragraph1": "Sou desenvolvedor de software com paixão por facilitar a vida de quem programa. Estou nesse jogo há mais de 15 anos e, acredite, já vi mais código do que máquina de café vê grão.",
-    "paragraph2": "Hoje trabalho como Engenheiro DevOps, e me encanta a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
+    "paragraph2": "Hoje trabalho como Coordenador de Infraestrutura, e continuo encantado com a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
     "tagline1": "Paixão pelo futuro",
-    "tagline2": "Órbita geoestacionária @ Lisboa",
+    "tagline2": "Órbita geoestacionária @ São Paulo",
     "profiles": "Perfis",
     "personal": "Pessoal",
     "professional": "Profissional",
@@ -239,7 +234,7 @@
     }
   },
   "footer": {
-    "description": "Engenheiro DevOps e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Ajudando equipes a entregar software mais rápido e eficientemente.",
+    "description": "Coordenador de Infraestrutura e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Ajudando equipes a entregar software mais rápido e eficientemente.",
     "content": "Conteúdo",
     "professional": "Profissional",
     "expertise": "Especialidades",

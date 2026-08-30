@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { getPostsList } from '@/lib';
 import { parseEntryTitle, stampDate, readingMinutes } from '@/lib/utils';
 import { Entry } from '@/components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -16,9 +17,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t('title'),
     description: t('indexSubtitle'),
-    alternates: {
-      canonical: `/${locale}/blog`,
-      languages: { 'pt-BR': '/pt/blog', en: '/en/blog' },
+    alternates: buildAlternates(locale, '/blog'),
+    openGraph: {
+      type: 'website',
+      title: t('index'),
+      description: t('indexSubtitle'),
+      url: absoluteUrl(locale, '/blog'),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('index'),
+      description: t('indexSubtitle'),
     },
   };
 }

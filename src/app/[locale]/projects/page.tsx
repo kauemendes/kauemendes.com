@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { getProjects, Project } from '@/content/data/projects';
 import { Locale } from '@/i18n';
 import { Frame, Tag } from '@/components';
+import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -17,9 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: t('title'),
     description: t('indexSubtitle'),
-    alternates: {
-      canonical: `/${locale}/projects`,
-      languages: { 'pt-BR': '/pt/projects', en: '/en/projects' },
+    alternates: buildAlternates(locale, '/projects'),
+    openGraph: {
+      type: 'website',
+      title: t('index'),
+      description: t('indexSubtitle'),
+      url: absoluteUrl(locale, '/projects'),
+      siteName: SITE_NAME,
+      locale: ogLocale(locale),
+      alternateLocale: alternateOgLocales(locale),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('index'),
+      description: t('indexSubtitle'),
     },
   };
 }
