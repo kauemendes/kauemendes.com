@@ -46,7 +46,7 @@ export default async function AboutPage({ params }: PageProps) {
 
   const profiles = [
     { slug: 'personal', label: t('personal'), image: '/images/avatar_vermelho.png' },
-    { slug: 'professional', label: t('professional'), image: '/images/avatars/avatar.png' },
+    { slug: 'professional', label: t('professional'), image: '/images/avatars/kaue-neon-square.webp' },
   ];
 
   return (
@@ -80,11 +80,11 @@ export default async function AboutPage({ params }: PageProps) {
 
           <div className="border-2 border-ink shadow-hard overflow-hidden">
             <Image
-              src="/images/hero_3.jpg"
-              width={640}
-              height={640}
+              src="/images/avatars/kaue-neon.webp"
+              width={1200}
+              height={960}
               className="w-full h-auto block"
-              alt="Kaue posing in a black shirt against a blueish background"
+              alt="Kaue em um estúdio de podcast com luz neon, caneca DevOps Café e notebook com adesivos de Kubernetes, AWS e Terraform"
               priority
             />
           </div>

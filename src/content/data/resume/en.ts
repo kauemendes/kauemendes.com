@@ -400,7 +400,7 @@ export const resumeData: ResumeData = {
     location: 'São Paulo, Brazil',
     website: 'https://kauecode.com',
     summary: 'I am an incredibly passionate individual, dedicated to creating code that transforms people\'s lives, whether through automation, innovative products, or impactful pull requests. What drives me is creating a collaborative and diverse work environment.',
-    avatar: '/images/hero_3.jpg'
+    avatar: '/images/avatars/kaue-neon-square.webp'
   },
   social: [
     {
