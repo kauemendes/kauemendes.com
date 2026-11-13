@@ -37,7 +37,7 @@ export function parseAskRequest(body: unknown): ParseResult {
     if (text.length === 0) return fail('content')
     const limit = role === 'user' ? MAX_CHARS : MAX_ASSISTANT_CHARS
     if (text.length > limit) return fail('length')
-    out.push({ role, content: text })
+    out.push({ role: expected, content: text })
   }
 
   if (out[out.length - 1].role !== 'user') return fail('last')
