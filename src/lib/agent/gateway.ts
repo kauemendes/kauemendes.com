@@ -87,12 +87,18 @@ export function sseToText(): TransformStream<Uint8Array, Uint8Array> {
     if (!t.startsWith('data:')) return
     const data = t.slice(5).trim()
     if (!data || data === '[DONE]') return
+    let json: { error?: unknown; choices?: { delta?: { content?: unknown } }[] } | undefined
     try {
-      const piece = JSON.parse(data)?.choices?.[0]?.delta?.content
-      if (typeof piece === 'string' && piece) controller.enqueue(encoder.encode(piece))
+      json = JSON.parse(data)
     } catch {
-      // evento malformado: ignora
+      return // evento malformado: ignora
     }
+    if (json && typeof json === 'object' && 'error' in json) {
+      controller.error(new GatewayError('upstream stream error'))
+      return
+    }
+    const piece = json?.choices?.[0]?.delta?.content
+    if (typeof piece === 'string' && piece) controller.enqueue(encoder.encode(piece))
   }
 
   return new TransformStream({

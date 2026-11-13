@@ -79,4 +79,14 @@ describe('sseToText', () => {
     )
     await expect(readAll(s.pipeThrough(sseToText()))).resolves.toBe('Olá!')
   })
+
+  it('aceita linhas terminadas em CRLF', async () => {
+    const s = streamOf('data: {"choices":[{"delta":{"content":"a"}}]}\r\n\r\ndata: {"choices":[{"delta":{"content":"b"}}]}\r\n\r\n')
+    await expect(readAll(s.pipeThrough(sseToText()))).resolves.toBe('ab')
+  })
+
+  it('erro no meio do stream faz a leitura rejeitar', async () => {
+    const s = streamOf('data: {"choices":[{"delta":{"content":"a"}}]}\n\n', 'data: {"error":{"message":"x"}}\n\n')
+    await expect(readAll(s.pipeThrough(sseToText()))).rejects.toBeInstanceOf(GatewayError)
+  })
 })
