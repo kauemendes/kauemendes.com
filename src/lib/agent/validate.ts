@@ -25,6 +25,7 @@ export function parseAskRequest(body: unknown): ParseResult {
   const { locale, messages } = body as Record<string, unknown>
   if (locale !== 'pt' && locale !== 'en') return fail('locale')
   if (!Array.isArray(messages) || messages.length === 0) return fail('messages')
+  if (messages.length > 2 * MAX_USER_TURNS - 1) return fail('turns')
 
   const out: ChatMessage[] = []
   for (const [i, raw] of messages.entries()) {
