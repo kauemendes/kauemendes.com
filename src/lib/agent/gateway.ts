@@ -37,7 +37,11 @@ export function gatewayHeaders(c: GatewayConfig): Record<string, string> {
   return h
 }
 
-/** Qualquer falha (sem config, timeout, 403 do Access, 5xx) conta como offline. */
+/**
+ * A home é ISR de 60 s: um fetch `no-store` aqui tornaria a rota dinâmica, então o health
+ * usa `next.revalidate` (o Next aumenta o RequestInit; fora do tipo padrão, daí o cast).
+ * Qualquer falha (sem config, timeout, 403/302 do Access, 5xx) conta como offline.
+ */
 export async function getAgentStatus(
   c: GatewayConfig | null = readGatewayConfig(),
   fetchImpl: typeof fetch = fetch,
@@ -47,8 +51,9 @@ export async function getAgentStatus(
     const res = await fetchImpl(`${c.url}/health/liveliness`, {
       headers: gatewayHeaders(c),
       signal: AbortSignal.timeout(HEALTH_TIMEOUT_MS),
-      cache: 'no-store',
-    })
+      redirect: 'manual',
+      next: { revalidate: 60 },
+    } as RequestInit)
     return res.ok
   } catch {
     return false
@@ -67,12 +72,15 @@ export async function openChatStream(
       headers: { ...gatewayHeaders(c), 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: AGENT_MODEL, stream: true, max_tokens: MAX_TOKENS, messages }),
       signal: AbortSignal.timeout(CHAT_TIMEOUT_MS),
+      redirect: 'manual',
       cache: 'no-store',
     })
   } catch (e) {
     throw new GatewayError(`fetch failed: ${(e as Error).message}`)
   }
   if (!res.ok || !res.body) throw new GatewayError(`upstream ${res.status}`)
+  // Um 200 HTML (ex.: login do Cloudflare Access) não é stream do modelo.
+  if (!res.headers.get('content-type')?.includes('text/event-stream')) throw new GatewayError('upstream content-type')
   return res.body
 }
 

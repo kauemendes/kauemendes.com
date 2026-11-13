@@ -18,6 +18,7 @@ const streamOf = (...parts: string[]) =>
     },
   })
 
+const SSE = { 'content-type': 'text/event-stream' }
 const readAll = async (s: ReadableStream<Uint8Array>) => new Response(s).text()
 
 describe('readGatewayConfig', () => {
@@ -54,16 +55,43 @@ describe('getAgentStatus', () => {
     await expect(getAgentStatus(cfg, (async () => { throw new Error('down') }) as unknown as typeof fetch)).resolves.toBe(false)
     await expect(getAgentStatus(null)).resolves.toBe(false)
   })
+  it('false com redirect (302 para o login do Access) e pede redirect manual', async () => {
+    const f = jest.fn(async (_url: string, _init?: RequestInit) => new Response(null, { status: 302, headers: { location: 'https://x.cloudflareaccess.com/login' } }))
+    await expect(getAgentStatus(cfg, f as unknown as typeof fetch)).resolves.toBe(false)
+    expect(f.mock.calls[0][1]).toMatchObject({ redirect: 'manual' })
+  })
+  it('false quando o fetch nunca resolve e o signal aborta; usa AbortSignal', async () => {
+    let received: AbortSignal | undefined
+    const hang = (_url: string, init?: RequestInit) =>
+      new Promise<Response>((_res, rej) => {
+        received = init?.signal as AbortSignal
+        received.addEventListener('abort', () => rej(new Error('aborted')))
+      })
+    const p = getAgentStatus(cfg, hang as unknown as typeof fetch)
+    expect(received).toBeInstanceOf(AbortSignal)
+    expect(received!.aborted).toBe(false)
+    ;(received as AbortSignal & { dispatchEvent: (e: Event) => boolean }).dispatchEvent(new Event('abort'))
+    await expect(p).resolves.toBe(false)
+  })
 })
 
 describe('openChatStream', () => {
   const cfg = readGatewayConfig(env)!
   it('envia model fast, stream e max_tokens', async () => {
-    const f = jest.fn(async (_url: string, _init: RequestInit) => new Response(streamOf('data: [DONE]\n\n'), { status: 200 }))
+    const f = jest.fn(async (_url: string, _init: RequestInit) => new Response(streamOf('data: [DONE]\n\n'), { status: 200, headers: SSE }))
     await openChatStream(cfg, [{ role: 'user', content: 'oi' }], f as unknown as typeof fetch)
     const [url, init] = f.mock.calls[0]
     expect(url).toBe('https://llm.example.com/chat/completions')
     expect(JSON.parse(init.body as string)).toMatchObject({ model: 'fast', stream: true, max_tokens: 400 })
+  })
+  it('lança GatewayError quando o content-type não é event-stream (ex.: HTML do login)', async () => {
+    const f = async () => new Response('<html>login</html>', { status: 200, headers: { 'content-type': 'text/html' } })
+    await expect(openChatStream(cfg, [], f as unknown as typeof fetch)).rejects.toBeInstanceOf(GatewayError)
+  })
+  it('pede redirect manual no chat', async () => {
+    const f = jest.fn(async (_url: string, _init: RequestInit) => new Response(streamOf('data: [DONE]\n\n'), { status: 200, headers: SSE }))
+    await openChatStream(cfg, [], f as unknown as typeof fetch)
+    expect(f.mock.calls[0][1]).toMatchObject({ redirect: 'manual' })
   })
   it('lança GatewayError quando o upstream não é 2xx', async () => {
     const f = async () => new Response('nope', { status: 502 })
