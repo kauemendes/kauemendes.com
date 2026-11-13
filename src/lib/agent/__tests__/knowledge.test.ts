@@ -61,7 +61,7 @@ const sources: KnowledgeSources = {
     { title: 'Syspec', description: 'Builder.', image_banner: '', id: 'syspec', category: 'Ferramentas', technologies: ['TS'], features: [], status: 'Ativo', demo: 'https://syspec.dev', year: '2026' },
   ],
   links: [
-    { key: 'social', title: 'Social', links: [{ name: 'LinkedIn', url: '/linkedin' }, { name: 'Site', url: 'https://example.org' }] },
+    { key: 'social', title: 'Social', links: [{ name: 'LinkedIn', url: '/linkedin' }, { name: 'Site', url: 'https://example.org' }, { name: 'WhatsApp', url: '/whatsapp' }, { name: 'Zap', url: 'https://wa.me/5500' }, { name: 'whatsapp', url: '/contato' }] },
   ],
   posts: [{ title: 'Post Um', description: 'Desc.', url: 'https://www.kauecode.com/pt/blog/post-um', date: '2026-01-02' }],
   about: 'Texto do about.',
@@ -100,6 +100,13 @@ describe('buildKnowledge', () => {
   it('não expõe e-mail nem telefone', () => {
     expect(text).not.toContain('segredo@example.com')
     expect(text).not.toContain('0000 0000')
+  })
+
+  it('não inclui links de WhatsApp', () => {
+    expect(text).not.toMatch(/whatsapp/i)
+    expect(text).not.toContain('wa.me')
+    expect(text).not.toContain('Zap')
+    expect(text).toContain('LinkedIn: https://www.kauecode.com/linkedin')
   })
 
   it('usa rótulos em inglês no locale en', () => {

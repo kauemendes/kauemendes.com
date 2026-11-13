@@ -40,6 +40,9 @@ const LABELS = {
 const month = (d: Date) => d.toISOString().slice(0, 7)
 const absolute = (siteUrl: string, url: string) => (/^https?:\/\//.test(url) ? url : `${siteUrl}${url}`)
 
+const isPhoneLink = (l: { name: string; url: string }) =>
+  /whatsapp|wa\.me/i.test(l.url) || l.name.trim().toLowerCase() === 'whatsapp'
+
 /** Contexto do agente. Deliberadamente sem e-mail e telefone: contato é pelos links. */
 export function buildKnowledge(s: KnowledgeSources): string {
   const L = LABELS[s.locale]
@@ -91,7 +94,10 @@ export function buildKnowledge(s: KnowledgeSources): string {
 
   out.push('', `# ${L.links} (${L.page}: ${page('/links')})`)
   for (const c of s.links) {
-    for (const l of c.links) out.push(`- ${l.name}: ${absolute(s.siteUrl, l.url)}`)
+    for (const l of c.links) {
+      if (isPhoneLink(l)) continue
+      out.push(`- ${l.name}: ${absolute(s.siteUrl, l.url)}`)
+    }
   }
 
   out.push('', `# ${L.posts} (${L.page}: ${page('/blog')})`)
