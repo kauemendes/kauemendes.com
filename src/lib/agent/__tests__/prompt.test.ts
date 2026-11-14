@@ -9,6 +9,8 @@ describe('buildSystemPrompt', () => {
     expect(p).toContain(LINKEDIN_URL)
     expect(p).toContain('CONTEXTO-XYZ')
     expect(p.indexOf('CONTEXTO-XYZ')).toBeGreaterThan(p.indexOf('<contexto>'))
+    expect(p).toContain('nem emoji')
+    expect(p).toContain('hobby')
   })
 
   it('en: mesmas regras em inglês', () => {
@@ -16,5 +18,7 @@ describe('buildSystemPrompt', () => {
     expect(p).toContain('first person')
     expect(p).toContain('digital bank')
     expect(p).toContain(LINKEDIN_URL)
+    expect(p).toContain('do not use emoji')
+    expect(p).toContain('hobby')
   })
 })
