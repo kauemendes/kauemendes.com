@@ -2,13 +2,25 @@ import { ResumeData, WorkExperience, SkillCategory, Project } from '@/lib/types/
 
 const workExperience: WorkExperience[] = [
   {
+    id: 'banco-digital',
+    company: 'Digital bank',
+    position: 'AI Coordinator',
+    startDate: new Date('2026-11-23'),
+    endDate: undefined,
+    location: 'São Paulo, Brazil',
+    description: 'Coordinating the Artificial Intelligence practice.',
+    responsibilities: [],
+    technologies: ['LLM', 'AI Agents', 'MCP'],
+    type: 'full-time'
+  },
+  {
     id: 'vortx',
     company: 'Vórtx',
     position: 'Infrastructure Coordinator',
     startDate: new Date('2025-03-10'),
-    endDate: undefined,
+    endDate: new Date('2026-11-11'),
     location: 'Hybrid (São Paulo, Brazil / Remote)',
-    description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
+    description: 'Implemented DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
     responsibilities: [
       'Leading DevOps initiatives to enhance infrastructure automation and CI/CD pipelines',
       'Collaborating with development teams to integrate DevOps practices into the software development lifecycle',
@@ -394,13 +406,13 @@ const projects: Project[] = [
 export const resumeData: ResumeData = {
   personal: {
     name: 'Kaue Mendes',
-    title: 'Infrastructure Coordinator & DevOps Engineer',
+    title: 'AI Coordinator',
     email: 'kaue.mendes@gmail.com',
     phone: '+55 11 998 982 401',
     location: 'São Paulo, Brazil',
     website: 'https://kauecode.com',
     summary: 'I am an incredibly passionate individual, dedicated to creating code that transforms people\'s lives, whether through automation, innovative products, or impactful pull requests. What drives me is creating a collaborative and diverse work environment.',
-    avatar: '/images/hero_3.jpg'
+    avatar: '/images/avatars/kaue-neon-square.webp'
   },
   social: [
     {

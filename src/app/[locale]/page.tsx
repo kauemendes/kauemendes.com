@@ -1,11 +1,14 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 import { getPostsList } from '@/lib';
 import { parseEntryTitle, stampDate, readingMinutes } from '@/lib/utils';
 import { getProjects } from '@/content/data/projects';
 import { Locale } from '@/i18n';
 import { Entry, ButtonLink } from '@/components';
+import { AskMe } from '@/components/features/agent';
+import { getAgentStatus } from '@/lib/agent/gateway';
 import { buildAlternates, absoluteUrl, ogLocale, alternateOgLocales, SITE_NAME } from '@/lib/seo';
 
 interface PageProps {
@@ -14,6 +17,9 @@ interface PageProps {
 
 /** How many rows the home index shows before deferring to the section pages. */
 const INDEX_LIMIT = 8;
+
+/** A home é regenerada a cada 60 s; é aí que o status do agente é consultado. */
+export const revalidate = 60;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -91,6 +97,23 @@ export default async function Home({ params }: PageProps) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: 'home' });
+  const ta = await getTranslations({ locale, namespace: 'agent' });
+  const agentOnline = await getAgentStatus();
+  const agentLabels = {
+    label: ta('label'),
+    placeholder: ta('placeholder'),
+    send: ta('send'),
+    sending: ta('sending'),
+    online: ta('online'),
+    offline: ta('offline'),
+    offlineHint: ta('offlineHint'),
+    disclaimer: ta('disclaimer'),
+    error: ta('error'),
+    limit: ta('limit'),
+    you: ta('you'),
+    me: ta('me'),
+    suggestions: [ta('suggestions.s1'), ta('suggestions.s2'), ta('suggestions.s3')],
+  };
 
   const [posts, projects] = await Promise.all([
     getPostsList(locale),
@@ -139,16 +162,34 @@ export default async function Home({ params }: PageProps) {
         <h1 className="font-display text-[clamp(2.6rem,9vw,5rem)] leading-[0.95] tracking-[-0.02em] text-ink mb-4">
           Kaue Mendes
         </h1>
-        <p className="font-mono text-[11.5px] tracking-[0.12em] uppercase text-ink-muted flex flex-wrap items-center gap-x-4 gap-y-1 mb-6">
+        <p className="font-mono text-[11.5px] tracking-[0.12em] uppercase text-ink-muted flex flex-wrap items-center gap-x-4 gap-y-1 mb-8">
           <span>{t('masthead.role')}</span>
           <span aria-hidden="true">&middot;</span>
           <span>{t('masthead.location')}</span>
           <span aria-hidden="true">&middot;</span>
           <span>{t('masthead.since')}</span>
         </p>
-        <p className="font-text text-[17px] md:text-[19px] leading-[1.6] text-ink-soft max-w-[52ch]">
-          {t('masthead.statement')}
-        </p>
+
+        <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_300px] md:items-start">
+          <div className="space-y-6">
+            <p className="font-text text-[17px] md:text-[19px] leading-[1.6] text-ink-soft max-w-[52ch]">
+              {t('masthead.statement')}
+            </p>
+            <AskMe locale={locale as 'pt' | 'en'} online={agentOnline} labels={agentLabels} />
+          </div>
+
+          <div className="border-2 border-ink shadow-hard overflow-hidden order-first md:order-none">
+            <Image
+              src="/images/avatars/kaue-neon-square.webp"
+              width={640}
+              height={640}
+              sizes="(min-width: 768px) 300px, 100vw"
+              className="w-full h-auto block"
+              alt={t('photoAlt')}
+              priority
+            />
+          </div>
+        </div>
       </header>
 
       {/* Index */}

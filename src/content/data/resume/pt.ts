@@ -2,13 +2,25 @@ import { ResumeData, WorkExperience, SkillCategory, Project } from '@/lib/types/
 
 const workExperience: WorkExperience[] = [
   {
+    id: 'banco-digital',
+    company: 'Banco digital',
+    position: 'Coordenador de IA',
+    startDate: new Date('2026-11-23'),
+    endDate: undefined,
+    location: 'São Paulo, Brasil',
+    description: 'Coordenando a frente de Inteligência Artificial.',
+    responsibilities: [],
+    technologies: ['LLM', 'Agentes de IA', 'MCP'],
+    type: 'full-time'
+  },
+  {
     id: 'vortx',
     company: 'Vórtx',
     position: 'Coordenador de Infraestrutura',
     startDate: new Date('2025-03-10'),
-    endDate: undefined,
+    endDate: new Date('2026-11-11'),
     location: 'Híbrido (São Paulo, Brasil / Remoto)',
-    description: 'Implementando melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS). Promovido a Coordenador de Infraestrutura em julho de 2026.',
+    description: 'Implementei melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS). Promovido a Coordenador de Infraestrutura em julho de 2026.',
     responsibilities: [
       'Liderando iniciativas DevOps para aprimorar automação de infraestrutura e pipelines de CI/CD',
       'Colaborando com equipes de desenvolvimento para integrar práticas DevOps no ciclo de desenvolvimento',
@@ -394,13 +406,13 @@ const projects: Project[] = [
 export const resumeData: ResumeData = {
   personal: {
     name: 'Kaue Mendes',
-    title: 'Coordenador de Infraestrutura & Engenheiro DevOps',
+    title: 'Coordenador de IA',
     email: 'kaue.mendes@gmail.com',
     phone: '+55 11 998 982 401',
     location: 'São Paulo, Brasil',
     website: 'https://kauecode.com',
     summary: 'Sou uma pessoa incrivelmente apaixonada, dedicada a criar código que transforma a vida das pessoas, seja através de automação, produtos inovadores ou pull requests impactantes. O que me move é criar um ambiente de trabalho colaborativo e diverso.',
-    avatar: '/images/hero_3.jpg'
+    avatar: '/images/avatars/kaue-neon-square.webp'
   },
   social: [
     {
