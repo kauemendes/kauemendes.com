@@ -25,7 +25,7 @@
   },
   "home": {
     "masthead": {
-      "role": "Coordenador de Infraestrutura",
+      "role": "Coordenador de IA",
       "location": "São Paulo, Brasil",
       "since": "Escrevendo desde 2023",
       "statement": "Construindo plataformas que sobrevivem às equipes que as criaram. Azure, Kubernetes e automação — e, ultimamente, o que acontece quando times de engenharia dão um cérebro compartilhado à sua IA."
@@ -213,7 +213,7 @@
     "title": "Sobre",
     "greeting": "Olá, sou o Kauê",
     "paragraph1": "Sou desenvolvedor de software com paixão por facilitar a vida de quem programa. Estou nesse jogo há mais de 15 anos e, acredite, já vi mais código do que máquina de café vê grão.",
-    "paragraph2": "Hoje trabalho como Coordenador de Infraestrutura, e continuo encantado com a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
+    "paragraph2": "Hoje trabalho como Coordenador de IA, e continuo encantado com a mágica da automação e as possibilidades infinitas que ela abre. Do frontend ao backend, já coloquei a mão em um monte de tecnologias, sempre com vontade de aprender e inovar.",
     "tagline1": "Paixão pelo futuro",
     "tagline2": "Órbita geoestacionária @ São Paulo",
     "profiles": "Perfis",
@@ -234,7 +234,7 @@
     }
   },
   "footer": {
-    "description": "Coordenador de Infraestrutura e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Ajudando equipes a entregar software mais rápido e eficientemente.",
+    "description": "Coordenador de IA e Arquiteto Cloud apaixonado por construir sistemas escaláveis e confiáveis. Ajudando equipes a entregar software mais rápido e eficientemente.",
     "content": "Conteúdo",
     "professional": "Profissional",
     "expertise": "Especialidades",

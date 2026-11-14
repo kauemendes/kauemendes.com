@@ -2,11 +2,23 @@ import { ResumeData, WorkExperience, SkillCategory, Project } from '@/lib/types/
 
 const workExperience: WorkExperience[] = [
   {
+    id: 'banco-digital',
+    company: 'Digital bank',
+    position: 'AI Coordinator',
+    startDate: new Date('2026-11-23'),
+    endDate: undefined,
+    location: 'São Paulo, Brazil',
+    description: 'Coordinating the Artificial Intelligence practice.',
+    responsibilities: [],
+    technologies: ['LLM', 'AI Agents', 'MCP'],
+    type: 'full-time'
+  },
+  {
     id: 'vortx',
     company: 'Vórtx',
     position: 'Infrastructure Coordinator',
     startDate: new Date('2025-03-10'),
-    endDate: undefined,
+    endDate: new Date('2026-11-11'),
     location: 'Hybrid (São Paulo, Brazil / Remote)',
     description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
     responsibilities: [
@@ -394,7 +406,7 @@ const projects: Project[] = [
 export const resumeData: ResumeData = {
   personal: {
     name: 'Kaue Mendes',
-    title: 'Infrastructure Coordinator & DevOps Engineer',
+    title: 'AI Coordinator',
     email: 'kaue.mendes@gmail.com',
     phone: '+55 11 998 982 401',
     location: 'São Paulo, Brazil',

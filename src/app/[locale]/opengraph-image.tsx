@@ -4,7 +4,7 @@ import { locales } from '@/i18n'
 
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
-export const alt = 'Kaue Mendes — Infrastructure Coordinator & Cloud Architect'
+export const alt = 'Kaue Mendes — AI Coordinator & Cloud Architect'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
