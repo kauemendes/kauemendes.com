@@ -20,7 +20,7 @@ const workExperience: WorkExperience[] = [
     startDate: new Date('2025-03-10'),
     endDate: new Date('2026-11-11'),
     location: 'Híbrido (São Paulo, Brasil / Remoto)',
-    description: 'Implementando melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS). Promovido a Coordenador de Infraestrutura em julho de 2026.',
+    description: 'Implementei melhores práticas de DevOps e automação de infraestrutura para equipes internas, incluindo plataforma de banking as a service (BaaS). Promovido a Coordenador de Infraestrutura em julho de 2026.',
     responsibilities: [
       'Liderando iniciativas DevOps para aprimorar automação de infraestrutura e pipelines de CI/CD',
       'Colaborando com equipes de desenvolvimento para integrar práticas DevOps no ciclo de desenvolvimento',

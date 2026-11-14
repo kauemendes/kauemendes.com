@@ -20,7 +20,7 @@ const workExperience: WorkExperience[] = [
     startDate: new Date('2025-03-10'),
     endDate: new Date('2026-11-11'),
     location: 'Hybrid (São Paulo, Brazil / Remote)',
-    description: 'Implementing DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
+    description: 'Implemented DevOps best practices and infrastructure automation for internal teams including banking as a service (BaaS) platform. Promoted to Infrastructure Coordinator in July 2026.',
     responsibilities: [
       'Leading DevOps initiatives to enhance infrastructure automation and CI/CD pipelines',
       'Collaborating with development teams to integrate DevOps practices into the software development lifecycle',
