@@ -24,6 +24,7 @@
     "links": "Links"
   },
   "home": {
+    "photoAlt": "Kaue in a podcast studio with neon lighting",
     "masthead": {
       "role": "AI Coordinator",
       "location": "São Paulo, Brazil",
@@ -210,6 +211,7 @@
     "process": "Process"
   },
   "about": {
+    "photoAlt": "Kaue in a podcast studio with neon lighting, a DevOps Café mug and a laptop with Kubernetes, AWS and Terraform stickers",
     "title": "About",
     "greeting": "Hi, I'm Kauê",
     "paragraph1": "I am a software developer with a passion for making developers' lives easier. I've been in the software development game for over 15 years, and let me tell you, I've seen more code than a coffee machine sees coffee beans.",

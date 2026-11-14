@@ -24,6 +24,7 @@
     "links": "Links"
   },
   "home": {
+    "photoAlt": "Kaue em um estúdio de podcast com luz neon",
     "masthead": {
       "role": "Coordenador de IA",
       "location": "São Paulo, Brasil",
@@ -210,6 +211,7 @@
     "process": "Processo"
   },
   "about": {
+    "photoAlt": "Kaue em um estúdio de podcast com luz neon, caneca DevOps Café e notebook com adesivos de Kubernetes, AWS e Terraform",
     "title": "Sobre",
     "greeting": "Olá, sou o Kauê",
     "paragraph1": "Sou desenvolvedor de software com paixão por facilitar a vida de quem programa. Estou nesse jogo há mais de 15 anos e, acredite, já vi mais código do que máquina de café vê grão.",

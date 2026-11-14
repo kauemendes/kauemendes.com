@@ -1,9 +1,16 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import { Frame, Button, Meta } from '@/components/ui'
-import { splitLinks } from '@/lib/agent/links'
-import { MAX_CHARS, MAX_USER_TURNS, type ChatMessage, type AgentLocale } from '@/lib/agent/validate'
+import { OWN_HOSTS, splitLinks } from '@/lib/agent/links'
+import { LINKEDIN_URL } from '@/lib/agent/prompt'
+import {
+  MAX_ASSISTANT_CHARS,
+  MAX_CHARS,
+  MAX_USER_TURNS,
+  type ChatMessage,
+  type AgentLocale,
+} from '@/lib/agent/validate'
 
 export interface AskMeLabels {
   label: string
@@ -42,8 +49,6 @@ function Status({ online, labels }: { online: boolean; labels: AskMeLabels }) {
   )
 }
 
-const OWN_HOSTS = ['kauecode.com', 'www.kauecode.com']
-
 function isOwnHost(href: string) {
   try {
     return OWN_HOSTS.includes(new URL(href).hostname)
@@ -68,25 +73,57 @@ function Answer({ text }: { text: string }) {
   )
 }
 
+const LINK_CLASS = 'underline underline-offset-2 text-ink'
+
+/** Troca a primeira ocorrência de "LinkedIn" na mensagem de limite por um link real. */
+function LimitMessage({ text }: { text: string }) {
+  const i = text.indexOf('LinkedIn')
+  if (i === -1) return <>{text}</>
+  return (
+    <>
+      {text.slice(0, i)}
+      <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={LINK_CLASS}>
+        LinkedIn
+      </a>
+      {text.slice(i + 'LinkedIn'.length)}
+    </>
+  )
+}
+
 export function AskMe({ locale, online: initialOnline, labels }: AskMeProps) {
   const [online, setOnline] = useState(initialOnline)
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [pending, setPending] = useState(false)
   const [error, setError] = useState(false)
+  const [announcement, setAnnouncement] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const hadFocus = useRef(false)
 
   const turns = messages.filter((m) => m.role === 'user').length
-  const exhausted = turns >= MAX_USER_TURNS
+  const exhausted = turns >= MAX_USER_TURNS && !pending
   const disabled = !online || pending || exhausted
+
+  useEffect(() => {
+    if (pending || !hadFocus.current) return
+    hadFocus.current = false
+    if (online && !exhausted) inputRef.current?.focus()
+  }, [pending, online, exhausted])
 
   async function ask(question: string) {
     const q = question.trim()
     if (!q || disabled) return
-    const history: ChatMessage[] = [...messages, { role: 'user', content: q }]
+    hadFocus.current = !!rootRef.current?.contains(document.activeElement)
+    const history: ChatMessage[] = [
+      ...messages.map((m) => (m.role === 'assistant' ? { ...m, content: m.content.slice(0, MAX_ASSISTANT_CHARS) } : m)),
+      { role: 'user', content: q },
+    ]
     setMessages([...history, { role: 'assistant', content: '' }])
     setInput('')
     setPending(true)
     setError(false)
+    setAnnouncement('')
 
     const dropDraft = () => setMessages(history.slice(0, -1))
     try {
@@ -112,6 +149,7 @@ export function AskMe({ locale, online: initialOnline, labels }: AskMeProps) {
         setMessages([...history, { role: 'assistant', content: answer }])
       }
       if (!answer.trim()) throw new Error('empty')
+      setAnnouncement(answer)
     } catch {
       dropDraft()
       setError(true)
@@ -127,64 +165,88 @@ export function AskMe({ locale, online: initialOnline, labels }: AskMeProps) {
 
   return (
     <Frame className="p-4 md:p-5">
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-        <label htmlFor="ask-me" className="font-mono text-[11px] font-bold tracking-[0.14em] uppercase text-ink">
-          {labels.label}
-        </label>
-        <Status online={online} labels={labels} />
-      </div>
-
-      {messages.length > 0 && (
-        <ol className="mb-4 space-y-3" aria-live="polite">
-          {messages.map((m, i) => (
-            <li key={i} className="rule-dash pt-3 first:border-t-0 first:pt-0">
-              <p className="font-mono text-[9.5px] tracking-[0.14em] uppercase text-ink-muted mb-1">
-                {m.role === 'user' ? labels.you : labels.me}
-              </p>
-              <p className="font-text text-[16px] leading-[1.6] text-ink-soft whitespace-pre-line">
-                {m.role === 'assistant' ? (m.content ? <Answer text={m.content} /> : labels.sending) : m.content}
-              </p>
-            </li>
-          ))}
-        </ol>
-      )}
-
-      {error && <p className="font-text text-[15px] text-ink-soft mb-3">{labels.error}</p>}
-      {exhausted && <p className="font-text text-[15px] text-ink-soft mb-3">{labels.limit}</p>}
-      {!online && <p className="font-text text-[15px] text-ink-soft mb-3">{labels.offlineHint}</p>}
-
-      <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3">
-        <input
-          id="ask-me"
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          maxLength={MAX_CHARS}
-          placeholder={labels.placeholder}
-          disabled={disabled}
-          autoComplete="off"
-          className="flex-1 bg-paper border-2 border-ink px-3 py-2.5 font-text text-[16px] text-ink placeholder:text-ink-muted disabled:opacity-50"
-        />
-        <Button type="submit" variant="solid" disabled={disabled || !input.trim()} className="disabled:opacity-50">
-          {pending ? labels.sending : labels.send}
-        </Button>
-      </form>
-
-      {messages.length === 0 && (
-        <div className="flex flex-wrap gap-2 mt-3">
-          {labels.suggestions.map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => void ask(s)}
-              disabled={disabled}
-              className="font-mono text-[10px] tracking-[0.1em] uppercase border border-rule text-ink-muted px-2 py-1 press disabled:opacity-50"
-            >
-              {s}
-            </button>
-          ))}
+      <div ref={rootRef}>
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <label htmlFor="ask-me" className="font-mono text-[11px] font-bold tracking-[0.14em] uppercase text-ink">
+            {labels.label}
+          </label>
+          <Status online={online} labels={labels} />
         </div>
-      )}
+
+        {messages.length > 0 && (
+          <ol className="mb-4 space-y-3" aria-busy={pending}>
+            {messages.map((m, i) => (
+              <li key={i} className="rule-dash pt-3 first:border-t-0 first:pt-0">
+                <p className="font-mono text-[9.5px] tracking-[0.14em] uppercase text-ink-muted mb-1">
+                  {m.role === 'user' ? labels.you : labels.me}
+                </p>
+                <p className="font-text text-[16px] leading-[1.6] text-ink-soft whitespace-pre-line">
+                  {m.role === 'assistant' ? m.content ? <Answer text={m.content} /> : labels.sending : m.content}
+                </p>
+              </li>
+            ))}
+          </ol>
+        )}
+
+        <div className="sr-only" aria-live="polite">
+          {announcement}
+        </div>
+
+        {error && (
+          <p role="alert" className="font-text text-[15px] text-ink-soft mb-3">
+            {labels.error}
+          </p>
+        )}
+        {exhausted && (
+          <p role="status" className="font-text text-[15px] text-ink-soft mb-3">
+            <LimitMessage text={labels.limit} />
+          </p>
+        )}
+        {!online && (
+          <p role="status" className="font-text text-[15px] text-ink-soft mb-3">
+            {labels.offlineHint}
+          </p>
+        )}
+
+        <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3">
+          <input
+            id="ask-me"
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            maxLength={MAX_CHARS}
+            placeholder={labels.placeholder}
+            disabled={disabled}
+            autoComplete="off"
+            className="flex-1 bg-paper border-2 border-ink px-3 py-2.5 font-text text-[16px] text-ink placeholder:text-ink-muted disabled:opacity-50"
+          />
+          <Button
+            type="submit"
+            variant="solid"
+            disabled={disabled || !input.trim()}
+            className="disabled:opacity-50 disabled:pointer-events-none"
+          >
+            {pending ? labels.sending : labels.send}
+          </Button>
+        </form>
+
+        {messages.length === 0 && (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {labels.suggestions.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => void ask(s)}
+                disabled={disabled}
+                className="font-mono text-[10px] tracking-[0.1em] uppercase border border-rule text-ink-muted px-2 py-1 shadow-hard-sm press disabled:opacity-50 disabled:pointer-events-none"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       <Meta size="micro" items={[labels.disclaimer]} className="mt-4" />
     </Frame>

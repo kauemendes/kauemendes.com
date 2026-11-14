@@ -185,7 +185,7 @@ export default async function Home({ params }: PageProps) {
               height={640}
               sizes="(min-width: 768px) 300px, 100vw"
               className="w-full h-auto block"
-              alt="Kaue em um estúdio de podcast com luz neon"
+              alt={t('photoAlt')}
               priority
             />
           </div>

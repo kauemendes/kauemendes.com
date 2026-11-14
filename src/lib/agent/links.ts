@@ -10,6 +10,8 @@ export const ALLOWED_LINK_HOSTS: readonly string[] = [
   'marketplace.visualstudio.com',
 ]
 
+export const OWN_HOSTS: readonly string[] = ['kauecode.com', 'www.kauecode.com']
+
 const isAllowed = (href: string) => {
   try {
     return ALLOWED_LINK_HOSTS.includes(new URL(href).hostname)

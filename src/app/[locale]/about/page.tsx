@@ -84,7 +84,7 @@ export default async function AboutPage({ params }: PageProps) {
               width={1200}
               height={960}
               className="w-full h-auto block"
-              alt="Kaue em um estúdio de podcast com luz neon, caneca DevOps Café e notebook com adesivos de Kubernetes, AWS e Terraform"
+              alt={t('photoAlt')}
               priority
             />
           </div>
