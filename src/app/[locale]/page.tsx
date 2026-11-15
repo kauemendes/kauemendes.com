@@ -108,6 +108,7 @@ export default async function Home({ params }: PageProps) {
     offline: ta('offline'),
     offlineHint: ta('offlineHint'),
     disclaimer: ta('disclaimer'),
+    howItWorks: ta('howItWorks'),
     error: ta('error'),
     limit: ta('limit'),
     you: ta('you'),

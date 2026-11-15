@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { Frame, Button, Meta } from '@/components/ui'
 import { OWN_HOSTS, splitLinks } from '@/lib/agent/links'
 import { LINKEDIN_URL } from '@/lib/agent/prompt'
@@ -21,6 +22,7 @@ export interface AskMeLabels {
   offline: string
   offlineHint: string
   disclaimer: string
+  howItWorks: string
   error: string
   limit: string
   you: string
@@ -248,7 +250,16 @@ export function AskMe({ locale, online: initialOnline, labels }: AskMeProps) {
         )}
       </div>
 
-      <Meta size="micro" items={[labels.disclaimer]} className="mt-4" />
+      <Meta
+        size="micro"
+        items={[
+          labels.disclaimer,
+          <Link key="how" href={`/${locale}/how-it-works`} className="press text-ink underline underline-offset-2">
+            {labels.howItWorks}
+          </Link>,
+        ]}
+        className="mt-4"
+      />
     </Frame>
   )
 }
