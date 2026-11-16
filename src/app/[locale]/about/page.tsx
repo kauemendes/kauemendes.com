@@ -45,7 +45,7 @@ export default async function AboutPage({ params }: PageProps) {
   const t = await getTranslations({ locale, namespace: 'about' });
 
   const profiles = [
-    { slug: 'personal', label: t('personal'), image: '/images/avatar_vermelho.png' },
+    { slug: 'personal', label: t('personal'), image: '/images/avatars/avatar_vermelho.png' },
     { slug: 'professional', label: t('professional'), image: '/images/avatars/kaue-neon-square.webp' },
   ];
 

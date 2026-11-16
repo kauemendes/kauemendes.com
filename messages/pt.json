@@ -263,6 +263,7 @@
     "offline": "agente offline, volta logo",
     "offlineHint": "Este agente roda no meu gateway de IA em casa. Quando ele está desligado, o chat fica fora do ar.",
     "disclaimer": "Respostas geradas por IA a partir do conteúdo deste site.",
+    "howItWorks": "Como funciona",
     "error": "Não consegui responder agora. Tente de novo em instantes.",
     "limit": "Chegamos ao limite desta conversa. Para continuar, me chama no LinkedIn.",
     "you": "Você",
