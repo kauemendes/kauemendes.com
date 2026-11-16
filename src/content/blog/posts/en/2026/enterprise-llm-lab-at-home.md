@@ -2,6 +2,9 @@
 post: "enterprise-llm-lab-at-home"
 title: "12. An enterprise LLM lab in my living room"
 description: "A single gateway, a capped key per project, capability aliases, cross-provider fallback and a router that picks the model from the question. I built all of it on my home computer to fail cheaply before proposing it at work, and the agent on this site runs on top of it."
+image_banner: "/images/blog/enterprise-llm-lab.jpg"
+image_post: "/images/blog/enterprise-llm-lab@2x.jpg"
+image_og: "/images/blog/enterprise-llm-lab_og.jpg"
 date: "2026-11-15"
 ---
 
