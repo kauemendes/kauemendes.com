@@ -2,6 +2,9 @@
 post: "enterprise-llm-lab-at-home"
 title: "12. Um laboratório de LLM corporativo na sala de casa"
 description: "Gateway único, chave com teto por projeto, aliases por capacidade, fallback entre provedores e um roteador que escolhe o modelo pela pergunta. Montei tudo isso no meu computador de casa para errar barato antes de propor na empresa, e o agente deste site roda em cima."
+image_banner: "/images/blog/enterprise-llm-lab.jpg"
+image_post: "/images/blog/enterprise-llm-lab@2x.jpg"
+image_og: "/images/blog/enterprise-llm-lab_og.jpg"
 date: "2026-11-15"
 ---
 
